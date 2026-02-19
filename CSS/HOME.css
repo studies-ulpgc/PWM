@@ -1,0 +1,35 @@
+.carrusel {
+    margin: 100px auto;
+    width: 90%;
+    border: 5px solid red;
+    display: flex;
+    overflow-x: auto;
+}
+
+.carrusel::-webkit-scrollbar {
+    display: none;
+}
+
+.grupo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 5s infinite linear;
+}
+
+.articulo {
+    flex: 0 0 5em;
+    height: 5em;
+    padding: 1em;
+    background: blanchedalmond;
+    font-size: 3rem;
+    border-radius: .2em;
+    text-align: center;
+    align-content: center;
+}
+
+@keyframes spin {
+    from {translate: 0;}
+    to {translate: -100%;}
+}
