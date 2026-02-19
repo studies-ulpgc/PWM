@@ -1,11 +1,183 @@
-.header {
-
+.box {
+  width: 1480px;
+  height: 791px;
 }
 
-.grande {
-
+.box .HEADER {
+  display: flex;
+  flex-direction: column;
+  gap: 133px;
+  background-color: transparent;
+  border-radius: 5px;
+  border-top-style: none;
+  border-right-style: none;
 }
 
-.corto {
-    
+.box .default-CORTO {
+  height: 121px;
+  position: relative;
+  margin-top: 141px;
+  border-bottom-width: 2px;
+  margin-left: 20px;
+  width: 1440px;
+  background-color: #ffffff;
+  border-bottom-style: solid;
+  border-color: #000000;
+}
+
+.box .PRINCIPAL {
+  position: absolute;
+  top: 21px;
+  left: 59px;
+  width: 1303px;
+  height: 60px;
+  display: flex;
+}
+
+.box .EMPRESA {
+  margin-top: 9.0px;
+  width: 105px;
+  height: 40px;
+  margin-left: -1px;
+  -webkit-text-stroke: 1px #000000;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.box .NAVEGADOR {
+  width: 809px;
+  height: 56px;
+  position: relative;
+  margin-left: 120px;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.box .icono {
+  position: absolute;
+  width: 2.22%;
+  height: 32.14%;
+  top: 33.93%;
+  left: 2.60%;
+}
+
+.box .linea {
+  position: absolute;
+  top: 0;
+  left: 54px;
+  width: 1px;
+  height: 56px;
+  object-fit: cover;
+}
+
+.box .text-wrapper {
+  position: absolute;
+  top: 8px;
+  left: 80px;
+  width: 100px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 40px;
+}
+
+.box .SIMBOLOS {
+  margin-top: 6.0px;
+  width: 194px;
+  height: 48px;
+  position: relative;
+  margin-left: 76px;
+}
+
+.box .cuenta {
+  position: absolute;
+  width: 16.49%;
+  height: 75.00%;
+  top: 8.33%;
+  left: 3.09%;
+}
+
+.box .cesta {
+  position: absolute;
+  width: 22.68%;
+  height: 87.50%;
+  top: 0;
+  left: 37.63%;
+}
+
+.box .deseados {
+  position: absolute;
+  width: 21.55%;
+  height: 75.97%;
+  top: 8.33%;
+  left: 75.82%;
+}
+
+.box .CATEGORIAS_CORTO {
+  position: absolute;
+  top: 81px;
+  left: 59px;
+  width: 1303px;
+  height: 40px;
+  display: flex;
+  gap: 44.8px;
+}
+
+.box .CATEGORIAS-BOTON {
+  width: 41px;
+  height: 40px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.box .div {
+  width: 40px;
+  height: 40px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.box .default-GRANDE {
+  height: 218px;
+  display: flex;
+  flex-direction: column;
+  gap: 76px;
+  border-bottom-width: 2px;
+  margin-left: 20px;
+  width: 1440px;
+  background-color: #ffffff;
+  border-bottom-style: solid;
+  border-color: #000000;
+}
+
+.box .PRINCIPAL-2 {
+  margin-left: 59px;
+  margin-top: 42px;
+  width: 1303px;
+  height: 60px;
+  display: flex;
+}
+
+.box .CATEGORIAS_GRANDE {
+  margin-left: 59px;
+  width: 1303px;
+  display: flex;
+  gap: 44.8px;
 }
