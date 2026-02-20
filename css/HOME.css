@@ -2,6 +2,7 @@
   width: 1440px;
   height: auto;
   display: flex;
+  margin: auto;
   flex-direction: column;
   gap: 0px;
   background-color: #ffffff;
@@ -59,16 +60,8 @@
   flex-grow: 0; /* No crece */
 }
 
-.HOME .foto-2 {
-  width: 770px;
-  height: 386px;
-  background-color: #acacac;
-  flex-shrink: 0; /* No se encoge */
-  flex-grow: 0; /* No crece */
-}
-
 .HOME .flechas {
-  margin-left: 541.5px;
+  margin: auto;
   width: 116px;
   height: 47px;
   position: relative;
@@ -106,8 +99,8 @@
 
 .HOME .GALERA {
   margin-left: 31px;
-  width: 1435px;
-  height: 4234px;
+  width: 1135px;
+  height: 1234px;
   margin-top: 28px;
   display: flex;
   flex-direction: column;
@@ -117,6 +110,7 @@
 .HOME .GALERA-DE {
   width: 100%;
   display: flex;
+  justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
   overflow-y: auto;
@@ -127,14 +121,6 @@
 }
 
 .HOME .GALERA-DE::-webkit-scrollbar {
-  width: 10px;
-}
-
-.HOME .GALERA-DE::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.HOME .GALERA-DE::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+  width: 0;
+  display: none;
 }
