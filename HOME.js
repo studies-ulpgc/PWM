@@ -14,7 +14,6 @@ async function cargarHeader() {
   }
 }
 
-// ===== CARGAR PRODUCTOS =====
 async function cargarProductos() {
   try {
     // Cargar el template
@@ -32,5 +31,22 @@ async function cargarProductos() {
     console.error('Error cargando productos:', error);
   }
 }
+
+async function cargarFooter() {
+  try {
+    // Cargar el template
+    const response = await fetch('FOOTER.html');
+    const templateHTML = await response.text();
+    
+    // Contenedor donde irá el footer
+    const contenedor = document.getElementById('footer');
+    contenedor.innerHTML = templateHTML;
+
+  } catch (error) {
+    console.error('Error cargando footer:', error);
+  }
+}
+
 cargarHeader();
 cargarProductos();
+cargarFooter();
