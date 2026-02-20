@@ -18,14 +18,23 @@
   --body-base-letter-spacing: 0px;
   --body-base-line-height: 139.9999976158142%;
   --body-base-font-style: normal;
+  --body-small-font-family: "Inter", Helvetica;
+  --body-small-font-weight: 400;
+  --body-small-font-size: 14px;
+  --body-small-letter-spacing: 0px;
+  --body-small-line-height: 139.9999976158142%;
+  --body-small-font-style: normal;
   --ESTADO-REGISTRARSE: none;
   --ESTADO-showbutton: initial;
   --ESTADO-showtext: none;
   --COLORES-color: rgba(179, 179, 179, 1);
   --color-text-default-default: var(--color-primitives-gray-900);
   --color-background-disabled-default: var(--color-primitives-gray-300);
+  --color-background-brand-secondary: var(--color-primitives-brand-200);
   --color-background-default-default: var(--color-primitives-white-1000);
   --color-border-default-default: var(--color-primitives-gray-300);
+  --color-background-brand-default: var(--color-primitives-brand-800);
+  --color-background-default-secondary: var(--color-primitives-gray-100);
   --sizes-global-height: 24px;
   --sizes-popup-inset-left: 12px;
   --sizes-button-radius: var(--sizes-global-radius);
@@ -34,11 +43,21 @@
   --color-primitives-gray-300: rgba(217, 217, 217, 1);
   --color-primitives-white-1000: rgba(255, 255, 255, 1);
   --color-primitives-gray-700: rgba(56, 56, 56, 1);
+  --color-primitives-brand-200: rgba(230, 230, 230, 1);
+  --color-primitives-brand-600: rgba(68, 68, 68, 1);
   --color-primitives-gray-600: rgba(68, 68, 68, 1);
+  --color-primitives-brand-800: rgba(44, 44, 44, 1);
+  --color-primitives-brand-100: rgba(245, 245, 245, 1);
+  --color-primitives-gray-100: rgba(245, 245, 245, 1);
+  --color-primitives-gray-800: rgba(44, 44, 44, 1);
   --size-space-300: 12px;
   --size-space-200: 8px;
+  --size-radius-full: 9999px;
   --size-space-400: 16px;
   --size-radius-200: 8px;
+  --size-radius-100: 4px;
+  --size-space-100: 4px;
+  --size-space-600: 24px;
 }
 
 /*
@@ -64,15 +83,21 @@ You can apply the theme on any DOM node, not just the `body`
 [data-color-mode="SDS-light"] {
   --color-text-default-default: var(--color-primitives-gray-900);
   --color-background-disabled-default: var(--color-primitives-gray-300);
+  --color-background-brand-secondary: var(--color-primitives-brand-200);
   --color-background-default-default: var(--color-primitives-white-1000);
   --color-border-default-default: var(--color-primitives-gray-300);
+  --color-background-brand-default: var(--color-primitives-brand-800);
+  --color-background-default-secondary: var(--color-primitives-gray-100);
 }
 
 [data-color-mode="SDS-dark"] {
   --color-text-default-default: var(--color-primitives-white-1000);
   --color-background-disabled-default: var(--color-primitives-gray-700);
+  --color-background-brand-secondary: var(--color-primitives-brand-600);
   --color-background-default-default: var(--color-primitives-gray-900);
   --color-border-default-default: var(--color-primitives-gray-600);
+  --color-background-brand-default: var(--color-primitives-brand-100);
+  --color-background-default-secondary: var(--color-primitives-gray-800);
 }
 
 [data-sizes-mode="mini"] {
