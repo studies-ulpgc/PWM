@@ -1,0 +1,44 @@
+.DESPLEGABLE-HEADER {
+  background-color: #ffffff;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #000000;
+  width: 5%;
+  min-width: 161px;
+  min-height: 217px;
+  display: flex;
+}
+
+.DESPLEGABLE-HEADER .texto {
+  width: 115px;
+  height: 200px;
+  margin-left: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.DESPLEGABLE-HEADER .text-wrapper {
+  width: 105px;
+  height: 40px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 40px;
+}
+
+.DESPLEGABLE-HEADER .div {
+  width: 105px;
+  height: 40px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 40px;
+}
