@@ -353,6 +353,20 @@
   gap: 15.2px;
 }
 
+.ARTCULO-SELECCIONADO .GALERA-DE {
+  top: 784px;
+  left: 841px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  max-height: 1280px;
+  padding: 20px;
+  margin-top: 0px;
+  box-sizing: border-box;
+}
 .ARTCULO-SELECCIONADO .titulo-5 {
   height: 27.84px;
   font-family: "Roboto-Regular", Helvetica;

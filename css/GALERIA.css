@@ -13,9 +13,8 @@
   grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
   gap: 30px;
   overflow-y: auto;
-  max-height: 1280px;
+  max-height: 802px;
   padding: 20px;
-  margin-top: 20px;
   box-sizing: border-box;
   /* no establecer width:100% aquí para evitar overflow junto al filtro */
 }
@@ -31,7 +30,8 @@
   display: flex;
   flex-direction: column;
   gap: 32px; /* menos espacio entre secciones */
-  margin: 20px auto 0; /* separacion entre header y filtro y centrar */
+  margin: 0 auto 0; /* separacion entre header y filtro y centrar */
+  margin-top: 20px;
 }
 
 .GALERA .scroll-vertical .main {
@@ -61,6 +61,7 @@
   overflow: hidden;
   border: 1px solid;
   border-color: var(--color-border-default-default);
+  margin-top: 20px;
 }
 
 .GALERA .menu-filtro .etiquetas {
@@ -78,7 +79,7 @@
   width: 50px;
   height: 22px;
   font-family: var(--body-base-font-family);
-  font-weight: var(--body-base-font-weight);
+  font-weight: 600;
   color: var(--color-text-default-default);
   font-size: var(--body-base-font-size);
   letter-spacing: var(--body-base-letter-spacing);
@@ -228,14 +229,13 @@
 }
 
 .GALERA .menu-filtro .bloque {
-  width: 311px;
-  height: 8px;
-  display: flex;
-  gap: 279px;
-  background-color: var(--color-background-brand-secondary);
-  border-radius: var(--size-radius-full);
+    display: block;
+    width: 311px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: var(--size-radius-full);
+    background: none; /* quitar fondo si la imagen ya lo tiene */
 }
-
 .GALERA .menu-filtro .div-2 {
   margin-top: -4px;
   width: 16px;
