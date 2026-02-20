@@ -1,0 +1,859 @@
+.ARTCULO-SELECCIONADO {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  background-color: #ffffff;
+}
+
+.ARTCULO-SELECCIONADO .div {
+  width: 40px;
+  height: 40px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .VERTICAL-TOTAL {
+  width: 1463px;
+  height: 863px;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.ARTCULO-SELECCIONADO .VERTICAL-TOTAL::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.ARTCULO-SELECCIONADO .img {
+  width: 24px;
+  height: 24px;
+}
+
+.ARTCULO-SELECCIONADO .VALORACIONES-y {
+  position: absolute;
+  top: 784px;
+  left: 0;
+  width: 841px;
+  height: 66px;
+  display: flex;
+  flex-direction: column;
+  gap: 63px;
+}
+
+.ARTCULO-SELECCIONADO .VALORACIN {
+  margin-left: 122.5px;
+  width: 600px;
+  height: 192.84px;
+  position: relative;
+}
+
+.ARTCULO-SELECCIONADO .USUARIO-VALORAR {
+  position: absolute;
+  top: 117px;
+  left: 316px;
+  width: 280px;
+  height: 64px;
+  background-color: #d9d9d9;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.ARTCULO-SELECCIONADO .estrellas-vacias {
+  position: relative;
+  width: 72.15%;
+  height: 53.19%;
+  top: 25.59%;
+  left: 13.74%;
+}
+
+.ARTCULO-SELECCIONADO .icon-3 {
+  position: absolute;
+  width: 17.24%;
+  height: 100%;
+  top: 0;
+  left: 82.76%;
+}
+
+.ARTCULO-SELECCIONADO .icon-4 {
+  position: absolute;
+  width: 17.24%;
+  height: 100%;
+  top: 0;
+  left: 62.07%;
+}
+
+.ARTCULO-SELECCIONADO .icon-5 {
+  position: absolute;
+  width: 17.24%;
+  height: 100%;
+  top: 0;
+  left: 41.38%;
+}
+
+.ARTCULO-SELECCIONADO .icon-6 {
+  position: absolute;
+  width: 17.24%;
+  height: 100%;
+  top: 0;
+  left: 20.56%;
+}
+
+.ARTCULO-SELECCIONADO .icon-7 {
+  position: absolute;
+  width: 17.24%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.ARTCULO-SELECCIONADO .usuario-valora {
+  position: absolute;
+  top: 84px;
+  left: 385px;
+  width: 141px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 33.6px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .valoracion-total {
+  width: 27.67%;
+  height: 17.63%;
+  top: 16.59%;
+  position: absolute;
+  left: 0;
+}
+
+.ARTCULO-SELECCIONADO .star {
+  left: 80.00%;
+  position: absolute;
+  width: 20.00%;
+  height: 100%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .icon-8 {
+  position: absolute;
+  width: 83.33%;
+  height: 79.17%;
+  top: 12.50%;
+  left: 8.33%;
+}
+
+.ARTCULO-SELECCIONADO .star-filled {
+  position: absolute;
+  width: 20.00%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.ARTCULO-SELECCIONADO .icon-wrapper {
+  left: 60.00%;
+  position: absolute;
+  width: 20.00%;
+  height: 100%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .img-wrapper {
+  position: absolute;
+  width: 20.00%;
+  height: 100%;
+  top: 0;
+  left: 20.00%;
+}
+
+.ARTCULO-SELECCIONADO .star-2 {
+  left: 40.00%;
+  position: absolute;
+  width: 20.00%;
+  height: 100%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .graficos {
+  position: absolute;
+  width: 246px;
+  height: 123px;
+  top: 70px;
+  left: 0;
+}
+
+.ARTCULO-SELECCIONADO .group {
+  left: 0;
+  position: absolute;
+  width: 17.07%;
+  height: 99.68%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .icon-9 {
+  position: absolute;
+  width: 45.24%;
+  height: 14.65%;
+  top: 81.72%;
+  left: 33.33%;
+}
+
+.ARTCULO-SELECCIONADO .rectangle {
+  position: absolute;
+  top: 28px;
+  left: 2px;
+  width: 36px;
+  height: 61px;
+  background-color: #eaeaea;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-2 {
+  position: absolute;
+  top: 28px;
+  left: 2px;
+  width: 36px;
+  height: 61px;
+  background-color: #eaeaea;
+  border: 1px solid;
+  border-color: #000000;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-3 {
+  position: absolute;
+  top: 59px;
+  left: 2px;
+  width: 36px;
+  height: 29px;
+  background-color: #1e1e1e;
+}
+
+.ARTCULO-SELECCIONADO .porcentaje {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 32px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 33.6px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .text-wrapper-3 {
+  position: absolute;
+  top: 95px;
+  left: 0;
+  width: 14px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 33.6px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .group-2 {
+  left: 21.14%;
+  position: absolute;
+  width: 17.07%;
+  height: 99.68%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .group-3 {
+  left: 42.28%;
+  position: absolute;
+  width: 17.07%;
+  height: 99.68%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .group-4 {
+  left: 63.41%;
+  position: absolute;
+  width: 17.07%;
+  height: 99.68%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .group-5 {
+  left: 84.55%;
+  position: absolute;
+  width: 17.07%;
+  height: 99.68%;
+  top: 0;
+}
+
+.ARTCULO-SELECCIONADO .titulo-valoracion {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 190px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 33.6px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS {
+  display: inline-flex;
+  margin-left: 70px;
+  width: 701px;
+  height: 642px;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.ARTCULO-SELECCIONADO .p {
+  position: absolute;
+  width: 95.10%;
+  height: 52.55%;
+  top: 29.20%;
+  left: 3.68%;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22.4px;
+}
+
+.ARTCULO-SELECCIONADO .GALERA-DE {
+  position: absolute;
+  top: 784px;
+  left: 841px;
+  width: 599px;
+  height: 829px;
+  display: flex;
+  flex-direction: column;
+  gap: 15.2px;
+}
+
+.ARTCULO-SELECCIONADO .titulo-5 {
+  height: 27.84px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 33.6px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .SCROLL-GALERA {
+  height: 786px;
+  display: flex;
+  gap: 9px;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.ARTCULO-SELECCIONADO .SCROLL-GALERA::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.ARTCULO-SELECCIONADO .GALERA-DE-2 {
+  width: 599px;
+  display: flex;
+  gap: 30px;
+}
+
+.ARTCULO-SELECCIONADO .FOTO {
+  width: 261px;
+  height: 384px;
+  position: relative;
+}
+
+.ARTCULO-SELECCIONADO .informacion-producto {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-400);
+  background-color: var(--color-background-default-default);
+  border-radius: var(--size-radius-200);
+  border: 1px solid;
+  border-color: var(--color-border-default-default);
+}
+
+.ARTCULO-SELECCIONADO .image {
+  margin-left: 16px;
+  width: 229px;
+  height: 247px;
+  margin-top: 16px;
+  background-color: var(--color-background-disabled-default);
+}
+
+.ARTCULO-SELECCIONADO .body {
+  margin-left: 16px;
+  width: 208px;
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-200);
+}
+
+.ARTCULO-SELECCIONADO .descripcion {
+  height: 22px;
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: var(--color-text-default-default);
+  font-size: var(--body-base-font-size);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  font-style: var(--body-base-font-style);
+}
+
+.ARTCULO-SELECCIONADO .precio {
+  width: 48px;
+  height: 28px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: var(--color-text-default-default);
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28.0px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .span {
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28.0px;
+}
+
+.ARTCULO-SELECCIONADO .text-wrapper-5 {
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+.ARTCULO-SELECCIONADO .text-wrapper-6 {
+  font-size: 14px;
+  line-height: 19.6px;
+}
+
+.ARTCULO-SELECCIONADO .simbolos {
+  position: absolute;
+  width: 223px;
+  height: 36px;
+  top: 335px;
+  left: 18px;
+}
+
+.ARTCULO-SELECCIONADO .aadir {
+  position: absolute;
+  width: 29.36%;
+  height: 34.94%;
+  top: 0;
+  left: 70.64%;
+}
+
+.ARTCULO-SELECCIONADO .aadir-a-la-cesta {
+  position: absolute;
+  width: 19.80%;
+  height: 98.00%;
+  top: 0;
+  left: 57.72%;
+}
+
+.ARTCULO-SELECCIONADO .aadir-2 {
+  position: absolute;
+  width: 33.21%;
+  height: 42.05%;
+  top: 0;
+  left: 66.79%;
+}
+
+.ARTCULO-SELECCIONADO .compra {
+  position: absolute;
+  width: 69.59%;
+  height: 84.10%;
+  top: 15.90%;
+  left: 0;
+}
+
+.ARTCULO-SELECCIONADO .valoracion-2 {
+  width: 116px;
+  height: 19px;
+  top: 15px;
+  position: absolute;
+  left: 0;
+}
+
+.ARTCULO-SELECCIONADO .INFO-2 {
+  position: absolute;
+  top: 0;
+  left: 733px;
+  width: 630px;
+  height: 712px;
+}
+
+.ARTCULO-SELECCIONADO .DESCRIPCI-n {
+  position: absolute;
+  top: 492px;
+  left: 0;
+  width: 617px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22.4px;
+}
+
+.ARTCULO-SELECCIONADO .section {
+  position: absolute;
+  top: 301px;
+  left: 0;
+  width: 516px;
+  height: 59px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-300);
+}
+
+.ARTCULO-SELECCIONADO .titulo-6 {
+  width: 117px;
+  height: 28px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28.0px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .checkbox-group {
+  width: 516px;
+  display: flex;
+  gap: 12px;
+}
+
+.ARTCULO-SELECCIONADO .checkbox-field {
+  display: inline-flex;
+  width: 120px;
+  height: 22px;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ARTCULO-SELECCIONADO .checkbox-and-label {
+  position: relative;
+  width: 120px;
+  height: 22px;
+  gap: var(--size-space-300);
+}
+
+.ARTCULO-SELECCIONADO .checkbox {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.ARTCULO-SELECCIONADO .label {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  width: 92px;
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: var(--color-text-default-default);
+  font-size: var(--body-base-font-size);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  font-style: var(--body-base-font-style);
+}
+
+.ARTCULO-SELECCIONADO .checkbox-and-label-2 {
+  display: inline-flex;
+  min-width: 120px;
+  align-items: center;
+  gap: var(--size-space-300);
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.ARTCULO-SELECCIONADO .check-wrapper {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  background-color: var(--color-background-brand-default);
+  border-radius: var(--size-radius-100);
+  overflow: hidden;
+}
+
+.ARTCULO-SELECCIONADO .check {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.ARTCULO-SELECCIONADO .label-2 {
+  position: relative;
+  flex: 1;
+  margin-top: -1.00px;
+  font-family: var(--body-base-font-family);
+  font-weight: var(--body-base-font-weight);
+  color: var(--color-text-default-default);
+  font-size: var(--body-base-font-size);
+  letter-spacing: var(--body-base-letter-spacing);
+  line-height: var(--body-base-line-height);
+  font-style: var(--body-base-font-style);
+}
+
+.ARTCULO-SELECCIONADO .RATING {
+  position: absolute;
+  top: 86px;
+  left: 425px;
+  width: 195px;
+  height: 40px;
+  display: flex;
+}
+
+.ARTCULO-SELECCIONADO .star-filled-2 {
+  width: 39px;
+  height: 40px;
+  position: relative;
+}
+
+.ARTCULO-SELECCIONADO .icon-wrapper-2 {
+  margin-top: 0;
+  width: 39px;
+  height: 40px;
+  position: relative;
+}
+
+.ARTCULO-SELECCIONADO .AADIR {
+  position: absolute;
+  top: 387px;
+  left: 0;
+  width: 622px;
+  height: 84px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-negro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 516px;
+  height: 84px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-blanco {
+  position: absolute;
+  top: 0;
+  left: 516px;
+  width: 104px;
+  height: 84px;
+}
+
+.ARTCULO-SELECCIONADO .text-wrapper-7 {
+  position: absolute;
+  top: 28px;
+  left: 213px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28.0px;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .deseados {
+  position: absolute;
+  width: 7.14%;
+  height: 51.55%;
+  top: 33.48%;
+  left: 86.06%;
+}
+
+.ARTCULO-SELECCIONADO .sumar {
+  position: absolute;
+  width: 2.91%;
+  height: 23.61%;
+  top: 16.77%;
+  left: 93.00%;
+}
+
+.ARTCULO-SELECCIONADO .PRECIO {
+  position: absolute;
+  top: 86px;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.ARTCULO-SELECCIONADO .text-wrapper-8 {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  letter-spacing: 0;
+}
+
+.ARTCULO-SELECCIONADO .text-wrapper-9 {
+  font-size: 20px;
+}
+
+.ARTCULO-SELECCIONADO .SUBTITULO {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .TITULO {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-4 {
+  position: absolute;
+  top: 168px;
+  left: 0;
+  width: 76px;
+  height: 106px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-5 {
+  position: absolute;
+  top: 168px;
+  left: 114px;
+  width: 76px;
+  height: 106px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-6 {
+  position: absolute;
+  top: 168px;
+  left: 228px;
+  width: 76px;
+  height: 106px;
+}
+
+.ARTCULO-SELECCIONADO .LOREM-2 {
+  position: absolute;
+  top: 125px;
+  left: 0;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 20px;
+  line-height: 28.0px;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.ARTCULO-SELECCIONADO .IMGENES {
+  position: absolute;
+  top: 0;
+  left: 41px;
+  width: 651px;
+  height: 720px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-7 {
+  position: absolute;
+  top: 0;
+  left: 114px;
+  width: 537px;
+  height: 720px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 76px;
+  height: 106px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-9 {
+  position: absolute;
+  top: 127px;
+  left: 0;
+  width: 76px;
+  height: 106px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-10 {
+  position: absolute;
+  top: 254px;
+  left: 0;
+  width: 76px;
+  height: 106px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-11 {
+  position: absolute;
+  top: 381px;
+  left: 0;
+  width: 76px;
+  height: 106px;
+}
+
+.ARTCULO-SELECCIONADO .rectangle-12 {
+  position: absolute;
+  top: 508px;
+  left: 0;
+  width: 76px;
+  height: 106px;
+}
