@@ -1,25 +1,140 @@
-/* Estilos específicos del HOME */
-.home-main {
-    padding: 20px;
+.HOME {
+  width: 1440px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  background-color: #ffffff;
 }
 
-.productos-scroll {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
+.HOME .div {
+  width: 40px;
+  height: 40px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .productos-scroll {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 15px;
-    }
+.HOME .SCROLL-VERTICAL {
+  margin-left: 0px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
 }
 
-@media (max-width: 480px) {
-    .productos-scroll {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.HOME .SCROLL-VERTICAL::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.HOME .CARRUCEL {
+  width: 100%;
+  display: flex;
+  gap: 58px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+  cursor: grab;
+  user-select: none;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.HOME .CARRUCEL::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.HOME .foto {
+  width: 770px;
+  height: 386px;
+  background-color: #acacac;
+  flex-shrink: 0; /* No se encoge */
+  flex-grow: 0; /* No crece */
+}
+
+.HOME .foto-2 {
+  width: 770px;
+  height: 386px;
+  background-color: #acacac;
+  flex-shrink: 0; /* No se encoge */
+  flex-grow: 0; /* No crece */
+}
+
+.HOME .flechas {
+  margin-left: 541.5px;
+  width: 116px;
+  height: 47px;
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.HOME .icon {
+  position: absolute;
+  width: 10.42%;
+  height: 41.67%;
+  top: 29.17%;
+  left: 18.75%;
+  cursor: pointer; /* Indica que es clickeable */
+  transition: opacity 0.3s;
+}
+
+.HOME .icon:hover {
+  opacity: 0.7;
+}
+
+.HOME .img {
+  position: absolute;
+  width: 10.42%;
+  height: 41.67%;
+  top: 29.17%;
+  left: 70.83%;
+  cursor: pointer; /* Indica que es clickeable */
+  transition: opacity 0.3s;
+}
+
+.HOME .img:hover {
+  opacity: 0.7;
+}
+
+.HOME .GALERA {
+  margin-left: 31px;
+  width: 1435px;
+  height: 4234px;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 41px;
+}
+
+.HOME .GALERA-DE {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  max-height: 1280px;
+  padding: 20px;
+  margin-top: 0px;
+  box-sizing: border-box;
+}
+
+.HOME .GALERA-DE::-webkit-scrollbar {
+  width: 10px;
+}
+
+.HOME .GALERA-DE::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.HOME .GALERA-DE::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
 }

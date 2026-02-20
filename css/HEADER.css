@@ -1,12 +1,12 @@
 .box {
   width: 1480px;
-  height: 791px;
+  height: auto;
 }
 
 .box .HEADER {
   display: flex;
   flex-direction: column;
-  gap: 133px;
+  gap: 0px;
   background-color: transparent;
   border-radius: 5px;
   border-top-style: none;

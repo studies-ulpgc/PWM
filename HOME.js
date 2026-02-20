@@ -1,23 +1,36 @@
-function initHome() {
-    // Aquí cargamos los productos
-    const productoTemplate = document.querySelector('#producto-template');
-    const container = document.getElementById('productos-container');
+async function cargarHeader() {
+  try {
+    const response = await fetch('HEADER.html');
+    const templateHTML = await response.text();
     
-    // Datos simulados (o vendrían de una API)
-    const productos = [
-        { id: 1, imagen: 'img/producto1.jpg', titulo: 'Producto 1', precio: '10€' },
-        { id: 2, imagen: 'img/producto2.jpg', titulo: 'Producto 2', precio: '20€' }
-        // más productos...
-    ];
-    
-    productos.forEach(producto => {
-        const clone = productoTemplate.content.cloneNode(true);
-        clone.querySelector('.producto-imagen').src = producto.imagen;
-        clone.querySelector('.producto-titulo').textContent = producto.titulo;
-        clone.querySelector('.producto-precio').textContent = producto.precio;
-        container.appendChild(clone);
-    });
+    const contenedor = document.getElementById('header');
+    contenedor.innerHTML = templateHTML;
+
+    const corto = contenedor.querySelector('.default-CORTO');
+    if (corto) corto.remove();
+
+  } catch (error) {
+    console.error('Error cargando header:', error);
+  }
 }
 
-// Ejecutar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initHome);
+// ===== CARGAR PRODUCTOS =====
+async function cargarProductos() {
+  try {
+    // Cargar el template
+    const response = await fetch('PRODUCTO.html');
+    const templateHTML = await response.text();
+    
+    // Contenedor donde irán los productos
+    const contenedor = document.getElementById('productos-contenedor');
+    
+    // Repetir el template 12 veces (3 filas x 4 productos)
+    for (let i = 0; i < 12; i++) {
+      contenedor.innerHTML += templateHTML;
+    }
+  } catch (error) {
+    console.error('Error cargando productos:', error);
+  }
+}
+cargarHeader();
+cargarProductos();
