@@ -1,0 +1,104 @@
+.COMENTARIO {
+  position: relative;
+  width: 701px;
+  height: 321px;
+}
+
+.COMENTARIO .comentario {
+  position: absolute;
+  width: 93.72%;
+  height: 85.36%;
+  top: 6.85%;
+  left: 3.71%;
+}
+
+.COMENTARIO .valoracion {
+  position: absolute;
+  width: 119px;
+  height: 21px;
+  top: 40px;
+  left: 2px;
+}
+
+.COMENTARIO .titulo {
+  position: absolute;
+  width: 18.73%;
+  height: 10.22%;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 28.0px;
+}
+
+.COMENTARIO .fecha {
+  position: absolute;
+  width: 25.78%;
+  height: 8.03%;
+  top: 14.96%;
+  left: 21.13%;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #767676;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22.4px;
+}
+
+.COMENTARIO .texto {
+  position: absolute;
+  width: 95.10%;
+  height: 52.55%;
+  top: 29.20%;
+  left: 3.68%;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22.4px;
+}
+
+.COMENTARIO .pulgar-abajo {
+  top: 85.83%;
+  left: 83.87%;
+  position: absolute;
+  width: 4.46%;
+  height: 9.73%;
+}
+
+.COMENTARIO .pulgar-arriba {
+  top: 85.46%;
+  left: 77.39%;
+  position: absolute;
+  width: 4.46%;
+  height: 9.73%;
+}
+
+.COMENTARIO .text-wrapper {
+  position: absolute;
+  width: 4.80%;
+  height: 18.25%;
+  top: 81.75%;
+  left: 91.74%;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: 50.4px;
+}
+
+.COMENTARIO .recuadro {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #000000;
+}

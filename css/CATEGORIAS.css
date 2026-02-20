@@ -1,0 +1,31 @@
+.CATEGORIAS {
+  width: 144px;
+  height: 966px;
+  display: flex;
+  background-color: #ffffff;
+  overflow: hidden;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-color: #000000;
+}
+
+.CATEGORIAS .texto {
+  margin-top: 33px;
+  width: 108px;
+  height: 1227px;
+  margin-left: 33px;
+  display: flex;
+  flex-direction: column;
+  gap: 44.8px;
+}
+
+.CATEGORIAS .text-wrapper {
+  width: 78px;
+  height: 40px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+}
