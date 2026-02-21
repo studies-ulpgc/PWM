@@ -1,319 +1,155 @@
 .GALERA {
-  width: 1440px;
-  height: auto;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #fff;
   display: flex;
   flex-direction: column;
   gap: 29px;
-  background-color: #ffffff;
-  margin: 0 auto; /* centrar la página */
 }
 
-.GALERA .GALERA-DE {
-  display: grid; /* grid para controlar columnas */
-  grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
+.scroll-vertical {
+  max-width: 1265px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.main {
+  display: flex;
+  gap: 40px;
+}
+
+.GALERA-DE {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  overflow-y: auto;
   max-height: 802px;
+  overflow-y: auto;
   padding: 20px;
-  box-sizing: border-box;
-  /* no establecer width:100% aquí para evitar overflow junto al filtro */
 }
 
-.GALERA .GALERA-DE::-webkit-scrollbar {
-  width: 0;
+.GALERA-DE::-webkit-scrollbar {
   display: none;
 }
 
-.GALERA .scroll-vertical {
-  width: 1265px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 32px; /* menos espacio entre secciones */
-  margin: 0 auto 0; /* separacion entre header y filtro y centrar */
+.menu-filtro {
+  width: 355px;
+  height: 600px;
+  border-radius: var(--size-radius-200);
+  border: 1px solid var(--color-border-default-default);
+  background: var(--color-background-default-default);
   margin-top: 20px;
 }
 
-.GALERA .scroll-vertical .main {
-  width: 100%;
-  max-width: 1265px;
-  height: auto;
-  display: flex;
-  gap: 40px;
-  margin: 0 auto; /* centrar contenido dentro del contenedor */
-}
-
-/* Hacer que el contenedor de productos ocupe el espacio restante dentro de .main
-   y pueda encogerse correctamente para no solaparse con el menú de filtro */
-.GALERA .scroll-vertical .main > .GALERA-DE {
-  flex: 1 1 auto;
-  min-width: 0; /* permite que el grid se encoga dentro del flex container */
-}
-
-.GALERA .menu-filtro {
-  width: 355px;
-  height: 749px;
+.menu-contenido {
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: var(--size-space-600);
-  background-color: var(--color-background-default-default);
-  border-radius: var(--size-radius-200);
-  overflow: hidden;
-  border: 1px solid;
-  border-color: var(--color-border-default-default);
-  margin-top: 20px;
 }
 
-.GALERA .menu-filtro .etiquetas {
-  margin-left: 16px;
-  width: 311px;
-  height: 66px;
-  margin-top: 16px;
+.filtro-bloque {
   display: flex;
   flex-direction: column;
   gap: var(--size-space-300);
 }
 
-.GALERA .menu-filtro .titulo {
-  margin-left: 1px;
-  width: 50px;
-  height: 22px;
+.titulo {
   font-family: var(--body-base-font-family);
   font-weight: 600;
-  color: var(--color-text-default-default);
   font-size: var(--body-base-font-size);
-  letter-spacing: var(--body-base-letter-spacing);
-  line-height: var(--body-base-line-height);
-  white-space: nowrap;
-  font-style: var(--body-base-font-style);
+  color: var(--color-text-default-default);
 }
 
-.GALERA .menu-filtro .lista {
-  width: 311px;
+.tag-lista {
   display: flex;
   gap: var(--size-space-100);
-  border-radius: var(--size-radius-100);
+  flex-wrap: wrap;
 }
 
-.GALERA .menu-filtro .tag {
+.tag {
   display: inline-flex;
-  width: 88px;
-  height: 32px;
-  position: relative;
   align-items: center;
-  justify-content: center;
-  gap: var(--size-space-200);
-  padding: var(--size-space-200);
-  background-color: var(--color-background-default-secondary);
+  gap: 6px;
+  padding: 6px 10px;
+  background: var(--color-background-default-secondary);
   border-radius: var(--size-radius-200);
 }
 
-.GALERA .menu-filtro .text-wrapper {
-  position: relative;
-  width: fit-content;
-  margin-top: -1.00px;
-  font-family: var(--single-line-body-base-font-family);
-  font-weight: var(--single-line-body-base-font-weight);
-  color: var(--color-text-default-default);
-  font-size: var(--single-line-body-base-font-size);
-  letter-spacing: var(--single-line-body-base-letter-spacing);
-  line-height: var(--single-line-body-base-line-height);
-  white-space: nowrap;
-  font-style: var(--single-line-body-base-font-style);
-}
-
-.GALERA .menu-filtro .img {
-  position: relative;
+.tag img {
   width: 16px;
   height: 16px;
 }
 
-.GALERA .menu-filtro .casillas {
-  margin-left: 16px;
-  width: 311px;
+.checkbox-group {
   display: flex;
-  gap: var(--size-space-400);
-}
-
-.GALERA .menu-filtro .checkbox-group {
-  display: flex;
-  width: 311px;
-  height: 90px;
+  flex-direction: column;
   gap: var(--size-space-300);
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
-.GALERA .menu-filtro .checkbox-field {
-  display: inline-flex;
-  flex: 0 0 auto;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--size-space-300);
 }
 
-.GALERA .menu-filtro .checkbox-and-label {
+.checkbox-field {
   display: inline-flex;
-  min-width: 120px;
   align-items: center;
-  gap: var(--size-space-300);
-  position: relative;
-  flex: 0 0 auto;
+  gap: 8px;
+  cursor: pointer;
 }
 
-.GALERA .menu-filtro .checkbox {
-  display: flex;
+.checkbox-input {
+  appearance: none;
   width: 16px;
   height: 16px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  border-radius: 4px;
+  border: 1px solid #999;
+  cursor: pointer;
   position: relative;
-  background-color: var(--color-background-brand-default);
-  border-radius: var(--size-radius-100);
-  overflow: hidden;
 }
 
-.GALERA .menu-filtro .div {
-  position: relative;
-  flex: 1;
-  margin-top: -1.00px;
-  font-family: var(--body-base-font-family);
-  font-weight: var(--body-base-font-weight);
-  color: var(--color-text-default-default);
-  font-size: var(--body-base-font-size);
-  letter-spacing: var(--body-base-letter-spacing);
-  line-height: var(--body-base-line-height);
-  font-style: var(--body-base-font-style);
+.checkbox-input:checked {
+  background: black;
 }
 
-.GALERA .menu-filtro .slider-conjunto {
-  margin-left: 16px;
-  width: 311px;
-  height: 42px;
+.checkbox-input:checked::after {
+  content: "✓";
+  position: absolute;
+  font-size: 12px;
+  color: white;
+  top: -2px;
+  left: 3px;
+}
+
+.slider-header {
   display: flex;
-  flex-direction: column;
-  gap: var(--size-space-300);
-}
-
-.GALERA .menu-filtro .label {
-  display: flex;
-  width: 311px;
-  height: 22px;
-  position: relative;
-  align-items: flex-start;
   justify-content: space-between;
-}
-
-.GALERA .menu-filtro .slider-output {
-  display: inline-flex;
   align-items: center;
-  position: relative;
-  flex: 0 0 auto;
 }
 
-.GALERA .menu-filtro .text-wrapper-2 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1.00px;
+.slider-output {
+  display: flex;
+  gap: 4px;
   font-family: var(--body-small-font-family);
-  font-weight: var(--body-small-font-weight);
-  color: var(--color-text-default-default);
   font-size: var(--body-small-font-size);
-  text-align: right;
-  letter-spacing: var(--body-small-letter-spacing);
-  line-height: var(--body-small-line-height);
-  white-space: nowrap;
-  font-style: var(--body-small-font-style);
 }
 
-.GALERA .menu-filtro .bloque {
-    display: block;
-    width: 311px;
-    height: 16px;
-    object-fit: cover;
-    border-radius: var(--size-radius-full);
-    background: none; /* quitar fondo si la imagen ya lo tiene */
-}
-.GALERA .menu-filtro .div-2 {
-  margin-top: -4px;
-  width: 16px;
+.slider-barra {
+  width: 100%;
   height: 16px;
-  background-color: var(--color-background-brand-default);
   border-radius: var(--size-radius-full);
 }
 
-.GALERA .menu-filtro .casillas-2 {
-  height: 124px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-space-300);
-  margin-left: 16px;
-  width: 311px;
-}
-
-.GALERA .menu-filtro .titulo-2 {
-  width: 48px;
-  height: 22px;
+.GALERA span {
   font-family: var(--body-base-font-family);
   font-weight: var(--body-base-font-weight);
-  color: var(--color-text-default-default);
   font-size: var(--body-base-font-size);
   letter-spacing: var(--body-base-letter-spacing);
   line-height: var(--body-base-line-height);
-  white-space: nowrap;
   font-style: var(--body-base-font-style);
-}
-
-.GALERA .menu-filtro .casillas-3 {
-  height: 137px;
-  position: relative;
-  margin-left: 16px;
-  width: 311px;
-  gap: var(--size-space-300);
-}
-
-.GALERA .menu-filtro .checkbox-group-2 {
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  width: 120px;
-  align-items: flex-start;
-  gap: var(--size-space-300);
-  position: absolute;
-  top: 34px;
-}
-
-.GALERA .menu-filtro .checkbox-group-3 {
-  left: 150px;
-  display: flex;
-  flex-direction: column;
-  width: 120px;
-  align-items: flex-start;
-  gap: var(--size-space-300);
-  position: absolute;
-  top: 34px;
-}
-
-.GALERA .menu-filtro .text-wrapper-3 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-family: var(--body-base-font-family);
-  font-weight: var(--body-base-font-weight);
   color: var(--color-text-default-default);
-  font-size: var(--body-base-font-size);
-  letter-spacing: var(--body-base-letter-spacing);
-  line-height: var(--body-base-line-height);
-  white-space: nowrap;
-  font-style: var(--body-base-font-style);
-}
-
-.GALERA .menu-filtro .casillas-4 {
-  height: 158px;
-  position: relative;
-  margin-left: 16px;
-  width: 311px;
-  gap: var(--size-space-300);
 }

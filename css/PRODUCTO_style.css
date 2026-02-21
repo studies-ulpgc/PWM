@@ -59,7 +59,7 @@
   white-space: nowrap;
 }
 
-.FOTO .text-wrapper {
+.FOTO .texto {
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   color: #1e1e1e;
@@ -73,7 +73,7 @@
   line-height: 22.4px;
 }
 
-.FOTO .text-wrapper-2 {
+.FOTO .texto-2 {
   font-size: 14px;
   line-height: 19.6px;
 }
