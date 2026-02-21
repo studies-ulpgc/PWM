@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="css/VER_CESTA.css" />
+    <title>Ver cesta</title>
+  </head>
+
+  <body>
+    <header id="header"></header>
+
+    <main class="ver-cesta">
+      <!-- CESTA + PRECIO -->
+      <section class="cesta-layout">
+        <!-- IZQUIERDA: CESTA -->
+        <section class="cesta-col cesta-col--items">
+          <div class="carousel-vertical">
+            <button class="c-btn c-btn--up" type="button" aria-label="Producto anterior">▲</button>
+
+            <div id="cesta-track" class="v-track" tabindex="0" aria-label="Productos en la cesta"></div>
+
+            <button class="c-btn c-btn--down" type="button" aria-label="Producto siguiente">▼</button>
+          </div>
+        </section>
+
+        <!-- DERECHA: RESUMEN -->
+        <aside class="cesta-col cesta-col--resumen">
+          <div class="resumen">
+            <h1 class="resumen-titulo">Precio total</h1>
+
+            <div class="resumen-precio">
+              <span id="total-amount" class="precio-valor">50</span>
+              <span class="precio-periodo">/ €</span>
+            </div>
+
+            <button class="btn-comprar" type="button">Comprar</button>
+
+            <hr class="resumen-sep" />
+
+            <div class="pagos">
+              <p class="pagos-titulo">Pagos aceptados:</p>
+              <div class="pagos-icons" aria-label="Métodos de pago">
+                <span class="pago-box"></span>
+                <span class="pago-box"></span>
+                <span class="pago-box"></span>
+                <span class="pago-box"></span>
+                <span class="pago-box"></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <footer id="footer"></footer>
+    </main>
+
+    <script src="VER_CESTA.js"></script>
+  </body>
+</html>
