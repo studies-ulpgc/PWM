@@ -1,3 +1,92 @@
+.pagina-split {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100vh;
+    max-width: 1440px;
+    width: 100%;
+    margin: 30px auto 0 auto;
+    overflow: hidden;
+}
+
+.contenedor-foto, .foto-fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seccion-formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.contacto-principal {
+    width: 100%;
+    max-width: 500px;
+}
+
+.formulario-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.etiqueta-formulario {
+    font-size: 14px !important;
+    font-weight: bold !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    color: #000000;
+}
+
+.entrada-texto {
+    padding: 12px 16px; 
+    font-size: 16px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.fila-doble {
+    display: flex;
+    gap: 20px;
+}
+
+.fila-doble .campo-grupo {
+    flex: 1;
+}
+
+.header-auth {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.auth-tab {
+    text-decoration: none;
+    color: #888;
+    font-size: 18px;
+    padding-bottom: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.auth-tab.activa {
+    color: #000 !important;
+    font-weight: bold !important;
+    border-bottom: 2px solid #000 !important;
+}
+
 .boton-negro {
     width: 100%;
     background-color: #000;
@@ -15,4 +104,3 @@
 .boton-negro:hover {
     background-color: #333;
 }
-
