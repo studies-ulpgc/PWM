@@ -16,14 +16,11 @@ async function cargarHeader() {
 
 async function cargarProductos() {
   try {
-    // Cargar el template
     const response = await fetch('PRODUCTO.html');
     const templateHTML = await response.text();
     
-    // Contenedor donde irán los productos
     const contenedor = document.getElementById('productos-contenedor');
     
-    // Repetir el template 12 veces (3 filas x 4 productos)
     for (let i = 0; i < 12; i++) {
       contenedor.innerHTML += templateHTML;
     }
@@ -34,11 +31,9 @@ async function cargarProductos() {
 
 async function cargarFooter() {
   try {
-    // Cargar el template
     const response = await fetch('FOOTER.html');
     const templateHTML = await response.text();
     
-    // Contenedor donde irá el footer
     const contenedor = document.getElementById('footer');
     contenedor.innerHTML = templateHTML;
 

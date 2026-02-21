@@ -1,31 +1,38 @@
 .CATEGORIAS {
   width: 144px;
-  height: 966px;
+  height: 966px; 
   display: flex;
   background-color: #ffffff;
   overflow: hidden;
-  border-right-width: 2px;
-  border-right-style: solid;
-  border-color: #000000;
+  overflow-y: auto; 
+  border-right: 2px solid #000000;
+}
+
+.CATEGORIAS::-webkit-scrollbar {
+  width: 0;
+  display: none;
 }
 
 .CATEGORIAS .texto {
-  margin-top: 33px;
-  width: 108px;
-  height: 1227px;
-  margin-left: 33px;
+  margin-top: 10px;
+  padding-top: 33px;
+  padding-left: 33px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 44.8px;
 }
 
-.CATEGORIAS .text-wrapper {
-  width: 78px;
-  height: 40px;
+.CATEGORIAS .enlaces {
+  text-decoration: none;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
   font-size: 14px;
-  letter-spacing: 0;
   line-height: 40px;
+  transition: opacity 0.2s;
+}
+
+.CATEGORIAS .enlaces:hover {
+  opacity: 0.6;
 }

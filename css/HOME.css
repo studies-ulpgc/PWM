@@ -1,8 +1,9 @@
 .HOME {
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
   height: auto;
   display: flex;
-  margin: auto;
   flex-direction: column;
   gap: 0px;
   background-color: #ffffff;
@@ -20,21 +21,16 @@
   white-space: nowrap;
 }
 
-.HOME .SCROLL-VERTICAL {
+.HOME .scroll-vertical {
   margin-left: 0px;
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
-.HOME .SCROLL-VERTICAL::-webkit-scrollbar {
-  width: 0;
-  display: none;
-}
-
-.HOME .CARRUCEL {
+.HOME .carrucel {
   width: 100%;
   display: flex;
   gap: 58px;
@@ -47,17 +43,12 @@
   box-sizing: border-box;
 }
 
-.HOME .CARRUCEL::-webkit-scrollbar {
-  width: 0;
-  display: none;
-}
-
 .HOME .foto {
   width: 770px;
   height: 386px;
   background-color: #acacac;
-  flex-shrink: 0; /* No se encoge */
-  flex-grow: 0; /* No crece */
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .HOME .flechas {
@@ -69,58 +60,45 @@
   margin-bottom: 15px;
 }
 
-.HOME .icon {
+.HOME .icon_izq {
   position: absolute;
   width: 10.42%;
   height: 41.67%;
   top: 29.17%;
   left: 18.75%;
-  cursor: pointer; /* Indica que es clickeable */
+  cursor: pointer;
   transition: opacity 0.3s;
 }
 
-.HOME .icon:hover {
+.HOME .icon_izq:hover {
   opacity: 0.7;
 }
 
-.HOME .img {
+.HOME .icon_der {
   position: absolute;
   width: 10.42%;
   height: 41.67%;
   top: 29.17%;
   left: 70.83%;
-  cursor: pointer; /* Indica que es clickeable */
+  cursor: pointer;
   transition: opacity 0.3s;
 }
 
-.HOME .img:hover {
+.HOME .icon_der:hover {
   opacity: 0.7;
 }
 
-.HOME .GALERA {
-  margin-left: 31px;
-  width: 1135px;
-  height: 1234px;
-  margin-top: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 41px;
-}
-
-.HOME .GALERA-DE {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.HOME .galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  flex-wrap: wrap;
-  overflow-y: auto;
-  max-height: 1280px;
   padding: 20px;
-  margin-top: 0px;
-  box-sizing: border-box;
+  max-height: 1280px;
+  overflow-y: auto;
+  margin: auto;
 }
 
-.HOME .GALERA-DE::-webkit-scrollbar {
+.HOME ::-webkit-scrollbar {
   width: 0;
   display: none;
 }
