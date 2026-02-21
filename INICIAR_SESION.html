@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="css/GENERAL.css" />
+    <link rel="stylesheet" href="css/INICIAR_SESION.css" />
+</head>
+<body>
+    <div class="pagina-split">
+        <div class="contenedor-foto">
+            <img src="img/Imagen Izq.png" alt="Login" class="foto-fondo">
+        </div>
+
+        <div class="seccion-formulario">
+            <main class="contacto-principal">
+                
+                <div class="header-auth">
+                    <a href="#" class="auth-tab activa">Iniciar Sesión</a>
+                    <a href="REGISTRARSE.html" class="auth-tab">Registrarse</a>
+                </div>
+
+                <form class="formulario-contenedor">
+                    <div class="campo-grupo">
+                        <label for="email" class="etiqueta-formulario">Email</label>
+                        <input type="email" id="email" name="email" class="entrada-texto" placeholder="ejemplo@correo.com" autocomplete="username" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="password" class="etiqueta-formulario">Contraseña</label>
+                        <input type="password" id="password" name="password" class="entrada-texto" placeholder="********" autocomplete="current-password" required>
+                    </div>
+
+                    <div class="opciones-secundarias">
+                        <label class="recordar-credenciales">
+                            <input type="checkbox" name="remember">
+                            <span>Recordar credenciales</span>
+                        </label>
+                        <a href="#" class="enlace-olvido">¿Olvidó la contraseña?</a>
+                    </div>
+
+                    <button type="submit" class="boton-negro">Iniciar Sesión</button>
+
+                    <div class="separador-contenedor">
+                        <span class="linea"></span>
+                        <span class="texto-o">o</span>
+                        <span class="linea"></span>
+                    </div>
+
+                    <div class="grupo-botones-web">
+                        <button type="button" class="boton-negro">Web1</button>
+                        <button type="button" class="boton-negro">Web2</button>
+                        <button type="button" class="boton-negro">Web3</button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
