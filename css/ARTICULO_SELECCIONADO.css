@@ -6,6 +6,8 @@
   flex-direction: column;
   gap: 31px;
   background-color: #ffffff;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .ARTCULO-SELECCIONADO .div {
@@ -129,12 +131,13 @@
 }
 
 .ARTCULO-SELECCIONADO .valoracion-total {
-  width: 27.67%;
-  height: 17.63%;
-  top: 16.59%;
+  top: 25px;
+  width: 125px;
+  height: 34px;
   position: absolute;
   left: 0;
 }
+
 
 .ARTCULO-SELECCIONADO .star {
   left: 80.00%;
@@ -311,23 +314,6 @@
   white-space: nowrap;
 }
 
-.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS {
-  display: inline-flex;
-  margin-left: 70px;
-  width: 701px;
-  height: 642px;
-  position: relative;
-  align-items: flex-start;
-  flex-direction: column;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS::-webkit-scrollbar {
-  width: 0;
-  display: none;
-}
-
 .ARTCULO-SELECCIONADO .p {
   position: absolute;
   width: 95.10%;
@@ -354,19 +340,29 @@
 }
 
 .ARTCULO-SELECCIONADO .GALERA-DE {
+  position: absolute;
   top: 784px;
   left: 841px;
-  width: 100%;
+  width: 599px;
+  height: 829px;
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  overflow-y: auto;
-  max-height: 1280px;
-  padding: 20px;
-  margin-top: 0px;
-  box-sizing: border-box;
+  flex-direction: column;
+  gap: 15.2px;
 }
+
+.ARTCULO-SELECCIONADO .GALERA-DE {
+  display: grid; /* grid para controlar columnas */
+  grid-template-columns: repeat(2, 1fr); /* 3 productos por fila */
+  gap: 30px;
+  overflow-y: auto;
+  max-height: 802px;
+  padding: 20px;
+  box-sizing: border-box;
+  /* no establecer width:100% aquí para evitar overflow junto al filtro */;
+  box-sizing: border-box;
+  /* no establecer width:100% aquí para evitar overflow junto al filtro */
+}
+
 .ARTCULO-SELECCIONADO .titulo-5 {
   height: 27.84px;
   font-family: "Roboto-Regular", Helvetica;
@@ -527,11 +523,11 @@
 }
 
 .ARTCULO-SELECCIONADO .INFO-2 {
-  position: absolute;
-  top: 0;
-  left: 733px;
+  position: relative;
   width: 630px;
-  height: 712px;
+  height: auto;
+  flex: 0 0 630px;
+  box-sizing: border-box;
 }
 
 .ARTCULO-SELECCIONADO .DESCRIPCI-n {
@@ -869,5 +865,24 @@
   top: 508px;
   left: 0;
   width: 76px;
-  height: 106px;
+  height: 106px
+}
+
+
+.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS {
+  display: inline-flex;
+  marg
+  margin-left: 70px;
+  width: 701px;
+  height: 642px;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS::-webkit-scrollbar {
+  width: 0;
+  display: none;
 }
