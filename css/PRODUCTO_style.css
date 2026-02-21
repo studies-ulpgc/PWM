@@ -1,10 +1,15 @@
-.FOTO {
+.PRODUCTO {
   position: relative;
   width: 261px;
   height: 384px;
 }
 
-.FOTO .informacion-producto {
+.PRODUCTO:hover {
+  border: 1px solid #1e1e1e;
+  border-radius: var(--size-radius-200);
+}
+
+.PRODUCTO .informacion-producto {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -19,7 +24,7 @@
   border-color: var(--color-border-default-default);
 }
 
-.FOTO .image {
+.PRODUCTO .image {
   margin-left: 16px;
   width: 229px;
   height: 247px;
@@ -27,7 +32,7 @@
   background-color: var(--color-background-disabled-default);
 }
 
-.FOTO .body {
+.PRODUCTO .body {
   margin-left: 16px;
   width: 208px;
   height: 52px;
@@ -36,7 +41,7 @@
   gap: var(--size-space-200);
 }
 
-.FOTO .descripcion {
+.PRODUCTO .descripcion {
   height: 22px;
   font-family: var(--body-base-font-family);
   font-weight: var(--body-base-font-weight);
@@ -47,11 +52,10 @@
   font-style: var(--body-base-font-style);
 }
 
-.FOTO .precio {
+.PRODUCTO .precio {
   width: 48px;
   height: 28px;
   font-family: "Inter-SemiBold", Helvetica;
-  font-weight: 600;
   color: var(--color-text-default-default);
   font-size: 20px;
   letter-spacing: 0;
@@ -59,26 +63,24 @@
   white-space: nowrap;
 }
 
-.FOTO .texto {
-  font-family: "Inter-SemiBold", Helvetica;
+.PRODUCTO .texto {
   font-weight: 600;
   color: #1e1e1e;
   font-size: 20px;
-  letter-spacing: 0;
   line-height: 28.0px;
 }
 
-.FOTO .span {
+.PRODUCTO .span {
   font-size: 16px;
   line-height: 22.4px;
 }
 
-.FOTO .texto-2 {
+.PRODUCTO .texto-2 {
   font-size: 14px;
   line-height: 19.6px;
 }
 
-.FOTO .simbolos {
+.PRODUCTO .simbolos {
   position: absolute;
   width: 223px;
   height: 36px;
@@ -86,7 +88,7 @@
   left: 18px;
 }
 
-.FOTO .sumar-a-deseados {
+.PRODUCTO .sumar-a-deseados {
   position: absolute;
   width: 18.75%;
   height: 95.02%;
@@ -94,7 +96,7 @@
   left: 81.25%;
 }
 
-.FOTO .sumar {
+.PRODUCTO .sumar {
   position: absolute;
   width: 29.36%;
   height: 34.94%;
@@ -102,7 +104,7 @@
   left: 67.05%;
 }
 
-.FOTO .deseados {
+.PRODUCTO .deseados {
   position: absolute;
   width: 72.55%;
   height: 75.31%;
@@ -110,7 +112,7 @@
   left: -3.59%;
 }
 
-.FOTO .sumar-a-la-cesta {
+.PRODUCTO .sumar-a-la-cesta {
   position: absolute;
   width: 19.80%;
   height: 98.00%;
@@ -118,7 +120,7 @@
   left: 57.72%;
 }
 
-.FOTO .compra {
+.PRODUCTO .compra {
   position: absolute;
   width: 69.59%;
   height: 84.10%;
@@ -126,10 +128,18 @@
   left: -3.40%;
 }
 
-.FOTO .valoracion {
+.PRODUCTO .valoracion {
   position: absolute;
   width: 116px;
   height: 19px;
   top: 15px;
   left: 0;
+}
+
+.PRODUCTO .sumar-a-deseados:hover {
+  opacity: 0.8;
+}
+
+.PRODUCTO .sumar-a-la-cesta:hover {
+  opacity: 0.8;
 }

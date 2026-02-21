@@ -4,6 +4,11 @@
   height: 321px;
 }
 
+.COMENTARIO:hover {
+  border: 1px solid #1e1e1e;
+  border-radius: var(--size-radius-200);
+}
+
 .COMENTARIO .comentario {
   position: absolute;
   width: 93.72%;
@@ -62,6 +67,14 @@
   line-height: 22.4px;
 }
 
+.COMENTARIO img:hover {
+  opacity: 0.8;
+}
+
+.COMENTARIO .puntos-suspensivos:hover {
+  opacity: 0.8;
+}
+
 .COMENTARIO .pulgar-abajo {
   top: 85.83%;
   left: 83.87%;
@@ -101,4 +114,5 @@
   border-top-width: 1px;
   border-top-style: solid;
   border-color: #000000;
+  pointer-events: none;
 }
