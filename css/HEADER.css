@@ -2,6 +2,7 @@
   width: 1480px;
   height: auto;
   margin: auto;
+  position: relative;
 }
 
 .box .HEADER {
@@ -182,10 +183,9 @@
   gap: 44.8px;
 }
 
-.HEADER .categorias-boton:hover {
-  opacity: 0.6;
-}
-
-.HEADER .text:hover {
-  opacity: 0.6;
-}
+.HEADER .empresa:hover { opacity: 0.6; }
+.HEADER .categorias-boton:hover { opacity: 0.6; }
+.HEADER .text:hover { opacity: 0.6; }
+.HEADER .deseados:hover { opacity: 0.6; }
+.HEADER .cesta:hover { opacity: 0.6; }
+.HEADER .cuenta:hover { opacity: 0.6; }
