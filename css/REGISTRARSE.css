@@ -1,0 +1,91 @@
+.pagina-split {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100vh;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px; 
+    overflow: hidden;
+}
+
+.contenedor-foto, .foto-fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seccion-formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+.contacto-principal {
+    width: 100%;
+    max-width: 500px;
+    margin-left: 0;
+}
+
+.header-auth {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.auth-tab {
+    text-decoration: none;
+    color: #888;
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.auth-tab.activa {
+    color: #000 !important;
+    font-weight: bold !important;
+    border-bottom: 2px solid #000 !important;
+}
+
+.formulario-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.entrada-texto {
+    padding: 14px 18px;
+    font-size: 16px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.fila-doble {
+    display: flex;
+    gap: 24px;
+}
+
+.fila-doble .campo-grupo {
+    flex: 1;
+}
+
+.etiqueta-formulario {
+    font-size: 14px !important;
+    font-weight: bold !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    color: #000000;
+}

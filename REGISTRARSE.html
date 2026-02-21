@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="css/GENERAL.css" />
+    <link rel="stylesheet" href="css/REGISTRARSE.css" />
+</head>
+<body>
+    <div class="pagina-split">
+        <div class="contenedor-foto">
+            <img src="img/Imagen Izq.png" alt="Registro" class="foto-fondo">
+        </div>
+
+        <div class="seccion-formulario">
+            <main class="contacto-principal">
+                
+                <div class="header-auth">
+                    <a href="login.html" class="auth-tab">Iniciar Sesión</a>
+                    <a href="#" class="auth-tab activa">Registrarse</a>
+                </div>
+
+                <form class="formulario-contenedor">
+                    <div class="campo-grupo">
+                        <label for="email" class="etiqueta-formulario">Email</label>
+                        <input type="email" id="email" name="email" class="entrada-texto" placeholder="ejemplo@correo.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="fila-doble">
+                        <div class="campo-grupo">
+                            <label for="nombre" class="etiqueta-formulario">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" class="entrada-texto" placeholder="Tu nombre" autocomplete="given-name" required>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="apellidos" class="etiqueta-formulario">Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos" class="entrada-texto" placeholder="Tus apellidos" autocomplete="family-name" required>
+                        </div>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="fecha" class="etiqueta-formulario">Fecha de nacimiento</label>
+                        <input type="date" id="fecha" name="fecha" class="entrada-texto" autocomplete="bday" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="password" class="etiqueta-formulario">Contraseña</label>
+                        <input type="password" id="password" name="password" class="entrada-texto" placeholder="********" autocomplete="new-password" required>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="confirm-password" class="etiqueta-formulario">Repetir contraseña</label>
+                        <input type="password" id="confirm-password" name="confirm-password" class="entrada-texto" placeholder="********" autocomplete="new-password" required>
+                    </div>
+
+                    <button type="submit" class="boton-negro">Registrarse</button>
+                </form>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
