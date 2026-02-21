@@ -8,27 +8,28 @@
   box-sizing: border-box;
 }
 
-.info-container {
+.contenedor-info {
   display: flex;
   flex: 1;
   justify-content: flex-start;
   gap: 100px;
 }
 
-.footer-column {
+.columna-footer {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.footer-title {
+.titulo-footer {
   font-family: var(--body-strong-font-family), sans-serif;
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 5px;
 }
 
-.footer-list {
+.lista-footer {
+  font-family: var(--body-strong-font-family), sans-serif;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -37,7 +38,7 @@
   gap: 8px;
 }
 
-.footer-actions {
+.acciones-footer {
   display: grid;
   grid-template-columns: auto 180px; 
   column-gap: 40px;
@@ -45,7 +46,7 @@
   width: 450px;
 }
 
-.payment-methods {
+.metodos-pago {
   grid-column: 1;
   grid-row: 1;
   display: flex;
@@ -53,12 +54,12 @@
   gap: 15px;
 }
 
-.payment-methods img {
+.metodos-pago img {
   width: 168px;
   height: auto;
 }
 
-.selectors {
+.selectores {
   grid-column: 2;
   grid-row: 1 / span 2;
   display: flex;
@@ -67,7 +68,7 @@
   gap: 12px;
 }
 
-.custom-select {
+.selector-personalizado {
   width: 161px;
   height: 39px;
   background-color: #F3F3F3;
@@ -78,12 +79,12 @@
   padding: 0 12px;
 }
 
-.custom-select span {
+.selector-personalizado span {
   font-size: 13px;
   font-family: sans-serif;
 }
 
-.social-media {
+.redes-sociales {
   grid-column: 1;
   grid-row: 2;
   display: flex;
@@ -91,13 +92,13 @@
   gap: 10px;
 }
 
-.social-icons {
+.iconos-sociales {
   display: flex;
   gap: 15px;   
   align-items: center;
 }
 
-.social-icons img {
+.iconos-sociales img {
   width: 24px;
   height: 24px;
   display: block;

@@ -16,7 +16,6 @@
     background-color: #fff;
 }
 
-
 .contenedor-estadisticas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -46,7 +45,6 @@
     color: #000;
 }
 
-/* Sección Preferencias */
 .contenedor-preferencias {
     width: 100%;
 }
