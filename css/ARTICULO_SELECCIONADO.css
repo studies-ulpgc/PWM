@@ -34,10 +34,6 @@
   display: none;
 }
 
-.ARTCULO-SELECCIONADO .img {
-  width: 24px;
-  height: 24px;
-}
 
 .ARTCULO-SELECCIONADO .VALORACIONES-y {
   position: absolute;
@@ -68,54 +64,6 @@
   border-color: #000000;
 }
 
-.ARTCULO-SELECCIONADO .estrellas-vacias {
-  position: relative;
-  width: 72.15%;
-  height: 53.19%;
-  top: 25.59%;
-  left: 13.74%;
-}
-
-.ARTCULO-SELECCIONADO .icon-3 {
-  position: absolute;
-  width: 17.24%;
-  height: 100%;
-  top: 0;
-  left: 82.76%;
-}
-
-.ARTCULO-SELECCIONADO .icon-4 {
-  position: absolute;
-  width: 17.24%;
-  height: 100%;
-  top: 0;
-  left: 62.07%;
-}
-
-.ARTCULO-SELECCIONADO .icon-5 {
-  position: absolute;
-  width: 17.24%;
-  height: 100%;
-  top: 0;
-  left: 41.38%;
-}
-
-.ARTCULO-SELECCIONADO .icon-6 {
-  position: absolute;
-  width: 17.24%;
-  height: 100%;
-  top: 0;
-  left: 20.56%;
-}
-
-.ARTCULO-SELECCIONADO .icon-7 {
-  position: absolute;
-  width: 17.24%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
 .ARTCULO-SELECCIONADO .usuario-valora {
   position: absolute;
   top: 84px;
@@ -131,60 +79,11 @@
 }
 
 .ARTCULO-SELECCIONADO .valoracion-total {
-  top: 25px;
-  width: 125px;
-  height: 34px;
+  top: 35px;
+  width: 166px;
+  height: 32px;
   position: absolute;
   left: 0;
-}
-
-
-.ARTCULO-SELECCIONADO .star {
-  left: 80.00%;
-  position: absolute;
-  width: 20.00%;
-  height: 100%;
-  top: 0;
-}
-
-.ARTCULO-SELECCIONADO .icon-8 {
-  position: absolute;
-  width: 83.33%;
-  height: 79.17%;
-  top: 12.50%;
-  left: 8.33%;
-}
-
-.ARTCULO-SELECCIONADO .star-filled {
-  position: absolute;
-  width: 20.00%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.ARTCULO-SELECCIONADO .icon-wrapper {
-  left: 60.00%;
-  position: absolute;
-  width: 20.00%;
-  height: 100%;
-  top: 0;
-}
-
-.ARTCULO-SELECCIONADO .img-wrapper {
-  position: absolute;
-  width: 20.00%;
-  height: 100%;
-  top: 0;
-  left: 20.00%;
-}
-
-.ARTCULO-SELECCIONADO .star-2 {
-  left: 40.00%;
-  position: absolute;
-  width: 20.00%;
-  height: 100%;
-  top: 0;
 }
 
 .ARTCULO-SELECCIONADO .graficos {
@@ -314,6 +213,24 @@
   white-space: nowrap;
 }
 
+.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS {
+  display: grid; /* grid para controlar columnas */
+  grid-template-columns: repeat(1, 1fr); /* 3 productos por fila */
+  margin-left: 70px;
+  width: 701px;
+  height: 642px;
+  position: absolute;
+  flex-direction: column;
+  top: 240px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
 .ARTCULO-SELECCIONADO .p {
   position: absolute;
   width: 95.10%;
@@ -328,131 +245,36 @@
   line-height: 22.4px;
 }
 
-.ARTCULO-SELECCIONADO .GALERA-DE {
+.ARTCULO-SELECCIONADO .titulo_producto {
   position: absolute;
   top: 784px;
   left: 841px;
-  width: 599px;
-  height: 829px;
-  display: flex;
-  flex-direction: column;
-  gap: 15.2px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
 .ARTCULO-SELECCIONADO .GALERA-DE {
   position: absolute;
-  top: 784px;
+  top: 830px;
   left: 841px;
-  width: 599px;
+  width: 610px;
   height: 829px;
-  display: flex;
-  flex-direction: column;
-  gap: 15.2px;
-}
-
-.ARTCULO-SELECCIONADO .GALERA-DE {
   display: grid; /* grid para controlar columnas */
   grid-template-columns: repeat(2, 1fr); /* 3 productos por fila */
   gap: 30px;
   overflow-y: auto;
   max-height: 802px;
   padding: 20px;
-  box-sizing: border-box;
-  /* no establecer width:100% aquí para evitar overflow junto al filtro */;
-  box-sizing: border-box;
   /* no establecer width:100% aquí para evitar overflow junto al filtro */
 }
 
-.ARTCULO-SELECCIONADO .titulo-5 {
-  height: 27.84px;
-  font-family: "Roboto-Regular", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: 33.6px;
-  white-space: nowrap;
-}
-
-.ARTCULO-SELECCIONADO .SCROLL-GALERA {
-  height: 786px;
-  display: flex;
-  gap: 9px;
-  flex-direction: column;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.ARTCULO-SELECCIONADO .SCROLL-GALERA::-webkit-scrollbar {
+.ARTCULO-SELECCIONADO .GALERA-DE::-webkit-scrollbar {
   width: 0;
   display: none;
-}
-
-.ARTCULO-SELECCIONADO .GALERA-DE-2 {
-  width: 599px;
-  display: flex;
-  gap: 30px;
-}
-
-.ARTCULO-SELECCIONADO .FOTO {
-  width: 261px;
-  height: 384px;
-  position: relative;
-}
-
-.ARTCULO-SELECCIONADO .informacion-producto {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-space-400);
-  background-color: var(--color-background-default-default);
-  border-radius: var(--size-radius-200);
-  border: 1px solid;
-  border-color: var(--color-border-default-default);
-}
-
-.ARTCULO-SELECCIONADO .image {
-  margin-left: 16px;
-  width: 229px;
-  height: 247px;
-  margin-top: 16px;
-  background-color: var(--color-background-disabled-default);
-}
-
-.ARTCULO-SELECCIONADO .body {
-  margin-left: 16px;
-  width: 208px;
-  height: 52px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-space-200);
-}
-
-.ARTCULO-SELECCIONADO .descripcion {
-  height: 22px;
-  font-family: var(--body-base-font-family);
-  font-weight: var(--body-base-font-weight);
-  color: var(--color-text-default-default);
-  font-size: var(--body-base-font-size);
-  letter-spacing: var(--body-base-letter-spacing);
-  line-height: var(--body-base-line-height);
-  font-style: var(--body-base-font-style);
-}
-
-.ARTCULO-SELECCIONADO .precio {
-  width: 48px;
-  height: 28px;
-  font-family: "Inter-SemiBold", Helvetica;
-  font-weight: 600;
-  color: var(--color-text-default-default);
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: 28.0px;
-  white-space: nowrap;
 }
 
 .ARTCULO-SELECCIONADO .span {
@@ -523,11 +345,11 @@
 }
 
 .ARTCULO-SELECCIONADO .INFO-2 {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 733px;
   width: 630px;
-  height: auto;
-  flex: 0 0 630px;
-  box-sizing: border-box;
+  height: 712px;
 }
 
 .ARTCULO-SELECCIONADO .DESCRIPCI-n {
@@ -865,24 +687,5 @@
   top: 508px;
   left: 0;
   width: 76px;
-  height: 106px
-}
-
-
-.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS {
-  display: inline-flex;
-  marg
-  margin-left: 70px;
-  width: 701px;
-  height: 642px;
-  position: relative;
-  align-items: flex-start;
-  flex-direction: column;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.ARTCULO-SELECCIONADO .SCROLL-COMENTARIOS::-webkit-scrollbar {
-  width: 0;
-  display: none;
+  height: 106px;
 }
