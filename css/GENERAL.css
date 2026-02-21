@@ -1,0 +1,17 @@
+.boton-negro {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.boton-negro:hover {
+    background-color: #333;
+}
