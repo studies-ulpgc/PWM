@@ -1,0 +1,66 @@
+.contacto-principal {
+    max-width: 550px;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+.formulario-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.etiqueta-formulario {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.entrada-texto, 
+.selector-estilizado select, 
+.area-texto {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #000;
+    background-color: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.area-texto {
+    height: 150px;
+    resize: vertical; 
+}
+
+
+.selector-estilizado {
+    position: relative;
+    width: 100%;
+}
+
+.boton-negro-enviar {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.boton-negro-enviar:hover {
+    background-color: #333;
+}

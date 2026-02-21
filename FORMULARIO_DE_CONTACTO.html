@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="css/FORMULARIO.css" />
+  </head>
+  <body>
+    <header id="header"></header>
+    <main class="contacto-principal">
+        <form class="formulario-contenedor">   
+            <div class="campo-grupo">
+                <label for="motivo" class="etiqueta-formulario">Motivo</label>
+                <div class="selector-estilizado">
+                    <select id="motivo" name="motivo">
+                        <option value="" disabled selected>Selecciona un motivo</option>
+                        <option value="duda">Duda</option>
+                        <option value="reclamacion">Reclamación</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="asunto" class="etiqueta-formulario">Asunto</label>
+                <input type="text" id="asunto" name="asunto" class="entrada-texto" placeholder="Escribe el asunto aquí">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="descripcion" class="etiqueta-formulario">Descripción</label>
+                <textarea id="descripcion" name="descripcion" class="area-texto" placeholder="Escribe tu mensaje..."></textarea>
+            </div>
+
+            <button type="submit" class="boton-negro-enviar">Enviar</button>
+        </form>
+    </main>
+
+    <footer id="footer"></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
