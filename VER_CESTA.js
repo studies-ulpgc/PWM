@@ -7,6 +7,31 @@ const cartItems = [
   { id: 6, name: "Nombre del item", opts: "Selecciones (color, talla)", price: 10, selected: true },
 ];
 
+function formatEUR(value) {
+  return value.toLocaleString("es-ES", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+}
+
+function formatNumberES(value) {
+  return value.toLocaleString("es-ES", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+}
+
+
+function updateTotal() {
+  const total = cartItems
+    .filter((p) => p.selected)
+    .reduce((acc, p) => acc + p.price, 0);
+
+  totalAmountEl.textContent = formatNumberES(total);;
+}
+
 const similares = Array.from({ length: 10 }, (_, i) => ({
   id: 100 + i,
   name: "Lorem ipsum",
@@ -15,7 +40,6 @@ const similares = Array.from({ length: 10 }, (_, i) => ({
 }));
 
 const cestaTrack = document.getElementById("cesta-track");
-const similaresTrack = document.getElementById("similares-track");
 const totalAmountEl = document.getElementById("total-amount");
 
 // Render cesta
@@ -49,58 +73,6 @@ function renderCart() {
   updateTotal();
 }
 
-function formatEUR(value) {
-  return value.toLocaleString("es-ES", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-}
-
-function formatNumberES(value) {
-  return value.toLocaleString("es-ES", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-}
-
-
-function updateTotal() {
-  const total = cartItems
-    .filter((p) => p.selected)
-    .reduce((acc, p) => acc + p.price, 0);
-
-  totalAmountEl.textContent = formatNumberES(total);;
-}
-
-/* --- Controles de carrusel --- */
-function scrollByCard(track, direction) {
-  const first = track.querySelector(":scope > *");
-  if (!first) return;
-  const delta = direction === "x" ? first.getBoundingClientRect().width + 18 : first.getBoundingClientRect().height + 22;
-
-  track.scrollBy({
-    left: direction === "x" ? delta : 0,
-    top: direction === "y" ? delta : 0,
-    behavior: "smooth",
-  });
-}
-
-document.querySelector(".c-btn--up")?.addEventListener("click", () => {
-  const first = cestaTrack.querySelector(":scope > *");
-  if (!first) return;
-  const delta = first.getBoundingClientRect().height + 22;
-  cestaTrack.scrollBy({ top: -delta, behavior: "smooth" });
-});
-
-document.querySelector(".c-btn--down")?.addEventListener("click", () => {
-  const first = cestaTrack.querySelector(":scope > *");
-  if (!first) return;
-  const delta = first.getBoundingClientRect().height + 22;
-  cestaTrack.scrollBy({ top: delta, behavior: "smooth" });
-});
-
 async function cargarHeader() {
   try {
     const response = await fetch('HEADER.html');
@@ -130,16 +102,6 @@ async function cargarFooter() {
   }
 }
 
-async function cargarBloqueSimilares() {
-  const res = await fetch("SIMILARES.html");
-  const html = await res.text();
-  const slot = document.getElementById("similares-slot");
-  slot.innerHTML = html;
-
-  window.initSimilares(slot); // activa carrusel + botones
-}
-
 renderCart();
 cargarHeader();
 cargarFooter();
-cargarBloqueSimilares();
