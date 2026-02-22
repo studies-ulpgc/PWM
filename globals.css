@@ -17,3 +17,17 @@ button:focus-visible {
 a {
   text-decoration: none;
 }
+
+.not-logged-in .sumar,
+.not-logged-in .cuenta,
+.not-logged-in .cesta,
+.not-logged-in .deseados,
+.not-logged-in .compra,
+.not-logged-in .pulgar-arriba,
+.not-logged-in .pulgar-abajo,
+.not-logged-in #btnSumarCesta,
+.not-logged-in .estrellas-usuario {
+    opacity: 0.4; /* Se ve mucho más claro/tenue */
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}

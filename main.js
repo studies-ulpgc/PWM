@@ -244,3 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     inicializarPagar();
 });
+
+const isLogged = sessionStorage.getItem('isLoggedIn') === 'true';
+
+if (!isLogged) {
+    document.body.classList.add('not-logged-in');
+} else {
+    document.body.classList.remove('not-logged-in');
+}
