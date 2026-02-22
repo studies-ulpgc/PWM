@@ -16,10 +16,21 @@
         <div class="checkout-layout">
             
             <div class="columna-izquierda">
-                <section class="seccion-pago">
+               <section class="seccion-pago">
                     <div class="cabecera-tarjeta">
                         <span class="titulo-seccion">Dirección de entrega</span>
-                        <a href="CONFIGURAR_DIRECCION_ENTREGA.html" class="enlace-editar">Editar</a>
+                        <div class="contenedor-dropdown">
+                            <a href="javascript:void(0)" class="enlace-editar" id="btn-editar-direccion">Editar</a>
+                            
+                            <div class="dropdown-direcciones" id="menu-direcciones">
+                                <div class="dropdown-contenido">
+                                    <p class="opcion-direccion">Lorem Ipsum - Calle Principal 1</p>
+                                    <p class="opcion-direccion">Lorem Ipsum - Av. Secundaria 45</p>
+                                    <hr>
+                                    <a href="CONFIGURAR_DIRECCION_ENTREGA.html" class="boton-añadir-dir">+ Añadir nueva dirección</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="contenido-direccion">
                         <p class="texto-secundario">Nombre y Apellidos</p>
@@ -130,7 +141,7 @@
             <button class="boton-negro">Pagar</button>
         </div>
     </main>
-    <script src="main.js"></script>
+    <script src="PAGAR.js"></script>
     <footer id="footer"></footer>
 </body>
 </html>
