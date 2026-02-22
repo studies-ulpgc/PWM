@@ -1,0 +1,41 @@
+<!-- SIMILARES.html -->
+<section class="similares" data-similares data-count="12">
+  <h2 class="similares-titulo">Similares:</h2>
+
+  <div class="carousel-horizontal" aria-label="Carrusel de productos similares">
+    <button class="c-btn c-btn--left" type="button" aria-label="Anterior">◀</button>
+
+    <div class="similares-track" tabindex="0"></div>
+
+    <button class="c-btn c-btn--right" type="button" aria-label="Siguiente">▶</button>
+  </div>
+
+  <!-- PRODUCTO -->
+  <template data-similares-template>
+    <div class="PRODUCTO">
+      <a href="ARTICULO_SELECCIONADO.html" class="informacion-producto">
+        <div class="image"></div>
+        <div class="body">
+          <div class="descripcion">Lorem ipsum</div>
+          <p class="precio">
+            <span class="texto">0</span>
+            <span class="span">.</span>
+            <span class="texto-2">00</span>
+            <span class="span">€</span>
+          </p>
+        </div>
+      </a>
+      <div class="simbolos">
+        <div class="sumar-a-deseados">
+          <img class="deseados" src="img/deseados.svg" />
+          <img class="sumar" src="img/sumar.svg" />
+        </div>
+        <div class="sumar-a-la-cesta">
+          <img class="compra" src="img/compra.svg" />
+          <img class="sumar" src="img/sumar.svg" />
+        </div>
+        <img class="valoracion" src="img/valoracion.svg" />
+      </div>
+    </div>
+  </template>
+</section>

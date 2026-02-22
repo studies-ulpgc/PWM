@@ -144,6 +144,17 @@ async function cargarFooter() {
   }
 }
 
+async function cargarBloqueSimilares() {
+  const res = await fetch("SIMILARES.html");
+  const html = await res.text();
+  const slot = document.getElementById("similares-slot");
+  slot.innerHTML = html;
+
+  window.initSimilares(slot); // activa carrusel + botones
+}
+cargarBloqueSimilares();
+
 renderCart();
 cargarHeader();
 cargarFooter();
+cargarSimilares();
