@@ -99,8 +99,7 @@ function simularLogin() {
     localStorage.setItem('isLoggedIn', 'true');
     const email = document.getElementById('email')?.value;
     if (email) localStorage.setItem('userName', email.split('@')[0]);
-    alert("¡Sesión iniciada!");
-    window.location.href = 'HOME.html';
+    window.location.href = 'VER_CUENTA.html';
 }
 
 function simularRegistro() {
@@ -113,8 +112,7 @@ function simularRegistro() {
     } else if (emailInput?.value) {
         localStorage.setItem('userName', emailInput.value.split('@')[0]);
     }
-    alert("¡Cuenta creada!");
-    window.location.href = 'HOME.html';
+    window.location.href = 'VER_CUENTA.html';
 }
 
 function inicializarPagar() {
@@ -134,7 +132,7 @@ function inicializarPagar() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const esHome = document.body.id === "home-page";
+    const esHome = document.body.id === "HOME";
     const headerArchivo = esHome ? 'HEADER_GRANDE.html' : 'HEADER_CORTO.html';
     
     cargarComponente('header', headerArchivo, inicializarHeader);
