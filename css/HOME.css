@@ -34,7 +34,7 @@
   width: 100%;
   display: flex;
   gap: 58px;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
   flex-wrap: nowrap;
   cursor: grab;
@@ -44,11 +44,15 @@
 }
 
 .HOME .foto {
+  scroll-snap-align: center;
   width: 770px;
   height: 386px;
   background-color: #acacac;
-  flex-shrink: 0;
-  flex-grow: 0;
+  flex: 0 0 auto;
+}
+
+.HOME .foto:hover {
+  opacity: 0.8;
 }
 
 .HOME .flechas {
