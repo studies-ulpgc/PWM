@@ -52,6 +52,10 @@ function inicializarHeader() {
     const authIcon = document.getElementById('auth-icon');
     const userPopup = document.getElementById('user-popup');
     const logoutBtn = document.getElementById('logout-btn');
+    const cartIcon = document.getElementById('cart-icon');
+    const wishlistIcon = document.getElementById('wishlist-icon');
+
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
     if (botonCategorias) {
         botonCategorias.addEventListener("click", (e) => {
@@ -61,7 +65,6 @@ function inicializarHeader() {
     }
 
     if (authIcon && userPopup) {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
         authIcon.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -73,7 +76,7 @@ function inicializarHeader() {
         });
 
         if (isLoggedIn) {
-            const nombreGuardado = localStorage.getItem('userName') || 'Usuario';
+            const nombreGuardado = sessionStorage.getItem('userName') || 'Usuario';
             const strong = userPopup.querySelector('strong');
             if (strong) strong.innerText = nombreGuardado;
         }
@@ -81,10 +84,30 @@ function inicializarHeader() {
         userPopup.addEventListener('click', (e) => e.stopPropagation());
     }
 
+    if (cartIcon) {
+        cartIcon.addEventListener('click', () => {
+            if (isLoggedIn) {
+                window.location.href = 'LISTA_PEDIDOS_REALIZADOS.html';
+            } else {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+    }
+
+    if (wishlistIcon) {
+        wishlistIcon.addEventListener('click', () => {
+            if (isLoggedIn) {
+                window.location.href = 'LISTA_DESEADOS.html';
+            } else {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+    }
+
     if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('userName');
+            sessionStorage.removeItem('isLoggedIn');
+            sessionStorage.removeItem('userName');
             window.location.href = 'HOME.html';
         });
     }
@@ -96,21 +119,21 @@ function inicializarHeader() {
 }
 
 function simularLogin() {
-    localStorage.setItem('isLoggedIn', 'true');
+    sessionStorage.setItem('isLoggedIn', 'true');
     const email = document.getElementById('email')?.value;
-    if (email) localStorage.setItem('userName', email.split('@')[0]);
+    if (email) sessionStorage.setItem('userName', email.split('@')[0]);
     window.location.href = 'VER_CUENTA.html';
 }
 
 function simularRegistro() {
     const nombreInput = document.getElementById('nombre');
     const emailInput = document.getElementById('email');
-    localStorage.setItem('isLoggedIn', 'true');
+    sessionStorage.setItem('isLoggedIn', 'true');
     
     if (nombreInput?.value) {
-        localStorage.setItem('userName', nombreInput.value);
+        sessionStorage.setItem('userName', nombreInput.value);
     } else if (emailInput?.value) {
-        localStorage.setItem('userName', emailInput.value.split('@')[0]);
+        sessionStorage.setItem('userName', emailInput.value.split('@')[0]);
     }
     window.location.href = 'VER_CUENTA.html';
 }
