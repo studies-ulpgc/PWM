@@ -118,6 +118,58 @@ function inicializarHeader() {
     });
 }
 
+function inicializarProductos() {
+
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+    const botonesCesta = document.querySelectorAll('#btnCesta');
+    const botonesDeseados = document.querySelectorAll('#btnDeseados');
+
+    botonesCesta.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isLoggedIn) {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+    });
+
+    botonesDeseados.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isLoggedIn) {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+    });
+}
+
+function inicializarComentarios() {
+
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+    const botonesArriba = document.querySelectorAll('#btnArriba');
+    const botonesAbajo = document.querySelectorAll('#btnAbajo');
+
+    botonesArriba.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isLoggedIn) {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+    });
+
+    botonesAbajo.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isLoggedIn) {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+    });
+}
+
 function simularLogin() {
     sessionStorage.setItem('isLoggedIn', 'true');
     const email = document.getElementById('email')?.value;
@@ -162,10 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarComponente('footer', 'FOOTER.html');
 
     if (document.getElementById('productos-contenedor')) {
-        cargarElementosRepetidos('productos-contenedor', 'PRODUCTO.html', 12);
+        cargarElementosRepetidos('productos-contenedor', 'PRODUCTO.html', 12).then(() => {
+            inicializarProductos();
+        });
     }
     if (document.getElementById('comentarios-contenedor')) {
-        cargarElementosRepetidos('comentarios-contenedor', 'COMENTARIO.html', 12);
+        cargarElementosRepetidos('comentarios-contenedor', 'COMENTARIO.html', 12).then(() => {
+            inicializarComentarios();
+        });
     }
     
     inicializarPagar();
