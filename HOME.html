@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="styleguide.css" />
     <link rel="stylesheet" href="css/HOME.css" />
   </head>
-  <body>
+  <body id="HOME">
     <header id="header"></header>
     <main class="HOME">
       <article class="scroll-vertical">
         <section class="carrucel">
-          <a href="GALERIA.html" class="foto"></a>
-          <a href="GALERIA.html" class="foto"></a>
-          <a href="GALERIA.html" class="foto"></a>
+          <div class="animation-container">
+            <a href="GALERIA.html" class="foto"></a>
+            <a href="GALERIA.html" class="foto"></a>
+            <a href="GALERIA.html" class="foto"></a>
+          </div>
+          <div aria-hidden class="animation-container">
+            <a href="GALERIA.html" class="foto"></a>
+            <a href="GALERIA.html" class="foto"></a>
+            <a href="GALERIA.html" class="foto"></a>
+          </div>
         </section>
-        <section class="flechas"><img class="icon_izq" src="img/flecha_i.svg" /> <img class="icon_der" src="img/flecha_d.svg" /></section>
         <section id="productos-contenedor" class="galeria"></section>
         <footer id="footer"></footer>
       </article>
     </main>
-    <script src="HOME.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

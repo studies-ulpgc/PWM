@@ -18,23 +18,56 @@ async function cargarCategorias() {
 }
 
 function inicializarHeader() {
-  const boton = document.getElementById("btnCategorias");
-  const contenedor = document.getElementById("categorias");
+  const botonCategorias = document.getElementById("btnCategorias");
+  const contenedorCategorias = document.getElementById("categorias");
+  
+  const authIcon = document.getElementById('auth-icon');
+  const userPopup = document.getElementById('user-popup');
+  const logoutBtn = document.getElementById('logout-btn');
 
-  if (!boton) return;
+  if (botonCategorias) {
+    botonCategorias.addEventListener("click", (e) => {
+      e.stopPropagation();
+      cargarCategorias();
+    });
+  }
 
-  boton.addEventListener("click", (e) => {
-    e.stopPropagation();
-    cargarCategorias();
-  });
+  if (authIcon && userPopup) {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-  document.addEventListener("click", (e) => {
-    const clickDentroMenu = contenedor.contains(e.target);
-    const clickEnBoton = boton.contains(e.target);
+    authIcon.addEventListener('click', (event) => {
+      event.stopPropagation();
+      if (isLoggedIn) {
+        userPopup.classList.toggle('show');
+      } else {
+        window.location.href = 'INICIAR_SESION.html';
+      }
+    });
 
-    if (!clickDentroMenu && !clickEnBoton) {
-      contenedor.style.display = "none";
+    if (isLoggedIn) {
+      const nombreGuardado = localStorage.getItem('userName') || 'Usuario';
+      const nombreNegrita = userPopup.querySelector('strong');
+      if (nombreNegrita) {
+        nombreNegrita.innerText = nombreGuardado;
+      }
     }
+
+    userPopup.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userName');
+      window.location.href = 'HOME.html';
+    });
+  }
+
+  document.addEventListener("click", () => {
+    if (contenedorCategorias) contenedorCategorias.style.display = "none";
+    if (userPopup) userPopup.classList.remove('show');
   });
 }
 
@@ -80,6 +113,7 @@ async function cargarFooter() {
     console.error('Error cargando footer:', error);
   }
 }
+
 
 cargarHeader();
 cargarProductos();

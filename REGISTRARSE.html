@@ -23,7 +23,7 @@
                     <a href="#" class="auth-tab activa">Registrarse</a>
                 </div>
 
-                <form class="formulario-contenedor">
+                <form class="formulario-contenedor" action="VER_CUENTA.html">
                     <div class="campo-grupo">
                         <label for="email" class="etiqueta-formulario">Email</label>
                         <input type="email" id="email" name="email" class="entrada-texto" placeholder="ejemplo@correo.com" autocomplete="email" required>
@@ -54,11 +54,11 @@
                         <label for="confirm-password" class="etiqueta-formulario">Repetir contraseña</label>
                         <input type="password" id="confirm-password" name="confirm-password" class="entrada-texto" placeholder="********" autocomplete="new-password" required>
                     </div>
-
-                    <a href="VER_CUENTA.html"><button type="submit" class="boton-negro">Registrarse</button></a>
+                    <button type="button" class="boton-negro" onclick="simularRegistro()">Registrarse</button>
                 </form>
             </main>
         </div>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>

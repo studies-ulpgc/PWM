@@ -24,72 +24,44 @@
 .HOME .scroll-vertical {
   margin-left: 0px;
   width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
 }
 
 .HOME .carrucel {
   width: 100%;
   display: flex;
-  gap: 58px;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  flex-wrap: nowrap;
-  cursor: grab;
-  user-select: none;
   padding: 20px;
   box-sizing: border-box;
 }
 
+.HOME .animation-container {
+  display: flex;
+  gap: 58px;
+  justify-content: center;
+  animation: spin 30s linear infinite;
+  padding-right: 58px;
+}
+
 .HOME .foto {
-  scroll-snap-align: center;
   width: 770px;
   height: 386px;
   background-color: #acacac;
   flex: 0 0 auto;
 }
 
+@keyframes spin {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
 .HOME .foto:hover {
   opacity: 0.8;
-}
-
-.HOME .flechas {
-  margin: auto;
-  width: 116px;
-  height: 47px;
-  position: relative;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-.HOME .icon_izq {
-  position: absolute;
-  width: 10.42%;
-  height: 41.67%;
-  top: 29.17%;
-  left: 18.75%;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-.HOME .icon_izq:hover {
-  opacity: 0.7;
-}
-
-.HOME .icon_der {
-  position: absolute;
-  width: 10.42%;
-  height: 41.67%;
-  top: 29.17%;
-  left: 70.83%;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-.HOME .icon_der:hover {
-  opacity: 0.7;
 }
 
 .HOME .galeria {

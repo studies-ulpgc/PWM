@@ -195,3 +195,30 @@
   color: #888;
   opacity: 1;
 }
+
+.box .simbolos {
+  position: relative;
+}
+
+.user-popup-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: -20px;
+  width: 150px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  z-index: 2000;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-popup-content.show {
+  display: flex;
+}
+
+.popup-user-name { font-family: "Roboto-Regular", Helvetica; font-size: 14px; margin: 0; }
+.popup-link { text-decoration: none; color: black; font-size: 13px; }
+.logout-button { background-color: #000; color: white; border: none; padding: 5px; cursor: pointer; margin-top: 5px; }
