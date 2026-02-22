@@ -99,12 +99,6 @@
   flex: 1;
 }
 
-.separador {
-  border: none;
-  border-top: 1px solid var(--color-primitives-gray-900);
-  margin: 0;
-}
-
 @media (max-width: 1024px) {
   .tarjetas {
     gap: 32px;
