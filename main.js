@@ -206,6 +206,20 @@ function inicializarPagar() {
     }
 }
 
+function inicializarArticuloSeleccionado() {
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+    const btnCesta = document.getElementById('btnSumarCesta');
+
+    if (btnCesta) {
+        btnCesta.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isLoggedIn) {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const esHome = document.body.id === "HOME";
     const headerArchivo = esHome ? 'HEADER_GRANDE.html' : 'HEADER_CORTO.html';
@@ -224,5 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    if (document.body.id === "ARTICULO-SELECCIONADO") {
+        inicializarArticuloSeleccionado();
+    }
+
     inicializarPagar();
 });
