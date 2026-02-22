@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="css/LISTA_DESEADOS.css" />
+    <title>Lista de deseados</title>
+  </head>
+
+  <body>
+    <header id="header"></header>
+
+    <main class="deseados-page">
+      <article class="contenido">
+        <section class="deseados-lista" aria-label="Lista de deseados">
+          <article class="deseado-item">
+            <div class="item-izq">
+              <div class="thumb" aria-hidden="true"></div>
+
+              <div class="info">
+                <h3>Nombre del item</h3>
+                <p class="opts">Selecciones (color, talla)</p>
+                <p class="price">Precio</p>
+              </div>
+            </div>
+
+            <label class="btn-toggle">
+                <input class="btn-toggle__check" type="checkbox" />
+                <span class="btn-toggle__btn">
+                    <span class="txt-add">Añadir a la cesta</span>
+                    <span class="txt-added">Añadido</span>
+                </span>
+            </label>
+          </article>
+
+          <article class="deseado-item">
+            <div class="item-izq">
+              <div class="thumb" aria-hidden="true"></div>
+
+              <div class="info">
+                <h3>Nombre del item</h3>
+                <p class="opts">Selecciones (color, talla)</p>
+                <p class="price">Precio</p>
+              </div>
+            </div>
+
+            <label class="btn-toggle">
+                <input class="btn-toggle__check" type="checkbox" />
+                <span class="btn-toggle__btn">
+                    <span class="txt-add">Añadir a la cesta</span>
+                    <span class="txt-added">Añadido</span>
+                </span>
+            </label>
+          </article>
+
+          <article class="deseado-item">
+            <div class="item-izq">
+              <div class="thumb" aria-hidden="true"></div>
+
+              <div class="info">
+                <h3>Nombre del item</h3>
+                <p class="opts">Selecciones (color, talla)</p>
+                <p class="price">Precio</p>
+              </div>
+            </div>
+
+            <label class="btn-toggle">
+                <input class="btn-toggle__check" type="checkbox" />
+                <span class="btn-toggle__btn">
+                    <span class="txt-add">Añadir a la cesta</span>
+                    <span class="txt-added">Añadido</span>
+                </span>
+            </label>
+          </article>
+
+          <article class="deseado-item">
+            <div class="item-izq">
+              <div class="thumb" aria-hidden="true"></div>
+
+              <div class="info">
+                <h3>Nombre del item</h3>
+                <p class="opts">Selecciones (color, talla)</p>
+                <p class="price">Precio</p>
+              </div>
+            </div>
+
+            <label class="btn-toggle">
+            <input class="btn-toggle__check" type="checkbox" />
+                <span class="btn-toggle__btn">
+                    <span class="txt-add">Añadir a la cesta</span>
+                    <span class="txt-added">Añadido</span>
+                </span>
+            </label>
+          </article>
+        </section>
+
+        <section class="similares-embed">
+          <iframe class="similares-frame" src="SIMILARES.html" title="Similares" loading="lazy"></iframe>
+        </section>
+
+        <footer id="footer"></footer>
+      </article>
+    </main>
+    <script>
+        async function cargarHeader() {
+        try {
+            const response = await fetch('HEADER.html');
+            const templateHTML = await response.text();
+            
+            const contenedor = document.getElementById('header');
+            contenedor.innerHTML = templateHTML;
+
+            const grande = contenedor.querySelector('.default-GRANDE');
+            if (grande) grande.remove();
+
+        } catch (error) {
+            console.error('Error cargando header:', error);
+        }
+        }
+
+        async function cargarFooter() {
+        try {
+            const response = await fetch('FOOTER.html');
+            const templateHTML = await response.text();
+            
+            const contenedor = document.getElementById('footer');
+            contenedor.innerHTML = templateHTML;
+
+        } catch (error) {
+            console.error('Error cargando footer:', error);
+        }
+        }
+
+      cargarHeader();
+      cargarFooter();
+    </script>
+  </body>
+</html>
