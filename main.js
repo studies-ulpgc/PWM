@@ -1,123 +1,151 @@
+async function cargarComponente(idContenedor, archivoHTML, callback) {
+    const contenedor = document.getElementById(idContenedor);
+    if (!contenedor) return; 
+
+    try {
+        const response = await fetch(archivoHTML);
+        const templateHTML = await response.text();
+        contenedor.innerHTML = templateHTML;
+        if (callback) callback(); 
+    } catch (error) {
+        console.error(`Error cargando ${archivoHTML}:`, error);
+    }
+}
+
+async function cargarElementosRepetidos(idContenedor, archivoHTML, cantidad) {
+    const contenedor = document.getElementById(idContenedor);
+    if (!contenedor) return;
+
+    try {
+        const response = await fetch(archivoHTML);
+        const templateHTML = await response.text();
+        for (let i = 0; i < cantidad; i++) {
+            contenedor.innerHTML += templateHTML;
+        }
+    } catch (error) {
+        console.error(`Error cargando repetidos de ${archivoHTML}:`, error);
+    }
+}
+
 async function cargarCategorias() {
-  const contenedor = document.getElementById("categorias");
+    const contenedor = document.getElementById("categorias");
+    if (!contenedor) return;
 
-  if (contenedor.innerHTML.trim() !== "") {
-    contenedor.style.display =
-      contenedor.style.display === "block" ? "none" : "block";
-    return;
-  }
+    if (contenedor.innerHTML.trim() !== "") {
+        contenedor.style.display = contenedor.style.display === "block" ? "none" : "block";
+        return;
+    }
 
-  try {
-    const response = await fetch("CATEGORIAS.html");
-    const templateHTML = await response.text();
-    contenedor.innerHTML = templateHTML;
-    contenedor.style.display = "block";
-  } catch (error) {
-    console.error("Error cargando categorias:", error);
-  }
+    try {
+        const response = await fetch("CATEGORIAS.html");
+        const templateHTML = await response.text();
+        contenedor.innerHTML = templateHTML;
+        contenedor.style.display = "block";
+    } catch (error) {
+        console.error("Error cargando categorias:", error);
+    }
 }
 
 function inicializarHeader() {
-  const botonCategorias = document.getElementById("btnCategorias");
-  const contenedorCategorias = document.getElementById("categorias");
-  
-  const authIcon = document.getElementById('auth-icon');
-  const userPopup = document.getElementById('user-popup');
-  const logoutBtn = document.getElementById('logout-btn');
+    const botonCategorias = document.getElementById("btnCategorias");
+    const contenedorCategorias = document.getElementById("categorias");
+    const authIcon = document.getElementById('auth-icon');
+    const userPopup = document.getElementById('user-popup');
+    const logoutBtn = document.getElementById('logout-btn');
 
-  if (authIcon && userPopup) {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-    authIcon.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (isLoggedIn) {
-        userPopup.classList.toggle('show');
-      } else {
-        window.location.href = 'INICIAR_SESION.html';
-      }
-    });
-
-    if (isLoggedIn) {
-      const nombreGuardado = localStorage.getItem('userName') || 'Usuario';
-      const strong = userPopup.querySelector('strong');
-      if (strong) strong.innerText = nombreGuardado;
+    if (botonCategorias) {
+        botonCategorias.addEventListener("click", (e) => {
+            e.stopPropagation();
+            cargarCategorias();
+        });
     }
-    
-    userPopup.addEventListener('click', (e) => e.stopPropagation());
-  }
 
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', () => {
-      localStorage.removeItem('isLoggedIn');
-      localStorage.removeItem('userName');
-      window.location.href = 'HOME.html';
+    if (authIcon && userPopup) {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+        authIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (isLoggedIn) {
+                userPopup.classList.toggle('show');
+            } else {
+                window.location.href = 'INICIAR_SESION.html';
+            }
+        });
+
+        if (isLoggedIn) {
+            const nombreGuardado = localStorage.getItem('userName') || 'Usuario';
+            const strong = userPopup.querySelector('strong');
+            if (strong) strong.innerText = nombreGuardado;
+        }
+        
+        userPopup.addEventListener('click', (e) => e.stopPropagation());
+    }
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userName');
+            window.location.href = 'HOME.html';
+        });
+    }
+
+    document.addEventListener("click", () => {
+        if (userPopup) userPopup.classList.remove('show');
+        if (contenedorCategorias) contenedorCategorias.style.display = "none";
     });
-  }
-
-  document.addEventListener("click", () => {
-    if (userPopup) userPopup.classList.remove('show');
-    if (contenedorCategorias) contenedorCategorias.style.display = "none";
-  });
-}
-
-async function cargarHeader() {
-  try {
-    const response = await fetch('HEADER_CORTO.html');
-    const templateHTML = await response.text();
-    
-    const contenedor = document.getElementById('header');
-    contenedor.innerHTML = templateHTML;
-
-    inicializarHeader();
-
-  } catch (error) {
-    console.error('Error cargando header:', error);
-  }
-}
-
-
-async function cargarFooter() {
-  try {
-    const response = await fetch('FOOTER.html');
-    const templateHTML = await response.text();
-    
-    const contenedor = document.getElementById('footer');
-    contenedor.innerHTML = templateHTML;
-
-  } catch (error) {
-    console.error('Error cargando footer:', error);
-  }
 }
 
 function simularLogin() {
     localStorage.setItem('isLoggedIn', 'true');
-    const email = document.getElementById('email').value;
-    localStorage.setItem('userName', email.split('@')[0]);
-    
+    const email = document.getElementById('email')?.value;
+    if (email) localStorage.setItem('userName', email.split('@')[0]);
     alert("¡Sesión iniciada!");
     window.location.href = 'HOME.html';
 }
 
 function simularRegistro() {
-    // 1. Obtenemos el nombre del input para que el Pop-up diga "Hola, Juan"
     const nombreInput = document.getElementById('nombre');
     const emailInput = document.getElementById('email');
-
-    // 2. Guardamos la ficha de sesión y el nombre
     localStorage.setItem('isLoggedIn', 'true');
     
-    if (nombreInput && nombreInput.value !== "") {
+    if (nombreInput?.value) {
         localStorage.setItem('userName', nombreInput.value);
-    } else if (emailInput && emailInput.value !== "") {
-        // Si no puso nombre, usamos la primera parte del email
+    } else if (emailInput?.value) {
         localStorage.setItem('userName', emailInput.value.split('@')[0]);
     }
-
-    alert("¡Cuenta creada e inicio de sesión automático!");
-
-    // 3. Redirigimos a la Home
+    alert("¡Cuenta creada!");
     window.location.href = 'HOME.html';
 }
 
-cargarHeader();
-cargarFooter();
+function inicializarPagar() {
+    const btnEditar = document.getElementById('btn-editar-direccion');
+    const menuDirecciones = document.getElementById('menu-direcciones');
+    if (btnEditar && menuDirecciones) {
+        btnEditar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuDirecciones.classList.toggle('mostrar');
+        });
+        document.addEventListener('click', (e) => {
+            if (!menuDirecciones.contains(e.target)) {
+                menuDirecciones.classList.remove('mostrar');
+            }
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const esHome = document.body.id === "home-page";
+    const headerArchivo = esHome ? 'HEADER_GRANDE.html' : 'HEADER_CORTO.html';
+    
+    cargarComponente('header', headerArchivo, inicializarHeader);
+    cargarComponente('footer', 'FOOTER.html');
+
+    if (document.getElementById('productos-contenedor')) {
+        cargarElementosRepetidos('productos-contenedor', 'PRODUCTO.html', 12);
+    }
+    if (document.getElementById('comentarios-contenedor')) {
+        cargarElementosRepetidos('comentarios-contenedor', 'COMENTARIO.html', 12);
+    }
+    
+    inicializarPagar();
+});
