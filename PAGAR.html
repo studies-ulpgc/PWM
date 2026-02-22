@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pagar - Checkout</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="css/GENERAL.css" />
+    <link rel="stylesheet" href="css/PAGAR.css" />
+</head>
+<body>
+    <header id="header"></header>
+
+    <main class="contenedor-pago">
+        <div class="checkout-layout">
+            
+            <div class="columna-izquierda">
+                <section class="seccion-pago">
+                    <div class="cabecera-tarjeta">
+                        <span class="titulo-seccion">Dirección de entrega</span>
+                        <a href="CONFIGURAR_DIRECCION_ENTREGA.html" class="enlace-editar">Editar</a>
+                    </div>
+                    <div class="contenido-direccion">
+                        <p class="texto-secundario">Nombre y Apellidos</p>
+                        <p class="texto-secundario">Calle Falsa 123, 28001 Madrid, España</p>
+                    </div>
+                </section>
+
+                <section class="seccion-pago">
+                    <span class="titulo-seccion">Seleccionado</span>
+                    <div class="scroll-hor">
+                        <div class="mini-producto"></div>
+                        <div class="mini-producto"></div>
+                        <div class="mini-producto"></div>
+                        <div class="mini-producto"></div>
+                        <div class="mini-producto"></div>
+                        <div class="mini-producto"></div>
+                        <div class="mini-producto"></div>
+                        <div class="mini-producto"></div>
+                    </div>
+                </section>
+
+                <section class="seccion-pago">
+                    <div class="bloque-entrada-pago">
+                        <label class="etiqueta-formulario">Código de cupón</label>
+                        <input type="text" class="entrada-texto-pago" placeholder="Value">
+                    </div>
+                    
+                    <div class="bloque-entrada-pago">
+                        <label class="etiqueta-formulario">Tarjeta de regalo</label>
+                        <input type="text" class="entrada-texto-pago" placeholder="Value">
+                    </div>
+                </section>
+            </div>
+
+            <div class="columna-derecha">
+                <section class="seccion-pago">
+                    <span class="titulo-seccion">Resumen del pedido</span>
+                    <div class="lista-precios">
+                        <div class="fila-precio">
+                            <span class="texto-secundario">Precio Artículos:</span>
+                            <span class="texto-secundario">50€</span>
+                        </div>
+                        <div class="fila-precio">
+                            <span class="texto-secundario">Precio de envío:</span>
+                            <span class="texto-secundario">5€</span>
+                        </div>
+                        <div class="fila-precio">
+                            <span class="texto-secundario">Descuento por puntos:</span>
+                            <span class="texto-secundario descuento">-2€</span>
+                        </div>
+                        <div class="fila-precio total">
+                            <span class="texto-principal">Total:</span>
+                            <span class="texto-principal">53€</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="seccion-pago">
+                    <span class="titulo-seccion">Formato de Pago</span>
+                    <div class="lista-metodos-pago">
+                        <label class="metodo-pago-card">
+                            <input type="radio" name="metodo_pago" checked>
+                            <div class="pago-info">
+                                <div class="pago-placeholder"></div>
+                                <div class="pago-texto">
+                                    <span class="nombre-formato">Formato 1</span>
+                                    <div class="iconos-pago">
+                                        <div class="mini-icon"></div>
+                                        <div class="mini-icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="metodo-pago-card">
+                            <input type="radio" name="metodo_pago" checked>
+                            <div class="pago-info">
+                                <div class="pago-placeholder"></div>
+                                <div class="pago-texto">
+                                    <span class="nombre-formato">Formato 1</span>
+                                    <div class="iconos-pago">
+                                        <div class="mini-icon"></div>
+                                        <div class="mini-icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="metodo-pago-card">
+                            <input type="radio" name="metodo_pago">
+                            <div class="pago-info">
+                                <div class="pago-placeholder"></div>
+                                <span class="nombre-formato">Formato 2</span>
+                            </div>
+                        </label>
+
+                        <label class="metodo-pago-card">
+                            <input type="radio" name="metodo_pago">
+                            <div class="pago-info">
+                                <div class="pago-placeholder"></div>
+                                <span class="nombre-formato">Formato 2</span>
+                            </div>
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="footer-pago">
+            <button class="boton-negro">Pagar</button>
+        </div>
+    </main>
+    <script src="main.js"></script>
+    <footer id="footer"></footer>
+</body>
+</html>
