@@ -61,6 +61,9 @@
   letter-spacing: 0;
   line-height: 28.0px;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
 }
 
 .PRODUCTO .texto {

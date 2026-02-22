@@ -1,13 +1,10 @@
 async function cargarHeader() {
   try {
-    const response = await fetch('HEADER.html');
+    const response = await fetch('HEADER_CORTO.html');
     const templateHTML = await response.text();
     
     const contenedor = document.getElementById('header');
     contenedor.innerHTML = templateHTML;
-
-    const grande = contenedor.querySelector('.default-GRANDE');
-    if (grande) grande.remove();
 
   } catch (error) {
     console.error('Error cargando header:', error);
