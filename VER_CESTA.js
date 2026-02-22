@@ -75,7 +75,7 @@ function renderCart() {
 
 async function cargarHeader() {
   try {
-    const response = await fetch('HEADER.html');
+    const response = await fetch('HEADER_CORTO.html');
     const templateHTML = await response.text();
     
     const contenedor = document.getElementById('header');

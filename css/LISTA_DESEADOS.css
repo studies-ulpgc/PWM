@@ -29,6 +29,26 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--size-space-600);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.deseados-track {
+  max-height: 560px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-400);
+
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+}
+.deseados-track::-webkit-scrollbar {
+  display: none;
 }
 
 .item-izq {
