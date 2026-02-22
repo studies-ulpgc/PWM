@@ -15,26 +15,6 @@
   border-right-style: none;
 }
 
-.box .default-CORTO {
-  height: 121px;
-  position: relative;
-  border-bottom-width: 2px;
-  margin-left: 20px;
-  width: auto;
-  background-color: #ffffff;
-  border-bottom-style: solid;
-  border-color: #000000;
-}
-
-.box .principal {
-  position: absolute;
-  top: 21px;
-  left: 59px;
-  width: 1303px;
-  height: 60px;
-  display: flex;
-}
-
 .box .empresa {
   margin-top: 9.0px;
   width: 105px;
@@ -122,16 +102,6 @@
   left: 75.82%;
 }
 
-.box .categorias_corto {
-  position: absolute;
-  top: 81px;
-  left: 59px;
-  width: 1303px;
-  height: 40px;
-  display: flex;
-  gap: 44.8px;
-}
-
 .box .categorias-boton {
   width: 41px;
   height: 40px;
@@ -194,7 +164,7 @@
 #categorias {
   display: none;
   position: absolute;
-  top: 121px;
+  top: 218px;
   left: 20px;
   z-index: 1000;
 }

@@ -156,34 +156,6 @@
   white-space: nowrap;
 }
 
-.box .default-GRANDE {
-  height: 218px;
-  display: flex;
-  flex-direction: column;
-  gap: 76px;
-  border-bottom-width: 2px;
-  margin-left: 20px;
-  width: auto;
-  background-color: #ffffff;
-  border-bottom-style: solid;
-  border-color: #000000;
-}
-
-.box .principal-2 {
-  margin-left: 59px;
-  margin-top: 42px;
-  width: 1303px;
-  height: 60px;
-  display: flex;
-}
-
-.box .categorias_grande {
-  margin-left: 59px;
-  width: 1303px;
-  display: flex;
-  gap: 44.8px;
-}
-
 .HEADER .empresa:hover { opacity: 0.6; }
 .HEADER .categorias-boton:hover { opacity: 0.6; }
 .HEADER .text:hover { opacity: 0.6; }
