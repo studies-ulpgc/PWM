@@ -57,6 +57,7 @@
   margin-left: 120px;
   border: 1px solid;
   border-color: #000000;
+  cursor: text;
 }
 
 .box .icono {
@@ -189,3 +190,36 @@
 .HEADER .deseados:hover { opacity: 0.6; }
 .HEADER .cesta:hover { opacity: 0.6; }
 .HEADER .cuenta:hover { opacity: 0.6; }
+
+#categorias {
+  display: none;
+  position: absolute;
+  top: 121px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.box .navegador form {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.box .buscar-input {
+  position: absolute;
+  top: 0;
+  left: 65px;
+  width: calc(100% - 75px);
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 16px;
+}
+
+.box .buscar-input::placeholder {
+  color: #888;
+  opacity: 1;
+}
