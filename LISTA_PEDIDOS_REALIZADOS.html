@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="css/LISTA_PEDIDOS_REALIZADOS.css" />
+    <title>Pedidos realizados</title>
+  </head>
+
+  <body>
+    <header id="header"></header>
+
+    <main class="pedidos-page">
+      <article class="contenido">
+
+        <details class="filtro">
+          <summary class="filtro-summary">
+            <span class="filtro-titulo">Filtrar</span>
+            <span class="filtro-flecha" aria-hidden="true">▾</span>
+          </summary>
+
+          <div class="filtro-panel" role="group" aria-label="Opciones de filtro">
+            <label class="filtro-opcion">
+              <input type="checkbox" />
+              <span>Lorem</span>
+            </label>
+            <label class="filtro-opcion">
+              <input type="checkbox" />
+              <span>Lorem</span>
+            </label>
+            <label class="filtro-opcion">
+              <input type="checkbox" />
+              <span>Lorem</span>
+            </label>
+          </div>
+        </details>
+
+        <section class="pedidos-lista" aria-label="Lista de pedidos">
+          <div class="pedidos-track" tabindex="0">
+
+            <article class="pedido-item">
+              <div class="pedido-izq">
+                <div class="pedido-check">
+                  <input type="checkbox" checked aria-label="Seleccionar pedido 1" />
+                </div>
+
+                <div class="thumb" aria-hidden="true"></div>
+
+                <div class="info">
+                  <h3>Nombre del item</h3>
+                  <p class="opts">Selecciones (color, talla)</p>
+                  <p class="price">Precio</p>
+                </div>
+              </div>
+
+              <div class="pedido-estado">
+                <div class="estado-titulo">Estado:</div>
+                <div class="estado-valor">En envío</div>
+              </div>
+            </article>
+
+            <article class="pedido-item">
+              <div class="pedido-izq">
+                <div class="pedido-check">
+                  <input type="checkbox" checked aria-label="Seleccionar pedido 2" />
+                </div>
+
+                <div class="thumb" aria-hidden="true"></div>
+
+                <div class="info">
+                  <h3>Nombre del item</h3>
+                  <p class="opts">Selecciones (color, talla)</p>
+                  <p class="price">Precio</p>
+                </div>
+              </div>
+
+              <div class="pedido-estado">
+                <div class="estado-titulo">Estado:</div>
+                <div class="estado-valor">En envío</div>
+              </div>
+            </article>
+
+            <article class="pedido-item">
+              <div class="pedido-izq">
+                <div class="pedido-check">
+                  <input type="checkbox" checked aria-label="Seleccionar pedido 2" />
+                </div>
+
+                <div class="thumb" aria-hidden="true"></div>
+
+                <div class="info">
+                  <h3>Nombre del item</h3>
+                  <p class="opts">Selecciones (color, talla)</p>
+                  <p class="price">Precio</p>
+                </div>
+              </div>
+
+              <div class="pedido-estado">
+                <div class="estado-titulo">Estado:</div>
+                <div class="estado-valor">En envío</div>
+              </div>
+            </article>
+
+            <article class="pedido-item">
+              <div class="pedido-izq">
+                <div class="pedido-check">
+                  <input type="checkbox" checked aria-label="Seleccionar pedido 2" />
+                </div>
+
+                <div class="thumb" aria-hidden="true"></div>
+
+                <div class="info">
+                  <h3>Nombre del item</h3>
+                  <p class="opts">Selecciones (color, talla)</p>
+                  <p class="price">Precio</p>
+                </div>
+              </div>
+
+              <div class="pedido-estado">
+                <div class="estado-titulo">Estado:</div>
+                <div class="estado-valor">En envío</div>
+              </div>
+            </article>
+
+            <article class="pedido-item">
+              <div class="pedido-izq">
+                <div class="pedido-check">
+                  <input type="checkbox" checked aria-label="Seleccionar pedido 2" />
+                </div>
+
+                <div class="thumb" aria-hidden="true"></div>
+
+                <div class="info">
+                  <h3>Nombre del item</h3>
+                  <p class="opts">Selecciones (color, talla)</p>
+                  <p class="price">Precio</p>
+                </div>
+              </div>
+
+              <div class="pedido-estado">
+                <div class="estado-titulo">Estado:</div>
+                <div class="estado-valor">En envío</div>
+              </div>
+            </article>
+
+            <article class="pedido-item">
+              <div class="pedido-izq">
+                <div class="pedido-check">
+                  <input type="checkbox" checked aria-label="Seleccionar pedido 3" />
+                </div>
+
+                <div class="thumb" aria-hidden="true"></div>
+
+                <div class="info">
+                  <h3>Nombre del item</h3>
+                  <p class="opts">Selecciones (color, talla)</p>
+                  <p class="price">Precio</p>
+                </div>
+              </div>
+
+              <div class="pedido-estado">
+                <div class="estado-titulo">Estado:</div>
+                <div class="estado-valor">En envío</div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="similares-embed">
+          <iframe class="similares-frame" src="SIMILARES.html" title="Similares" loading="lazy"></iframe>
+        </section>
+
+        <footer id="footer"></footer>
+      </article>
+    </main>
+
+    <script>
+      async function cargarHeader() {
+        try {
+            const response = await fetch('HEADER_CORTO.html');
+            const templateHTML = await response.text();
+            
+            const contenedor = document.getElementById('header');
+            contenedor.innerHTML = templateHTML;
+
+            const grande = contenedor.querySelector('.default-GRANDE');
+            if (grande) grande.remove();
+
+        } catch (error) {
+            console.error('Error cargando header:', error);
+        }
+        }
+
+        async function cargarFooter() {
+        try {
+            const response = await fetch('FOOTER.html');
+            const templateHTML = await response.text();
+            
+            const contenedor = document.getElementById('footer');
+            contenedor.innerHTML = templateHTML;
+
+        } catch (error) {
+            console.error('Error cargando footer:', error);
+        }
+        }
+
+      cargarHeader();
+      cargarFooter();
+    </script>
+  </body>
+</html>

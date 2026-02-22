@@ -1,0 +1,233 @@
+.pedidos-page {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--color-background-default-default);
+  color: var(--color-text-default-default);
+  font-family: var(--body-base-font-family);
+}
+
+.contenido {
+  max-width: 1265px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-600);
+  padding-bottom: calc(var(--size-space-600) * 2);
+}
+
+.filtro {
+  border-radius: var(--size-radius-200);
+  background: var(--color-background-default-secondary);
+}
+
+.filtro-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: var(--size-space-400) var(--size-space-600);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.filtro-summary::-webkit-details-marker {
+  display: none;
+}
+
+.filtro-titulo {
+  font-family: var(--body-strong-font-family);
+  font-weight: var(--body-strong-font-weight);
+  font-size: 20px;
+}
+
+.filtro-flecha {
+  font-size: 18px;
+  transform: translateY(-1px);
+}
+
+.filtro[open] .filtro-flecha {
+  transform: rotate(180deg);
+}
+
+.filtro-panel {
+  padding: 0 var(--size-space-600) var(--size-space-400);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-300);
+}
+
+.filtro-opcion {
+  display: flex;
+  align-items: center;
+  gap: var(--size-space-300);
+  cursor: pointer;
+}
+
+.filtro-opcion input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filtro-opcion span {
+  cursor: pointer;
+}
+
+.filtro-opcion input[type="checkbox"]:checked + span {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.filtro-opcion:hover {
+  opacity: 0.85;
+}
+
+.pedidos-track {
+  max-height: 560px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-space-400);
+
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+}
+
+.pedidos-track::-webkit-scrollbar {
+  display: none;
+}
+
+.pedido-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  border: 1px solid var(--color-primitives-gray-900);
+  background: var(--color-background-default-default);
+  padding: var(--size-space-400);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-space-600);
+}
+
+.pedido-izq {
+  display: grid;
+  grid-template-columns: 44px 92px 1fr;
+  align-items: center;
+  gap: var(--size-space-600);
+  min-width: 0;
+}
+
+.thumb {
+  width: 92px;
+  height: 92px;
+  background: var(--color-background-disabled-default);
+}
+
+.pedido-check {
+  display: grid;
+  place-items: center;
+  width: 44px;
+}
+
+.pedido-check input {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--color-primitives-gray-900);
+  border-radius: var(--size-radius-100);
+  cursor: pointer;
+  position: relative;
+}
+.pedido-check input:checked {
+  background: var(--color-primitives-gray-900);
+}
+.pedido-check input:checked::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-primitives-white-1000);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.info h3 {
+  margin: 0 0 var(--size-space-200);
+  font-family: var(--body-strong-font-family);
+  font-weight: var(--body-strong-font-weight);
+  font-size: var(--body-strong-font-size);
+  line-height: var(--body-strong-line-height);
+}
+
+.info .opts {
+  margin: 0 0 var(--size-space-200);
+  font-family: var(--body-small-font-family);
+  font-size: var(--body-small-font-size);
+  line-height: var(--body-small-line-height);
+}
+
+.info .price {
+  margin: 0;
+  font-weight: 600;
+}
+
+.pedido-estado {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.estado-titulo {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.estado-valor {
+  font-size: 16px;
+  color: var(--color-primitives-gray-700);
+}
+
+.similares-titulo {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.similares-frame {
+  width: 100%;
+  height: 520px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 820px) {
+  .pedido-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pedido-izq {
+    grid-template-columns: 44px 92px 1fr;
+  }
+
+  .pedido-estado {
+    text-align: left;
+  }
+
+  .estado-titulo {
+    font-size: 32px;
+  }
+}
