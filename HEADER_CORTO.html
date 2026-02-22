@@ -23,9 +23,17 @@
               </form>
             </div>
             <div class="simbolos">
-              <img class="cuenta" src="img/cuenta.svg" />
+              <img class="cuenta" id="auth-icon" src="img/cuenta.svg" style="cursor: pointer;" />
               <img class="cesta" src="img/compra.svg" />
               <img class="deseados" src="img/deseados.svg" />
+
+              <div id="user-popup" class="user-popup-content">
+                <p class="popup-user-name">Hola, <strong>Usuario</strong></p>
+                <hr />
+                <a href="#" class="popup-link">Mi Perfil</a>
+                <a href="#" class="popup-link">Mis Pedidos</a>
+                <button id="logout-btn" class="logout-button">Cerrar Sesión</button>
+              </div>
             </div>
           </div>
           <div class="categorias_corto">

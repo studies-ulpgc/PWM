@@ -18,23 +18,45 @@ async function cargarCategorias() {
 }
 
 function inicializarHeader() {
-  const boton = document.getElementById("btnCategorias");
-  const contenedor = document.getElementById("categorias");
+  const botonCategorias = document.getElementById("btnCategorias");
+  const contenedorCategorias = document.getElementById("categorias");
+  
+  const authIcon = document.getElementById('auth-icon');
+  const userPopup = document.getElementById('user-popup');
+  const logoutBtn = document.getElementById('logout-btn');
 
-  if (!boton) return;
+  if (authIcon && userPopup) {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-  boton.addEventListener("click", (e) => {
-    e.stopPropagation();
-    cargarCategorias();
-  });
+    authIcon.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isLoggedIn) {
+        userPopup.classList.toggle('show');
+      } else {
+        window.location.href = 'INICIAR_SESION.html';
+      }
+    });
 
-  document.addEventListener("click", (e) => {
-    const clickDentroMenu = contenedor.contains(e.target);
-    const clickEnBoton = boton.contains(e.target);
-
-    if (!clickDentroMenu && !clickEnBoton) {
-      contenedor.style.display = "none";
+    if (isLoggedIn) {
+      const nombreGuardado = localStorage.getItem('userName') || 'Usuario';
+      const strong = userPopup.querySelector('strong');
+      if (strong) strong.innerText = nombreGuardado;
     }
+    
+    userPopup.addEventListener('click', (e) => e.stopPropagation());
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userName');
+      window.location.href = 'HOME.html';
+    });
+  }
+
+  document.addEventListener("click", () => {
+    if (userPopup) userPopup.classList.remove('show');
+    if (contenedorCategorias) contenedorCategorias.style.display = "none";
   });
 }
 
@@ -65,6 +87,36 @@ async function cargarFooter() {
   } catch (error) {
     console.error('Error cargando footer:', error);
   }
+}
+
+function simularLogin() {
+    localStorage.setItem('isLoggedIn', 'true');
+    const email = document.getElementById('email').value;
+    localStorage.setItem('userName', email.split('@')[0]);
+    
+    alert("¡Sesión iniciada!");
+    window.location.href = 'HOME.html';
+}
+
+function simularRegistro() {
+    // 1. Obtenemos el nombre del input para que el Pop-up diga "Hola, Juan"
+    const nombreInput = document.getElementById('nombre');
+    const emailInput = document.getElementById('email');
+
+    // 2. Guardamos la ficha de sesión y el nombre
+    localStorage.setItem('isLoggedIn', 'true');
+    
+    if (nombreInput && nombreInput.value !== "") {
+        localStorage.setItem('userName', nombreInput.value);
+    } else if (emailInput && emailInput.value !== "") {
+        // Si no puso nombre, usamos la primera parte del email
+        localStorage.setItem('userName', emailInput.value.split('@')[0]);
+    }
+
+    alert("¡Cuenta creada e inicio de sesión automático!");
+
+    // 3. Redirigimos a la Home
+    window.location.href = 'HOME.html';
 }
 
 cargarHeader();
