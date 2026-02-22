@@ -101,20 +101,6 @@ document.querySelector(".c-btn--down")?.addEventListener("click", () => {
   cestaTrack.scrollBy({ top: delta, behavior: "smooth" });
 });
 
-document.querySelector(".c-btn--left")?.addEventListener("click", () => {
-  const first = similaresTrack.querySelector(":scope > *");
-  if (!first) return;
-  const delta = first.getBoundingClientRect().width + 18;
-  similaresTrack.scrollBy({ left: -delta, behavior: "smooth" });
-});
-
-document.querySelector(".c-btn--right")?.addEventListener("click", () => {
-  const first = similaresTrack.querySelector(":scope > *");
-  if (!first) return;
-  const delta = first.getBoundingClientRect().width + 18;
-  similaresTrack.scrollBy({ left: delta, behavior: "smooth" });
-});
-
 async function cargarHeader() {
   try {
     const response = await fetch('HEADER.html');
@@ -152,9 +138,8 @@ async function cargarBloqueSimilares() {
 
   window.initSimilares(slot); // activa carrusel + botones
 }
-cargarBloqueSimilares();
 
 renderCart();
 cargarHeader();
 cargarFooter();
-cargarSimilares();
+cargarBloqueSimilares();
