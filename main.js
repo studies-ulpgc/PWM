@@ -237,6 +237,14 @@ document.addEventListener('DOMContentLoaded', () => {
             inicializarComentarios();
         });
     }
+
+    if (document.getElementById('similares')) {
+    cargarComponente('similares', 'SIMILARES.html').then(() => {
+        cargarElementosRepetidos('productos-contenedor', 'PRODUCTO.html', 12).then(() => {
+            inicializarProductos();
+        });
+    });
+}
     
     if (document.body.id === "ARTICULO-SELECCIONADO") {
         inicializarArticuloSeleccionado();
