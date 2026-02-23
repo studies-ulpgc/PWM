@@ -87,7 +87,7 @@ function inicializarHeader() {
     if (cartIcon) {
         cartIcon.addEventListener('click', () => {
             if (isLoggedIn) {
-                window.location.href = 'LISTA_PEDIDOS_REALIZADOS.html';
+                window.location.href = 'VER_CESTA.html';
             } else {
                 window.location.href = 'INICIAR_SESION.html';
             }
