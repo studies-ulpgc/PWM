@@ -42,7 +42,6 @@ const similares = Array.from({ length: 10 }, (_, i) => ({
 const cestaTrack = document.getElementById("cesta-track");
 const totalAmountEl = document.getElementById("total-amount");
 
-// Render cesta
 function renderCart() {
   cestaTrack.innerHTML = "";
   cartItems.forEach((p) => {
