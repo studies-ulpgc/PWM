@@ -1,4 +1,4 @@
-.ARTICULO-SELECCIONADO {
+.articulo-seleccionado {
   position: relative;
   max-width: 1440px;
   width: 100%;
@@ -10,14 +10,14 @@
   margin-top: 20px;
 }
 
-.ARTICULO-SELECCIONADO .contenedor-principal {
+.articulo-seleccionado .contenedor-principal {
   width: 1463px;
   height: 863px;
   position: relative;
   overflow-y: scroll;
 }
 
-.ARTICULO-SELECCIONADO .seccion-valoraciones {
+.articulo-seleccionado .seccion-valoraciones {
   position: absolute;
   top: 784px;
   left: 0;
@@ -28,14 +28,14 @@
   gap: 63px;
 }
 
-.ARTICULO-SELECCIONADO .resumen-valoracion {
+.articulo-seleccionado .resumen-valoracion {
   margin-left: 122.5px;
   width: 600px;
   height: 192.84px;
   position: relative;
 }
 
-.ARTICULO-SELECCIONADO .estrellas-usuario {
+.articulo-seleccionado .estrellas-usuario {
   position: absolute;
   top: 117px;
   left: 316px;
@@ -44,11 +44,11 @@
   background-color: #d9d9d9;
 }
 
-.ARTICULO-SELECCIONADO .estrellas-usuario:hover {
+.articulo-seleccionado .estrellas-usuario:hover {
   background-color: #c0c0c0;
 }
 
-.ARTICULO-SELECCIONADO .nombre-usuario {
+.articulo-seleccionado .nombre-usuario {
   position: absolute;
   top: 84px;
   left: 385px;
@@ -60,7 +60,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .puntuacion-total {
+.articulo-seleccionado .puntuacion-total {
   top: 35px;
   width: 166px;
   height: 32px;
@@ -68,7 +68,7 @@
   left: 0;
 }
 
-.ARTICULO-SELECCIONADO .graficos-estadisticas {
+.articulo-seleccionado .graficos-estadisticas {
   position: absolute;
   width: 246px;
   height: 123px;
@@ -76,20 +76,20 @@
   left: 0;
 }
 
-.ARTICULO-SELECCIONADO .barra-grupo {
+.articulo-seleccionado .barra-grupo {
   position: absolute;
   width: 17.07%;
   height: 99.68%;
   top: 0;
 }
 
-.ARTICULO-SELECCIONADO .barra-grupo:nth-child(1) { left: 0; }
-.ARTICULO-SELECCIONADO .barra-grupo:nth-child(2) { left: 21.14%; }
-.ARTICULO-SELECCIONADO .barra-grupo:nth-child(3) { left: 42.28%; }
-.ARTICULO-SELECCIONADO .barra-grupo:nth-child(4) { left: 63.41%; }
-.ARTICULO-SELECCIONADO .barra-grupo:nth-child(5) { left: 84.55%; }
+.articulo-seleccionado .barra-grupo:nth-child(1) { left: 0; }
+.articulo-seleccionado .barra-grupo:nth-child(2) { left: 21.14%; }
+.articulo-seleccionado .barra-grupo:nth-child(3) { left: 42.28%; }
+.articulo-seleccionado .barra-grupo:nth-child(4) { left: 63.41%; }
+.articulo-seleccionado .barra-grupo:nth-child(5) { left: 84.55%; }
 
-.ARTICULO-SELECCIONADO .icono-estrella {
+.articulo-seleccionado .icono-estrella {
   position: absolute;
   width: 45.24%;
   height: 14.65%;
@@ -97,7 +97,7 @@
   left: 33.33%;
 }
 
-.ARTICULO-SELECCIONADO .fondo-barra {
+.articulo-seleccionado .fondo-barra {
   position: absolute;
   top: 28px;
   left: 2px;
@@ -106,7 +106,7 @@
   background-color: #eaeaea;
 }
 
-.ARTICULO-SELECCIONADO .progreso-barra {
+.articulo-seleccionado .progreso-barra {
   position: absolute;
   top: 59px;
   left: 2px;
@@ -115,7 +115,7 @@
   background-color: #1e1e1e;
 }
 
-.ARTICULO-SELECCIONADO .porcentaje-texto {
+.articulo-seleccionado .porcentaje-texto {
   position: absolute;
   top: 0;
   left: 4px;
@@ -129,7 +129,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .nivel-numero {
+.articulo-seleccionado .nivel-numero {
   position: absolute;
   top: 95px;
   left: 0;
@@ -143,7 +143,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .conteo-valoraciones {
+.articulo-seleccionado .conteo-valoraciones {
   position: absolute;
   top: 0;
   left: 2px;
@@ -157,7 +157,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .listado-comentarios {
+.articulo-seleccionado .listado-comentarios {
   display: grid;
   margin-left: 70px;
   width: 701px;
@@ -168,12 +168,12 @@
   overflow-y: scroll;
 }
 
-.ARTICULO-SELECCIONADO ::-webkit-scrollbar {
+.articulo-seleccionado ::-webkit-scrollbar {
   width: 0;
   display: none;
 }
 
-.ARTICULO-SELECCIONADO .titulo-galeria {
+.articulo-seleccionado .titulo-galeria {
   position: absolute;
   top: 784px;
   left: 841px;
@@ -185,7 +185,7 @@
   line-height: normal;
 }
 
-.ARTICULO-SELECCIONADO .galeria-relacionados {
+.articulo-seleccionado .galeria-relacionados {
   position: absolute;
   top: 830px;
   left: 841px;
@@ -199,7 +199,7 @@
   padding: 20px;
 }
 
-.ARTICULO-SELECCIONADO span {
+.articulo-seleccionado span {
   font-family: var(--body-base-font-family);
   font-weight: var(--body-base-font-weight);
   font-size: var(--body-base-font-size);
@@ -209,7 +209,7 @@
   color: var(--color-text-default-default);
 }
 
-.ARTICULO-SELECCIONADO .informacion-producto {
+.articulo-seleccionado .informacion-producto {
   position: absolute;
   top: 0;
   left: 733px;
@@ -217,7 +217,7 @@
   height: 712px;
 }
 
-.ARTICULO-SELECCIONADO .descripcion-texto {
+.articulo-seleccionado .descripcion-texto {
   position: absolute;
   top: 492px;
   left: 0;
@@ -230,7 +230,7 @@
   line-height: 22.4px;
 }
 
-.ARTICULO-SELECCIONADO .opciones-seleccion {
+.articulo-seleccionado .opciones-seleccion {
   position: absolute;
   top: 301px;
   left: 0;
@@ -241,7 +241,7 @@
   gap: var(--size-space-300);
 }
 
-.ARTICULO-SELECCIONADO .subtitulo-opciones {
+.articulo-seleccionado .subtitulo-opciones {
   width: 117px;
   height: 28px;
   font-family: "Roboto-Regular", Helvetica;
@@ -253,7 +253,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .grupo-checkbox {
+.articulo-seleccionado .grupo-checkbox {
   width: 516px;
   display: flex;
   gap: 12px;
@@ -291,7 +291,7 @@
   left: 3px;
 }
 
-.ARTICULO-SELECCIONADO .rating-visual {
+.articulo-seleccionado .rating-visual {
   position: absolute;
   top: 86px;
   left: 425px;
@@ -300,7 +300,7 @@
   display: flex;
 }
 
-.ARTICULO-SELECCIONADO .boton-compra {
+.articulo-seleccionado .boton-compra {
   position: absolute;
   top: 387px;
   left: 0;
@@ -308,7 +308,7 @@
   height: 84px;
 }
 
-.ARTICULO-SELECCIONADO .capa-fondo-negro {
+.articulo-seleccionado .capa-fondo-negro {
   position: absolute;
   top: 0;
   left: 0;
@@ -317,7 +317,7 @@
   background-color: #1e1e1e;
 }
 
-.ARTICULO-SELECCIONADO .capa-fondo-blanco {
+.articulo-seleccionado .capa-fondo-blanco {
   position: absolute;
   top: 0;
   left: 516px;
@@ -327,7 +327,7 @@
   border: 2px solid #1e1e1e;
 }
 
-.ARTICULO-SELECCIONADO .texto-boton {
+.articulo-seleccionado .texto-boton {
   position: absolute;
   top: 28px;
   left: 213px;
@@ -340,7 +340,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .icono-favoritos {
+.articulo-seleccionado .icono-favoritos {
   position: absolute;
   width: 7.14%;
   height: 51.55%;
@@ -348,7 +348,7 @@
   left: 86.06%;
 }
 
-.ARTICULO-SELECCIONADO .icono-cantidad {
+.articulo-seleccionado .icono-cantidad {
   position: absolute;
   width: 2.91%;
   height: 23.61%;
@@ -356,7 +356,7 @@
   left: 93.00%;
 }
 
-.ARTICULO-SELECCIONADO .precio-producto {
+.articulo-seleccionado .precio-producto {
   position: absolute;
   top: 86px;
   left: 0;
@@ -368,7 +368,7 @@
   line-height: normal;
 }
 
-.ARTICULO-SELECCIONADO .entero {
+.articulo-seleccionado .entero {
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
@@ -376,11 +376,11 @@
   letter-spacing: 0;
 }
 
-.ARTICULO-SELECCIONADO .decimal {
+.articulo-seleccionado .decimal {
   font-size: 20px;
 }
 
-.ARTICULO-SELECCIONADO .eslogan-secundario {
+.articulo-seleccionado .eslogan-secundario {
   position: absolute;
   top: 40px;
   left: 0;
@@ -393,7 +393,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .nombre-principal {
+.articulo-seleccionado .nombre-principal {
   position: absolute;
   top: 0;
   left: 0;
@@ -405,24 +405,24 @@
   line-height: normal;
 }
 
-.ARTICULO-SELECCIONADO .miniatura-extra-1,
-.ARTICULO-SELECCIONADO .miniatura-extra-2,
-.ARTICULO-SELECCIONADO .miniatura-extra-3 {
+.articulo-seleccionado .miniatura-extra-1,
+.articulo-seleccionado .miniatura-extra-2,
+.articulo-seleccionado .miniatura-extra-3 {
   position: absolute;
   top: 168px;
   width: 76px;
   height: 106px;
 }
 
-.ARTICULO-SELECCIONADO .miniatura-extra-1 { left: 0; }
-.ARTICULO-SELECCIONADO .miniatura-extra-2 { left: 114px; }
-.ARTICULO-SELECCIONADO .miniatura-extra-3 { left: 228px; }
+.articulo-seleccionado .miniatura-extra-1 { left: 0; }
+.articulo-seleccionado .miniatura-extra-2 { left: 114px; }
+.articulo-seleccionado .miniatura-extra-3 { left: 228px; }
 
-.ARTICULO-SELECCIONADO .miniatura-extra-1:hover { border: 1px solid #999; }
-.ARTICULO-SELECCIONADO .miniatura-extra-2:hover { border: 1px solid #999; }
-.ARTICULO-SELECCIONADO .miniatura-extra-3:hover { border: 1px solid #999; }
+.articulo-seleccionado .miniatura-extra-1:hover { border: 1px solid #999; }
+.articulo-seleccionado .miniatura-extra-2:hover { border: 1px solid #999; }
+.articulo-seleccionado .miniatura-extra-3:hover { border: 1px solid #999; }
 
-.ARTICULO-SELECCIONADO .etiqueta-lorem {
+.articulo-seleccionado .etiqueta-lorem {
   position: absolute;
   top: 125px;
   left: 0;
@@ -435,7 +435,7 @@
   white-space: nowrap;
 }
 
-.ARTICULO-SELECCIONADO .seccion-imagenes {
+.articulo-seleccionado .seccion-imagenes {
   position: absolute;
   top: 0;
   left: 41px;
@@ -443,7 +443,7 @@
   height: 720px;
 }
 
-.ARTICULO-SELECCIONADO .imagen-principal {
+.articulo-seleccionado .imagen-principal {
   position: absolute;
   top: 0;
   left: 114px;
@@ -451,22 +451,22 @@
   height: 720px;
 }
 
-.ARTICULO-SELECCIONADO .galeria-miniaturas {
+.articulo-seleccionado .galeria-miniaturas {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 106px);
   gap: 21px;
 }
 
-.ARTICULO-SELECCIONADO .galeria-miniaturas .miniatura:hover {
+.articulo-seleccionado .galeria-miniaturas .miniatura:hover {
   border: 1px solid #c0c0c0;
 }
 
-.ARTICULO-SELECCIONADO .miniatura {
+.articulo-seleccionado .miniatura {
   width: 76px;
   height: 106px;
 }
 
-.ARTICULO-SELECCIONADO .capa-fondo-negro:hover {
+.articulo-seleccionado .capa-fondo-negro:hover {
   background-color: #333;
 }

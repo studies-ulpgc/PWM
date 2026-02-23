@@ -37,7 +37,7 @@ async function cargarCategorias() {
     }
 
     try {
-        const response = await fetch("CATEGORIAS.html");
+        const response = await fetch("categorias.html");
         const templateHTML = await response.text();
         contenedor.innerHTML = templateHTML;
         contenedor.style.display = "block";
@@ -48,7 +48,7 @@ async function cargarCategorias() {
 
 function inicializarHeader() {
     const botonCategorias = document.getElementById("btnCategorias");
-    const contenedorCategorias = document.getElementById("categorias");
+    const contenedorcategorias = document.getElementById("categorias");
     const authIcon = document.getElementById('auth-icon');
     const userPopup = document.getElementById('user-popup');
     const logoutBtn = document.getElementById('logout-btn');
@@ -71,7 +71,7 @@ function inicializarHeader() {
             if (isLoggedIn) {
                 userPopup.classList.toggle('show');
             } else {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
 
@@ -87,9 +87,9 @@ function inicializarHeader() {
     if (cartIcon) {
         cartIcon.addEventListener('click', () => {
             if (isLoggedIn) {
-                window.location.href = 'VER_CESTA.html';
+                window.location.href = 'ver-cesta.html';
             } else {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
     }
@@ -97,9 +97,9 @@ function inicializarHeader() {
     if (wishlistIcon) {
         wishlistIcon.addEventListener('click', () => {
             if (isLoggedIn) {
-                window.location.href = 'LISTA_DESEADOS.html';
+                window.location.href = 'lista-deseados.html';
             } else {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
     }
@@ -108,13 +108,13 @@ function inicializarHeader() {
         logoutBtn.addEventListener('click', () => {
             sessionStorage.removeItem('isLoggedIn');
             sessionStorage.removeItem('userName');
-            window.location.href = 'HOME.html';
+            window.location.href = 'home.html';
         });
     }
 
     document.addEventListener("click", () => {
         if (userPopup) userPopup.classList.remove('show');
-        if (contenedorCategorias) contenedorCategorias.style.display = "none";
+        if (contenedorcategorias) contenedorcategorias.style.display = "none";
     });
 }
 
@@ -129,7 +129,7 @@ function inicializarProductos() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
     });
@@ -138,7 +138,7 @@ function inicializarProductos() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
     });
@@ -155,7 +155,7 @@ function inicializarComentarios() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
     });
@@ -164,7 +164,7 @@ function inicializarComentarios() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
     });
@@ -174,7 +174,7 @@ function simularLogin() {
     sessionStorage.setItem('isLoggedIn', 'true');
     const email = document.getElementById('email')?.value;
     if (email) sessionStorage.setItem('userName', email.split('@')[0]);
-    window.location.href = 'VER_CUENTA.html';
+    window.location.href = 'ver-cuenta.html';
 }
 
 function simularRegistro() {
@@ -187,7 +187,7 @@ function simularRegistro() {
     } else if (emailInput?.value) {
         sessionStorage.setItem('userName', emailInput.value.split('@')[0]);
     }
-    window.location.href = 'VER_CUENTA.html';
+    window.location.href = 'ver-cuenta.html';
 }
 
 function inicializarPagar() {
@@ -214,39 +214,39 @@ function inicializarArticuloSeleccionado() {
         btnCesta.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'INICIAR_SESION.html';
+                window.location.href = 'iniciar-sesion.html';
             }
         });
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const esHome = document.body.id === "HOME";
-    const headerArchivo = esHome ? 'HEADER_GRANDE.html' : 'HEADER_CORTO.html';
+    const esHome = document.body.id === "home-id";
+    const headerArchivo = esHome ? 'header-grande.html' : 'header-corto.html';
     
     cargarComponente('header', headerArchivo, inicializarHeader);
-    cargarComponente('footer', 'FOOTER.html');
+    cargarComponente('footer', 'footer.html');
 
     if (document.getElementById('productos-contenedor')) {
-        cargarElementosRepetidos('productos-contenedor', 'PRODUCTO.html', 12).then(() => {
+        cargarElementosRepetidos('productos-contenedor', 'producto.html', 12).then(() => {
             inicializarProductos();
         });
     }
     if (document.getElementById('comentarios-contenedor')) {
-        cargarElementosRepetidos('comentarios-contenedor', 'COMENTARIO.html', 12).then(() => {
+        cargarElementosRepetidos('comentarios-contenedor', 'comentario.html', 12).then(() => {
             inicializarComentarios();
         });
     }
 
     if (document.getElementById('similares')) {
-    cargarComponente('similares', 'SIMILARES.html').then(() => {
-        cargarElementosRepetidos('productos-contenedor', 'PRODUCTO.html', 12).then(() => {
+    cargarComponente('similares', 'similares.html').then(() => {
+        cargarElementosRepetidos('productos-contenedor', 'producto.html', 12).then(() => {
             inicializarProductos();
         });
     });
 }
     
-    if (document.body.id === "ARTICULO-SELECCIONADO") {
+    if (document.body.id === "articulo-seleccionado") {
         inicializarArticuloSeleccionado();
     }
 

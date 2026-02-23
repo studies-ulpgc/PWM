@@ -1,15 +1,15 @@
-.COMENTARIO {
+.comentario {
   position: relative;
   width: 701px;
   height: 321px;
 }
 
-.COMENTARIO:hover {
+.comentario:hover {
   border: 1px solid #1e1e1e;
   border-radius: var(--size-radius-200);
 }
 
-.COMENTARIO .comentario {
+.comentario .comentar {
   position: absolute;
   width: 93.72%;
   height: 85.36%;
@@ -17,7 +17,7 @@
   left: 3.71%;
 }
 
-.COMENTARIO .valoracion {
+.comentario .valoracion {
   position: absolute;
   width: 119px;
   height: 21px;
@@ -25,7 +25,7 @@
   left: 2px;
 }
 
-.COMENTARIO .titulo {
+.comentario .titulo {
   position: absolute;
   width: 18.73%;
   height: 10.22%;
@@ -39,7 +39,7 @@
   line-height: 28.0px;
 }
 
-.COMENTARIO .fecha {
+.comentario .fecha {
   position: absolute;
   width: 25.78%;
   height: 8.03%;
@@ -53,7 +53,7 @@
   line-height: 22.4px;
 }
 
-.COMENTARIO .texto {
+.comentario .texto {
   position: absolute;
   width: 95.10%;
   height: 52.55%;
@@ -67,15 +67,15 @@
   line-height: 22.4px;
 }
 
-.COMENTARIO img:hover {
+.comentario img:hover {
   opacity: 0.8;
 }
 
-.COMENTARIO .puntos-suspensivos:hover {
+.comentario .puntos-suspensivos:hover {
   opacity: 0.8;
 }
 
-.COMENTARIO .pulgar-abajo {
+.comentario .pulgar-abajo {
   top: 85.83%;
   left: 83.87%;
   position: absolute;
@@ -83,7 +83,7 @@
   height: 9.73%;
 }
 
-.COMENTARIO .pulgar-arriba {
+.comentario .pulgar-arriba {
   top: 85.46%;
   left: 77.39%;
   position: absolute;
@@ -91,7 +91,7 @@
   height: 9.73%;
 }
 
-.COMENTARIO .puntos-suspensivos {
+.comentario .puntos-suspensivos {
   position: absolute;
   width: 4.80%;
   height: 18.25%;
@@ -105,7 +105,7 @@
   line-height: 50.4px;
 }
 
-.COMENTARIO .recuadro {
+.comentario .recuadro {
   position: absolute;
   width: 100%;
   height: 100%;

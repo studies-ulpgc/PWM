@@ -5,7 +5,7 @@
   position: relative;
 }
 
-.box .HEADER {
+.box .header {
   display: flex;
   flex-direction: column;
   gap: 0px;
@@ -13,26 +13,6 @@
   border-radius: 5px;
   border-top-style: none;
   border-right-style: none;
-}
-
-.box .default-CORTO {
-  height: 121px;
-  position: relative;
-  border-bottom-width: 2px;
-  margin-left: 20px;
-  width: auto;
-  background-color: #ffffff;
-  border-bottom-style: solid;
-  border-color: #000000;
-}
-
-.box .principal {
-  position: absolute;
-  top: 21px;
-  left: 59px;
-  width: 1303px;
-  height: 60px;
-  display: flex;
 }
 
 .box .empresa {
@@ -122,16 +102,6 @@
   left: 75.82%;
 }
 
-.box .categorias_corto {
-  position: absolute;
-  top: 81px;
-  left: 59px;
-  width: 1303px;
-  height: 40px;
-  display: flex;
-  gap: 44.8px;
-}
-
 .box .categorias-boton {
   width: 41px;
   height: 40px;
@@ -156,17 +126,45 @@
   white-space: nowrap;
 }
 
-.HEADER .empresa:hover { opacity: 0.6; }
-.HEADER .categorias-boton:hover { opacity: 0.6; }
-.HEADER .text:hover { opacity: 0.6; }
-.HEADER .deseados:hover { opacity: 0.6; }
-.HEADER .cesta:hover { opacity: 0.6; }
-.HEADER .cuenta:hover { opacity: 0.6; }
+.box .default-GRANDE {
+  height: 218px;
+  display: flex;
+  flex-direction: column;
+  gap: 76px;
+  border-bottom-width: 2px;
+  margin-left: 20px;
+  width: auto;
+  background-color: #ffffff;
+  border-bottom-style: solid;
+  border-color: #000000;
+}
+
+.box .principal-2 {
+  margin-left: 59px;
+  margin-top: 42px;
+  width: 1303px;
+  height: 60px;
+  display: flex;
+}
+
+.box .categorias_grande {
+  margin-left: 59px;
+  width: 1303px;
+  display: flex;
+  gap: 44.8px;
+}
+
+.header .empresa:hover { opacity: 0.6; }
+.header .categorias-boton:hover { opacity: 0.6; }
+.header .text:hover { opacity: 0.6; }
+.header .deseados:hover { opacity: 0.6; }
+.header .cesta:hover { opacity: 0.6; }
+.header .cuenta:hover { opacity: 0.6; }
 
 #categorias {
   display: none;
   position: absolute;
-  top: 121px;
+  top: 218px;
   left: 20px;
   z-index: 1000;
 }
@@ -203,7 +201,7 @@
 .user-popup-content {
   display: none;
   position: absolute;
-  top: 50px;
+  top: 55px;
   left: -20px;
   width: 150px;
   background-color: #ffffff;
@@ -219,6 +217,30 @@
   display: flex;
 }
 
-.popup-user-name { font-family: "Roboto-Regular", Helvetica; font-size: 14px; margin: 0; }
-.popup-link { text-decoration: none; color: black; font-size: 13px; }
-.logout-button { background-color: #000; color: white; border: none; padding: 5px; cursor: pointer; margin-top: 5px; }
+.popup-user-name {
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  margin: 0;
+}
+
+.popup-link {
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 13px;
+}
+
+.popup-link:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-family: "Roboto-Bold", Helvetica;
+  font-size: 12px;
+  margin-top: 5px;
+}

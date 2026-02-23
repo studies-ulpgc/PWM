@@ -1,4 +1,4 @@
-.CATEGORIAS {
+.categorias {
   width: 144px;
   height: 966px; 
   display: flex;
@@ -8,12 +8,12 @@
   border-right: 2px solid #000000;
 }
 
-.CATEGORIAS::-webkit-scrollbar {
+.categorias::-webkit-scrollbar {
   width: 0;
   display: none;
 }
 
-.CATEGORIAS .texto {
+.categorias .texto {
   margin-top: 10px;
   padding-top: 33px;
   padding-left: 33px;
@@ -23,7 +23,7 @@
   gap: 44.8px;
 }
 
-.CATEGORIAS .enlaces {
+.categorias .enlaces {
   text-decoration: none;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
@@ -33,6 +33,6 @@
   transition: opacity 0.2s;
 }
 
-.CATEGORIAS .enlaces:hover {
+.categorias .enlaces:hover {
   opacity: 0.6;
 }

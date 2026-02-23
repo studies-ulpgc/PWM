@@ -1,4 +1,4 @@
-.HOME {
+.home {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
@@ -9,7 +9,7 @@
   background-color: #ffffff;
 }
 
-.HOME .div {
+.home .div {
   width: 40px;
   height: 40px;
   font-family: "Roboto-Regular", Helvetica;
@@ -21,14 +21,14 @@
   white-space: nowrap;
 }
 
-.HOME .scroll-vertical {
+.home .scroll-vertical {
   margin-left: 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.HOME .carrucel {
+.home .carrucel {
   width: 100%;
   display: flex;
   overflow-x: auto;
@@ -36,7 +36,7 @@
   box-sizing: border-box;
 }
 
-.HOME .animation-container {
+.home .animation-container {
   display: flex;
   gap: 58px;
   justify-content: center;
@@ -44,7 +44,7 @@
   padding-right: 58px;
 }
 
-.HOME .foto {
+.home .foto {
   width: 770px;
   height: 386px;
   background-color: #acacac;
@@ -60,11 +60,11 @@
   }
 }
 
-.HOME .foto:hover {
+.home .foto:hover {
   opacity: 0.8;
 }
 
-.HOME .galeria {
+.home .galeria {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
@@ -74,7 +74,7 @@
   margin: auto;
 }
 
-.HOME ::-webkit-scrollbar {
+.home ::-webkit-scrollbar {
   width: 0;
   display: none;
 }

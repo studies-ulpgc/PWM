@@ -1,4 +1,4 @@
-.DESPLEGABLE-HEADER {
+.desplegable-header {
   background-color: #ffffff;
   border-right-width: 1px;
   border-right-style: solid;
@@ -13,7 +13,7 @@
   display: flex;
 }
 
-.DESPLEGABLE-HEADER .texto {
+.desplegable-header .texto {
   width: 115px;
   height: 200px;
   margin-left: 28px;
@@ -21,7 +21,7 @@
   flex-direction: column;
 }
 
-.DESPLEGABLE-HEADER .text-wrapper {
+.desplegable-header .text-wrapper {
   width: 105px;
   height: 40px;
   font-family: "Inter-Bold", Helvetica;
@@ -32,7 +32,7 @@
   line-height: 40px;
 }
 
-.DESPLEGABLE-HEADER .div {
+.desplegable-header .div {
   width: 105px;
   height: 40px;
   font-family: "Inter-Regular", Helvetica;

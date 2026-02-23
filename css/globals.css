@@ -9,7 +9,7 @@ body {
   height: 100%;
   font-family: "Inter", Helvetica !important;
 }
-/* a blue color as a generic focus style */
+
 button:focus-visible {
   outline: 2px solid #4a90e2 !important;
   outline: -webkit-focus-ring-color auto 5px !important;
@@ -27,7 +27,7 @@ a {
 .not-logged-in .pulgar-abajo,
 .not-logged-in #btnSumarCesta,
 .not-logged-in .estrellas-usuario {
-    opacity: 0.4; /* Se ve mucho más claro/tenue */
+    opacity: 0.4;
     transition: opacity 0.3s ease, transform 0.2s ease;
     cursor: pointer;
 }
