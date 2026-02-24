@@ -51,6 +51,8 @@
   flex: 0 0 auto;
 }
 
+.home .foto:active { transform: scale(0.97); }
+
 @keyframes spin {
   from {
     transform: translate(0);

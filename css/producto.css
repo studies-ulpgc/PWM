@@ -9,6 +9,10 @@
   border-radius: var(--size-radius-200);
 }
 
+.producto:active {
+  transform: scale(0.97);
+}
+
 .producto .informacion-producto {
   position: absolute;
   width: 100%;

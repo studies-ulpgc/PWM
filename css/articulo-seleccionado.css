@@ -48,6 +48,10 @@
   background-color: #c0c0c0;
 }
 
+.articulo-seleccionado .estrellas-usuario:active {
+  transform: scale(0.97);
+}
+
 .articulo-seleccionado .nombre-usuario {
   position: absolute;
   top: 84px;
@@ -422,6 +426,10 @@
 .articulo-seleccionado .miniatura-extra-2:hover { border: 1px solid #999; }
 .articulo-seleccionado .miniatura-extra-3:hover { border: 1px solid #999; }
 
+.articulo-seleccionado .miniatura-extra-1:active { transform: scale(0.97); }
+.articulo-seleccionado .miniatura-extra-2:active { transform: scale(0.97); }
+.articulo-seleccionado .miniatura-extra-3:active { transform: scale(0.97); }
+
 .articulo-seleccionado .etiqueta-lorem {
   position: absolute;
   top: 125px;
@@ -462,11 +470,27 @@
   border: 1px solid #c0c0c0;
 }
 
+.articulo-seleccionado .galeria-miniaturas .miniatura:active {
+  transform: scale(0.97);
+}
+
+.articulo-seleccionado .imagen-principal:hover {
+  border: 1px solid #c0c0c0;
+}
+
+.articulo-seleccionado .imagen-principal:active {
+  transform: scale(0.97);
+}
+
 .articulo-seleccionado .miniatura {
   width: 76px;
   height: 106px;
 }
 
-.articulo-seleccionado .capa-fondo-negro:hover {
-  background-color: #333;
+.articulo-seleccionado .boton-compra:hover {
+  opacity: 0.8;
+}
+
+.articulo-seleccionado .boton-compra:active {
+  transform: scale(0.99);
 }

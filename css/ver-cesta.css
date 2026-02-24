@@ -208,8 +208,13 @@
   text-decoration: none;
   text-align: center;
 }
+
 .btn-comprar:active {
   transform: scale(0.99);
+}
+
+.btn-comprar:hover {
+  opacity: 0.9;
 }
 
 .resumen-sep {

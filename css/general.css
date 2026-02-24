@@ -104,3 +104,7 @@
 .boton-negro:hover {
     background-color: #424141;
 }
+
+.boton-negro:active {
+  transform: scale(0.99);
+}

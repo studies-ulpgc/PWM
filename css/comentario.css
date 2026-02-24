@@ -4,6 +4,10 @@
   height: 321px;
 }
 
+.comentario:active {
+  transform: scale(0.97);
+}
+
 .comentario:hover {
   border: 1px solid #1e1e1e;
   border-radius: var(--size-radius-200);

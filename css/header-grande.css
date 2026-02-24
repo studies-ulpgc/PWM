@@ -53,7 +53,7 @@
   top: 0;
   left: 54px;
   width: 1px;
-  height: 56px;
+  height: 54px;
   object-fit: cover;
 }
 
@@ -160,6 +160,13 @@
 .header .deseados:hover { opacity: 0.6; }
 .header .cesta:hover { opacity: 0.6; }
 .header .cuenta:hover { opacity: 0.6; }
+
+.header .empresa:active { transform: scale(0.97); }
+.header .categorias-boton:active { transform: scale(0.97); }
+.header .text:active { transform: scale(0.97); }
+.header .deseados:active { transform: scale(0.97); }
+.header .cesta:active { transform: scale(0.97); }
+.header .cuenta:active { transform: scale(0.97); }
 
 #categorias {
   display: none;
