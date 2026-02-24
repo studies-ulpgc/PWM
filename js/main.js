@@ -37,7 +37,7 @@ async function cargarCategorias() {
     }
 
     try {
-        const response = await fetch("categorias.html");
+        const response = await fetch("../html/categorias.html");
         const templateHTML = await response.text();
         contenedor.innerHTML = templateHTML;
         contenedor.style.display = "block";
@@ -71,7 +71,7 @@ function inicializarHeader() {
             if (isLoggedIn) {
                 userPopup.classList.toggle('show');
             } else {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
 
@@ -87,9 +87,9 @@ function inicializarHeader() {
     if (cartIcon) {
         cartIcon.addEventListener('click', () => {
             if (isLoggedIn) {
-                window.location.href = 'ver-cesta.html';
+                window.location.href = '../html/ver-cesta.html';
             } else {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
     }
@@ -97,9 +97,9 @@ function inicializarHeader() {
     if (wishlistIcon) {
         wishlistIcon.addEventListener('click', () => {
             if (isLoggedIn) {
-                window.location.href = 'lista-deseados.html';
+                window.location.href = '../html/lista-deseados.html';
             } else {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
     }
@@ -108,7 +108,7 @@ function inicializarHeader() {
         logoutBtn.addEventListener('click', () => {
             sessionStorage.removeItem('isLoggedIn');
             sessionStorage.removeItem('userName');
-            window.location.href = 'home.html';
+            window.location.href = '../html/home.html';
         });
     }
 
@@ -129,7 +129,7 @@ function inicializarProductos() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
     });
@@ -138,7 +138,7 @@ function inicializarProductos() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
     });
@@ -155,7 +155,7 @@ function inicializarComentarios() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
     });
@@ -164,7 +164,7 @@ function inicializarComentarios() {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
     });
@@ -174,7 +174,7 @@ function simularLogin() {
     sessionStorage.setItem('isLoggedIn', 'true');
     const email = document.getElementById('email')?.value;
     if (email) sessionStorage.setItem('userName', email.split('@')[0]);
-    window.location.href = 'ver-cuenta.html';
+    window.location.href = '../html/ver-cuenta.html';
 }
 
 function simularRegistro() {
@@ -187,7 +187,7 @@ function simularRegistro() {
     } else if (emailInput?.value) {
         sessionStorage.setItem('userName', emailInput.value.split('@')[0]);
     }
-    window.location.href = 'ver-cuenta.html';
+    window.location.href = '../html/ver-cuenta.html';
 }
 
 function inicializarPagar() {
@@ -214,7 +214,7 @@ function inicializarArticuloSeleccionado() {
         btnCesta.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isLoggedIn) {
-                window.location.href = 'iniciar-sesion.html';
+                window.location.href = '../html/iniciar-sesion.html';
             }
         });
     }
@@ -222,25 +222,25 @@ function inicializarArticuloSeleccionado() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const esHome = document.body.id === "home-id";
-    const headerArchivo = esHome ? 'header-grande.html' : 'header-corto.html';
+    const headerArchivo = esHome ? '../html/header-grande.html' : '../html/header-corto.html';
     
     cargarComponente('header', headerArchivo, inicializarHeader);
-    cargarComponente('footer', 'footer.html');
+    cargarComponente('footer', '../html/footer.html');
 
     if (document.getElementById('productos-contenedor')) {
-        cargarElementosRepetidos('productos-contenedor', 'producto.html', 12).then(() => {
+        cargarElementosRepetidos('productos-contenedor', '../html/producto.html', 12).then(() => {
             inicializarProductos();
         });
     }
     if (document.getElementById('comentarios-contenedor')) {
-        cargarElementosRepetidos('comentarios-contenedor', 'comentario.html', 12).then(() => {
+        cargarElementosRepetidos('comentarios-contenedor', '../html/comentario.html', 12).then(() => {
             inicializarComentarios();
         });
     }
 
     if (document.getElementById('similares')) {
-    cargarComponente('similares', 'similares.html').then(() => {
-        cargarElementosRepetidos('productos-contenedor', 'producto.html', 12).then(() => {
+    cargarComponente('similares', '../html/similares.html').then(() => {
+        cargarElementosRepetidos('productos-contenedor', '../html/producto.html', 12).then(() => {
             inicializarProductos();
         });
     });
@@ -253,10 +253,11 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarPagar();
 });
 
-const isLogged = sessionStorage.getItem('isLoggedIn') === 'true';
-
-if (!isLogged) {
+document.addEventListener('DOMContentLoaded', () => {
+    const isLogged = sessionStorage.getItem('isLoggedIn') === 'true';
+    if (!isLogged) {
     document.body.classList.add('not-logged-in');
-} else {
-    document.body.classList.remove('not-logged-in');
-}
+    } else {
+        document.body.classList.remove('not-logged-in');
+    }
+});
