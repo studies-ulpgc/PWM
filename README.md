@@ -29,50 +29,50 @@ El vídeo con la navegabilidad se llama: [navegacion.mp4](navegacion.mp4) y se e
 Cada página con nombre del mockup que implementa:
 | **Página html** | **Mockup que implementa** |
  | --------------- | ------------------------- | 
-| **[articulo-selecccionado.html](html\articulo-seleccionado.html)** | **Artículo Seleccionado** |
-| **[configurar-direccion-entrega.html](html\configurar-direccion-entrega.html)** | **Configurar dirección de entrega** |
-| **[formulario-de-contacto.html](html\formulario-de-contacto.html)** | **Formulario de contacto** |
-| **[galeria.html](html\galeria.html)** | **Galería** |
-| **[home.html](html\home.html) (pagina de inicio)** | **Home** |
-| **[informacion.html](html\informacion.html)** | **Información** |
-| **[iniciar-sesion.html](html\iniciar-sesion.html)** | **Iniciar Sesión** |
-| **[lista-deseados.html](html\lista-deseados.html)** | **Lista de deseados** |
-| **[lista-pedidos-realizados.html](html\lista-pedidos-realizados.html)** | **Lista Pedidos realizados** |
-| **[pagar.html](html\pagar.html)** | **Pagar** |
-| **[registrarse.html](html\registrarse.html)** | **Registrarse** |
-| **[ver-cesta.html](html\ver-cesta.html)** | **Ver cesta** |
-| **[ver-cuenta.html](html\ver-cuenta.html)** | **Ver Cuenta** |
+| **[articulo-selecccionado.html](html/articulo-seleccionado.html)** | **Artículo Seleccionado** |
+| **[configurar-direccion-entrega.html](html/configurar-direccion-entrega.html)** | **Configurar dirección de entrega** |
+| **[formulario-de-contacto.html](html/formulario-de-contacto.html)** | **Formulario de contacto** |
+| **[galeria.html](html/galeria.html)** | **Galería** |
+| **[home.html](html/home.html) (pagina de inicio)** | **Home** |
+| **[informacion.html](html/informacion.html)** | **Información** |
+| **[iniciar-sesion.html](html/iniciar-sesion.html)** | **Iniciar Sesión** |
+| **[lista-deseados.html](html/lista-deseados.html)** | **Lista de deseados** |
+| **[lista-pedidos-realizados.html](html/lista-pedidos-realizados.html)** | **Lista Pedidos realizados** |
+| **[pagar.html](html/pagar.html)** | **Pagar** |
+| **[registrarse.html](html/registrarse.html)** | **Registrarse** |
+| **[ver-cesta.html](html/ver-cesta.html)** | **Ver cesta** |
+| **[ver-cuenta.html](html/ver-cuenta.html)** | **Ver Cuenta** |
 
 ## Listado de archivos templates identificados
-Todos las páginas emplean el script [main.js](js\main.js), excepto ver cesta que también implementa [calculo-precio.js](js\calculo-precio.js).
+Todos las páginas emplean el script [main.js](js/main.js), excepto ver cesta que también implementa [calculo-precio.js](js/calculo-precio.js).
 
 | **Página html** | **Templates que usa** |
  | --------------- | --------------------- | 
-| **[articulo-selecccionado.html](html\articulo-seleccionado.html)** | **[header-corto.html](html\header-corto.html)[comentario.html](html\comentario.html)[producto.html](html\producto.html)[footer.html](html\footer.html)** |
-| **[configurar-direccion-entrega.html](html\configurar-direccion-entrega.html)** | **Ninguno** |
-| **[formulario-de-contacto.html](html\formulario-de-contacto.html)** | **Ninguno** |
-| **[galeria.html](html\galeria.html)** | **[header-corto.html](html\header-corto.html)[producto.html](html\producto.html)[footer.html](html\footer.html)** |
-| **[home.html](html\home.html) (página de inicio)** | **[header-grande.html](html\header-grande.html)[producto.html](html\producto.html)[footer.html](html\footer.html)** |
-| **[informacion.html](html\informacion.html)** | **[header-corto.html](html\header-corto.html)[footer.html](html\footer.html)** |
-| **[iniciar-sesion.html](html\iniciar-sesion.html)** | **Ninguno** |
-| **[lista-deseados.html](html\lista-deseados.html)** | **[header-corto.html](html\header-corto.html)[similares.html](html\similares.html)[footer.html](html\footer.html)** |
-| **[lista-pedidos-realizados.html](html\lista-pedidos-realizados.html)** | **[header-corto.html](html\header-corto.html)[similares.html](html\similares.html)[footer.html](html\footer.html)** |
-| **[pagar.html](html\pagar.html)** | **[header-corto.html](html\header-corto.html)[footer.html](html\footer.html)** |
-| **[registrarse.html](html\registrarse.html)** | **Ninguno** |
-| **[ver-cesta.html](html\ver-cesta.html)** | **[header-corto.html](html\header-corto.html)[similares.html](html\similares.html)[footer.html](html\footer.html)** |
-| **[ver-cuenta.html](html\ver-cuenta.html)** | **[header-corto.html](html\header-corto.html)[footer.html](html\footer.html)** |
+| **[articulo-selecccionado.html](html/articulo-seleccionado.html)** | **[header-corto.html](html/header-corto.html)<br>[comentario.html](html/comentario.html)<br>[producto.html](html/producto.html)<br>[footer.html](html/footer.html)** |
+| **[configurar-direccion-entrega.html](html/configurar-direccion-entrega.html)** | **Ninguno** |
+| **[formulario-de-contacto.html](html/formulario-de-contacto.html)** | **Ninguno** |
+| **[galeria.html](html/galeria.html)** | **[header-corto.html](html/header-corto.html)<br>[producto.html](html/producto.html)<br>[footer.html](html/footer.html)** |
+| **[home.html](html/home.html) (página de inicio)** | **[header-grande.html](html/header-grande.html)<br>[producto.html](html/producto.html)<br>[footer.html](html/footer.html)** |
+| **[informacion.html](html/informacion.html)** | **[header-corto.html](html/header-corto.html)<br>[footer.html](html/footer.html)** |
+| **[iniciar-sesion.html](html/iniciar-sesion.html)** | **Ninguno** |
+| **[lista-deseados.html](html/lista-deseados.html)** | **[header-corto.html](html/header-corto.html)<br>[similares.html](html/similares.html)<br>[footer.html](html/footer.html)** |
+| **[lista-pedidos-realizados.html](html/lista-pedidos-realizados.html)** | **[header-corto.html](html/header-corto.html)<br>[similares.html](html/similares.html)<br>[footer.html](html/footer.html)** |
+| **[pagar.html](html/pagar.html)** | **[header-corto.html](html/header-corto.html)<br>[footer.html](html/footer.html)** |
+| **[registrarse.html](html/registrarse.html)** | **Ninguno** |
+| **[ver-cesta.html](html/ver-cesta.html)** | **[header-corto.html](html/header-corto.html)<br>[similares.html](html/similares.html)<br>[footer.html](html/footer.html)** |
+| **[ver-cuenta.html](html/ver-cuenta.html)** | **[header-corto.html](html/header-corto.html)<br>[footer.html](html/footer.html)** |
 
 | **Template** | **Template que usa** |
  | ------------ | -------------------- | 
-| **[header-grande.html](html\header-grande.html)** | **Ninguno** |
-| **[header-corto.html](html\header-corto.html)** | **Ninguno** |
-| **[producto.html](html\producto.html)** | **Ninguno** |
-| **[footer.html](html\footer.html)** | **Ninguno** |
-| **[similares.html](html\similares.html)** | **[producto.html](html\producto.html)** |
+| **[header-grande.html](html/header-grande.html)** | **Ninguno** |
+| **[header-corto.html](html/header-corto.html)** | **Ninguno** |
+| **[producto.html](html/producto.html)** | **Ninguno** |
+| **[footer.html](html/footer.html)** | **Ninguno** |
+| **[similares.html](html/similares.html)** | **[producto.html](html/producto.html)** |
 
 ## Otros aspectos a tener en cuenta
 
 Se ha empleado javascript para que el header cambie en función de si se ha iniciado sesión o no. De forma que si no se ha iniciado sesión, al tratar de acceder a la lista de productos deseados o a la cesta, te lleve al inicio de sesión. Además, todos los símbolos o botones que sean presionables tienen un color más claro si el usuario no está registrado. Una vez iniciada sesión, el símbolo de la persona abre un desplegable que te permite acceder a tus pedidos y ver la cuenta, además de todas las opciones de la parte privada. A modo de resumen, hay navegación y cambios de color relacionadas con condicionales.
-En adición, en la página web de [ver-cesta.html](html\ver-cesta.html), tiene la función en javascript que si se agrega o elimina del seleccionable elementos el precio total aumenta o disminuye acorde.
+En adición, en la página web de [ver-cesta.html](html/ver-cesta.html), tiene la función en javascript que si se agrega o elimina del seleccionable elementos el precio total aumenta o disminuye acorde.
 En cuanto a la interactividad, mediantes css se han realizado scrolls (verticales u horizontales), cambios de color o agregado de bordes en botones o íconos mientras el puntero esté encima, o cambio de tamaño cuando se activen. Mediante css se agregó una animación de un carrusel en el Home.
 Cabe resaltar que para prevenir repetir los mismos fragmentos de código, hay funciones en común que se encargan de cargar componentes una o varias veces.
