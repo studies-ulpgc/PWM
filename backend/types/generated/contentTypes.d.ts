@@ -610,6 +610,7 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Descripcion: Schema.Attribute.String;
+    Descripcion_larga: Schema.Attribute.Text;
     Foto: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true

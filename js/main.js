@@ -223,7 +223,8 @@ function inicializarArticuloSeleccionado() {
 document.addEventListener('DOMContentLoaded', () => {
     const esHome = document.body.id === "home-id";
     const headerArchivo = esHome ? '../html/header-grande.html' : '../html/header-corto.html';
-    
+    if (esHome){cargarCarrusel();}
+
     cargarComponente('header', headerArchivo, inicializarHeader);
     cargarComponente('footer', '../html/footer.html');
 

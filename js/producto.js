@@ -52,3 +52,35 @@ async function cargarProductosDesdeStrapi() {
         console.error("Error cargando productos:", error);
     }
 }
+
+async function cargarCarrusel() {
+    const contenedores = document.querySelectorAll(".animation-container");
+    if (contenedores.length === 0) return;
+
+    try {
+        const response = await fetch("http://localhost:1337/api/productos?populate=*");
+        const data = await response.json();
+        const productos = data.data;
+
+        contenedores.forEach(contenedor => {
+            contenedor.innerHTML = ""; // Limpiamos el HTML estático
+            
+            // Creamos 6 elementos (repitiendo si hace falta)
+            for (let i = 0; i < 6; i++) {
+                const producto = productos[i % productos.length];
+                const fotoUrl = producto.Foto?.[0]?.url;
+
+                const a = document.createElement("a");
+                a.href = "articulo-seleccionado.html";
+                a.className = "foto";
+                a.style.backgroundImage = `url(http://localhost:1337${fotoUrl})`;
+                a.style.backgroundSize = "cover";
+                a.style.backgroundPosition = "center";
+                
+                contenedor.appendChild(a);
+            }
+        });
+    } catch (error) {
+        console.error("Error al cargar el carrusel:", error);
+    }
+}

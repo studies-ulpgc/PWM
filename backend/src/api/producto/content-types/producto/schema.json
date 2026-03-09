@@ -36,6 +36,9 @@
     },
     "Precio": {
       "type": "string"
+    },
+    "Descripcion_larga": {
+      "type": "text"
     }
   }
 }
