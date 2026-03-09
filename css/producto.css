@@ -46,7 +46,11 @@
 }
 
 .producto .descripcion {
-  height: 22px;
+  min-height: 22px;
+  height: auto;
+  white-space: nowrap;    /* Evita que el texto salte de línea */
+  overflow: hidden;       /* Esconde lo que sobra */
+  text-overflow: ellipsis; /* Añade los "..." al final */
   font-family: var(--body-base-font-family);
   font-weight: var(--body-base-font-weight);
   color: var(--color-text-default-default);
