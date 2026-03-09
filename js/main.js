@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('productos-contenedor')) {
         cargarElementosRepetidos('productos-contenedor', '../html/producto.html', 12).then(() => {
             inicializarProductos();
+            cargarProductosDesdeStrapi();
         });
     }
     if (document.getElementById('comentarios-contenedor')) {
@@ -242,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarComponente('similares', '../html/similares.html').then(() => {
         cargarElementosRepetidos('productos-contenedor', '../html/producto.html', 12).then(() => {
             inicializarProductos();
+            cargarProductosDesdeStrapi();
         });
     });
 }
