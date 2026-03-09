@@ -39,6 +39,15 @@
     },
     "Descripcion_larga": {
       "type": "text"
+    },
+    "Talla": {
+      "type": "string"
+    },
+    "Votos": {
+      "type": "string"
+    },
+    "Subtitulo": {
+      "type": "string"
     }
   }
 }
