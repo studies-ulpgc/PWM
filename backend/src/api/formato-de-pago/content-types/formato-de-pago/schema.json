@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "formato_de_pagos",
+  "info": {
+    "singularName": "formato-de-pago",
+    "pluralName": "formato-de-pagos",
+    "displayName": "FORMATO DE PAGO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tarjeta": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
