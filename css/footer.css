@@ -81,9 +81,9 @@
   cursor: pointer;
 }
 
-.selector-personalizado span {
+.selector-personalizado summary {
   font-size: 13px;
-  font-family: sans-serif;
+  font-family: var(--body-strong-font-family);
 }
 
 .redes-sociales {
@@ -169,6 +169,6 @@
     background-color: #f0f0f0;
 }
 
-.selector-personalizado:hover .dropdown {
-    display: block;
+.selector-personalizado[open] .dropdown {
+  display: block;
 }
