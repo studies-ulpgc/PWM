@@ -19,27 +19,27 @@
     
                     <div class="campo-grupo">
                         <label for="calle" class="etiqueta-formulario">Calle</label>
-                        <input type="text" id="calle" name="calle" class="entrada-texto" placeholder="Value">
+                        <input type="text" id="calle" name="calle" class="entrada-texto" placeholder="Nombre de la calle - Número" autocomplete="street-address" required>
                     </div>
 
                     <div class="campo-grupo">
                         <label for="cp" class="etiqueta-formulario">Código postal</label>
-                        <input type="text" id="cp" name="cp" class="entrada-texto" placeholder="Value">
+                        <input type="text" id="cp" name="cp" class="entrada-texto" placeholder="Código postal" autocomplete="postal-code" required>
                     </div>
 
                     <div class="campo-grupo">
                         <label for="provincia" class="etiqueta-formulario">Estado/Provincia</label>
-                        <input type="text" id="provincia" name="provincia" class="entrada-texto" placeholder="Value">
+                        <input type="text" id="provincia" name="provincia" class="entrada-texto" placeholder="Estado o provincia" autocomplete="address-level1" required>
                     </div>
 
                     <div class="fila-doble">
                         <div class="campo-grupo">
                             <label for="nombre" class="etiqueta-formulario">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" class="entrada-texto" placeholder="Value">
+                            <input type="text" id="nombre" name="nombre" class="entrada-texto" placeholder="Tu nombre" autocomplete="given-name" required>
                         </div>
                         <div class="campo-grupo">
                             <label for="apellido" class="etiqueta-formulario">Apellido</label>
-                            <input type="text" id="apellido" name="apellido" class="entrada-texto" placeholder="Value">
+                            <input type="text" id="apellido" name="apellido" class="entrada-texto" placeholder="Tu apellido" autocomplete="family-name" required>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
 
                     <div class="campo-grupo">
                         <label for="email" class="etiqueta-formulario">Email</label>
-                        <input type="email" id="email" name="email" class="entrada-texto" placeholder="Value">
+                        <input type="email" id="email" name="email" class="entrada-texto" placeholder="ejemplo@correo.com" autocomplete="email" required>
                     </div>
 
                     <button type="submit" class="boton-negro">Guardar</button>
