@@ -10,5 +10,25 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "Fecha": {
+      "type": "string"
+    },
+    "Texto": {
+      "type": "string"
+    },
+    "Valoracion": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
 }

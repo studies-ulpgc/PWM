@@ -44,7 +44,7 @@
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
-  font-size: 32px;
+  font-size: 37px;
   letter-spacing: 0;
   line-height: 40px;
   white-space: nowrap;
@@ -133,7 +133,7 @@
 }
 
 .box .categorias-boton {
-  width: 41px;
+  width: auto;
   height: 40px;
   font-family: "Roboto-Bold", Helvetica;
   font-weight: 700;
@@ -145,7 +145,7 @@
 }
 
 .box .text {
-  width: 40px;
+  width: auto;
   height: 40px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
