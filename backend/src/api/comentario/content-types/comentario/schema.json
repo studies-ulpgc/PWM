@@ -18,7 +18,7 @@
       "type": "string"
     },
     "Texto": {
-      "type": "string"
+      "type": "text"
     },
     "Valoracion": {
       "type": "media",

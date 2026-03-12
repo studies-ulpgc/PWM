@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('comentarios-contenedor')) {
         cargarElementosRepetidos('comentarios-contenedor', '../html/comentario.html', 12).then(() => {
             inicializarComentarios();
+            cargarComentariosDesdeStrapi();
         });
     }
 

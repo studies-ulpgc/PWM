@@ -31,7 +31,7 @@
 
 .comentario .titulo {
   position: absolute;
-  width: 18.73%;
+  width: 50.73%;
   height: 10.22%;
   top: 0;
   left: 0;
@@ -41,6 +41,10 @@
   font-size: 20px;
   letter-spacing: 0;
   line-height: 28.0px;
+
+  white-space: nowrap;       /* Evita que el texto se divida en varias líneas */
+  overflow: hidden;          /* Oculta el texto que se salga del div */
+  text-overflow: ellipsis;   /* Muestra "..." si el texto es demasiado largo */
 }
 
 .comentario .fecha {
