@@ -22,6 +22,7 @@ async function cargarProductosDesdeStrapi() {
             const precioDecimal = tarjeta.querySelector(".texto-2");
             const imagen = tarjeta.querySelector(".image");
             const valoracion = tarjeta.querySelector(".valoracion");
+            const link = tarjeta.querySelector("a.informacion-producto");
 
             // Rellenamos la tarjeta con el producto que toque en el "bucle"
             if (descripcion) descripcion.textContent = producto.Descripcion;
@@ -45,6 +46,10 @@ async function cargarProductosDesdeStrapi() {
             const estrellas = producto.Valoracion?.[0]?.url;
             if (estrellas && valoracion) {
                 valoracion.src = `http://localhost:1337${estrellas}`;
+            }
+
+            if (link) {
+                link.href = `articulo-seleccionado.html?id=${producto.id}`;
             }
 
         });
@@ -90,6 +95,7 @@ function obtenerIdProducto() {
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
 }
+
 async function cargarProductoSeleccionado() {
 
     const id = obtenerIdProducto();
