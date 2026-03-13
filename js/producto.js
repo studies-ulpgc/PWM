@@ -47,10 +47,6 @@ async function cargarProductosDesdeStrapi() {
                 valoracion.src = `http://localhost:1337${estrellas}`;
             }
 
-            // 🔴 ESTA LÍNEA FALTABA
-    tarjeta.addEventListener("click", () => {
-        window.location.href = `articulo-seleccionado.html?id=${producto.id}`;
-    });
         });
 
     } catch (error) {
@@ -101,7 +97,7 @@ async function cargarProductoSeleccionado() {
 
     try {
 
-        const response = await fetch(`http://localhost:1337/api/productos?id=${id}&populate=*`);
+        const response = await fetch(`http://localhost:1337/api/productos?filters[id][$eq]=${id}&populate=*`);
         const data = await response.json();
 
         const producto = data.data[0];
