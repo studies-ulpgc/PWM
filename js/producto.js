@@ -107,11 +107,22 @@ async function cargarProductoSeleccionado() {
         const precio = document.querySelector(".precio-producto");
         const imagenPrincipal = document.querySelector(".imagen-principal");
         const valoracion = document.querySelector(".rating-visual");
+        const subtitulo = document.querySelector(".eslogan-secundario"); // Usamos este para el subtítulo
+        const grupoCheckbox = document.querySelector(".grupo-checkbox");
+        const conteoValoraciones = document.querySelector(".conteo-valoraciones");
+        const puntuacionTotal = document.querySelector(".puntuacion-total");
+
 
         if (nombre) nombre.textContent = producto.Descripcion;
         if (descripcion) descripcion.textContent = producto.Descripcion_larga;
+        if (subtitulo) subtitulo.textContent = producto.Subtitulo || "";
 
-        if (precio) precio.textContent = producto.Precio;
+        if (precio) {
+            const precioLimpio = producto.Precio.replace("€", "").trim();
+            const [entero, decimal] = precioLimpio.split(".");
+            precio.querySelector(".entero").textContent = entero;
+            precio.querySelector(".decimal").textContent = decimal ? `.${decimal}€` : ".00€";
+        }
 
         const foto = producto.Foto?.[0]?.url;
         if (foto && imagenPrincipal) {
@@ -121,6 +132,35 @@ async function cargarProductoSeleccionado() {
         const estrellas = producto.Valoracion?.[0]?.url;
         if (estrellas && valoracion) {
             valoracion.src = `http://localhost:1337${estrellas}`;
+        }
+        if (estrellas && puntuacionTotal) {
+            puntuacionTotal.src = `http://localhost:1337${estrellas}`;
+        }
+
+        if (grupoCheckbox) {
+            grupoCheckbox.innerHTML = ""; // Limpiamos los checkbox existentes
+            const tallas = producto.Talla?.split(",").map(t => t.trim()) || [];
+            tallas.forEach(talla => {
+                const label = document.createElement("label");
+                label.className = "campo-checkbox";
+                
+                const input = document.createElement("input");
+                input.type = "checkbox";
+                input.className = "input-checkbox";
+                input.checked = true;
+
+                const span = document.createElement("span");
+                span.textContent = talla;
+
+                label.appendChild(input);
+                label.appendChild(span);
+                grupoCheckbox.appendChild(label);
+            });
+        }
+
+        if (conteoValoraciones) {
+            // Reemplazamos el "00" por el número de votos del producto
+            conteoValoraciones.textContent = `Valoraciones totales (${producto.Votos})`;
         }
 
     } catch (error) {
