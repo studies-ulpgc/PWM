@@ -46,6 +46,11 @@ async function cargarProductosDesdeStrapi() {
             if (estrellas && valoracion) {
                 valoracion.src = `http://localhost:1337${estrellas}`;
             }
+
+            // 🔴 ESTA LÍNEA FALTABA
+    tarjeta.addEventListener("click", () => {
+        window.location.href = `articulo-seleccionado.html?id=${producto.id}`;
+    });
         });
 
     } catch (error) {
@@ -71,7 +76,7 @@ async function cargarCarrusel() {
                 const fotoUrl = producto.Foto?.[0]?.url;
 
                 const a = document.createElement("a");
-                a.href = "articulo-seleccionado.html";
+                a.href = `articulo-seleccionado.html?id=${producto.id}`;
                 a.className = "foto";
                 a.style.backgroundImage = `url(http://localhost:1337${fotoUrl})`;
                 a.style.backgroundSize = "cover";
@@ -82,5 +87,47 @@ async function cargarCarrusel() {
         });
     } catch (error) {
         console.error("Error al cargar el carrusel:", error);
+    }
+}
+
+function obtenerIdProducto() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+}
+async function cargarProductoSeleccionado() {
+
+    const id = obtenerIdProducto();
+    if (!id) return;
+
+    try {
+
+        const response = await fetch(`http://localhost:1337/api/productos?id=${id}&populate=*`);
+        const data = await response.json();
+
+        const producto = data.data[0];
+
+        const nombre = document.querySelector(".nombre-principal");
+        const descripcion = document.querySelector(".descripcion-texto");
+        const precio = document.querySelector(".precio-producto");
+        const imagenPrincipal = document.querySelector(".imagen-principal");
+        const valoracion = document.querySelector(".rating-visual");
+
+        if (nombre) nombre.textContent = producto.Descripcion;
+        if (descripcion) descripcion.textContent = producto.Descripcion_larga;
+
+        if (precio) precio.textContent = producto.Precio;
+
+        const foto = producto.Foto?.[0]?.url;
+        if (foto && imagenPrincipal) {
+            imagenPrincipal.src = `http://localhost:1337${foto}`;
+        }
+
+        const estrellas = producto.Valoracion?.[0]?.url;
+        if (estrellas && valoracion) {
+            valoracion.src = `http://localhost:1337${estrellas}`;
+        }
+
+    } catch (error) {
+        console.error("Error cargando producto:", error);
     }
 }

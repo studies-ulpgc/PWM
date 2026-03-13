@@ -252,65 +252,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (document.body.id === "articulo-seleccionado") {
         inicializarArticuloSeleccionado();
+        cargarProductoSeleccionado();
     }
 
     inicializarPagar();
 });
-
-async function cargarProductosDesdeStrapi() {
-    const contenedor = document.getElementById("productos-contenedor");
-    if (!contenedor) return;
-
-    try {
-        const response = await fetch("http://localhost:1337/api/productos?populate=*");
-        const data = await response.json();
-        const productos = data.data; // Los 4 productos de Strapi
-
-        // Seleccionamos TODAS las tarjetas que dibujaste en el HTML
-        const tarjetas = contenedor.querySelectorAll(".producto");
-
-        // Recorremos las tarjetas del HTML (por ejemplo, las 12 que tengas)
-        tarjetas.forEach((tarjeta, i) => {
-            
-            // Aquí está el truco: 
-            // Si i=0, usa producto 0. Si i=4 y solo hay 4, usa el 0 otra vez (4 % 4 = 0)
-            const producto = productos[i % productos.length];
-
-            const descripcion = tarjeta.querySelector(".descripcion");
-            const precioEntero = tarjeta.querySelector(".texto");
-            const precioDecimal = tarjeta.querySelector(".texto-2");
-            const imagen = tarjeta.querySelector(".image");
-            const valoracion = tarjeta.querySelector(".valoracion");
-
-            // Rellenamos la tarjeta con el producto que toque en el "bucle"
-            if (descripcion) descripcion.textContent = producto.Descripcion;
-
-            // Precio
-            if (precioEntero && precioDecimal) {
-                const precio = producto.Precio.replace("€", "").trim().split(".");
-                precioEntero.textContent = precio[0];
-                precioDecimal.textContent = precio[1] || "00";
-            }
-
-            // Imagen de fondo
-            const foto = producto.Foto?.[0]?.url;
-            if (foto && imagen) {
-                imagen.style.backgroundImage = `url(http://localhost:1337${foto})`;
-                imagen.style.backgroundSize = "cover";
-                imagen.style.backgroundPosition = "center";
-            }
-
-            // Valoración (estrellas)
-            const estrellas = producto.Valoracion?.[0]?.url;
-            if (estrellas && valoracion) {
-                valoracion.src = `http://localhost:1337${estrellas}`;
-            }
-        });
-
-    } catch (error) {
-        console.error("Error cargando productos:", error);
-    }
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     const isLogged = sessionStorage.getItem('isLoggedIn') === 'true';
