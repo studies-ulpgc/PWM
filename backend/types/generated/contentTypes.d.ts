@@ -798,6 +798,39 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiVerCestaVerCesta extends Struct.CollectionTypeSchema {
+  collectionName: 'ver_cestas';
+  info: {
+    displayName: 'VER CESTA';
+    pluralName: 'ver-cestas';
+    singularName: 'ver-cesta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Imagen_item: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ver-cesta.ver-cesta'
+    > &
+      Schema.Attribute.Private;
+    Nombre_del_item: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Selecciones: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1320,6 +1353,7 @@ declare module '@strapi/strapi' {
       'api::header.header': ApiHeaderHeader;
       'api::internacional.internacional': ApiInternacionalInternacional;
       'api::producto.producto': ApiProductoProducto;
+      'api::ver-cesta.ver-cesta': ApiVerCestaVerCesta;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
