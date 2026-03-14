@@ -3,8 +3,8 @@ const cartItems = [
   { id: 2, price: 15, selected: true },
   { id: 3, price: 10, selected: true },
   { id: 4, price: 10, selected: true },
-  { id: 5, price: 10, selected: true },
-  { id: 6, price: 10, selected: true },
+  { id: 5, price: 15, selected: true },
+  { id: 6, price: 15, selected: true },
 ];
 
 function formatEUR(value) {
