@@ -58,7 +58,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById("featured-desc").textContent = bloque.descripcion;
                 
                 if (bloque.imagen?.url) {
-                    document.getElementById("featured-img").style.backgroundImage = `url('${STRAPI_URL}${bloque.imagen.url}')`;
+                    const imgElement = document.getElementById("featured-img"); // Guardamos el elemento en una constante
+                    imgElement.style.backgroundImage = `url('${STRAPI_URL}${bloque.imagen.url}')`;
+                    
+                    // --- AÑADE ESTAS DOS LÍNEAS ---
+                    imgElement.style.backgroundSize = "cover";      // Hace que la foto rellene el cuadrado
+                    imgElement.style.backgroundPosition = "center"; // La centra para que no se vea solo una esquina
+                    // ------------------------------
                 }
             }
         });
