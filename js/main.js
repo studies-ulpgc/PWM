@@ -41,6 +41,7 @@ async function cargarCategorias() {
         const templateHTML = await response.text();
         contenedor.innerHTML = templateHTML;
         contenedor.style.display = "block";
+        cargarCategoriasDesdeStrapi();
     } catch (error) {
         console.error("Error cargando categorias:", error);
     }
@@ -298,5 +299,32 @@ async function cargarHeadersDesdeStrapi() {
 
     } catch (error) {
         console.error("Error cargando headers:", error);
+    }
+}
+
+async function cargarCategoriasDesdeStrapi() {
+    try {
+        const response = await fetch("http://localhost:1337/api/categorias");
+        const data = await response.json();
+        const categorias = data.data;
+
+        const enlaces = document.querySelectorAll(".categorias .enlaces");
+
+        enlaces.forEach((enlace, i) => {
+            if (categorias[i]) {
+                const nombre = categorias[i].categoria;
+
+                enlace.textContent = nombre;
+
+                // enlace a galería filtrada
+                enlace.href = `galeria.html?categoria=${encodeURIComponent(nombre)}`;
+            } else {
+                enlace.textContent = "";
+                enlace.href = "#";
+            }
+        });
+
+    } catch (error) {
+        console.error("Error cargando categorias desde Strapi:", error);
     }
 }
