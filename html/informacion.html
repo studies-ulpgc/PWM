@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/styleguide.css" />
     <link rel="stylesheet" href="../css/informacion.css" />
     <script src="../js/main.js"></script>
+    <script src="../js/informacion.js"></script>
     <title>Información</title>
   </head>
 
@@ -15,51 +16,24 @@
 
     <main class="informacion">
       <article class="contenido">
+        
+        <h1 class="titulo-principal" id="main-title">Cargando...</h1>
 
-        <h1 class="titulo-principal">Lorem</h1>
-
-        <section class="bloque-texto">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mattis vitae metus feugiat tempus.
-            Vestibulum consectetur dolor sit amet ante lobortis sagittis. Maecenas molestie libero lectus, non volutpat
-            nulla tempor non. Maecenas et suscipit erat. Duis eget libero id felis vehicula tempor eu pellentesque
-            ligula. Nam cursus pharetra venenatis. Etiam metus ipsum, rhoncus vel est vitae, gravida blandit neque. In
-            aliquam ultricies scelerisque. Nullam est ligula, aliquet a tellus ut, iaculis luctus dui.
-          </p>
+        <section class="bloque-texto" id="intro-section" style="display: none;">
+          <p id="intro-text"></p>
         </section>
 
-        <section class="tarjetas">
-          <div class="tarjeta">
-            <div class="tarjeta-img"></div>
-            <div class="tarjeta-txt">Lorem</div>
-          </div>
+        <section class="tarjetas" id="cards-container"></section>
 
-          <div class="tarjeta">
-            <div class="tarjeta-img"></div>
-            <div class="tarjeta-txt">Lorem</div>
-          </div>
-
-          <div class="tarjeta">
-            <div class="tarjeta-img"></div>
-            <div class="tarjeta-txt">Lorem</div>
-          </div>
-        </section>
-
-        <section class="bloque-destacado">
-          <div class="destacado-img"></div>
+        <section class="bloque-destacado" id="featured-section" style="display: none;">
+          <div class="destacado-img" id="featured-img"></div>
           <div class="destacado-txt">
-            <h2>Lorem</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mattis vitae metus feugiat tempus.
-              Vestibulum consectetur dolor sit amet ante lobortis sagittis. Maecenas molestie libero lectus, non
-              volutpat nulla tempor non.
-            </p>
+            <h2 id="featured-title"></h2>
+            <p id="featured-desc"></p>
           </div>
         </section>
 
-        <footer id="footer"></footer>
       </article>
-      
     </main>
   </body>
 </html>

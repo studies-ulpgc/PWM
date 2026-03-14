@@ -782,6 +782,42 @@ export interface ApiImagenIzqImagenIzq extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInformacionInformacion extends Struct.CollectionTypeSchema {
+  collectionName: 'informacions';
+  info: {
+    displayName: 'INFORMACION';
+    pluralName: 'informacions';
+    singularName: 'informacion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Contenido: Schema.Attribute.DynamicZone<
+      [
+        'info.tarjeta-informativa',
+        'info.seccion-destacada',
+        'info.bloque-texto',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::informacion.informacion'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    titulo_pagina: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInternacionalInternacional
   extends Struct.CollectionTypeSchema {
   collectionName: 'internacionals';
@@ -1417,6 +1453,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::header.header': ApiHeaderHeader;
       'api::imagen-izq.imagen-izq': ApiImagenIzqImagenIzq;
+      'api::informacion.informacion': ApiInformacionInformacion;
       'api::internacional.internacional': ApiInternacionalInternacional;
       'api::producto.producto': ApiProductoProducto;
       'api::ver-cesta.ver-cesta': ApiVerCestaVerCesta;

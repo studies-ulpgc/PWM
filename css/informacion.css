@@ -66,6 +66,12 @@
   font-family: var(--body-base-font-family);
 }
 
+.tarjeta-img, .destacado-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .bloque-destacado {
   background: var(--color-background-disabled-default);
   padding: var(--size-space-600);

@@ -1,5 +1,38 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface InfoBloqueTexto extends Struct.ComponentSchema {
+  collectionName: 'components_info_bloque_textos';
+  info: {
+    displayName: 'Bloque-texto';
+  };
+  attributes: {
+    cuerpo: Schema.Attribute.Text;
+  };
+}
+
+export interface InfoSeccionDestacada extends Struct.ComponentSchema {
+  collectionName: 'components_info_seccion_destacadas';
+  info: {
+    displayName: 'Seccion-destacada';
+  };
+  attributes: {
+    descripcion: Schema.Attribute.Text;
+    imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    titulo: Schema.Attribute.String;
+  };
+}
+
+export interface InfoTarjetaInformativa extends Struct.ComponentSchema {
+  collectionName: 'components_info_tarjeta_informativas';
+  info: {
+    displayName: 'Tarjeta-Informativa';
+  };
+  attributes: {
+    imagen: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    titulo: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +98,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'info.bloque-texto': InfoBloqueTexto;
+      'info.seccion-destacada': InfoSeccionDestacada;
+      'info.tarjeta-informativa': InfoTarjetaInformativa;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
