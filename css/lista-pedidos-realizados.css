@@ -7,9 +7,7 @@
   font-family: var(--body-base-font-family);
 }
 
-/* =========================
-   MOBILE FIRST - 375px
-   ========================= */
+/* MÓVIL - 375px */
 
 .contenido {
   width: min(100%, 1265px);
@@ -247,9 +245,7 @@
   display: block;
 }
 
-/* =========================
-   TABLET - 768px
-   ========================= */
+/* TABLET - 768px */
 
 @media (min-width: 768px) {
 .pedidos-page {
@@ -333,9 +329,7 @@
   }
 }
 
-/* =========================
-   DESKTOP - 1024px
-   ========================= */
+/* DESKTOP - 1024px */
 
 @media (min-width: 1024px) {
   .pedidos-page {
