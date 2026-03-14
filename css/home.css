@@ -80,3 +80,78 @@
   width: 0;
   display: none;
 }
+/* -------------------- FOTO CARRUCEL -------------------- */
+
+/* Móvil: 375px */
+@media (max-width: 375px) {
+  .home .foto {
+    width: 770px;   /* más grande que antes */
+    height: 386px;
+  }
+  
+  .home .animation-container {
+    gap: 25px;      /* un poco más de espacio entre fotos */
+    padding-right: 25px;
+  }
+
+  .home .galeria {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    padding: 10px;
+  }
+}
+
+/* Tablet: 768px */
+@media (min-width: 376px) and (max-width: 768px) {
+  .home .foto {
+    width: 770px;   /* más grande para tablet */
+    height: 386px;
+  }
+
+  .home .animation-container {
+    gap: 45px;
+    padding-right: 45px;
+  }
+
+  .home .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 15px;
+  }
+}
+
+/* Ordenador: 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home .foto {
+    width: 770px;   /* más grande que 90% */
+    height: 386px;
+  }
+
+  .home .animation-container {
+    gap: 50px;
+    padding-right: 50px;
+  }
+
+  .home .galeria {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px;
+  }
+}
+
+/* Pantallas mayores a 1024px */
+@media (min-width: 1025px) {
+  .home .foto {
+    width: 770px;
+    height: 386px;
+  }
+
+  .home .animation-container {
+    gap: 58px;
+    padding-right: 58px;
+  }
+
+  .home .galeria {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
