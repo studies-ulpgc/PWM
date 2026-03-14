@@ -1,0 +1,7 @@
+/**
+ * lista-deseado service
+ */
+
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreService('api::lista-deseado.lista-deseado');
