@@ -1,9 +1,22 @@
+function obtenerCategoria() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("categoria");
+}
+
 async function cargarProductosDesdeStrapi() {
     const contenedor = document.getElementById("productos-contenedor");
     if (!contenedor) return;
 
     try {
-        const response = await fetch("http://localhost:1337/api/productos?populate=*");
+        const categoria = obtenerCategoria();
+
+        let url = "http://localhost:1337/api/productos?populate=*";
+
+        if (categoria) {
+            url += `&filters[Categoria][$eq]=${encodeURIComponent(categoria)}`;
+        }
+
+        const response = await fetch(url);
         const data = await response.json();
         const productos = data.data; // Los 4 productos de Strapi
 
