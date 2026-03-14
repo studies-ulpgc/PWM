@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lista_pedidos_realizados",
+  "info": {
+    "singularName": "lista-pedidos-realizado",
+    "pluralName": "lista-pedidos-realizados",
+    "displayName": "LISTA PEDIDOS REALIZADO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre_del_item": {
+      "type": "string"
+    },
+    "Selecciones": {
+      "type": "string"
+    },
+    "Precio": {
+      "type": "string"
+    },
+    "Foto_item": {
+      "type": "string"
+    },
+    "Estado": {
+      "type": "string"
+    }
+  }
+}

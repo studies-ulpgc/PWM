@@ -887,6 +887,39 @@ export interface ApiListaDeseadoListaDeseado
   };
 }
 
+export interface ApiListaPedidosRealizadoListaPedidosRealizado
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'lista_pedidos_realizados';
+  info: {
+    displayName: 'LISTA PEDIDOS REALIZADO';
+    pluralName: 'lista-pedidos-realizados';
+    singularName: 'lista-pedidos-realizado';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Estado: Schema.Attribute.String;
+    Foto_item: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lista-pedidos-realizado.lista-pedidos-realizado'
+    > &
+      Schema.Attribute.Private;
+    Nombre_del_item: Schema.Attribute.String;
+    Precio: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Selecciones: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
   collectionName: 'productos';
   info: {
@@ -1491,6 +1524,7 @@ declare module '@strapi/strapi' {
       'api::informacion.informacion': ApiInformacionInformacion;
       'api::internacional.internacional': ApiInternacionalInternacional;
       'api::lista-deseado.lista-deseado': ApiListaDeseadoListaDeseado;
+      'api::lista-pedidos-realizado.lista-pedidos-realizado': ApiListaPedidosRealizadoListaPedidosRealizado;
       'api::producto.producto': ApiProductoProducto;
       'api::ver-cesta.ver-cesta': ApiVerCestaVerCesta;
       'plugin::content-releases.release': PluginContentReleasesRelease;
