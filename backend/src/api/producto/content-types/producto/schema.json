@@ -48,6 +48,16 @@
     },
     "Subtitulo": {
       "type": "string"
+    },
+    "miniaturas": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

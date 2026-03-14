@@ -118,6 +118,24 @@ async function cargarProductoSeleccionado() {
         const conteoValoraciones = document.querySelector(".conteo-valoraciones");
         const puntuacionTotal = document.querySelector(".puntuacion-total");
 
+        const miniaturas = producto.miniaturas || [];
+        const elementosMiniatura = document.querySelectorAll(".miniatura");
+
+        miniaturas.forEach((img, i) => {
+
+            if (elementosMiniatura[i]) {
+
+                const url = `http://localhost:1337${img.url}`;
+
+                elementosMiniatura[i].src = url;
+
+                elementosMiniatura[i].addEventListener("click", () => {
+                    imagenPrincipal.src = url;
+                });
+
+            }
+
+        });
 
         if (nombre) nombre.textContent = producto.Descripcion;
         if (descripcion) descripcion.textContent = producto.Descripcion_larga;

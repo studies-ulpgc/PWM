@@ -811,6 +811,10 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
       'api::producto.producto'
     > &
       Schema.Attribute.Private;
+    miniaturas: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     Precio: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     Subtitulo: Schema.Attribute.String;
