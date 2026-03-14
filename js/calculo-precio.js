@@ -1,10 +1,10 @@
 const cartItems = [
-  { id: 1, name: "Nombre del item", opts: "Selecciones (color, talla)", price: 15, selected: true },
-  { id: 2, name: "Nombre del item", opts: "Selecciones (color, talla)", price: 15, selected: true },
-  { id: 3, name: "Nombre del item", opts: "Selecciones (color, talla)", price: 10, selected: true },
-  { id: 4, name: "Nombre del item", opts: "Selecciones (color, talla)", price: 10, selected: true },
-  { id: 5, name: "Nombre del item", opts: "Selecciones (color, talla)", price: 10, selected: true },
-  { id: 6, name: "Nombre del item", opts: "Selecciones (color, talla)", price: 10, selected: true },
+  { id: 1, price: 15, selected: true },
+  { id: 2, price: 15, selected: true },
+  { id: 3, price: 10, selected: true },
+  { id: 4, price: 10, selected: true },
+  { id: 5, price: 15, selected: true },
+  { id: 6, price: 15, selected: true },
 ];
 
 function formatEUR(value) {
@@ -52,7 +52,9 @@ function renderCart() {
       <div class="cart-check">
         <input type="checkbox" ${p.selected ? "checked" : ""} aria-label="Seleccionar ${p.name}">
       </div>
-      <div class="cart-thumb" aria-hidden="true"></div>
+      <div class="cart-thumb">
+        ${p.img ? `<img src="${p.img}" alt="${p.name}">` : ""}
+      </div>
       <div class="cart-info">
         <h3>${p.name}</h3>
         <p>${p.opts}</p>
@@ -72,4 +74,45 @@ function renderCart() {
   updateTotal();
 }
 
-renderCart();
+function getImageUrl(item) {
+  if (!item?.Imagen_item || !Array.isArray(item.Imagen_item) || item.Imagen_item.length === 0) {
+    return "";
+  }
+
+  const url = item.Imagen_item[0].url;
+  return url ? `http://localhost:1337${url}` : "";
+}
+
+async function cargarCartDesdeStrapi() {
+  try {
+    const response = await fetch("http://localhost:1337/api/ver-cestas?populate=*");
+    const data = await response.json();
+
+    console.log("Respuesta completa de Strapi:", data);
+    console.log("Primer item:", data?.data?.[0]);
+
+    const items = data?.data || [];
+
+    if (items.length === 0) {
+      console.warn("La colección ver-cesta está vacía");
+      renderCart();
+      return;
+    }
+
+    cartItems.forEach((cartItem, i) => {
+      const item = items[i % items.length];
+
+      cartItem.name = item.Nombre_del_item || "Sin nombre";
+      cartItem.opts = item.Selecciones || "";
+      cartItem.img = getImageUrl(item);
+
+      console.log("URL imagen:", cartItem.img);
+    });
+
+    renderCart();
+  } catch (error) {
+    console.error("Error cargando ver-cesta:", error);
+  }
+}
+
+cargarCartDesdeStrapi();
