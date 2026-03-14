@@ -153,3 +153,81 @@
   font-style: var(--body-base-font-style);
   color: var(--color-text-default-default);
 }
+
+/* -------------------- MÓVIL (≤768px) -------------------- */
+@media (max-width: 768px) {
+  .menu-filtro {
+    display: none;
+  }
+
+  .main {
+    flex-direction: column;  /* galería ocupa todo el ancho */
+    gap: 20px;
+  }
+
+  .galeria-de-3 {
+    grid-template-columns: repeat(2, 1fr); /* 2 fotos visibles */
+    justify-items: center;   /* centramos las fotos */
+    max-height: none;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .galeria {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .scroll-vertical {
+    max-width: 100%;
+    margin: 10px auto 0;
+    gap: 20px;
+  }
+}
+
+/* -------------------- TABLET (769px a 1024px) -------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-filtro {
+    display: block;
+    width: 250px;
+    flex-shrink: 0;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;              /* evita desbordamiento */
+    justify-content: flex-start;  /* galería al lado del menú */
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .galeria-de-3 {
+    flex: 1;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    padding: 10px;       /* menos padding para tablet */
+    gap: 15px;           /* menos gap entre fotos */
+    max-width: calc(100% - 260px); /* espacio para menú */
+    box-sizing: border-box;
+  }
+}
+
+/* -------------------- ESCRITORIO (≥1025px) -------------------- */
+@media (min-width: 1025px) {
+  .menu-filtro {
+    display: block;
+    width: 355px;
+  }
+
+  .main {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .galeria-de-3 {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    gap: 30px;
+  }
+}
