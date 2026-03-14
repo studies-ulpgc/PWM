@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "imagen_izqs",
+  "info": {
+    "singularName": "imagen-izq",
+    "pluralName": "imagen-izqs",
+    "displayName": "imagen izq"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagen_lateral": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -751,6 +751,37 @@ export interface ApiHeaderHeader extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiImagenIzqImagenIzq extends Struct.SingleTypeSchema {
+  collectionName: 'imagen_izqs';
+  info: {
+    displayName: 'imagen izq';
+    pluralName: 'imagen-izqs';
+    singularName: 'imagen-izq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imagen_lateral: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::imagen-izq.imagen-izq'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInternacionalInternacional
   extends Struct.CollectionTypeSchema {
   collectionName: 'internacionals';
@@ -1385,6 +1416,7 @@ declare module '@strapi/strapi' {
       'api::formato-de-pago.formato-de-pago': ApiFormatoDePagoFormatoDePago;
       'api::global.global': ApiGlobalGlobal;
       'api::header.header': ApiHeaderHeader;
+      'api::imagen-izq.imagen-izq': ApiImagenIzqImagenIzq;
       'api::internacional.internacional': ApiInternacionalInternacional;
       'api::producto.producto': ApiProductoProducto;
       'api::ver-cesta.ver-cesta': ApiVerCestaVerCesta;
