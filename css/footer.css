@@ -1,7 +1,8 @@
 .main-footer {
-  width: 1164px;
+  max-width: 1164px;
+  width: 100%;
+  padding: 40px 20px;
   margin: 0 auto;
-  padding: 40px 0;
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #000000;
@@ -189,4 +190,62 @@
     background-color: #f5f5f5;
     border-radius: 4px;
     padding: 4px;
+}
+
+@media (max-width: 1024px) {
+
+  .main-footer {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contenedor-info {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .acciones-footer {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .main-footer {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contenedor-info {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .acciones-footer {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 25px;
+  }
+
+  .selectores {
+    grid-column: auto;
+    grid-row: auto;
+    margin-top: 0;
+  }
+
+  .metodos-pago {
+    align-items: flex-start;
+  }
+
+  .cuadricula-pagos {
+    max-width: 220px;
+  }
+
+  .iconos-sociales {
+    gap: 12px;
+  }
+
 }

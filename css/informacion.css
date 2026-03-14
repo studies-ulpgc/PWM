@@ -106,16 +106,6 @@
   flex: 1;
 }
 
-@media (max-width: 1024px) {
-  .tarjetas {
-    gap: 32px;
-  }
-
-  .tarjeta-txt {
-    font-size: 36px;
-  }
-}
-
 /* -------------------- TABLET (≤1024px) -------------------- */
 @media (max-width: 1024px) {
 
