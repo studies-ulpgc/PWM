@@ -80,6 +80,8 @@ function inicializarHeader() {
             const nombreGuardado = sessionStorage.getItem('userName') || 'Usuario';
             const strong = userPopup.querySelector('strong');
             if (strong) strong.innerText = nombreGuardado;
+            const profileName = document.getElementById('user-name-display');
+            if (profileName) profileName.innerText = nombreGuardado;
         }
         
         userPopup.addEventListener('click', (e) => e.stopPropagation());
