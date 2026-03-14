@@ -109,3 +109,30 @@
   transform: scale(0.99);
 }
 
+/* -------------------- MÓVIL (≤768px) -------------------- */
+@media (max-width: 768px) {
+
+  .pagina-split {
+    grid-template-columns: 1fr; /* solo una columna */
+    margin-top: 10px;
+  }
+
+  .contenedor-foto {
+    display: none; /* ocultamos la imagen izquierda */
+  }
+
+  .seccion-formulario {
+    padding: 30px 20px; /* menos padding para móvil */
+    align-items: center; /* centramos el formulario */
+  }
+
+  .contacto-principal {
+    max-width: 100%;
+  }
+
+  .fila-doble {
+    flex-direction: column; /* inputs uno debajo de otro */
+    gap: 16px;
+  }
+
+}
