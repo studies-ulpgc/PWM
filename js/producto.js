@@ -9,10 +9,11 @@ async function cargarProductosDesdeStrapi() {
 
     try {
         const categoria = obtenerCategoria();
+        const categoriasValidas = ["Camisas", "Chaquetas"];
 
         let url = "http://localhost:1337/api/productos?populate=*";
 
-        if (categoria) {
+        if (categoria && categoriasValidas.includes(categoria)) {
             url += `&filters[Categoria][$eq]=${encodeURIComponent(categoria)}`;
         }
 

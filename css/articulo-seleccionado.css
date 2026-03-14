@@ -418,9 +418,9 @@
   height: 106px;
 }
 
-.articulo-seleccionado .miniatura-extra-1 { left: 0; }
-.articulo-seleccionado .miniatura-extra-2 { left: 114px; }
-.articulo-seleccionado .miniatura-extra-3 { left: 228px; }
+.articulo-seleccionado .miniatura-extra-1 { left: 0; filter: hue-rotate(120deg) saturate(20%) brightness(80%); }
+.articulo-seleccionado .miniatura-extra-2 { left: 114px; filter: hue-rotate(120deg) saturate(20%) brightness(60%); }
+.articulo-seleccionado .miniatura-extra-3 { left: 228px; filter: hue-rotate(120deg) saturate(20%) brightness(40%);}
 
 .articulo-seleccionado .miniatura-extra-1:hover { border: 1px solid #999; }
 .articulo-seleccionado .miniatura-extra-2:hover { border: 1px solid #999; }
