@@ -969,6 +969,38 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductosPagarProductosPagar
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'productos_pagars';
+  info: {
+    displayName: 'PAGAR';
+    pluralName: 'productos-pagars';
+    singularName: 'productos-pagar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imagenes: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::productos-pagar.productos-pagar'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVerCestaVerCesta extends Struct.CollectionTypeSchema {
   collectionName: 'ver_cestas';
   info: {
@@ -1529,6 +1561,7 @@ declare module '@strapi/strapi' {
       'api::lista-deseado.lista-deseado': ApiListaDeseadoListaDeseado;
       'api::lista-pedidos-realizado.lista-pedidos-realizado': ApiListaPedidosRealizadoListaPedidosRealizado;
       'api::producto.producto': ApiProductoProducto;
+      'api::productos-pagar.productos-pagar': ApiProductosPagarProductosPagar;
       'api::ver-cesta.ver-cesta': ApiVerCestaVerCesta;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
