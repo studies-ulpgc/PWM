@@ -20,11 +20,18 @@
     "Precio": {
       "type": "string"
     },
-    "Foto_item": {
-      "type": "string"
-    },
     "Estado": {
       "type": "string"
+    },
+    "Foto_item": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

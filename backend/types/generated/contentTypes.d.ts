@@ -903,7 +903,10 @@ export interface ApiListaPedidosRealizadoListaPedidosRealizado
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     Estado: Schema.Attribute.String;
-    Foto_item: Schema.Attribute.String;
+    Foto_item: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
