@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "idioma": {
-      "type": "string"
-    },
     "localizacion": {
       "type": "string"
     },

@@ -751,6 +751,34 @@ export interface ApiHeaderHeader extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiIdiomaIdioma extends Struct.CollectionTypeSchema {
+  collectionName: 'idiomas';
+  info: {
+    displayName: 'IDIOMA';
+    pluralName: 'idiomas';
+    singularName: 'idioma';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    idioma: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::idioma.idioma'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiImagenIzqImagenIzq extends Struct.SingleTypeSchema {
   collectionName: 'imagen_izqs';
   info: {
@@ -837,7 +865,6 @@ export interface ApiInternacionalInternacional
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    idioma: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizacion: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
@@ -984,10 +1011,6 @@ export interface ApiProductosPagarProductosPagar
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    imagenes: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1555,6 +1578,7 @@ declare module '@strapi/strapi' {
       'api::formato-de-pago.formato-de-pago': ApiFormatoDePagoFormatoDePago;
       'api::global.global': ApiGlobalGlobal;
       'api::header.header': ApiHeaderHeader;
+      'api::idioma.idioma': ApiIdiomaIdioma;
       'api::imagen-izq.imagen-izq': ApiImagenIzqImagenIzq;
       'api::informacion.informacion': ApiInformacionInformacion;
       'api::internacional.internacional': ApiInternacionalInternacional;
