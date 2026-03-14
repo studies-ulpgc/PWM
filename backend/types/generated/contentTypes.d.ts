@@ -816,6 +816,41 @@ export interface ApiInternacionalInternacional
   };
 }
 
+export interface ApiListaDeseadoListaDeseado
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'lista_deseados';
+  info: {
+    displayName: 'LISTA DESEADO';
+    pluralName: 'lista-deseados';
+    singularName: 'lista-deseado';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Foto_item: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lista-deseado.lista-deseado'
+    > &
+      Schema.Attribute.Private;
+    Nombre_del_item: Schema.Attribute.String;
+    Precio: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Selecciones: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
   collectionName: 'productos';
   info: {
@@ -1418,6 +1453,7 @@ declare module '@strapi/strapi' {
       'api::header.header': ApiHeaderHeader;
       'api::imagen-izq.imagen-izq': ApiImagenIzqImagenIzq;
       'api::internacional.internacional': ApiInternacionalInternacional;
+      'api::lista-deseado.lista-deseado': ApiListaDeseadoListaDeseado;
       'api::producto.producto': ApiProductoProducto;
       'api::ver-cesta.ver-cesta': ApiVerCestaVerCesta;
       'plugin::content-releases.release': PluginContentReleasesRelease;
