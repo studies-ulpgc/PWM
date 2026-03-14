@@ -259,13 +259,10 @@
 }
 
 .mini-producto {
-    flex: 0 0 80px !important; 
+    width: 80px;
     height: 80px;
-    background: #F0F0F0;
+    flex: 0 0 80px;
+    background-color: #F0F0F0;
     border-radius: 4px;
-    flex: 0 0 auto;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-shrink: 0;
 }
