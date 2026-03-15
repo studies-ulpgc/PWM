@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+async function cargarFootersDesdeStrapi() {
     const STRAPI_URL = "http://localhost:1337";
 
     const selectores = document.querySelectorAll(".selector-personalizado .dropdown");
@@ -48,4 +48,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (error) {
         console.error("Error cargando el footer desde Strapi:", error);
     }
-});
+};
