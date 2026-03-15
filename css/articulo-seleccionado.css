@@ -494,3 +494,325 @@
 .articulo-seleccionado .boton-compra:active {
   transform: scale(0.99);
 }
+
+/* Empieza el responsive (se junta) */
+@media (max-width: 1400px) {
+  .articulo-seleccionado {
+    height: auto;
+    padding: 0 20px 40px;
+  }
+
+  .articulo-seleccionado .contenedor-principal {
+    width: 100%;
+    max-width: 1280px;
+    height: 1700px;
+    margin: 0 auto;
+    overflow-y: visible;
+  }
+
+  .articulo-seleccionado .seccion-imagenes {
+    left: 0;
+    width: 48%;
+    max-width: 651px;
+  }
+
+  .articulo-seleccionado .imagen-principal {
+    left: 96px;
+    width: calc(100% - 96px);
+    height: auto;
+    aspect-ratio: 537 / 720;
+    object-fit: cover;
+  }
+
+  .articulo-seleccionado .informacion-producto {
+    left: 52%;
+    width: 48%;
+    max-width: 630px;
+    height: auto;
+  }
+
+  .articulo-seleccionado .descripcion-texto {
+    width: 100%;
+  }
+
+  .articulo-seleccionado .opciones-seleccion {
+    width: 100%;
+  }
+
+  .articulo-seleccionado .grupo-checkbox {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .articulo-seleccionado .boton-compra {
+    width: 100%;
+    max-width: 622px;
+  }
+
+  .articulo-seleccionado .capa-fondo-negro {
+    width: calc(100% - 104px);
+  }
+
+  .articulo-seleccionado .capa-fondo-blanco {
+    left: auto;
+    right: 0;
+  }
+
+  .articulo-seleccionado .texto-boton {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .articulo-seleccionado .icono-favoritos {
+    left: auto;
+    right: 32px;
+  }
+
+  .articulo-seleccionado .icono-cantidad {
+    left: auto;
+    right: 12px;
+  }
+
+  .articulo-seleccionado .seccion-valoraciones {
+    top: 760px;
+    left: 0;
+    width: 58%;
+    max-width: 841px;
+    height: auto;
+  }
+
+  .articulo-seleccionado .resumen-valoracion {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .articulo-seleccionado .listado-comentarios {
+    margin-left: 0;
+    width: 100%;
+    max-width: 701px;
+  }
+
+  .articulo-seleccionado .titulo-galeria {
+    top: 760px;
+    left: 62%;
+  }
+
+  .articulo-seleccionado .galeria-relacionados {
+    top: 806px;
+    left: 62%;
+    width: 38%;
+    max-width: 610px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .articulo-seleccionado {
+    height: auto;
+    padding: 0 16px 32px;
+  }
+
+  .articulo-seleccionado .contenedor-principal {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    position: static;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .articulo-seleccionado .seccion-imagenes {
+    order: 1;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 651px;
+    height: 720px;
+    margin: 0 auto;
+  }
+
+  .articulo-seleccionado .informacion-producto {
+    order: 2;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 630px;
+    height: 712px;
+    margin: 0 auto;
+  }
+
+  .articulo-seleccionado .seccion-valoraciones {
+    order: 3;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 841px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .articulo-seleccionado .titulo-galeria {
+    order: 4;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 610px;
+    margin: 0 auto;
+  }
+
+  .articulo-seleccionado .galeria-relacionados {
+    order: 5;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 610px;
+    height: auto;
+    max-height: none;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .articulo-seleccionado .listado-comentarios {
+    position: relative;
+    top: auto;
+    width: 100%;
+    max-width: 701px;
+    height: auto;
+    max-height: 642px;
+    margin-left: 0;
+  }
+}
+
+/* Móvil */
+@media (max-width: 640px) {
+  .articulo-seleccionado .informacion-producto {
+    height: auto;
+    min-height: 712px;
+  }
+
+  .articulo-seleccionado .seccion-imagenes {
+    height: auto;
+  }
+
+  .articulo-seleccionado .imagen-principal {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 537 / 720;
+    object-fit: cover;
+    margin-bottom: 16px;
+  }
+
+  .articulo-seleccionado .galeria-miniaturas {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: none;
+    gap: 10px;
+  }
+
+  .articulo-seleccionado .miniatura {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 76 / 106;
+  }
+
+  .articulo-seleccionado .rating-visual {
+    left: auto;
+    right: 0;
+    width: 150px;
+    height: auto;
+  }
+
+  .articulo-seleccionado .precio-producto {
+    font-size: 28px;
+  }
+
+  .articulo-seleccionado .entero {
+    font-size: 28px;
+  }
+
+  .articulo-seleccionado .decimal {
+    font-size: 18px;
+  }
+
+  .articulo-seleccionado .eslogan-secundario {
+    width: calc(100% - 10px);
+    white-space: normal;
+  }
+
+  .articulo-seleccionado .grupo-checkbox {
+    gap: 8px;
+  }
+
+  .articulo-seleccionado .campo-checkbox {
+    width: calc(50% - 8px);
+  }
+
+  .articulo-seleccionado .boton-compra {
+    height: 72px;
+  }
+
+  .articulo-seleccionado .capa-fondo-negro {
+    height: 72px;
+  }
+
+  .articulo-seleccionado .capa-fondo-blanco {
+    width: 88px;
+    height: 72px;
+  }
+
+  .articulo-seleccionado .texto-boton {
+    top: 22px;
+    font-size: 18px;
+    line-height: 24px;
+    white-space: normal;
+  }
+
+  .articulo-seleccionado .miniatura-extra-1,
+  .articulo-seleccionado .miniatura-extra-2,
+  .articulo-seleccionado .miniatura-extra-3 {
+    width: 64px;
+    height: 90px;
+  }
+
+  .articulo-seleccionado .resumen-valoracion {
+    height: auto;
+    min-height: 260px;
+  }
+
+  .articulo-seleccionado .nombre-usuario {
+    left: 0;
+    top: 205px;
+    font-size: 20px;
+  }
+
+  .articulo-seleccionado .estrellas-usuario {
+    left: 0;
+    top: 238px;
+    width: 220px;
+    height: auto;
+  }
+
+  .articulo-seleccionado .conteo-valoraciones {
+    font-size: 20px;
+  }
+
+  .articulo-seleccionado .porcentaje-texto,
+  .articulo-seleccionado .nivel-numero {
+    font-size: 18px;
+  }
+
+  .articulo-seleccionado .galeria-relacionados {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+  }
+}
