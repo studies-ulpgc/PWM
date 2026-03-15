@@ -109,6 +109,25 @@
   transform: scale(0.99);
 }
 
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.error-text {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+    display: none;
+}
+
+.input-error {
+    border: 2px solid #ff0000 !important;
+}
+
 /* -------------------- MÓVIL (≤768px) -------------------- */
 @media (max-width: 768px) {
 
