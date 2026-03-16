@@ -41,7 +41,7 @@ async function cargarCategorias() {
         const templateHTML = await response.text();
         contenedor.innerHTML = templateHTML;
         contenedor.style.display = "block";
-        cargarCategoriasDesdeStrapi();
+        cargarCategoriasDesdeJSON();
     } catch (error) {
         console.error("Error cargando categorias:", error);
     }
@@ -120,7 +120,7 @@ function inicializarHeader() {
         if (contenedorcategorias) contenedorcategorias.style.display = "none";
     });
     
-    cargarHeadersDesdeStrapi();
+    cargarHeadersDesdeJSON();
 }
 
 function inicializarProductos() {
@@ -231,18 +231,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (esHome){cargarCarrusel();}
 
     cargarComponente('header', headerArchivo, inicializarHeader);
-    cargarComponente('footer', '../html/footer.html', cargarFootersDesdeStrapi);
+    cargarComponente('footer', '../html/footer.html', cargarFootersDesdeJSON);
 
     if (document.getElementById('productos-contenedor')) {
         cargarElementosRepetidos('productos-contenedor', '../html/producto.html', 12).then(() => {
             inicializarProductos();
-            cargarProductosDesdeStrapi();
+            cargarProductosDesdeJSON();
         });
     }
     if (document.getElementById('comentarios-contenedor')) {
         cargarElementosRepetidos('comentarios-contenedor', '../html/comentario.html', 12).then(() => {
             inicializarComentarios();
-            cargarComentariosDesdeStrapi();
+            cargarComentariosDesdeJSON();
         });
     }
 
@@ -250,18 +250,18 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarComponente('similares', '../html/similares.html').then(() => {
         cargarElementosRepetidos('productos-contenedor', '../html/producto.html', 12).then(() => {
             inicializarProductos();
-            cargarProductosDesdeStrapi();
+            cargarProductosDesdeJSON();
         });
     });
     }
     
     if (document.querySelector(".deseados-track")) {
-        cargarListaDeseadosDesdeStrapi();
+        cargarListaDeseadosDesdeJSON();
     }
 
     if (document.querySelector(".pedidos-track")) {
         inicializarFiltroPedidos();
-        cargarListaPedidosRealizadosDesdeStrapi();
+        cargarListaPedidosRealizadosDesdeJSON();
     }
 
     if (document.body.id === "articulo-seleccionado") {
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (document.body.id === "pagar") {
         inicializarPagar();
-        cargarProductosParaPagarDesdeStrapi();
+        cargarProductosParaPagarDesdeJSON();
     }
 });
 

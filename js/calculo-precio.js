@@ -78,10 +78,9 @@ function getImageUrl(item) {
   return url ? `http://localhost:1337${url}` : "";
 }
 
-async function cargarCartDesdeStrapi() {
+async function cargarCartDesdeJSON() {
   try {
 
-    /* AHORA CARGA LOS PRODUCTOS */
     const response = await fetch("http://localhost:1337/api/productos?populate=*");
     const data = await response.json();
 
@@ -131,5 +130,5 @@ function getRandomColor() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  cargarCartDesdeStrapi();
+  cargarCartDesdeJSON();
 });

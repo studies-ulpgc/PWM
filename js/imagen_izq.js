@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    await cargarProductosParaPagarDesdeStrapi();
-    await cargarImagenLateralDesdeStrapi();
+    await cargarProductosParaPagarDesdeJSON();
+    await cargarImagenLateralDesdeJSON();
 });
 
-async function cargarImagenLateralDesdeStrapi() {
-    const STRAPI_URL = "http://localhost:1337";
-    const imgElement = document.getElementById("foto-strapi");
+async function cargarImagenLateralDesdeJSON() {
+    const JSON_URL = "http://localhost:1337";
+    const imgElement = document.getElementById("foto-json");
 
     if (!imgElement) return;
 
     try {
-        const response = await fetch(`${STRAPI_URL}/api/imagen-izq?populate=*`);
+        const response = await fetch(`${JSON_URL}/api/imagen-izq?populate=*`);
         const result = await response.json();
         
         const contenido = result.data;
@@ -18,7 +18,7 @@ async function cargarImagenLateralDesdeStrapi() {
         const fotoUrl = contenido?.imagen_lateral?.[0]?.url;
 
         if (fotoUrl) {
-            const rutaCompleta = `${STRAPI_URL}${fotoUrl}`;
+            const rutaCompleta = `${JSON_URL}${fotoUrl}`;
             
             imgElement.src = rutaCompleta;
             
@@ -27,7 +27,7 @@ async function cargarImagenLateralDesdeStrapi() {
                 imgElement.style.opacity = "1";
             };
         } else {
-            console.warn("No se encontró la imagen_lateral en Strapi");
+            console.warn("No se encontró la imagen_lateral en JSON");
         }
 
     } catch (error) {
@@ -35,14 +35,14 @@ async function cargarImagenLateralDesdeStrapi() {
     }
 }
 
-async function cargarProductosParaPagarDesdeStrapi() {
-    const STRAPI_URL = "http://localhost:1337";
+async function cargarProductosParaPagarDesdeJSON() {
+    const JSON_URL = "http://localhost:1337";
     const track = document.querySelector(".scroll-hor");
     
     if (!track) return;
 
     try {
-        const response = await fetch(`${STRAPI_URL}/api/productos-pagars?populate=*`);
+        const response = await fetch(`${JSON_URL}/api/productos-pagars?populate=*`);
         const data = await response.json();
         const items = data?.data || [];
         const tarjetas = track.querySelectorAll(".mini-producto");
@@ -52,7 +52,7 @@ async function cargarProductosParaPagarDesdeStrapi() {
         tarjetas.forEach((tarjeta, i) => {
             const item = items[i % items.length]; 
             if (item && item.imagenes?.[0]?.url) {
-                const fotoUrl = `${STRAPI_URL}${item.imagenes[0].url}`;
+                const fotoUrl = `${JSON_URL}${item.imagenes[0].url}`;
                 tarjeta.style.backgroundImage = `url('${fotoUrl}')`;
                 tarjeta.style.backgroundSize = "cover";
                 tarjeta.style.backgroundPosition = "center";

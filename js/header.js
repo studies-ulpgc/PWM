@@ -1,5 +1,5 @@
 
-async function cargarHeadersDesdeStrapi() {
+async function cargarHeadersDesdeJSON() {
     try {
         const response = await fetch("http://localhost:1337/api/headers");
         const data = await response.json();
@@ -27,7 +27,7 @@ async function cargarHeadersDesdeStrapi() {
     }
 }
 
-async function cargarCategoriasDesdeStrapi() {
+async function cargarCategoriasDesdeJSON() {
     try {
         const response = await fetch("http://localhost:1337/api/categorias");
         const data = await response.json();
@@ -48,6 +48,6 @@ async function cargarCategoriasDesdeStrapi() {
         });
 
     } catch (error) {
-        console.error("Error cargando categorias desde Strapi:", error);
+        console.error("Error cargando categorias:", error);
     }
 }

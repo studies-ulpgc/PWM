@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const STRAPI_URL = "http://localhost:1337";
+    const JSON_URL = "http://localhost:1337";
     const params = new URLSearchParams(window.location.search);
     
     const slug = params.get("tipo") || "historia"; 
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Buscando contenido para el slug:", slug);
 
     try {
-        const response = await fetch(`${STRAPI_URL}/api/informacions?filters[slug][$eq]=${slug}&populate[Contenido][populate]=*`);
+        const response = await fetch(`${JSON_URL}/api/informacions?filters[slug][$eq]=${slug}&populate[Contenido][populate]=*`);
         const result = await response.json();
         
         const pagina = result.data[0];
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (bloque.__component.includes("tarjeta-informativa")) {
                 const div = document.createElement("div");
                 div.className = "tarjeta";
-                const imgUrl = bloque.imagen?.url ? `${STRAPI_URL}${bloque.imagen.url}` : '';
+                const imgUrl = bloque.imagen?.url ? `${JSON_URL}${bloque.imagen.url}` : '';
                 
                 div.innerHTML = `
                     <div class="tarjeta-img" style="background-image: url('${imgUrl}')"></div>
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 
                 if (bloque.imagen?.url) {
                     const imgElement = document.getElementById("featured-img");
-                    imgElement.style.backgroundImage = `url('${STRAPI_URL}${bloque.imagen.url}')`;
+                    imgElement.style.backgroundImage = `url('${JSON_URL}${bloque.imagen.url}')`;
                     
                     imgElement.style.backgroundSize = "cover";
                     imgElement.style.backgroundPosition = "center";
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
     } catch (error) {
-        console.error("Error cargando Strapi:", error);
+        console.error("Error cargando JSON:", error);
         document.getElementById("main-title").textContent = "Error de conexión";
     }
 });

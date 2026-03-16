@@ -1,4 +1,4 @@
-async function cargarComentariosDesdeStrapi() {
+async function cargarComentariosDesdeJSON() {
     const contenedor = document.getElementById("comentarios-contenedor");
     if (!contenedor) return;
 

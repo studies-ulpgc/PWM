@@ -3,7 +3,7 @@ function obtenerCategoria() {
     return params.get("categoria");
 }
 
-async function cargarProductosDesdeStrapi() {
+async function cargarProductosDesdeJSON() {
     const contenedor = document.getElementById("productos-contenedor");
     if (!contenedor) return;
 

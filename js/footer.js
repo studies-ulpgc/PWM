@@ -1,5 +1,5 @@
-async function cargarFootersDesdeStrapi() {
-    const STRAPI_URL = "http://localhost:1337";
+async function cargarFootersDesdeJSON() {
+    const JSON_URL = "http://localhost:1337";
 
     const selectores = document.querySelectorAll(".selector-personalizado .dropdown");
     const contenedorLocalizacion = selectores[0];
@@ -8,7 +8,7 @@ async function cargarFootersDesdeStrapi() {
     if (!contenedorLocalizacion || !contenedorIdioma) return;
 
     try {
-        const resInt = await fetch(`${STRAPI_URL}/api/internacionals?populate=*`);
+        const resInt = await fetch(`${JSON_URL}/api/internacionals?populate=*`);
         const dataInt = await resInt.json();
         const lugares = dataInt?.data || [];
 
@@ -21,7 +21,7 @@ async function cargarFootersDesdeStrapi() {
                 li.style.gap = "10px";
 
                 const banderaUrl = item.bandera?.[0]?.url 
-                    ? `${STRAPI_URL}${item.bandera[0].url}` 
+                    ? `${JSON_URL}${item.bandera[0].url}` 
                     : "";
 
                 li.innerHTML = `
@@ -32,7 +32,7 @@ async function cargarFootersDesdeStrapi() {
             });
         }
 
-        const resIdio = await fetch(`${STRAPI_URL}/api/idiomas?populate=*`);
+        const resIdio = await fetch(`${JSON_URL}/api/idiomas?populate=*`);
         const dataIdio = await resIdio.json();
         const idiomas = dataIdio?.data || [];
 
@@ -46,6 +46,6 @@ async function cargarFootersDesdeStrapi() {
         }
 
     } catch (error) {
-        console.error("Error cargando el footer desde Strapi:", error);
+        console.error("Error cargando el footer desde JSON:", error);
     }
 };

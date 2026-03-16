@@ -1,5 +1,5 @@
 
-async function cargarListaPedidosRealizadosDesdeStrapi() {
+async function cargarListaPedidosRealizadosDesdeJSON() {
     const track = document.querySelector(".pedidos-track");
     if (!track) return;
 

@@ -1,4 +1,4 @@
-async function cargarListaDeseadosDesdeStrapi() {
+async function cargarListaDeseadosDesdeJSON() {
     const track = document.querySelector(".deseados-track");
     if (!track) return;
 
