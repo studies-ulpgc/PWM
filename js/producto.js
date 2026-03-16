@@ -19,16 +19,11 @@ async function cargarProductosDesdeStrapi() {
 
         const response = await fetch(url);
         const data = await response.json();
-        const productos = data.data; // Los 4 productos de Strapi
-
-        // Seleccionamos TODAS las tarjetas que dibujaste en el HTML
+        const productos = data.data;
         const tarjetas = contenedor.querySelectorAll(".producto");
 
-        // Recorremos las tarjetas del HTML (por ejemplo, las 12 que tengas)
         tarjetas.forEach((tarjeta, i) => {
             
-            // Aquí está el truco: 
-            // Si i=0, usa producto 0. Si i=4 y solo hay 4, usa el 0 otra vez (4 % 4 = 0)
             const producto = productos[i % productos.length];
 
             const descripcion = tarjeta.querySelector(".descripcion");
@@ -38,17 +33,14 @@ async function cargarProductosDesdeStrapi() {
             const valoracion = tarjeta.querySelector(".valoracion");
             const link = tarjeta.querySelector("a.informacion-producto");
 
-            // Rellenamos la tarjeta con el producto que toque en el "bucle"
             if (descripcion) descripcion.textContent = producto.Descripcion;
 
-            // Precio
             if (precioEntero && precioDecimal) {
                 const precio = producto.Precio.replace("€", "").trim().split(".");
                 precioEntero.textContent = precio[0];
                 precioDecimal.textContent = precio[1] || "00";
             }
 
-            // Imagen de fondo
             const foto = producto.Foto?.[0]?.url;
             if (foto && imagen) {
                 imagen.style.backgroundImage = `url(http://localhost:1337${foto})`;
@@ -56,7 +48,6 @@ async function cargarProductosDesdeStrapi() {
                 imagen.style.backgroundPosition = "center";
             }
 
-            // Valoración (estrellas)
             const estrellas = producto.Valoracion?.[0]?.url;
             if (estrellas && valoracion) {
                 valoracion.src = `http://localhost:1337${estrellas}`;
@@ -83,9 +74,8 @@ async function cargarCarrusel() {
         const productos = data.data;
 
         contenedores.forEach(contenedor => {
-            contenedor.innerHTML = ""; // Limpiamos el HTML estático
-            
-            // Creamos 6 elementos (repitiendo si hace falta)
+            contenedor.innerHTML = "";
+
             for (let i = 0; i < 6; i++) {
                 const producto = productos[i % productos.length];
                 const fotoUrl = producto.Foto?.[0]?.url;
@@ -127,7 +117,7 @@ async function cargarProductoSeleccionado() {
         const precio = document.querySelector(".precio-producto");
         const imagenPrincipal = document.querySelector(".imagen-principal");
         const valoracion = document.querySelector(".rating-visual");
-        const subtitulo = document.querySelector(".eslogan-secundario"); // Usamos este para el subtítulo
+        const subtitulo = document.querySelector(".eslogan-secundario");
         const grupoCheckbox = document.querySelector(".grupo-checkbox");
         const conteoValoraciones = document.querySelector(".conteo-valoraciones");
         const puntuacionTotal = document.querySelector(".puntuacion-total");
@@ -176,7 +166,7 @@ async function cargarProductoSeleccionado() {
         }
 
         if (grupoCheckbox) {
-            grupoCheckbox.innerHTML = ""; // Limpiamos los checkbox existentes
+            grupoCheckbox.innerHTML = "";
             const tallas = producto.Talla?.split(",").map(t => t.trim()) || [];
             tallas.forEach(talla => {
                 const label = document.createElement("label");
@@ -197,7 +187,6 @@ async function cargarProductoSeleccionado() {
         }
 
         if (conteoValoraciones) {
-            // Reemplazamos el "00" por el número de votos del producto
             conteoValoraciones.textContent = `Valoraciones totales (${producto.Votos})`;
         }
 

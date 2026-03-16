@@ -120,7 +120,7 @@ function inicializarHeader() {
         if (contenedorcategorias) contenedorcategorias.style.display = "none";
     });
     
-    cargarHeadersDesdeStrapi(); // Se llama directamente después de que el header se haya cargado
+    cargarHeadersDesdeStrapi();
 }
 
 function inicializarProductos() {
@@ -269,7 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cargarProductoSeleccionado();
     }
 
-    inicializarPagar();
+    if (document.body.id === "pagar") {
+        inicializarPagar();
+        cargarProductosParaPagarDesdeStrapi();
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
