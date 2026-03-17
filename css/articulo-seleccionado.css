@@ -691,7 +691,7 @@
 }
 
 /* Móvil */
-@media (max-width: 640px) {
+@media (max-width: 460px) {
   .articulo-seleccionado .informacion-producto {
     height: auto;
     min-height: 712px;

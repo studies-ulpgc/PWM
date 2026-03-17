@@ -83,7 +83,7 @@
 /* -------------------- FOTO CARRUCEL -------------------- */
 
 /* Móvil: 375px */
-@media (max-width: 375px) {
+@media (max-width: 550px) {
   .home .foto {
     width: 770px;   /* más grande que antes */
     height: 386px;
@@ -104,8 +104,9 @@
 /* Tablet: 768px */
 @media (min-width: 376px) and (max-width: 768px) {
   .home .foto {
-    width: 770px;   /* más grande para tablet */
-    height: 386px;
+  width: 100%;
+  max-width: 770px;
+  height: auto;
   }
 
   .home .animation-container {
