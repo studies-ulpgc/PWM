@@ -1,0 +1,135 @@
+{
+  "data": [
+    {
+      "id": 5,
+      "titulo_pagina": "Nuestra Historia",
+      "slug": "historia",
+      "Contenido": [
+        {
+          "__component": "info.bloque-texto",
+          "cuerpo": "HAD nació en 2021 con una misión clara: redefinir la moda contemporánea combinando comodidad absoluta con un diseño vanguardista. Creemos que la ropa es una extensión de nuestra personalidad, por eso nos esforzamos en crear piezas versátiles que te acompañen desde una reunión matutina hasta una cena especial. Cada costura en HAD cuenta una historia de dedicación y pasión por el detalle."
+        },
+        {
+          "__component": "info.tarjeta-informativa",
+          "titulo": "Diseño Ético",
+          "imagen": { "url": "/uploads/diseno_etico_aebaa096f8.png" }
+        },
+        {
+          "__component": "info.tarjeta-informativa",
+          "titulo": "Calidad Premium",
+          "imagen": { "url": "/uploads/calidad_premium_66c6ea78c3.png" }
+        },
+        {
+          "__component": "info.tarjeta-informativa",
+          "titulo": "Moda Inclusiva",
+          "imagen": { "url": "/uploads/moda_inclusiva_fdd0bf9798.png" }
+        },
+        {
+          "__component": "info.seccion-destacada",
+          "titulo": "Compromiso HAD: Sostenibilidad real",
+          "descripcion": "No solo queremos que te veas bien, queremos que te sientas bien con lo que llevas puesto. El 80% de nuestras fibras son orgánicas o recicladas, y trabajamos mano a mano con talleres locales para reducir nuestra huella de carbono. Para HAD, el futuro de la moda es verde o no será.",
+          "imagen": { "url": "/uploads/reciclemos_3bba26ab8d.png" }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "titulo_pagina": "Términos y Condiciones de Venta",
+      "slug": "condiciones",
+      "Contenido": [
+        {
+          "__component": "info.bloque-texto",
+          "cuerpo": "Bienvenido a la plataforma de venta oficial de HAD. Al realizar un pedido con nosotros, aceptas nuestras políticas de servicio. Nos comprometemos a ofrecerte una experiencia transparente, segura y eficiente en cada paso de tu compra."
+        },
+        {
+          "__component": "info.seccion-destacada",
+          "titulo": "Envíos Internacionales y Soporte",
+          "descripcion": "Llevamos la moda de HAD a cualquier rincón del mundo. Realizamos envíos internacionales con un plazo de entrega de 5 a 12 días laborables, dependiendo del destino. Todos nuestros paquetes cuentan con número de seguimiento en tiempo real.",
+          "imagen": { "url": "/uploads/internacional_10f3924c27.png" }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "titulo_pagina": "¿Cómo podemos ayudarte?",
+      "slug": "ayuda",
+      "Contenido": [
+        {
+          "__component": "info.bloque-texto",
+          "cuerpo": "En HAD queremos que tu experiencia sea tan impecable como nuestras prendas. Aquí encontrarás respuesta a las dudas más comunes sobre tus pedidos, el cuidado de la ropa y el proceso de compra."
+        },
+        {
+          "__component": "info.seccion-destacada",
+          "titulo": "Guía de Tallas",
+          "descripcion": "Consulta nuestra tabla de medidas detallada para encontrar tu ajuste perfecto antes de comprar.",
+          "imagen": { "url": "/uploads/acercado_0d4bed5aeb.png" }
+        },
+        {
+          "__component": "info.seccion-destacada",
+          "titulo": "Estado del Pedido",
+          "descripcion": "Puedes consultar el estado de tu envío en tiempo real accediendo a tu cuenta.",
+          "imagen": { "url": "/uploads/esta_7775e0a73b.jpg" }
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "titulo_pagina": "Guia de tallas",
+      "slug": "guia de tallas",
+      "Contenido": [
+        {
+          "__component": "info.bloque-texto",
+          "cuerpo": "En HAD queremos que tu experiencia sea tan impecable como nuestras prendas. Aquí encontrarás respuesta a las dudas más comunes sobre tus pedidos, el cuidado de la ropa y el proceso de compra."
+        },
+        {
+          "__component": "info.seccion-destacada",
+          "titulo": "Guía de Tallas",
+          "descripcion": "Consulta nuestra tabla de medidas detallada para encontrar tu ajuste perfecto antes de comprar.",
+          "imagen": { "url": "/uploads/Captura_de_pantalla_2026_03_14_182049_9a9d05270b.png" }
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "titulo_pagina": "Estado del Pedido",
+      "slug": "estado",
+      "Contenido": [
+        {
+          "__component": "info.bloque-texto",
+          "cuerpo": "En HAD queremos que tu experiencia sea tan impecable como nuestras prendas..."
+        },
+        {
+          "__component": "info.seccion-destacada",
+          "titulo": "Estado del Pedido",
+          "descripcion": "Puedes consultar el estado de tu envío en tiempo real accediendo a tu cuenta desde el icono de usuario en el header.",
+          "imagen": { "url": "/uploads/Captura_de_pantalla_2026_03_14_182327_eabae21d52.png" }
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "titulo_pagina": "Cambios y Devoluciones",
+      "slug": "cambios",
+      "Contenido": [
+        {
+          "__component": "info.bloque-texto",
+          "cuerpo": "En HAD queremos que tu experiencia sea tan impecable como nuestras prendas..."
+        },
+        {
+          "__component": "info.seccion-destacada",
+          "titulo": "Cambios y Devoluciones",
+          "descripcion": "¿No es lo que esperabas? Tienes 30 días para solicitar un cambio o devolución a través del Formulario de Contacto.",
+          "imagen": { "url": "/uploads/Captura_de_pantalla_2026_03_14_190620_41b7f5d307.png" }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 6
+    }
+  }
+}

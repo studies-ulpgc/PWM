@@ -1,13 +1,12 @@
-
 async function cargarListaPedidosRealizadosDesdeJSON() {
     const track = document.querySelector(".pedidos-track");
     if (!track) return;
 
     try {
-        const response = await fetch("http://localhost:1337/api/lista-pedidos-realizados?populate=*");
+        const response = await fetch("../json/lista-pedidos-realizados.json");
         const data = await response.json();
 
-        console.log("Lista pedidos realizados:", data);
+        console.log("Lista pedidos realizados desde local:", data);
 
         const items = data?.data || [];
         const tarjetas = track.querySelectorAll(".pedido-item");
@@ -20,13 +19,12 @@ async function cargarListaPedidosRealizadosDesdeJSON() {
                 const estado = tarjeta.querySelector(".estado-valor");
                 const thumb = tarjeta.querySelector(".thumb");
 
-                if (nombre) nombre.textContent = "Sin nombre";
+                if (nombre) nombre.textContent = "Sin pedidos";
                 if (opts) opts.textContent = "";
                 if (precio) precio.textContent = "";
                 if (estado) estado.textContent = "";
                 if (thumb) thumb.innerHTML = "";
             });
-
             aplicarFiltroPedidos();
             return;
         }
@@ -46,7 +44,7 @@ async function cargarListaPedidosRealizadosDesdeJSON() {
             if (estado) estado.textContent = item.Estado || "";
 
             const fotoUrl = item.Foto_item?.[0]?.url
-                ? `http://localhost:1337${item.Foto_item[0].url}`
+                ? `..${item.Foto_item[0].url}`
                 : "";
 
             if (thumb) {

@@ -75,13 +75,13 @@ function getImageUrl(item) {
   }
 
   const url = item.Foto[0].url;
-  return url ? `http://localhost:1337${url}` : "";
+  return url ? `..${url}` : "";
 }
 
 async function cargarCartDesdeJSON() {
   try {
 
-    const response = await fetch("http://localhost:1337/api/productos?populate=*");
+    const response = await fetch("../json/producto.json");
     const data = await response.json();
 
     console.log("Productos:", data);

@@ -1,0 +1,61 @@
+{
+  "data": {
+    "id": 4,
+    "documentId": "haxgay1b7c0hoohgn5wdb0l9",
+    "createdAt": "2026-03-14T10:45:18.376Z",
+    "updatedAt": "2026-03-14T11:12:34.998Z",
+    "publishedAt": "2026-03-14T11:12:38.572Z",
+    "imagen_lateral": [
+      {
+        "id": 39,
+        "documentId": "zqebvifgwn3xoroy1wy12ith",
+        "name": "img_izq.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "focalPoint": null,
+        "width": 600,
+        "height": 730,
+        "formats": {
+          "small": {
+            "ext": ".jpg",
+            "url": "/uploads/small_img_izq_7efb9a8073.jpg",
+            "hash": "small_img_izq_7efb9a8073",
+            "mime": "image/jpeg",
+            "name": "small_img_izq.jpg",
+            "path": null,
+            "size": 18.37,
+            "width": 411,
+            "height": 500,
+            "sizeInBytes": 18370
+          },
+          "thumbnail": {
+            "ext": ".jpg",
+            "url": "/uploads/thumbnail_img_izq_7efb9a8073.jpg",
+            "hash": "thumbnail_img_izq_7efb9a8073",
+            "mime": "image/jpeg",
+            "name": "thumbnail_img_izq.jpg",
+            "path": null,
+            "size": 3.25,
+            "width": 128,
+            "height": 156,
+            "sizeInBytes": 3246
+          }
+        },
+        "hash": "img_izq_7efb9a8073",
+        "ext": ".jpg",
+        "mime": "image/jpeg",
+        "size": 33.07,
+        "url": "/uploads/img_izq_7efb9a8073.jpg",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2026-03-14T11:11:38.580Z",
+        "updatedAt": "2026-03-14T11:11:38.580Z",
+        "publishedAt": "2026-03-14T11:11:38.581Z"
+      }
+    ]
+  },
+  "meta": {
+
+  }
+}

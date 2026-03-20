@@ -3,7 +3,7 @@ async function cargarComentariosDesdeJSON() {
     if (!contenedor) return;
 
     try {
-        const response = await fetch("http://localhost:1337/api/comentarios?populate=*");
+        const response = await fetch("../json/comentario.json");
         const data = await response.json();
         const comentarios = data.data;
 
@@ -29,7 +29,7 @@ async function cargarComentariosDesdeJSON() {
 
             const estrellas = comentario.Valoracion?.[0]?.url;
             if (estrellas && valoracion) {
-                valoracion.src = `http://localhost:1337${estrellas}`;
+                valoracion.src = `..${estrellas}`;
             }
         });
 

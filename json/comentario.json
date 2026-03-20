@@ -1,0 +1,148 @@
+{
+  "data": [
+    {
+      "id": 15,
+      "documentId": "l1nipvpp86vtm471oaecs5cx",
+      "createdAt": "2026-03-12T01:04:43.981Z",
+      "updatedAt": "2026-03-13T13:48:06.983Z",
+      "publishedAt": "2026-03-13T13:48:10.871Z",
+      "Titulo": "El color se ajusta a la foto",
+      "Fecha": "11-17-2025",
+      "Texto": "Tallaje completo, en mi caso suelo usar una M y cogí la L por estar agotado y da bastante talla, no se ajusta al cuerpo en exceso.\nEl objetivo es emplearlo para un disfraz, por lo que cumple su función.",
+      "Valoracion": [
+        {
+          "id": 26,
+          "documentId": "p9uqkwq0zrm23h6rq0eno8h6",
+          "name": "5_estrellas_5.svg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 116,
+          "height": 20,
+          "formats": null,
+          "hash": "5_estrellas_5_25b9a3ca22",
+          "ext": ".svg",
+          "mime": "image/svg+xml",
+          "size": 0.8,
+          "url": "/uploads/5_estrellas_5_25b9a3ca22.svg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:47:14.231Z",
+          "updatedAt": "2026-03-11T22:47:14.231Z",
+          "publishedAt": "2026-03-11T22:47:14.231Z"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "documentId": "p7y0akiuk9czecfbahejr8x0",
+      "createdAt": "2026-03-12T01:55:10.707Z",
+      "updatedAt": "2026-03-13T13:52:02.982Z",
+      "publishedAt": "2026-03-13T13:52:06.739Z",
+      "Titulo": "Buen material, demasiado largas",
+      "Fecha": "01-01-2026",
+      "Texto": "Se nota que son de buen material. Es suave y la tela es algo fina, a pesar de que en las reseñas dicen justo lo contrario.\n\nPara mi gusto son demasiado largas.\n\nPor el precio y como camiseta interior no está mal.",
+      "Valoracion": [
+        {
+          "id": 28,
+          "documentId": "z3ujzhlhiq98na10a7mbn2f8",
+          "name": "3_estrellas_5.svg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 116,
+          "height": 19,
+          "formats": null,
+          "hash": "3_estrellas_5_fd94068794",
+          "ext": ".svg",
+          "mime": "image/svg+xml",
+          "size": 1.06,
+          "url": "/uploads/3_estrellas_5_fd94068794.svg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:47:14.304Z",
+          "updatedAt": "2026-03-11T22:48:27.659Z",
+          "publishedAt": "2026-03-11T22:47:14.304Z"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "documentId": "sqn65xugg1yf0w0dlzwoobtt",
+      "createdAt": "2026-03-12T01:57:24.459Z",
+      "updatedAt": "2026-03-13T13:58:47.931Z",
+      "publishedAt": "2026-03-13T13:58:51.832Z",
+      "Titulo": "Muy recomendable",
+      "Fecha": "02-10-2026",
+      "Texto": "¡Me sorprendió gratamente lo bien que me quedan estas camisetas! El cuello en V es favorecedor sin ser demasiado bajo, y la longitud es la adecuada, ni demasiado corta ni demasiado larga. El tejido es suave y transpirable, lo que los hace perfectos para el uso diario, especialmente en climas cálidos.\nUna de mis cosas favoritas es cómo salen de la secadora con un aspecto estupendo, sin arrugas ni encogimiento, lo cual es una gran ventaja.\nCómodo, fácil de cuidar y elegante, ¡definitivamente volvería a comprar este conjunto!",
+      "Valoracion": [
+        {
+          "id": 26,
+          "documentId": "p9uqkwq0zrm23h6rq0eno8h6",
+          "name": "5_estrellas_5.svg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 116,
+          "height": 20,
+          "formats": null,
+          "hash": "5_estrellas_5_25b9a3ca22",
+          "ext": ".svg",
+          "mime": "image/svg+xml",
+          "size": 0.8,
+          "url": "/uploads/5_estrellas_5_25b9a3ca22.svg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:47:14.231Z",
+          "updatedAt": "2026-03-11T22:47:14.231Z",
+          "publishedAt": "2026-03-11T22:47:14.231Z"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "documentId": "eje193fhz4pqyt72nfi3xhvp",
+      "createdAt": "2026-03-12T02:00:13.844Z",
+      "updatedAt": "2026-03-13T13:46:50.947Z",
+      "publishedAt": "2026-03-13T13:46:55.030Z",
+      "Titulo": "Muy cómodo",
+      "Fecha": "05-12-2025",
+      "Texto": "Camisas suaves y cómodas con un cuello del tamaño adecuado en talla XL. Las camisas son ajustadas pero elásticas. Son un básico de verano y pediré otros colores.",
+      "Valoracion": [
+        {
+          "id": 27,
+          "documentId": "gzkrdg31zzl2fa4e8cpppncz",
+          "name": "4_estrellas_5.svg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 116,
+          "height": 19,
+          "formats": null,
+          "hash": "4_estrellas_5_daee209bfb",
+          "ext": ".svg",
+          "mime": "image/svg+xml",
+          "size": 0.94,
+          "url": "/uploads/4_estrellas_5_daee209bfb.svg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:47:14.280Z",
+          "updatedAt": "2026-03-11T22:47:14.280Z",
+          "publishedAt": "2026-03-11T22:47:14.280Z"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 4
+    }
+  }
+}

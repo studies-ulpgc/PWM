@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const JSON_URL = "http://localhost:1337";
+    const JSON_LOCAL = "../json/informacion.json";
     const params = new URLSearchParams(window.location.search);
     
     const slug = params.get("tipo") || "historia"; 
@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Buscando contenido para el slug:", slug);
 
     try {
-        const response = await fetch(`${JSON_URL}/api/informacions?filters[slug][$eq]=${slug}&populate[Contenido][populate]=*`);
+        const response = await fetch(JSON_LOCAL);
         const result = await response.json();
         
-        const pagina = result.data[0];
+        const pagina = result.data.find(p => p.slug === slug);
 
         if (!pagina) {
             document.getElementById("main-title").textContent = "Página no encontrada";
@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         document.getElementById("main-title").textContent = pagina.titulo_pagina;
 
-        const contenedor = document.getElementById("cards-container");
-        const contenedorDinamico = document.getElementById("contenedor-dinamico"); 
+        const cardsContainer = document.getElementById("cards-container");
+        if (cardsContainer) cardsContainer.innerHTML = "";
 
         pagina.Contenido.forEach(bloque => {
             console.log("Procesando componente:", bloque.__component);
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (bloque.__component.includes("tarjeta-informativa")) {
                 const div = document.createElement("div");
                 div.className = "tarjeta";
-                const imgUrl = bloque.imagen?.url ? `${JSON_URL}${bloque.imagen.url}` : '';
-                
+                const imgUrl = bloque.imagen?.url ? `../${bloque.imagen.url}` : '';
+
                 div.innerHTML = `
                     <div class="tarjeta-img" style="background-image: url('${imgUrl}')"></div>
                     <div class="tarjeta-txt">${bloque.titulo}</div>
@@ -51,8 +51,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 
                 if (bloque.imagen?.url) {
                     const imgElement = document.getElementById("featured-img");
-                    imgElement.style.backgroundImage = `url('${JSON_URL}${bloque.imagen.url}')`;
-                    
+                    imgElement.style.backgroundImage = `url('..${bloque.imagen.url}')`;
                     imgElement.style.backgroundSize = "cover";
                     imgElement.style.backgroundPosition = "center";
                 }

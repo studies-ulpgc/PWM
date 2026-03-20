@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "id": 4,
+      "documentId": "psza77wfpbcqfxg5qncfhdid",
+      "categoria": "Vestidos",
+      "createdAt": "2026-03-14T01:27:47.975Z",
+      "updatedAt": "2026-03-14T01:27:47.975Z",
+      "publishedAt": "2026-03-14T01:27:49.774Z"
+    },
+    {
+      "id": 6,
+      "documentId": "vos7r790lczyv31hd39ng3kt",
+      "categoria": "Pantalones",
+      "createdAt": "2026-03-14T01:28:11.423Z",
+      "updatedAt": "2026-03-14T01:28:11.423Z",
+      "publishedAt": "2026-03-14T01:28:13.169Z"
+    },
+    {
+      "id": 8,
+      "documentId": "mp89wrs6a7iyb0rjyh76np7c",
+      "categoria": "Chaquetas",
+      "createdAt": "2026-03-14T01:28:30.277Z",
+      "updatedAt": "2026-03-14T01:28:30.277Z",
+      "publishedAt": "2026-03-14T01:28:32.019Z"
+    },
+    {
+      "id": 10,
+      "documentId": "lu5h17ptms7ttjefqhs30hlb",
+      "categoria": "Faldas",
+      "createdAt": "2026-03-14T01:28:46.743Z",
+      "updatedAt": "2026-03-14T01:28:46.743Z",
+      "publishedAt": "2026-03-14T01:28:48.502Z"
+    },
+    {
+      "id": 12,
+      "documentId": "aywpkl2cc7ceo3pwzzkqmhlz",
+      "categoria": "Bolsos",
+      "createdAt": "2026-03-14T01:29:14.488Z",
+      "updatedAt": "2026-03-14T01:29:14.488Z",
+      "publishedAt": "2026-03-14T01:29:16.296Z"
+    },
+    {
+      "id": 14,
+      "documentId": "g8qt38781tp2oun3ltxig9bv",
+      "categoria": "Pijamas",
+      "createdAt": "2026-03-14T01:30:13.598Z",
+      "updatedAt": "2026-03-14T01:30:13.598Z",
+      "publishedAt": "2026-03-14T01:30:15.353Z"
+    },
+    {
+      "id": 16,
+      "documentId": "lzdcks1sgze5mhmbgnu0b3w2",
+      "categoria": "Zapatos",
+      "createdAt": "2026-03-14T01:30:38.377Z",
+      "updatedAt": "2026-03-14T01:30:38.377Z",
+      "publishedAt": "2026-03-14T01:30:40.119Z"
+    },
+    {
+      "id": 18,
+      "documentId": "yw01yg3n6nrx0x2aual76xrk",
+      "categoria": "Joyas",
+      "createdAt": "2026-03-14T01:31:01.203Z",
+      "updatedAt": "2026-03-14T01:31:01.203Z",
+      "publishedAt": "2026-03-14T01:31:02.964Z"
+    },
+    {
+      "id": 19,
+      "documentId": "v06juow1jxo6aa0rnap8k30w",
+      "categoria": "Camisas",
+      "createdAt": "2026-03-14T01:21:33.816Z",
+      "updatedAt": "2026-03-14T01:59:57.528Z",
+      "publishedAt": "2026-03-14T01:59:59.896Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 9
+    }
+  }
+}

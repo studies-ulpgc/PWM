@@ -1,5 +1,5 @@
 async function cargarFootersDesdeJSON() {
-    const JSON_URL = "http://localhost:1337";
+    const JSON_URL = "../json";
 
     const selectores = document.querySelectorAll(".selector-personalizado .dropdown");
     const contenedorLocalizacion = selectores[0];
@@ -8,7 +8,7 @@ async function cargarFootersDesdeJSON() {
     if (!contenedorLocalizacion || !contenedorIdioma) return;
 
     try {
-        const resInt = await fetch(`${JSON_URL}/api/internacionals?populate=*`);
+        const resInt = await fetch(`${JSON_URL}/internacional.json`);
         const dataInt = await resInt.json();
         const lugares = dataInt?.data || [];
 
@@ -21,7 +21,7 @@ async function cargarFootersDesdeJSON() {
                 li.style.gap = "10px";
 
                 const banderaUrl = item.bandera?.[0]?.url 
-                    ? `${JSON_URL}${item.bandera[0].url}` 
+                    ? `..${item.bandera[0].url}` 
                     : "";
 
                 li.innerHTML = `
@@ -32,7 +32,7 @@ async function cargarFootersDesdeJSON() {
             });
         }
 
-        const resIdio = await fetch(`${JSON_URL}/api/idiomas?populate=*`);
+        const resIdio = await fetch(`${JSON_URL}/idiomas.json`);
         const dataIdio = await resIdio.json();
         const idiomas = dataIdio?.data || [];
 

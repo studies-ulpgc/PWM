@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "documentId": "iks1m6oohed929xlh1n893gn",
+      "idioma": "Español",
+      "createdAt": "2026-03-14T16:03:29.556Z",
+      "updatedAt": "2026-03-14T16:03:29.556Z",
+      "publishedAt": "2026-03-14T16:03:31.336Z"
+    },
+    {
+      "id": 4,
+      "documentId": "x75xrl4metoylf12q9qwqoez",
+      "idioma": "Alemán",
+      "createdAt": "2026-03-14T16:03:52.884Z",
+      "updatedAt": "2026-03-14T16:03:52.884Z",
+      "publishedAt": "2026-03-14T16:03:54.654Z"
+    },
+    {
+      "id": 6,
+      "documentId": "c3r3yeqf9umpf7zrcloqm38t",
+      "idioma": "Francés",
+      "createdAt": "2026-03-14T16:04:18.412Z",
+      "updatedAt": "2026-03-14T16:04:18.412Z",
+      "publishedAt": "2026-03-14T16:04:20.157Z"
+    },
+    {
+      "id": 8,
+      "documentId": "jlbputo72j99yi2e4jrtpt0s",
+      "idioma": "Japonés",
+      "createdAt": "2026-03-14T16:04:37.234Z",
+      "updatedAt": "2026-03-14T16:04:37.234Z",
+      "publishedAt": "2026-03-14T16:04:39.039Z"
+    },
+    {
+      "id": 10,
+      "documentId": "fu17vods8i2o0lisfude0qku",
+      "idioma": "Castellano",
+      "createdAt": "2026-03-14T16:04:57.715Z",
+      "updatedAt": "2026-03-14T16:04:57.715Z",
+      "publishedAt": "2026-03-14T16:04:59.562Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 5
+    }
+  }
+}

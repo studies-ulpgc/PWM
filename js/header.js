@@ -1,7 +1,7 @@
 
 async function cargarHeadersDesdeJSON() {
     try {
-        const response = await fetch("http://localhost:1337/api/headers");
+        const response = await fetch("../json/header.json");
         const data = await response.json();
         const headers = data.data;
         const enlacesGrande = document.querySelectorAll(".categorias_grande .text");
@@ -29,7 +29,7 @@ async function cargarHeadersDesdeJSON() {
 
 async function cargarCategoriasDesdeJSON() {
     try {
-        const response = await fetch("http://localhost:1337/api/categorias");
+        const response = await fetch("../json/categorias.json");
         const data = await response.json();
         const categorias = data.data;
 

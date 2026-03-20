@@ -1,0 +1,276 @@
+{
+  "data": [
+    {
+      "id": 3,
+      "documentId": "xi7jf6l56b1f7ybiwe35c18e",
+      "createdAt": "2026-03-14T15:20:02.678Z",
+      "updatedAt": "2026-03-14T15:20:29.603Z",
+      "publishedAt": "2026-03-14T15:20:33.073Z",
+      "Nombre_del_item": "Chaleco Denim",
+      "Selecciones": "Color negro, talla S",
+      "Precio": "43,99€",
+      "Estado": "En envío",
+      "Foto_item": [
+        {
+          "id": 23,
+          "documentId": "eab3b1k7n9e8ufpgj4iwe5l9",
+          "name": "frente.png",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 375,
+          "height": 563,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_frente_c17fd04f90.png",
+              "hash": "small_frente_c17fd04f90",
+              "mime": "image/png",
+              "name": "small_frente.png",
+              "path": null,
+              "size": 7.74,
+              "width": 333,
+              "height": 500,
+              "sizeInBytes": 7744
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_frente_c17fd04f90.png",
+              "hash": "thumbnail_frente_c17fd04f90",
+              "mime": "image/png",
+              "name": "thumbnail_frente.png",
+              "path": null,
+              "size": 1.78,
+              "width": 104,
+              "height": 156,
+              "sizeInBytes": 1782
+            }
+          },
+          "hash": "frente_c17fd04f90",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 10.42,
+          "url": "/uploads/frente_c17fd04f90.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:46:02.217Z",
+          "updatedAt": "2026-03-14T15:19:40.155Z",
+          "publishedAt": "2026-03-11T22:46:02.217Z"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "documentId": "ft48uldai1791kwb1dxfqfm0",
+      "createdAt": "2026-03-14T15:23:06.810Z",
+      "updatedAt": "2026-03-14T15:23:21.710Z",
+      "publishedAt": "2026-03-14T15:23:24.619Z",
+      "Nombre_del_item": "Camisa Oxford",
+      "Selecciones": "Color azul, talla L",
+      "Precio": "15,99€",
+      "Estado": "En ruta de entrega",
+      "Foto_item": [
+        {
+          "id": 6,
+          "documentId": "prbcdu42owbcdqszh3ixrj4n",
+          "name": "frente.png",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 750,
+          "height": 1125,
+          "formats": {
+            "large": {
+              "ext": ".png",
+              "url": "/uploads/large_frente_6822be159f.png",
+              "hash": "large_frente_6822be159f",
+              "mime": "image/png",
+              "name": "large_frente.png",
+              "path": null,
+              "size": 30.79,
+              "width": 667,
+              "height": 1000,
+              "sizeInBytes": 30790
+            },
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_frente_6822be159f.png",
+              "hash": "small_frente_6822be159f",
+              "mime": "image/png",
+              "name": "small_frente.png",
+              "path": null,
+              "size": 11.13,
+              "width": 333,
+              "height": 500,
+              "sizeInBytes": 11128
+            },
+            "medium": {
+              "ext": ".png",
+              "url": "/uploads/medium_frente_6822be159f.png",
+              "hash": "medium_frente_6822be159f",
+              "mime": "image/png",
+              "name": "medium_frente.png",
+              "path": null,
+              "size": 21.17,
+              "width": 500,
+              "height": 750,
+              "sizeInBytes": 21168
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_frente_6822be159f.png",
+              "hash": "thumbnail_frente_6822be159f",
+              "mime": "image/png",
+              "name": "thumbnail_frente.png",
+              "path": null,
+              "size": 2.19,
+              "width": 104,
+              "height": 156,
+              "sizeInBytes": 2190
+            }
+          },
+          "hash": "frente_6822be159f",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 45.35,
+          "url": "/uploads/frente_6822be159f.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:42:29.246Z",
+          "updatedAt": "2026-03-11T22:42:29.246Z",
+          "publishedAt": "2026-03-11T22:42:29.246Z"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "documentId": "xho2mevu3xj08ucqlxsfj8al",
+      "createdAt": "2026-03-14T15:24:32.932Z",
+      "updatedAt": "2026-03-14T15:24:46.339Z",
+      "publishedAt": "2026-03-14T15:24:49.323Z",
+      "Nombre_del_item": "Camisa Oversized",
+      "Selecciones": "Color negro, talla M",
+      "Precio": "10,11€",
+      "Estado": "Entregado",
+      "Foto_item": [
+        {
+          "id": 10,
+          "documentId": "q111o9q3ml3mh2vgotpqkv5m",
+          "name": "frente.png",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 375,
+          "height": 563,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_frente_2ec3fa277a.png",
+              "hash": "small_frente_2ec3fa277a",
+              "mime": "image/png",
+              "name": "small_frente.png",
+              "path": null,
+              "size": 5.7,
+              "width": 333,
+              "height": 500,
+              "sizeInBytes": 5698
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_frente_2ec3fa277a.png",
+              "hash": "thumbnail_frente_2ec3fa277a",
+              "mime": "image/png",
+              "name": "thumbnail_frente.png",
+              "path": null,
+              "size": 1.37,
+              "width": 104,
+              "height": 156,
+              "sizeInBytes": 1370
+            }
+          },
+          "hash": "frente_2ec3fa277a",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 7.49,
+          "url": "/uploads/frente_2ec3fa277a.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:43:55.795Z",
+          "updatedAt": "2026-03-11T22:43:55.795Z",
+          "publishedAt": "2026-03-11T22:43:55.795Z"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "documentId": "mcccwpie76l04qoj3i64lj4b",
+      "createdAt": "2026-03-14T15:21:33.846Z",
+      "updatedAt": "2026-03-14T15:34:46.054Z",
+      "publishedAt": "2026-03-14T15:34:49.589Z",
+      "Nombre_del_item": "Camisa Poliamida Tirante Ancho",
+      "Selecciones": "Color marrón, talla M",
+      "Precio": "7,99€",
+      "Estado": "En ruta de entrega",
+      "Foto_item": [
+        {
+          "id": 17,
+          "documentId": "qttamq8lv9wui1ohtry5mt7t",
+          "name": "frente.png",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 375,
+          "height": 563,
+          "formats": {
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_frente_c8c6704ef3.png",
+              "hash": "small_frente_c8c6704ef3",
+              "mime": "image/png",
+              "name": "small_frente.png",
+              "path": null,
+              "size": 6.53,
+              "width": 333,
+              "height": 500,
+              "sizeInBytes": 6532
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_frente_c8c6704ef3.png",
+              "hash": "thumbnail_frente_c8c6704ef3",
+              "mime": "image/png",
+              "name": "thumbnail_frente.png",
+              "path": null,
+              "size": 1.62,
+              "width": 104,
+              "height": 156,
+              "sizeInBytes": 1620
+            }
+          },
+          "hash": "frente_c8c6704ef3",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 8.5,
+          "url": "/uploads/frente_c8c6704ef3.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-11T22:44:54.297Z",
+          "updatedAt": "2026-03-14T13:56:45.134Z",
+          "publishedAt": "2026-03-11T22:44:54.297Z"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 4
+    }
+  }
+}

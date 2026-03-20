@@ -1,0 +1,324 @@
+{
+  "data": [
+    {
+      "id": 4,
+      "documentId": "i74qk6kuc7ccz3tu10bawt3k",
+      "localizacion": "España-Baleares",
+      "createdAt": "2026-03-14T15:44:55.461Z",
+      "updatedAt": "2026-03-14T15:44:55.461Z",
+      "publishedAt": "2026-03-14T15:44:58.053Z",
+      "bandera": [
+        {
+          "id": 48,
+          "documentId": "f3x8ogvj7vvuqgjflifguyk7",
+          "name": "España.svg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 750,
+          "height": 500,
+          "formats": null,
+          "hash": "Espana_8a14aa1db7",
+          "ext": ".svg",
+          "mime": "image/svg+xml",
+          "size": 155.2,
+          "url": "/uploads/Espana_8a14aa1db7.svg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-14T15:35:53.835Z",
+          "updatedAt": "2026-03-14T15:35:53.835Z",
+          "publishedAt": "2026-03-14T15:35:53.836Z"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "documentId": "pjfgmqy4jyg2hoyzb7qhmwrf",
+      "localizacion": "Islas Canarias",
+      "createdAt": "2026-03-14T15:45:33.055Z",
+      "updatedAt": "2026-03-14T15:52:10.846Z",
+      "publishedAt": "2026-03-14T15:52:14.389Z",
+      "bandera": [
+        {
+          "id": 49,
+          "documentId": "v99xslgipcd1uvhypid2sl4n",
+          "name": "Canarias.jpg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 413,
+          "height": 276,
+          "formats": {
+            "thumbnail": {
+              "ext": ".jpg",
+              "url": "/uploads/thumbnail_Canarias_a0fa850193.jpg",
+              "hash": "thumbnail_Canarias_a0fa850193",
+              "mime": "image/jpeg",
+              "name": "thumbnail_Canarias.jpg",
+              "path": null,
+              "size": 3.57,
+              "width": 233,
+              "height": 156,
+              "sizeInBytes": 3573
+            }
+          },
+          "hash": "Canarias_a0fa850193",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 8.04,
+          "url": "/uploads/Canarias_a0fa850193.jpg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-14T15:51:55.055Z",
+          "updatedAt": "2026-03-14T15:51:55.055Z",
+          "publishedAt": "2026-03-14T15:51:55.056Z"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "documentId": "hckn9tyhe6h8xr9ames3md1m",
+      "localizacion": "Alemania",
+      "createdAt": "2026-03-14T15:55:07.072Z",
+      "updatedAt": "2026-03-14T15:55:07.072Z",
+      "publishedAt": "2026-03-14T15:55:09.657Z",
+      "bandera": [
+        {
+          "id": 51,
+          "documentId": "zogahwxdjb6plfgqh3qdf6gz",
+          "name": "alemania.png",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 250,
+          "height": 150,
+          "formats": {
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_alemania_910bc3efe5.png",
+              "hash": "thumbnail_alemania_910bc3efe5",
+              "mime": "image/png",
+              "name": "thumbnail_alemania.png",
+              "path": null,
+              "size": 6.62,
+              "width": 245,
+              "height": 147,
+              "sizeInBytes": 6623
+            }
+          },
+          "hash": "alemania_910bc3efe5",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 1.63,
+          "url": "/uploads/alemania_910bc3efe5.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-14T15:54:51.391Z",
+          "updatedAt": "2026-03-14T15:54:51.391Z",
+          "publishedAt": "2026-03-14T15:54:51.392Z"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "documentId": "m6pe2ud8i97vsm0iaqiufwwa",
+      "localizacion": "Francia",
+      "createdAt": "2026-03-14T15:56:40.938Z",
+      "updatedAt": "2026-03-14T15:56:40.938Z",
+      "publishedAt": "2026-03-14T15:56:43.478Z",
+      "bandera": [
+        {
+          "id": 52,
+          "documentId": "p1i5jpyreegb6r02gd1o74tw",
+          "name": "Francia.png",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 250,
+          "height": 167,
+          "formats": {
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_Francia_0ea65b4afc.png",
+              "hash": "thumbnail_Francia_0ea65b4afc",
+              "mime": "image/png",
+              "name": "thumbnail_Francia.png",
+              "path": null,
+              "size": 1.11,
+              "width": 234,
+              "height": 156,
+              "sizeInBytes": 1113
+            }
+          },
+          "hash": "Francia_0ea65b4afc",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 0.42,
+          "url": "/uploads/Francia_0ea65b4afc.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-14T15:56:27.042Z",
+          "updatedAt": "2026-03-14T15:56:27.042Z",
+          "publishedAt": "2026-03-14T15:56:27.042Z"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "documentId": "ztt7cj6o5858ipzycbo48604",
+      "localizacion": "Estados Unidos",
+      "createdAt": "2026-03-14T15:57:50.210Z",
+      "updatedAt": "2026-03-14T15:57:50.210Z",
+      "publishedAt": "2026-03-14T15:57:52.817Z",
+      "bandera": [
+        {
+          "id": 53,
+          "documentId": "jjhri9wyy7nskdfzeku6gqsn",
+          "name": "USA.png",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 1280,
+          "height": 674,
+          "formats": {
+            "large": {
+              "ext": ".png",
+              "url": "/uploads/large_USA_3bad97994e.png",
+              "hash": "large_USA_3bad97994e",
+              "mime": "image/png",
+              "name": "large_USA.png",
+              "path": null,
+              "size": 39.04,
+              "width": 1000,
+              "height": 527,
+              "sizeInBytes": 39040
+            },
+            "small": {
+              "ext": ".png",
+              "url": "/uploads/small_USA_3bad97994e.png",
+              "hash": "small_USA_3bad97994e",
+              "mime": "image/png",
+              "name": "small_USA.png",
+              "path": null,
+              "size": 16.57,
+              "width": 500,
+              "height": 263,
+              "sizeInBytes": 16566
+            },
+            "medium": {
+              "ext": ".png",
+              "url": "/uploads/medium_USA_3bad97994e.png",
+              "hash": "medium_USA_3bad97994e",
+              "mime": "image/png",
+              "name": "medium_USA.png",
+              "path": null,
+              "size": 26.08,
+              "width": 750,
+              "height": 395,
+              "sizeInBytes": 26077
+            },
+            "thumbnail": {
+              "ext": ".png",
+              "url": "/uploads/thumbnail_USA_3bad97994e.png",
+              "hash": "thumbnail_USA_3bad97994e",
+              "mime": "image/png",
+              "name": "thumbnail_USA.png",
+              "path": null,
+              "size": 7.15,
+              "width": 245,
+              "height": 129,
+              "sizeInBytes": 7153
+            }
+          },
+          "hash": "USA_3bad97994e",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 10.36,
+          "url": "/uploads/USA_3bad97994e.png",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-14T15:57:40.107Z",
+          "updatedAt": "2026-03-14T15:57:40.107Z",
+          "publishedAt": "2026-03-14T15:57:40.107Z"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "documentId": "sihvtagmfxsse6koaq2wgkwb",
+      "localizacion": "México",
+      "createdAt": "2026-03-14T15:58:22.542Z",
+      "updatedAt": "2026-03-14T15:59:43.885Z",
+      "publishedAt": "2026-03-14T15:59:46.927Z",
+      "bandera": [
+        {
+          "id": 54,
+          "documentId": "lsu7ebs8wbjj2txawnqfp3d1",
+          "name": "Mexico.svg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 980,
+          "height": 560,
+          "formats": null,
+          "hash": "Mexico_3cb757be0d",
+          "ext": ".svg",
+          "mime": "image/svg+xml",
+          "size": 157.53,
+          "url": "/uploads/Mexico_3cb757be0d.svg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-14T15:59:29.095Z",
+          "updatedAt": "2026-03-14T15:59:29.095Z",
+          "publishedAt": "2026-03-14T15:59:29.096Z"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "documentId": "t3iyu08h5inybm0ahf0lypo5",
+      "localizacion": "Japón",
+      "createdAt": "2026-03-14T16:01:40.105Z",
+      "updatedAt": "2026-03-14T16:01:40.105Z",
+      "publishedAt": "2026-03-14T16:01:42.631Z",
+      "bandera": [
+        {
+          "id": 55,
+          "documentId": "epzifmdvo2v8cr8wkfdd8tee",
+          "name": "Japon.svg",
+          "alternativeText": null,
+          "caption": null,
+          "focalPoint": null,
+          "width": 900,
+          "height": 600,
+          "formats": null,
+          "hash": "Japon_c366321794",
+          "ext": ".svg",
+          "mime": "image/svg+xml",
+          "size": 0.21,
+          "url": "/uploads/Japon_c366321794.svg",
+          "previewUrl": null,
+          "provider": "local",
+          "provider_metadata": null,
+          "createdAt": "2026-03-14T16:01:31.559Z",
+          "updatedAt": "2026-03-14T16:01:31.559Z",
+          "publishedAt": "2026-03-14T16:01:31.559Z"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 7
+    }
+  }
+}

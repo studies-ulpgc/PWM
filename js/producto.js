@@ -11,15 +11,14 @@ async function cargarProductosDesdeJSON() {
         const categoria = obtenerCategoria();
         const categoriasValidas = ["Camisas", "Chaquetas"];
 
-        let url = "http://localhost:1337/api/productos?populate=*";
-
-        if (categoria && categoriasValidas.includes(categoria)) {
-            url += `&filters[Categoria][$eq]=${encodeURIComponent(categoria)}`;
-        }
-
+        let url = "../json/producto.json";
         const response = await fetch(url);
         const data = await response.json();
-        const productos = data.data;
+        let productos = data.data;
+
+        if (categoria && categoriasValidas.includes(categoria)) {
+            productos = productos.filter(p => p.Categoria === categoria);
+        }
         const tarjetas = contenedor.querySelectorAll(".producto");
 
         tarjetas.forEach((tarjeta, i) => {
@@ -43,14 +42,14 @@ async function cargarProductosDesdeJSON() {
 
             const foto = producto.Foto?.[0]?.url;
             if (foto && imagen) {
-                imagen.style.backgroundImage = `url(http://localhost:1337${foto})`;
+                imagen.style.backgroundImage = `url(..${foto})`;
                 imagen.style.backgroundSize = "cover";
                 imagen.style.backgroundPosition = "center";
             }
 
             const estrellas = producto.Valoracion?.[0]?.url;
             if (estrellas && valoracion) {
-                valoracion.src = `http://localhost:1337${estrellas}`;
+                valoracion.src = `..${estrellas}`;
             }
 
             if (link) {
@@ -69,7 +68,7 @@ async function cargarCarrusel() {
     if (contenedores.length === 0) return;
 
     try {
-        const response = await fetch("http://localhost:1337/api/productos?populate=*");
+        const response = await fetch("../json/producto.json");
         const data = await response.json();
         const productos = data.data;
 
@@ -83,7 +82,7 @@ async function cargarCarrusel() {
                 const a = document.createElement("a");
                 a.href = `articulo-seleccionado.html?id=${producto.id}`;
                 a.className = "foto";
-                a.style.backgroundImage = `url(http://localhost:1337${fotoUrl})`;
+                a.style.backgroundImage = `url(..${fotoUrl})`;
                 a.style.backgroundSize = "cover";
                 a.style.backgroundPosition = "center";
                 
@@ -107,10 +106,14 @@ async function cargarProductoSeleccionado() {
 
     try {
 
-        const response = await fetch(`http://localhost:1337/api/productos?filters[id][$eq]=${id}&populate=*`);
+        const response = await fetch("../json/producto.json");
         const data = await response.json();
 
-        const producto = data.data[0];
+        const producto = data.data.find(p => p.id == id);
+        if (!producto) {
+            console.error("Producto no encontrado");
+            return;
+        }
 
         const nombre = document.querySelector(".nombre-principal");
         const descripcion = document.querySelector(".descripcion-texto");
@@ -129,7 +132,7 @@ async function cargarProductoSeleccionado() {
 
             if (elementosMiniatura[i]) {
 
-                const url = `http://localhost:1337${img.url}`;
+                const url = `..${img.url}`;
 
                 elementosMiniatura[i].src = url;
 
@@ -154,15 +157,15 @@ async function cargarProductoSeleccionado() {
 
         const foto = producto.Foto?.[0]?.url;
         if (foto && imagenPrincipal) {
-            imagenPrincipal.src = `http://localhost:1337${foto}`;
+            imagenPrincipal.src = `..${foto}`;
         }
 
         const estrellas = producto.Valoracion?.[0]?.url;
         if (estrellas && valoracion) {
-            valoracion.src = `http://localhost:1337${estrellas}`;
+            valoracion.src = `..${estrellas}`;
         }
         if (estrellas && puntuacionTotal) {
-            puntuacionTotal.src = `http://localhost:1337${estrellas}`;
+            puntuacionTotal.src = `..${estrellas}`;
         }
 
         if (grupoCheckbox) {
