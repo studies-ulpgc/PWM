@@ -38,6 +38,27 @@ const reglas = {
         if (v.length === 0) return "Debes repetir la contraseña";
         if (v !== original) return "Las contraseñas no coinciden";
         return true;
+    },
+    alfanumerico: (v) => {
+        if (v.length === 0) return "Este campo es obligatorio";
+        if (v.length < 5) return "Por favor, da un poco más de detalle (mín. 5 caracteres)";
+        return true;
+    },
+    selectorRelleno: (v) => {
+        if (!v || v === "") return "Debes seleccionar un motivo";
+        return true;
+    },
+    cuponOpcional: (v) => {
+        if (v.length === 0) return true;
+        const regexCupon = /^[a-zA-Z0-9]{6,}$/;
+        if (!regexCupon.test(v)) return "Formato de cupón no válido (mín. 6 caracteres alfanuméricos)";
+        return true;
+    },
+    tarjetaRegaloOpcional: (v) => {
+        if (v.length === 0) return true;
+        const regexGiftCard = /^[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}$/;
+        if (!regexGiftCard.test(v)) return "Formato requerido: XXXX-XXXX-XXXX";
+        return true;
     }
 };
 
@@ -163,10 +184,86 @@ function inicializarValidacionLogin() {
     });
 }
 
+function inicializarValidacionContacto(form) {
+    form.setAttribute("novalidate", true);
+
+    const campos = [
+        { id: "motivo", regla: reglas.selectorRelleno },
+        { id: "asunto", regla: reglas.alfanumerico },
+        { id: "descripcion", regla: reglas.alfanumerico }
+    ];
+
+    campos.forEach(campo => {
+        const el = document.getElementById(campo.id);
+        if (!el) return;
+
+        const evento = el.tagName === "SELECT" ? "change" : "input";
+        
+        el.addEventListener(evento, () => {
+            actualizarMensajeError(el, campo.regla(el.value.trim()));
+        });
+    });
+
+    form.addEventListener("submit", (e) => {
+        let esValido = true;
+        campos.forEach(campo => {
+            const el = document.getElementById(campo.id);
+            const res = campo.regla(el.value.trim());
+            actualizarMensajeError(el, res);
+            if (res !== true) esValido = false;
+        });
+
+        if (!esValido) {
+            e.preventDefault();
+        } else {
+            alert("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
+        }
+    });
+}
+
+function inicializarValidacionPago() {
+    const btnPagar = document.querySelector(".footer-pago .boton-negro");
+    const inputsPago = document.querySelectorAll(".entrada-texto-pago");
+    const inputCupon = inputsPago[0];
+    const inputTarjeta = inputsPago[1];
+
+    if (!btnPagar || !inputCupon) return;
+
+    inputCupon.addEventListener("input", () => {
+        actualizarMensajeError(inputCupon, reglas.cuponOpcional(inputCupon.value.trim()));
+    });
+
+    inputTarjeta.addEventListener("input", () => {
+        actualizarMensajeError(inputTarjeta, reglas.tarjetaRegaloOpcional(inputTarjeta.value.trim()));
+    });
+
+    btnPagar.addEventListener("click", (e) => {
+        const resCupon = reglas.cuponOpcional(inputCupon.value.trim());
+        const resTarjeta = reglas.tarjetaRegaloOpcional(inputTarjeta.value.trim());
+
+        actualizarMensajeError(inputCupon, resCupon);
+        actualizarMensajeError(inputTarjeta, resTarjeta);
+
+        if (resCupon === true && resTarjeta === true) {
+            console.log("Procesando pago...");
+            alert("¡Pago procesado con éxito!");
+            window.location.href = "index.html";
+        } else {
+            e.preventDefault();
+            console.warn("Revisa los códigos promocionales");
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    if (document.body.id === "pagar") {
+        inicializarValidacionPago();
+    }
     const formContenedor = document.querySelector(".formulario-contenedor");
-    
-    if (formContenedor && document.getElementById("calle")) {
+    if (formContenedor && document.getElementById("motivo")) {
+        inicializarValidacionContacto(formContenedor);
+    }
+    else if (formContenedor && document.getElementById("calle")) {
         inicializarValidacionDireccion(formContenedor);
     }
     else if (document.getElementById("confirm-password")) {

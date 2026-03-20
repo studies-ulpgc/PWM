@@ -128,8 +128,8 @@
     border: 2px solid #ff0000 !important;
 }
 
-/* -------------------- MÓVIL (≤768px) -------------------- */
-@media (max-width: 768px) {
+/* -------------------- TABLET (≤880px) -------------------- */
+@media (max-width: 880px) {
 
   .pagina-split {
     grid-template-columns: 1fr; /* solo una columna */
