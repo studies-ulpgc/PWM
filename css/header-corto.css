@@ -17,20 +17,24 @@
 }
 
 .box .default-corto {
-  min-height: 121px;
   position: relative;
-  border-bottom: 2px solid #000000;
-  margin-left: 0;
   width: 100%;
+  margin-left: 0;
   background-color: #ffffff;
+  border-bottom: 2px solid #000000;
   padding-top: 21px;
   padding-bottom: 0;
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 0;
+  align-content: start;
 }
 
 .box .principal {
   width: 100%;
   max-width: 1303px;
-  min-height: 60px;
+  height: 56px;
+  min-height: 56px;
   display: flex;
   align-items: center;
   position: relative;
@@ -40,9 +44,9 @@
 
 .box .empresa {
   flex: 0 0 auto;
-  margin-top: 0;
   width: 105px;
   height: 40px;
+  margin-top: 0;
   margin-left: -1px;
   -webkit-text-stroke: 1px #000000;
   font-family: "Roboto-Regular", Helvetica;
@@ -63,8 +67,7 @@
   height: 56px;
   position: relative;
   margin-left: clamp(24px, 7vw, 120px);
-  border: 1px solid;
-  border-color: #000000;
+  border: 1px solid #000000;
   cursor: text;
 }
 
@@ -128,10 +131,10 @@
 
 .box .simbolos {
   flex: 0 0 auto;
-  margin-top: 0;
   width: 194px;
   height: 48px;
   position: relative;
+  margin-top: 0;
   margin-left: clamp(18px, 4vw, 76px);
 }
 
@@ -159,24 +162,34 @@
   left: 75.82%;
 }
 
+/* CATEGORÍAS: 1 FILA EN ESCRITORIO */
 .box .categorias_corto {
-  position: relative;
-  top: auto;
-  left: auto;
   width: 100%;
   max-width: 1303px;
+  height: 40px;
   min-height: 40px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: 40px;
   align-items: center;
-  column-gap: clamp(18px, 3vw, 44.8px);
+  justify-items: center;
+  align-content: start;
+  column-gap: clamp(8px, 1.4vw, 20px);
   row-gap: 0;
   margin: 0 auto;
-  padding-left: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.box .categorias-boton,
+.box .text {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
 }
 
 .box .categorias-boton {
-  width: auto;
   height: 40px;
   font-family: "Roboto-Bold", Helvetica;
   font-weight: 700;
@@ -185,11 +198,9 @@
   letter-spacing: 0;
   line-height: 40px;
   white-space: nowrap;
-  flex: 0 0 auto;
 }
 
 .box .text {
-  width: auto;
   height: 40px;
   font-family: "Roboto-Regular", Helvetica;
   font-weight: 400;
@@ -198,7 +209,6 @@
   letter-spacing: 0;
   line-height: 40px;
   white-space: nowrap;
-  flex: 0 0 auto;
   text-decoration: none;
 }
 
@@ -223,7 +233,7 @@
 #categorias {
   display: none;
   position: absolute;
-  top: 121px;
+  top: 100%;
   left: 20px;
   z-index: 1000;
 }
@@ -268,18 +278,38 @@
   margin-top: 5px;
 }
 
+/* INTERMEDIO: 2 FILAS DE 5 */
+@media (max-width: 1040px) {
+  .box .default-corto {
+    grid-template-rows: auto auto;
+    padding-bottom: 0;
+  }
+
+  .box .principal {
+    height: 56px;
+    min-height: 56px;
+  }
+
+  .box .categorias_corto {
+    height: 80px;
+    min-height: 80px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 40px);
+    column-gap: 12px;
+    row-gap: 0;
+    margin-top: 0;
+  }
+}
+
 /* TABLET */
 @media (max-width: 768px) {
   .box {
     padding: 0 16px;
   }
 
-  .box .default-corto {
-    min-height: 121px;
-  }
-
   .box .principal {
-    min-height: 56px;
+    height: 54px;
+    min-height: 54px;
   }
 
   .box .empresa {
@@ -316,10 +346,6 @@
     margin-left: 24px;
   }
 
-  .box .categorias_corto {
-    column-gap: 24px;
-  }
-
   #categorias {
     left: 16px;
   }
@@ -332,9 +358,9 @@
   }
 
   .box .default-corto {
-    min-height: auto;
     padding-top: 16px;
     padding-bottom: 12px;
+    grid-template-rows: auto;
   }
 
   .box .principal {
@@ -346,6 +372,8 @@
     align-items: center;
     row-gap: 14px;
     max-width: none;
+    height: auto;
+    min-height: auto;
   }
 
   .box .empresa {
