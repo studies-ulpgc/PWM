@@ -110,7 +110,6 @@
   line-height: 19.6px;
 }
 
-/* ICONOS DENTRO DEL RECUADRO */
 .producto .simbolos {
   position: absolute;
   z-index: 2;
@@ -203,7 +202,7 @@
   max-width: 100%;
 }
 
-/* -------------------- MÓVIL (≤768px) -------------------- */
+/* MÓVIL (≤768px) */
 @media (max-width: 768px) {
   .producto .informacion-producto {
     min-height: 340px;
