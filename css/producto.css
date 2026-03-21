@@ -1,56 +1,75 @@
 .producto {
   position: relative;
-  width: 261px;
-  height: 384px;
-}
-
-.producto:hover {
-  border: 1px solid #1e1e1e;
-  border-radius: var(--size-radius-200);
-}
-
-.producto:active {
-  transform: scale(0.97);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .producto .informacion-producto {
-  position: absolute;
+  position: relative;
+  z-index: 1;
   width: 100%;
+  min-height: 384px;
   height: 100%;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   gap: var(--size-space-400);
+  padding: 16px;
+  padding-bottom: 68px;
   background-color: var(--color-background-default-default);
   border-radius: var(--size-radius-200);
-  border: 1px solid;
-  border-color: var(--color-border-default-default);
+  border: 1px solid var(--color-border-default-default);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.producto:hover .informacion-producto {
+  border-color: #1e1e1e;
+}
+
+.producto:active .informacion-producto {
+  transform: scale(0.97);
 }
 
 .producto .image {
-  margin-left: 16px;
-  width: 229px;
-  height: 247px;
-  margin-top: 16px;
+  width: 100%;
+  aspect-ratio: 229 / 247;
+  margin: 0;
   background-color: var(--color-background-disabled-default);
+  border-radius: var(--size-radius-200);
+  overflow: hidden;
+  display: block;
+}
+
+.producto .image img,
+.producto .image picture,
+.producto .image svg,
+.producto .image canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .producto .body {
-  margin-left: 16px;
-  width: 208px;
-  height: 52px;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: var(--size-space-200);
+  box-sizing: border-box;
 }
 
 .producto .descripcion {
   min-height: 22px;
   height: auto;
-  white-space: nowrap;    /* Evita que el texto salte de línea */
-  overflow: hidden;       /* Esconde lo que sobra */
-  text-overflow: ellipsis; /* Añade los "..." al final */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: var(--body-base-font-family);
   font-weight: var(--body-base-font-weight);
   color: var(--color-text-default-default);
@@ -61,13 +80,13 @@
 }
 
 .producto .precio {
-  width: 48px;
-  height: 28px;
+  width: auto;
+  height: auto;
   font-family: "Inter-SemiBold", Helvetica;
   color: var(--color-text-default-default);
   font-size: 20px;
   letter-spacing: 0;
-  line-height: 28.0px;
+  line-height: 28px;
   white-space: nowrap;
   display: inline-flex;
   align-items: baseline;
@@ -78,7 +97,7 @@
   font-weight: 600;
   color: #1e1e1e;
   font-size: 20px;
-  line-height: 28.0px;
+  line-height: 28px;
 }
 
 .producto .span {
@@ -91,20 +110,50 @@
   line-height: 19.6px;
 }
 
+/* ICONOS DENTRO DEL RECUADRO */
 .producto .simbolos {
   position: absolute;
-  width: 223px;
+  z-index: 2;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  width: auto;
   height: 36px;
-  top: 335px;
-  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.producto .valoracion {
+  order: 1;
+  position: relative;
+  width: 116px;
+  height: 19px;
+  flex: 0 0 116px;
+}
+
+.producto .sumar-a-la-cesta {
+  order: 2;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  flex: 0 0 36px;
 }
 
 .producto .sumar-a-deseados {
-  position: absolute;
-  width: 18.75%;
-  height: 95.02%;
-  top: 0;
-  left: 81.25%;
+  order: 3;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+}
+
+.producto .valoracion img,
+.producto .valoracion svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .producto .sumar {
@@ -123,14 +172,6 @@
   left: -3.59%;
 }
 
-.producto .sumar-a-la-cesta {
-  position: absolute;
-  width: 19.80%;
-  height: 98.00%;
-  top: 0;
-  left: 57.72%;
-}
-
 .producto .compra {
   position: absolute;
   width: 69.59%;
@@ -139,18 +180,76 @@
   left: -3.40%;
 }
 
-.producto .valoracion {
-  position: absolute;
-  width: 116px;
-  height: 19px;
-  top: 15px;
-  left: 0;
+.producto .sumar img,
+.producto .deseados img,
+.producto .compra img,
+.producto .sumar svg,
+.producto .deseados svg,
+.producto .compra svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.producto .sumar-a-deseados:hover {
-  opacity: 0.8;
-}
-
+.producto .sumar-a-deseados:hover,
 .producto .sumar-a-la-cesta:hover {
   opacity: 0.8;
+}
+
+.producto *,
+.producto *::before,
+.producto *::after {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* -------------------- MÓVIL (≤768px) -------------------- */
+@media (max-width: 768px) {
+  .producto .informacion-producto {
+    min-height: 340px;
+    padding: 12px;
+    padding-bottom: 60px;
+    gap: 12px;
+  }
+
+  .producto .precio {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .producto .texto {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .producto .span {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .producto .texto-2 {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .producto .simbolos {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    gap: 8px;
+    height: 32px;
+  }
+
+  .producto .valoracion {
+    width: 100px;
+    height: 17px;
+    flex-basis: 100px;
+  }
+
+  .producto .sumar-a-la-cesta,
+  .producto .sumar-a-deseados {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
 }
