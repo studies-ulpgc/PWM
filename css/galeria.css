@@ -28,11 +28,11 @@
   grid-template-columns: minmax(260px, 355px) minmax(0, 1fr);
   gap: 32px;
   align-items: start;
+  height: calc(100vh - 150px);
 }
 
-/* -------------------- GALERÍA -------------------- */
 .galeria-de-3 {
-  min-width: 0; /* clave para evitar desbordes */
+  min-width: 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -40,6 +40,10 @@
   padding: 0;
   max-height: none;
   overflow: visible;
+  align-content: start;
+
+  height: 100%;
+  overflow-y: auto;   
   align-content: start;
 }
 
@@ -54,7 +58,6 @@
   display: block;
 }
 
-/* FILTROS */
 .menu-filtro {
   width: 100%;
   min-width: 0;
@@ -63,7 +66,7 @@
   border: 1px solid var(--color-border-default-default);
   background: var(--color-background-default-default);
   margin-top: 0;
-  position: sticky;
+  position: relative;
   top: 20px;
 }
 
@@ -182,7 +185,6 @@
   color: var(--color-text-default-default);
 }
 
-/*  TABLET (<= 1024px)  */
 @media (max-width: 1024px) {
   .galeria {
     padding-inline: 12px;
@@ -213,7 +215,6 @@
   }
 }
 
-/*  MÓVIL (<= 768px)  */
 @media (max-width: 768px) {
   .galeria {
     padding-inline: 10px;
@@ -240,7 +241,6 @@
   }
 }
 
-/*  MÓVIL PEQUEÑO (<= 350px)  */
 @media (max-width: 350px) {
   .galeria-de-3 {
     grid-template-columns: 1fr;

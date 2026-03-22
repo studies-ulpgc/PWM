@@ -116,75 +116,53 @@
   left: 16px;
   right: 16px;
   bottom: 16px;
-  width: auto;
-  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  gap: 8px; 
+}
+
+.producto .iconos-accion {
   display: flex;
   align-items: center;
   gap: 10px;
+  order: 2;
 }
 
 .producto .valoracion {
   order: 1;
-  position: relative;
   width: 116px;
   height: 19px;
-  flex: 0 0 116px;
+  flex-shrink: 0;
 }
 
-.producto .sumar-a-la-cesta {
-  order: 2;
-  position: relative;
-  width: 36px;
-  height: 36px;
-  margin-left: auto;
-  flex: 0 0 36px;
-}
-
+.producto .sumar-a-la-cesta,
 .producto .sumar-a-deseados {
-  order: 3;
   position: relative;
   width: 36px;
   height: 36px;
   flex: 0 0 36px;
-}
-
-.producto .valoracion img,
-.producto .valoracion svg {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 .producto .sumar {
   position: absolute;
-  width: 29.36%;
-  height: 34.94%;
-  top: -4.37%;
-  left: 67.05%;
+  width: 30%;
+  height: 30%;
+  top: 0;
+  left: 70%;
 }
 
-.producto .deseados {
+.producto .deseados, .producto .compra {
   position: absolute;
-  width: 72.55%;
-  height: 75.31%;
-  top: 20.32%;
-  left: -3.59%;
+  width: 75%;
+  height: 75%;
+  top: 15%;
+  left: 5%;
 }
 
-.producto .compra {
-  position: absolute;
-  width: 69.59%;
-  height: 84.10%;
-  top: 11.66%;
-  left: -3.40%;
-}
-
-.producto .sumar img,
-.producto .deseados img,
-.producto .compra img,
-.producto .sumar svg,
-.producto .deseados svg,
-.producto .compra svg {
+.producto .sumar img, .producto .deseados img, .producto .compra img,
+.producto .sumar svg, .producto .deseados svg, .producto .compra svg {
   width: 100%;
   height: 100%;
   display: block;
@@ -195,60 +173,43 @@
   opacity: 0.8;
 }
 
-.producto *,
-.producto *::before,
-.producto *::after {
-  box-sizing: border-box;
-  max-width: 100%;
+.producto .informacion-producto {
+  padding-bottom: 68px;
 }
 
-/* MÓVIL (≤768px) */
 @media (max-width: 768px) {
   .producto .informacion-producto {
     min-height: 340px;
     padding: 12px;
-    padding-bottom: 60px;
+    padding-bottom: 65px; 
     gap: 12px;
-  }
-
-  .producto .precio {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .producto .texto {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .producto .span {
-    font-size: 15px;
-    line-height: 21px;
-  }
-
-  .producto .texto-2 {
-    font-size: 13px;
-    line-height: 18px;
   }
 
   .producto .simbolos {
     left: 12px;
     right: 12px;
     bottom: 12px;
-    gap: 8px;
-    height: 32px;
   }
 
   .producto .valoracion {
     width: 100px;
     height: 17px;
-    flex-basis: 100px;
   }
 
   .producto .sumar-a-la-cesta,
   .producto .sumar-a-deseados {
     width: 32px;
     height: 32px;
-    flex-basis: 32px;
+    flex: 0 0 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .producto .simbolos {
+    justify-content: flex-start;
+  }
+  
+  .producto .informacion-producto {
+    padding-bottom: 95px; 
   }
 }

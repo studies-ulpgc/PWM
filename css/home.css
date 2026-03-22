@@ -106,7 +106,6 @@
   }
 }
 
-/* -------------------- TABLET -------------------- */
 @media (min-width: 551px) and (max-width: 768px) {
   .home .animation-container {
     gap: 45px;
@@ -124,7 +123,6 @@
   }
 }
 
-/* -------------------- ORDENADOR PEQUEÑO -------------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
   .home .animation-container {
     gap: 50px;
@@ -142,7 +140,6 @@
   }
 }
 
-/* -------------------- PANTALLAS GRANDES -------------------- */
 @media (min-width: 1025px) {
   .home .animation-container {
     gap: 58px;
