@@ -463,16 +463,10 @@ body {
 
 .articulo-seleccionado .nivel-numero {
   position: absolute;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  width: auto;
-  font-family: "Roboto-Regular", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  color: #000000;
+  left: 0;              /* ← lo mandas a la izquierda */
+  bottom: 0;            /* ← abajo del todo */
+  transform: none;      /* ← quitas el centrado */
   font-size: 18px;
-  line-height: 1.2;
-  white-space: nowrap;
 }
 
 .articulo-seleccionado .listado-comentarios {
