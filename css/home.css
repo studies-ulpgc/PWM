@@ -5,7 +5,7 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 0;
   background-color: #ffffff;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .home .scroll-vertical {
-  margin-left: 0px;
+  margin-left: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -42,16 +42,21 @@
   justify-content: center;
   animation: spin 30s linear infinite;
   padding-right: 58px;
+  flex: 0 0 auto;
 }
 
 .home .foto {
-  width: 770px;
-  height: 386px;
+  display: block;
+  width: min(770px, calc(100vw - 40px));
+  max-width: 770px;
+  aspect-ratio: 770 / 386;
   background-color: #acacac;
   flex: 0 0 auto;
 }
 
-.home .foto:active { transform: scale(0.97); }
+.home .foto:active {
+  transform: scale(0.97);
+}
 
 @keyframes spin {
   from {
@@ -74,44 +79,42 @@
   max-height: 1280px;
   overflow-y: auto;
   margin: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .home ::-webkit-scrollbar {
   width: 0;
   display: none;
 }
-/* -------------------- FOTO CARRUCEL -------------------- */
 
-/* Móvil: 375px */
+/* -------------------- MÓVIL -------------------- */
 @media (max-width: 550px) {
-  .home .foto {
-    width: 770px;   /* más grande que antes */
-    height: 386px;
-  }
-  
   .home .animation-container {
-    gap: 25px;      /* un poco más de espacio entre fotos */
+    gap: 25px;
     padding-right: 25px;
   }
 
+  .home .foto {
+    width: min(770px, calc(100vw - 40px));
+  }
+
   .home .galeria {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     gap: 15px;
     padding: 10px;
   }
 }
 
-/* Tablet: 768px */
-@media (min-width: 376px) and (max-width: 768px) {
-  .home .foto {
-  width: 100%;
-  max-width: 770px;
-  height: auto;
-  }
-
+/* -------------------- TABLET -------------------- */
+@media (min-width: 551px) and (max-width: 768px) {
   .home .animation-container {
     gap: 45px;
     padding-right: 45px;
+  }
+
+  .home .foto {
+    width: min(770px, calc(100vw - 40px));
   }
 
   .home .galeria {
@@ -121,16 +124,15 @@
   }
 }
 
-/* Ordenador: 1024px */
+/* -------------------- ORDENADOR PEQUEÑO -------------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .home .foto {
-    width: 770px;   /* más grande que 90% */
-    height: 386px;
-  }
-
   .home .animation-container {
     gap: 50px;
     padding-right: 50px;
+  }
+
+  .home .foto {
+    width: 770px;
   }
 
   .home .galeria {
@@ -140,16 +142,15 @@
   }
 }
 
-/* Pantallas mayores a 1024px */
+/* -------------------- PANTALLAS GRANDES -------------------- */
 @media (min-width: 1025px) {
-  .home .foto {
-    width: 770px;
-    height: 386px;
-  }
-
   .home .animation-container {
     gap: 58px;
     padding-right: 58px;
+  }
+
+  .home .foto {
+    width: 770px;
   }
 
   .home .galeria {
