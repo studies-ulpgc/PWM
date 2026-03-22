@@ -1,6 +1,9 @@
 .contacto-principal {
+    width: 100%;
     max-width: 550px;
     margin: 60px auto;
+    padding: 0 16px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
@@ -24,8 +27,8 @@
     color: #000;
 }
 
-.entrada-texto, 
-.selector-estilizado select, 
+.entrada-texto,
+.selector-estilizado select,
 .area-texto {
     width: 100%;
     padding: 15px;
@@ -38,7 +41,7 @@
 
 .area-texto {
     height: 150px;
-    resize: vertical; 
+    resize: vertical;
 }
 
 .selector-estilizado {
