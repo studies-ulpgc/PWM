@@ -7,8 +7,6 @@
   font-family: var(--body-base-font-family);
 }
 
-/* MÓVIL - 375px */
-
 .contenido {
   width: min(100%, 1265px);
   margin: var(--size-space-400) auto 0;
@@ -245,8 +243,6 @@
   display: block;
 }
 
-/* TABLET - 768px */
-
 @media (min-width: 768px) {
 .pedidos-page {
     padding: 0;
@@ -328,8 +324,6 @@
     min-height: 0;
   }
 }
-
-/* DESKTOP - 1024px */
 
 @media (min-width: 1024px) {
   .pedidos-page {

@@ -88,7 +88,6 @@
   display: none;
 }
 
-/* -------------------- MÓVIL -------------------- */
 @media (max-width: 550px) {
   .home .animation-container {
     gap: 25px;

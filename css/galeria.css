@@ -28,7 +28,7 @@
   grid-template-columns: minmax(260px, 355px) minmax(0, 1fr);
   gap: 32px;
   align-items: start;
-  height: calc(100vh - 150px);
+  height: calc(150vh - 200px);
 }
 
 .galeria-de-3 {

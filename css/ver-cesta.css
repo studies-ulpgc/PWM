@@ -7,8 +7,6 @@
   font-family: var(--body-base-font-family);
 }
 
-/* MÓVIL - 375px */
-
 .cesta-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -289,8 +287,6 @@
   margin-top: var(--size-space-600);
 }
 
-/* TABLET - 768px */
-
 @media (min-width: 768px) {
   .ver-cesta {
     padding: var(--size-space-600) var(--size-space-500) calc(var(--size-space-600) * 2);
@@ -382,8 +378,6 @@
     min-height: 420px;
   }
 }
-
-/* DESKTOP - 1024px */
 
 @media (min-width: 1024px) {
   .ver-cesta {

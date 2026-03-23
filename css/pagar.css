@@ -308,7 +308,6 @@
     text-decoration: underline;
 }
 
-/* TABLET GRANDE */
 @media (max-width: 980px) {
     .contenedor-pago {
         padding: 0 24px;
@@ -328,7 +327,6 @@
     }
 }
 
-/* TABLET */
 @media (max-width: 768px) {
     .contenedor-pago {
         margin: 32px auto;
@@ -365,7 +363,6 @@
     }
 }
 
-/* MÓVIL */
 @media (max-width: 560px) {
     .contenedor-pago {
         margin: 24px auto;
@@ -454,7 +451,6 @@
     }
 }
 
-/* MÓVIL PEQUEÑO */
 @media (max-width: 380px) {
     .contenedor-pago {
         padding: 0 10px;

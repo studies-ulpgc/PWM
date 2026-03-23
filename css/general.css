@@ -128,21 +128,20 @@
     border: 2px solid #ff0000 !important;
 }
 
-/* -------------------- TABLET (≤880px) -------------------- */
 @media (max-width: 880px) {
 
   .pagina-split {
-    grid-template-columns: 1fr; /* solo una columna */
+    grid-template-columns: 1fr;
     margin-top: 10px;
   }
 
   .contenedor-foto {
-    display: none; /* ocultamos la imagen izquierda */
+    display: none;
   }
 
   .seccion-formulario {
-    padding: 30px 20px; /* menos padding para móvil */
-    align-items: center; /* centramos el formulario */
+    padding: 30px 20px;
+    align-items: center;
   }
 
   .contacto-principal {
@@ -150,7 +149,7 @@
   }
 
   .fila-doble {
-    flex-direction: column; /* inputs uno debajo de otro */
+    flex-direction: column;
     gap: 16px;
   }
 

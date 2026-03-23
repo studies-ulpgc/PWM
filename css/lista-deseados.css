@@ -7,8 +7,6 @@
   font-family: var(--body-base-font-family);
 }
 
-/* MÓVIL - 375px */
-
 .contenido {
   width: min(100%, 1265px);
   margin: var(--size-space-400) auto 0;
@@ -186,8 +184,6 @@
   margin-top: var(--size-space-600);
 }
 
-/* TABLET - 768px */
-
 @media (min-width: 768px) {
   .deseados-page {
     padding: 0 var(--size-space-500) calc(var(--size-space-600) * 2);
@@ -254,8 +250,6 @@
     min-height: 420px;
   }
 }
-
-/* DESKTOP - 1024px */
 
 @media (min-width: 1024px) {
   .deseados-page {
