@@ -137,11 +137,11 @@
     margin-top: 5px;
 }
 
-.entrada-texto-pago:not(:placeholder-shown):invalid {
+.entrada-texto:not(:placeholder-shown):invalid {
     border: 2px solid #ff0000 !important;
 }
 
-.entrada-texto-pago:not(:placeholder-shown):invalid + .error-mensaje {
+.entrada-texto:not(:placeholder-shown):invalid + .error-mensaje {
     display: block;
 }
 

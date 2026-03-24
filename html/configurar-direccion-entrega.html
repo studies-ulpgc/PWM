@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Configurar Dirección Entrega</title>
     <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="../css/styleguide.css" />
     <script src="../js/carga-datos/imagen_izq.js"></script>
-    <script src="../js/carga-dinamica/validacion.js"></script>
 </head>
 <body>
     <div class="pagina-split">
@@ -16,42 +16,67 @@
 
         <div class="seccion-formulario">
             <main class="contacto-principal">
-               <form class="formulario-contenedor" action="pagar.html">
-    
+                <form class="formulario-contenedor" action="pagar.html" novalidate>
+                    
                     <div class="campo-grupo">
                         <label for="calle" class="etiqueta-formulario">Calle</label>
-                        <input type="text" id="calle" name="calle" class="entrada-texto" placeholder="Nombre de la calle - Número" autocomplete="street-address" required>
+                        <input type="text" id="calle" name="calle" class="entrada-texto" 
+                                placeholder="Nombre de la calle - Número" 
+                               pattern="^[a-zA-ZÁÉÍÓÚáéíóúñÑ\s]+ - [0-9]+$" 
+                               required>
+                        <span class="error-mensaje">Formato requerido: Nombre de la calle - Número</span>
                     </div>
 
                     <div class="campo-grupo">
                         <label for="cp" class="etiqueta-formulario">Código postal</label>
-                        <input type="text" id="cp" name="cp" class="entrada-texto" placeholder="Código postal" autocomplete="postal-code" required>
+                        <input type="text" id="cp" name="cp" class="entrada-texto" 
+                               placeholder="5 dígitos" 
+                               pattern="[0-9]{5}" 
+                               required>
+                        <span class="error-mensaje">Deben ser exactamente 5 números</span>
                     </div>
 
                     <div class="campo-grupo">
                         <label for="provincia" class="etiqueta-formulario">Estado/Provincia</label>
-                        <input type="text" id="provincia" name="provincia" class="entrada-texto" placeholder="Estado o provincia" autocomplete="address-level1" required>
+                        <input type="text" id="provincia" name="provincia" class="entrada-texto" 
+                               placeholder="Estado o provincia" 
+                               pattern="[a-zA-ZÁÉÍÓÚáéíóúñÑ ]+" 
+                               required>
+                        <span class="error-mensaje">Solo se permiten letras</span>
                     </div>
 
                     <div class="fila-doble">
                         <div class="campo-grupo">
                             <label for="nombre" class="etiqueta-formulario">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" class="entrada-texto" placeholder="Tu nombre" autocomplete="given-name" required>
+                            <input type="text" id="nombre" name="nombre" class="entrada-texto" 
+                                    placeholder="Tu nombre" 
+                                    pattern="[a-zA-ZÁÉÍÓÚáéíóúñÑ ]+" 
+                                    required>
+                            <span class="error-mensaje">Solo letras</span>
                         </div>
                         <div class="campo-grupo">
                             <label for="apellido" class="etiqueta-formulario">Apellido</label>
-                            <input type="text" id="apellido" name="apellido" class="entrada-texto" placeholder="Tu apellido" autocomplete="family-name" required>
+                            <input type="text" id="apellido" name="apellido" class="entrada-texto" 
+                                    placeholder="Tu apellido" 
+                                    pattern="[a-zA-ZÁÉÍÓÚáéíóúñÑ ]+" 
+                                    required>
+                            <span class="error-mensaje">Solo letras</span>
                         </div>
                     </div>
 
                     <div class="campo-grupo">
                         <label for="fecha" class="etiqueta-formulario">Fecha de nacimiento</label>
-                        <input type="date" id="fecha" name="fecha" class="entrada-texto">
+                        <input type="date" id="fecha" name="fecha" class="entrada-texto" required>
+                        <span class="error-mensaje">La fecha es obligatoria</span>
                     </div>
 
                     <div class="campo-grupo">
                         <label for="email" class="etiqueta-formulario">Email</label>
-                        <input type="email" id="email" name="email" class="entrada-texto" placeholder="ejemplo@correo.com" autocomplete="email" required>
+                        <input type="email" id="email" name="email" class="entrada-texto"
+                                pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+                                placeholder="ejemplo@correo.com"
+                                required>
+                        <span class="error-mensaje">Introduce un email válido</span>
                     </div>
 
                     <button type="submit" class="boton-negro">Guardar</button>

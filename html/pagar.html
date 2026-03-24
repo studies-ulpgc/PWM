@@ -59,7 +59,7 @@
                 <section class="seccion-pago">
                     <div class="bloque-entrada-pago">
                         <label class="etiqueta-formulario">Código de cupón</label>
-                        <input type="text" class="entrada-texto-pago" 
+                        <input type="text" class="entrada-texto" 
                             placeholder="123456" 
                             pattern="[0-9]{6}">
                         <span class="error-mensaje">El cupón debe tener al menos 6 caracteres numéricos</span>
@@ -67,7 +67,7 @@
 
                     <div class="bloque-entrada-pago">
                         <label class="etiqueta-formulario">Tarjeta regalo</label>
-                        <input type="text" class="entrada-texto-pago" 
+                        <input type="text" class="entrada-texto" 
                             placeholder="1234-5678-9123" 
                             pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}">
                         <span class="error-mensaje">Formato requerido: 1234-5678-9123</span>
@@ -166,7 +166,7 @@
         </div>
 
         <div class="footer-pago">
-            <button type="button" id="btn-finalizar-pago" class="boton-negro">Pagar</button>
+            <button type="button" class="boton-negro">Pagar</button>
         </div>
     </main>
     <footer id="footer"></footer>
