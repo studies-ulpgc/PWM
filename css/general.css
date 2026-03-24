@@ -128,23 +128,6 @@
     border: 2px solid #ff0000 !important;
 }
 
-/* NUEVO */
-.error-mensaje {
-    display: none;
-    color: #ff0000;
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.entrada-texto:not(:placeholder-shown):invalid {
-    border: 2px solid #ff0000 !important;
-}
-
-.entrada-texto:not(:placeholder-shown):invalid + .error-mensaje {
-    display: block;
-}
-
 @media (max-width: 880px) {
 
   .pagina-split {
@@ -169,4 +152,5 @@
     flex-direction: column;
     gap: 16px;
   }
+
 }
