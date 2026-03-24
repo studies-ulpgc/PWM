@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="../css/general.css" />
         <link rel="stylesheet" href="../css/iniciar-sesion.css" />
         <script src="../js/carga-dinamica/main.js"></script>
+        <script src="../js/carga-dinamica/validacion.js"></script>
         <script src="../js/carga-datos/imagen_izq.js"></script>
     </head>
     <body>
@@ -28,14 +29,12 @@
                     <form class="formulario-contenedor" action="ver-cuenta.html">
                         <div class="campo-grupo">
                             <label for="email" class="etiqueta-formulario">Email</label>
-                            <input type="email" id="email" name="email" class="entrada-texto" placeholder="ejemplo@correo.com" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" autocomplete="username" required>
-                            <span class="error-mensaje">Introduce un email válido</span>
+                            <input type="email" id="email" name="email" class="entrada-texto" placeholder="ejemplo@correo.com" autocomplete="username" required>
                         </div>
 
                         <div class="campo-grupo">
                             <label for="password" class="etiqueta-formulario">Contraseña</label>
                             <input type="password" id="password" name="password" class="entrada-texto" placeholder="********" autocomplete="current-password" required>
-                            <span class="error-mensaje">La contraseña es obligatoria</span>
                         </div>
 
                         <div class="opciones-secundarias">
@@ -46,7 +45,7 @@
                             <a href="#" class="enlace-olvido">¿Olvidó la contraseña?</a>
                         </div>
 
-                        <button type="button" class="boton-negro" onclick="validarYEntrar()">Iniciar Sesión</button>
+                        <button type="button" class="boton-negro" onclick="simularLogin()">Iniciar Sesión</button>
 
                         <div class="separador-contenedor">
                             <span class="linea"></span>

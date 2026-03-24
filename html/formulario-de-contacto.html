@@ -9,37 +9,34 @@
     <link rel="stylesheet" href="../css/formulario.css" />
     <link rel="stylesheet" href="../css/general.css" />
     <script src="../js/carga-dinamica/main.js"></script>
+    <script src="../js/carga-dinamica/validacion.js"></script>
     <script src="../js/carga-datos/header.js"></script>
     <script src="../js/carga-datos/footer.js"></script>
   </head>
   <body>
     <header id="header"></header>
-    <main class="contacto-principal-centrado">
+    <main class="contacto-principal">
         <form class="formulario-contenedor">   
             <div class="campo-grupo">
                 <label for="motivo" class="etiqueta-formulario">Motivo</label>
                 <div class="selector-estilizado">
-                    <select id="motivo" name="motivo" required>
+                    <select id="motivo" name="motivo">
                         <option value="" disabled selected>Selecciona un motivo</option>
                         <option value="duda">Duda</option>
                         <option value="reclamacion">Reclamación</option>
                         <option value="otros">Otros</option>
                     </select>
-                    <span class="error-mensaje">Por favor, selecciona un motivo</span>
                 </div>
             </div>
 
             <div class="campo-grupo">
                 <label for="asunto" class="etiqueta-formulario">Asunto</label>
-                <input type="text" id="asunto" name="asunto" class="entrada-texto" placeholder="Escribe el asunto aquí" required>
-                <span class="error-mensaje">El asunto es obligatorio</span>
+                <input type="text" id="asunto" name="asunto" class="entrada-texto" placeholder="Escribe el asunto aquí">
             </div>
-            
 
             <div class="campo-grupo">
                 <label for="descripcion" class="etiqueta-formulario">Descripción</label>
-                <textarea id="descripcion" name="descripcion" class="area-texto" placeholder="Escribe tu mensaje..." required></textarea>
-                <span class="error-mensaje">La descripción es obligatoria</span>
+                <textarea id="descripcion" name="descripcion" class="area-texto" placeholder="Escribe tu mensaje..."></textarea>
             </div>
 
             <button type="submit" class="boton-negro">Enviar</button>
