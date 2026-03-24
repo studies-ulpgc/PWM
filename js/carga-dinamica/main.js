@@ -283,3 +283,29 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('not-logged-in');
     }
 });
+
+function validarYEntrar() {
+    // 1. Buscamos el formulario
+    const formulario = document.querySelector('.formulario-contenedor');
+    const inputs = formulario.querySelectorAll('.entrada-texto');
+    
+    // 2. Comprobamos si el formulario es válido (HTML5)
+    if (formulario.checkValidity()) {
+        // Si todo está bien, simulamos el login y vamos a la cuenta
+        sessionStorage.setItem('isLoggedIn', 'true');
+        const email = document.getElementById('email')?.value;
+        if (email) sessionStorage.setItem('userName', email.split('@')[0]);
+        window.location.href = 'ver-cuenta.html';
+    } else {
+        // 3. TRUCO: Si es inválido, recorremos los inputs
+        inputs.forEach(input => {
+            // Si el input está vacío, le ponemos un valor vacío a la fuerza
+            // Esto "despierta" al CSS para que detecte el error
+            if (!input.value) {
+                input.value = ""; 
+            }
+        });
+        // Aplicamos una clase temporal al formulario para forzar el redibujado de errores
+        formulario.classList.add('validado');
+    }
+}
