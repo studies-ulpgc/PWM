@@ -187,36 +187,39 @@ function inicializarValidacionLogin() {
 function inicializarValidacionContacto(form) {
     form.setAttribute("novalidate", true);
 
-    const campos = [
-        { id: "motivo", regla: reglas.selectorRelleno },
-        { id: "asunto", regla: reglas.alfanumerico },
-        { id: "descripcion", regla: reglas.alfanumerico }
-    ];
+    const inputs = form.querySelectorAll("input, textarea, select");
 
-    campos.forEach(campo => {
-        const el = document.getElementById(campo.id);
-        if (!el) return;
-
+    inputs.forEach(el => {
         const evento = el.tagName === "SELECT" ? "change" : "input";
         
         el.addEventListener(evento, () => {
-            actualizarMensajeError(el, campo.regla(el.value.trim()));
+            if (el.validity.valid) {
+                actualizarMensajeError(el, true);
+            } else {
+                let mensaje = "Este campo es obligatorio";
+                if (el.validity.tooShort) mensaje = `Mínimo ${el.minLength} caracteres`;
+                
+                actualizarMensajeError(el, mensaje);
+            }
         });
     });
 
     form.addEventListener("submit", (e) => {
         let esValido = true;
-        campos.forEach(campo => {
-            const el = document.getElementById(campo.id);
-            const res = campo.regla(el.value.trim());
-            actualizarMensajeError(el, res);
-            if (res !== true) esValido = false;
+
+        inputs.forEach(el => {
+            if (!el.validity.valid) {
+                esValido = false;
+                let mensaje = "Este campo es obligatorio";
+                if (el.validity.tooShort) mensaje = `Mínimo ${el.minLength} caracteres`;
+                actualizarMensajeError(el, mensaje);
+            }
         });
 
         if (!esValido) {
             e.preventDefault();
         } else {
-            alert("¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.");
+            alert("Formulario enviado con éxito!");
         }
     });
 }
