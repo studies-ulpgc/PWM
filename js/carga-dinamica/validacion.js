@@ -1,27 +1,22 @@
 const reglas = {
     soloLetras: (v) => {
-        if (v.length === 0) return "Este campo es obligatorio";
         if (!/^[a-zA-ZÁÉÍÓÚáéíóúñÑ ]+$/.test(v)) return "No se permiten números ni símbolos";
         return true;
     },
     cpValido: (v) => {
-        if (v.length === 0) return "El código postal es obligatorio";
         if (!/^[0-9]+$/.test(v)) return "Solo se permiten números";
         if (v.length !== 5) return "Deben ser exactamente 5 dígitos";
         return true;
     },
     calleValida: (v) => {
-        if (v.length === 0) return "La calle es obligatoria";
         const regexCalle = /^.+ - [0-9]+$/;
         if (!regexCalle.test(v)) return "Formato requerido: Nombre de la calle - Número";
         return true;
     },
     fechaValida: (v) => {
-        if (!v || v === "") return "La fecha de nacimiento es obligatoria";
         return true;
     },
     validarEmail: (v) => {
-        if (v.length === 0) return "El correo es obligatorio";
         if (!v.includes('@')) return "Falta el símbolo '@'";
         const partes = v.split('@');
         if (!partes[1]) return "Introduce un dominio después del '@'";
@@ -113,29 +108,38 @@ function inicializarValidacionRegistro() {
 
 function inicializarValidacionDireccion(form) {
     form.setAttribute("novalidate", true);
-    const campos = [
-        { id: "calle", regla: reglas.calleValida },
-        { id: "cp", regla: reglas.cpValido },
-        { id: "provincia", regla: reglas.soloLetras },
-        { id: "nombre", regla: reglas.soloLetras },
-        { id: "apellido", regla: reglas.soloLetras },
-        { id: "fecha", regla: reglas.fechaValida },
-        { id: "email", regla: reglas.validarEmail }
-    ];
 
-    campos.forEach(campo => {
-        const el = document.getElementById(campo.id);
-        if (el) el.addEventListener("input", () => actualizarMensajeError(el, campo.regla(el.value.trim())));
+    const inputs = form.querySelectorAll("input");
+
+    inputs.forEach(el => {
+        el.addEventListener("input", () => {
+            if (el.validity.valueMissing) {
+                actualizarMensajeError(el, "Este campo es obligatorio");
+            } 
+            else {
+                let resultado = true;
+                const valor = el.value.trim();
+
+                if (el.id === "calle") resultado = reglas.calleValida(valor);
+                else if (el.id === "cp") resultado = reglas.cpValido(valor);
+                else if (el.id === "provincia" || el.id === "nombre" || el.id === "apellido") {
+                    resultado = reglas.soloLetras(valor);
+                }
+                else if (el.id === "email") resultado = reglas.validarEmail(valor);
+
+                actualizarMensajeError(el, resultado);
+            }
+        });
     });
 
     form.addEventListener("submit", (e) => {
         let esValido = true;
-        campos.forEach(campo => {
-            const el = document.getElementById(campo.id);
-            const res = campo.regla(el.value.trim());
-            actualizarMensajeError(el, res);
-            if (res !== true) esValido = false;
+        inputs.forEach(el => {
+            el.dispatchEvent(new Event("input"));
+            
+            if (el.classList.contains("input-error")) esValido = false;
         });
+
         if (!esValido) e.preventDefault();
     });
 }
@@ -211,12 +215,9 @@ function inicializarValidacionPago() {
 
     inputsPago.forEach(input => {
         input.addEventListener("input", () => {
-            // Si está vacío, es válido (porque es opcional)
-            // Si tiene algo, el navegador chequea el 'pattern' automáticamente
             if (input.validity.valid) {
                 actualizarMensajeError(input, true);
             } else {
-                // Usamos el 'title' del HTML como mensaje de error personalizado
                 actualizarMensajeError(input, input.title || "Formato no válido");
             }
         });
