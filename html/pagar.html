@@ -60,12 +60,12 @@
                 <section class="seccion-pago">
                     <div class="bloque-entrada-pago">
                         <label class="etiqueta-formulario">Código de cupón</label>
-                        <input type="text" class="entrada-texto-pago" placeholder="Código">
+                        <input type="text" class="entrada-texto-pago" placeholder="Código de cupón" pattern="[0-9]{8}" title="Deben ser 8 números">
                     </div>
                     
                     <div class="bloque-entrada-pago">
                         <label class="etiqueta-formulario">Tarjeta regalo</label>
-                        <input type="text" class="entrada-texto-pago" placeholder="XXXX-XXXX-XXXX">
+                        <input type="text" class="entrada-texto-pago" placeholder="XXXX-XXXX-XXXX" pattern="[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}" title="Formato requerido: XXXX-XXXX-XXXX">
                     </div>
                 </section>
             </div>

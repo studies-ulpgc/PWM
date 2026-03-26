@@ -227,30 +227,35 @@ function inicializarValidacionContacto(form) {
 function inicializarValidacionPago() {
     const btnPagar = document.querySelector(".footer-pago .boton-negro");
     const inputsPago = document.querySelectorAll(".entrada-texto-pago");
-    const inputCupon = inputsPago[0];
-    const inputTarjeta = inputsPago[1];
 
-    if (!btnPagar || !inputCupon) return;
+    if (!btnPagar || inputsPago.length === 0) return;
 
-    inputCupon.addEventListener("input", () => {
-        actualizarMensajeError(inputCupon, reglas.cuponOpcional(inputCupon.value.trim()));
-    });
-
-    inputTarjeta.addEventListener("input", () => {
-        actualizarMensajeError(inputTarjeta, reglas.tarjetaRegaloOpcional(inputTarjeta.value.trim()));
+    inputsPago.forEach(input => {
+        input.addEventListener("input", () => {
+            // Si está vacío, es válido (porque es opcional)
+            // Si tiene algo, el navegador chequea el 'pattern' automáticamente
+            if (input.validity.valid) {
+                actualizarMensajeError(input, true);
+            } else {
+                // Usamos el 'title' del HTML como mensaje de error personalizado
+                actualizarMensajeError(input, input.title || "Formato no válido");
+            }
+        });
     });
 
     btnPagar.addEventListener("click", (e) => {
-        const resCupon = reglas.cuponOpcional(inputCupon.value.trim());
-        const resTarjeta = reglas.tarjetaRegaloOpcional(inputTarjeta.value.trim());
+        let esValido = true;
 
-        actualizarMensajeError(inputCupon, resCupon);
-        actualizarMensajeError(inputTarjeta, resTarjeta);
+        inputsPago.forEach(input => {
+            if (!input.validity.valid) {
+                esValido = false;
+                actualizarMensajeError(input, input.title || "Formato no válido");
+            }
+        });
 
-        if (resCupon === true && resTarjeta === true) {
+        if (esValido) {
             console.log("Procesando pago...");
             alert("¡Pago procesado con éxito!");
-            window.location.href = "index.html";
         } else {
             e.preventDefault();
             console.warn("Revisa los códigos promocionales");
