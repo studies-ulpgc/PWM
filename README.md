@@ -5,10 +5,10 @@ El nombre del proyecto es “Tienda de Ropa Online” y el grupo 42 subgrupo 6 q
 El software consiste en una plataforma web de comercio electrónico destinada a la venta de ropa online.
 
 ## FIGMA
-Nombre del pdf con los mockups (que se encuentran en el directorio de trabajo): 
-* **Mockups de formato ordenador:** [Mockups_ordenador.pdf](Mockups_ordenador.pdf).
-* **Mockups de formato tablet:** [Mockups_tablet.pdf](Mockups_tablet.pdf).
-* **Mockups de formato móvil:** [Mockups_movil.pdf](Mockups_movil.pdf).
+Nombre del pdf con los mockups (que se encuentran en la carpeta 'Mockups' el directorio de trabajo): 
+* **Mockups de formato ordenador:** [Mockups_ordenador.pdf](Mockups/Mockups_ordenador.pdf).
+* **Mockups de formato tablet:** [Mockups_tablet.pdf](Mockups/Mockups_tablet.pdf).
+* **Mockups de formato móvil:** [Mockups_movil.pdf](Mockups/Mockups_movil.pdf).
 
 ## Requisitos
 
