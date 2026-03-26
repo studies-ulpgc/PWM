@@ -38,27 +38,6 @@ const reglas = {
         if (v.length === 0) return "Debes repetir la contraseña";
         if (v !== original) return "Las contraseñas no coinciden";
         return true;
-    },
-    alfanumerico: (v) => {
-        if (v.length === 0) return "Este campo es obligatorio";
-        if (v.length < 5) return "Por favor, da un poco más de detalle (mín. 5 caracteres)";
-        return true;
-    },
-    selectorRelleno: (v) => {
-        if (!v || v === "") return "Debes seleccionar un motivo";
-        return true;
-    },
-    cuponOpcional: (v) => {
-        if (v.length === 0) return true;
-        const regexCupon = /^[a-zA-Z0-9]{6,}$/;
-        if (!regexCupon.test(v)) return "Formato de cupón no válido (mín. 6 caracteres alfanuméricos)";
-        return true;
-    },
-    tarjetaRegaloOpcional: (v) => {
-        if (v.length === 0) return true;
-        const regexGiftCard = /^[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}$/;
-        if (!regexGiftCard.test(v)) return "Formato requerido: XXXX-XXXX-XXXX";
-        return true;
     }
 };
 
