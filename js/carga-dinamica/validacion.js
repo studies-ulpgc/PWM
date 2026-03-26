@@ -59,50 +59,45 @@ function actualizarMensajeError(input, resultadoRegla) {
 
 
 function inicializarValidacionRegistro() {
-    const btnRegistro = document.querySelector(".boton-negro");
     const form = document.querySelector(".formulario-contenedor");
-    if (!btnRegistro || !form) return;
+    if (!form) return;
 
-    btnRegistro.removeAttribute("onclick");
+    form.setAttribute("novalidate", true);
 
-    const campos = [
-        { id: "email", regla: reglas.validarEmail },
-        { id: "nombre", regla: reglas.soloLetras },
-        { id: "apellidos", regla: reglas.soloLetras },
-        { id: "fecha", regla: reglas.fechaValida },
-        { id: "password", regla: reglas.passwordValida }
-    ];
-
-    campos.forEach(campo => {
-        const el = document.getElementById(campo.id);
-        if (el) el.addEventListener("input", () => actualizarMensajeError(el, campo.regla(el.value.trim())));
-    });
-
+    const inputs = form.querySelectorAll("input");
     const passEl = document.getElementById("password");
     const confirmEl = document.getElementById("confirm-password");
-    if (confirmEl) {
-        confirmEl.addEventListener("input", () => {
-            actualizarMensajeError(confirmEl, reglas.confirmarPassword(confirmEl.value.trim(), passEl.value.trim()));
-        });
-    }
 
-    btnRegistro.addEventListener("click", () => {
+    inputs.forEach(el => {
+        el.addEventListener("input", () => {
+            if (el.validity.valueMissing) {
+                actualizarMensajeError(el, "Este campo es obligatorio");
+            } 
+            else {
+                let resultado = true;
+                const valor = el.value.trim();
+
+                if (el.id === "email") resultado = reglas.validarEmail(valor);
+                else if (el.id === "nombre" || el.id === "apellidos") resultado = reglas.soloLetras(valor);
+                else if (el.id === "password") resultado = reglas.passwordValida(valor);
+                else if (el.id === "confirm-password") {
+                    resultado = reglas.confirmarPassword(valor, passEl.value.trim());
+                }
+                actualizarMensajeError(el, resultado);
+            }
+        });
+    });
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
         let esValido = true;
 
-        campos.forEach(campo => {
-            const el = document.getElementById(campo.id);
-            const res = campo.regla(el.value.trim());
-            actualizarMensajeError(el, res);
-            if (res !== true) esValido = false;
+        inputs.forEach(el => {
+            el.dispatchEvent(new Event("input"));
+            if (el.classList.contains("input-error")) esValido = false;
         });
 
-        const resConfirm = reglas.confirmarPassword(confirmEl.value.trim(), passEl.value.trim());
-        actualizarMensajeError(confirmEl, resConfirm);
-        if (resConfirm !== true) esValido = false;
-
-        if (esValido) {
-            simularRegistro();
-        }
+        if (esValido) simularRegistro(); 
     });
 }
 
