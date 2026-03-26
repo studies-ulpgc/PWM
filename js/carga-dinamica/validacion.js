@@ -27,7 +27,6 @@ const reglas = {
         return true;
     },
     confirmarPassword: (v, original) => {
-        if (v.length === 0) return "Debes repetir la contraseña";
         if (v !== original) return "Las contraseñas no coinciden";
         return true;
     }
