@@ -1,9 +1,14 @@
-# SPRINT 1
+# SPRINT 2
 
 ## Introducción
 El nombre del proyecto es “Tienda de Ropa Online” y el grupo 42 subgrupo 6 que está formado por Houyame Liazidi Daoudi, Dácil Santana Ortega y Alicia María Rodríguez Trujillo.
 El software consiste en una plataforma web de comercio electrónico destinada a la venta de ropa online.
 
+## FIGMA
+Nombre del pdf con los mockups (que se encuentran en el directorio de trabajo): 
+* **Mockups de formato ordenador:** [Mockups_ordenador.pdf](Mockups_ordenador.pdf).
+* **Mockups de formato tablet:** [Mockups_tablet.pdf](Mockups_tablet.pdf).
+* **Mockups de formato móvil:** [Mockups_movil.pdf](Mockups_movil.pdf).
 
 ## Requisitos
 
@@ -21,8 +26,7 @@ Finalmente, se incluyen funcionalidades de postventa y valoración de productos,
 
 Para ver los requisitos redactados de forma detallada, acceda al documento [Requisitos.pdf](Requisitos.pdf) que se encuentra en la raíz del directorio de trabajo.
 
-## Nombre y Ubicación del pdf con mockups y del vídeo de la navegabilidad
-Nombre del pdf con los mockups: [Mockups.pdf](Mockups.pdf), que se encuentra en el directorio de trabajo.
+## Nombre y Ubicación del vídeo de la navegabilidad
 El vídeo con la navegabilidad se llama: [navegacion.mp4](navegacion.mp4) y se encuentra en el directorio de trabajo.
 
 ## Listado de páginas html
