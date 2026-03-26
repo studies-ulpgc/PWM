@@ -20,7 +20,7 @@
             <div class="campo-grupo">
                 <label for="motivo" class="etiqueta-formulario">Motivo</label>
                 <div class="selector-estilizado">
-                    <select id="motivo" name="motivo">
+                    <select id="motivo" name="motivo" required>
                         <option value="" disabled selected>Selecciona un motivo</option>
                         <option value="duda">Duda</option>
                         <option value="reclamacion">Reclamación</option>
@@ -31,12 +31,12 @@
 
             <div class="campo-grupo">
                 <label for="asunto" class="etiqueta-formulario">Asunto</label>
-                <input type="text" id="asunto" name="asunto" class="entrada-texto" placeholder="Escribe el asunto aquí">
+                <input type="text" id="asunto" name="asunto" class="entrada-texto" placeholder="Escribe el asunto aquí" required>
             </div>
 
             <div class="campo-grupo">
                 <label for="descripcion" class="etiqueta-formulario">Descripción</label>
-                <textarea id="descripcion" name="descripcion" class="area-texto" placeholder="Escribe tu mensaje..."></textarea>
+                <textarea id="descripcion" name="descripcion" class="area-texto" placeholder="Escribe tu mensaje..." required></textarea>
             </div>
 
             <button type="submit" class="boton-negro">Enviar</button>
