@@ -13,9 +13,6 @@ const reglas = {
         if (!regexCalle.test(v)) return "Formato requerido: Nombre de la calle - Número";
         return true;
     },
-    fechaValida: (v) => {
-        return true;
-    },
     validarEmail: (v) => {
         if (!v.includes('@')) return "Falta el símbolo '@'";
         const partes = v.split('@');
