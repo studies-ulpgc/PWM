@@ -29,6 +29,17 @@ Este documento recoge el trabajo realizado en el Sprint 1 y sirve como base para
 - Las imágenes del proyecto están organizadas en dos rutas:
   - [img/](img/): contiene las imágenes utilizadas directamente en HTML (iconos, tarjetas, etc.).
   - [uploads/](uploads/): contiene las imágenes empleadas en los datos del JSON.
+- Los scripts están separados según su funcionalidad:
+  - [carga-datos/](js/carga-datos/): Se encarga de la carga y gestión de los datos provenientes de archivos JSON.
+  - [carga-dinamica/](js/carga-dinamica/): Gestiona la renderización dinámica de componentes/templates en el DOM.
+- Este archivo contiene distintas páginas informativas estructuradas mediante componentes dinámicos:
+  - info.bloque-texto → Párrafos de contenido.
+  - info.tarjeta-informativa → Tarjetas con imagen y título.
+  - info.seccion-destacada → Secciones destacadas con título, descripción e imagen.
+
+- El proyecto incluye distintos sistemas de filtrado según la sección:
+  - En la página de **pedidos realizados**, existe un mecanismo de filtrado que permite mostrar u ocultar los artículos según su estado de envío.
+  - En la **galería** de productos, se implementa un sistema de filtrado mediante un desplegable de categorías, que permite visualizar los productos según su tipo (camisas o chaquetas).
 
 ## Listado de páginas html
 Cada página con nombre del mockup que implementa:
