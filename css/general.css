@@ -33,12 +33,6 @@
     gap: 28px;
 }
 
-.campo-grupo {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .etiqueta-formulario {
     font-size: 14px !important;
     font-weight: bold !important;
@@ -114,6 +108,7 @@
     flex-direction: column;
     margin-bottom: 20px;
     position: relative;
+    gap: 10px;
 }
 
 .error-text {
