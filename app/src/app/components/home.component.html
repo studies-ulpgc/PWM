@@ -1,0 +1,25 @@
+<header>
+  <!-- Header content loaded dynamically or static -->
+</header>
+<main class="home">
+  <article class="scroll-vertical">
+    <section class="carrucel">
+      <div class="animation-container">
+        <a href="#" class="foto" *ngFor="let producto of productos.slice(0,3)">{{ producto.Descripcion }}</a>
+      </div>
+      <div aria-hidden class="animation-container">
+        <a href="#" class="foto" *ngFor="let producto of productos.slice(3,6)">{{ producto.Descripcion }}</a>
+      </div>
+    </section>
+    <section id="productos-contenedor" class="galeria">
+      <div *ngFor="let producto of productos">
+        <h3>{{ producto.Descripcion }}</h3>
+        <p>{{ producto.Precio }}</p>
+        <!-- Add more fields -->
+      </div>
+    </section>
+    <footer>
+      <!-- Footer content -->
+    </footer>
+  </article>
+</main>
