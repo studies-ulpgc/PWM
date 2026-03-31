@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-comentario',
-  templateUrl: './comentario.html'
+  templateUrl: '../components/comentario/comentario.html',
 })
 export class ComentarioComponent {
   // Este objeto 'data' vendrá del bucle @for en el padre

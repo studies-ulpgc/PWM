@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.html'
+  templateUrl: '../components/footer/footer.html',
 })
 export class FooterComponent implements OnInit {
   idiomas: any[] = [];

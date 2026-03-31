@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.html',
-  styleUrls: ['./header.css']
+  templateUrl: '../components/header-grande/header-grande.html',
+  styleUrls: ['../components/header-grande/header-grande.css']
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
