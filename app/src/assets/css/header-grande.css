@@ -1,0 +1,437 @@
+.box {
+  width: min(1480px, 100%);
+  height: auto;
+  margin: auto;
+  position: relative;
+  padding: 0 20px;
+}
+
+.box .header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background-color: transparent;
+  border-radius: 5px;
+  border-top-style: none;
+  border-right-style: none;
+}
+
+.box .default-GRANDE {
+  position: relative;
+  width: 100%;
+  margin-left: 0;
+  background-color: #ffffff;
+  border-bottom: 2px solid #000000;
+  padding: 42px 59px 20px;
+  display: grid;
+  grid-template-rows: auto auto;
+  row-gap: 0;
+  align-content: start;
+}
+
+.box .principal-2 {
+  width: 100%;
+  min-height: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0;
+}
+
+.box .empresa {
+  flex: 0 0 auto;
+  margin-top: 0;
+  width: 105px;
+  height: 40px;
+  margin-left: -1px;
+  -webkit-text-stroke: 1px #000000;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 53px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.box .navegador {
+  flex: 1 1 auto;
+  min-width: 220px;
+  max-width: 809px;
+  width: auto;
+  height: 56px;
+  position: relative;
+  margin-left: clamp(36px, 8vw, 120px);
+  border: 1px solid #000000;
+  cursor: text;
+}
+
+.box .icono {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 21px;
+  transform: translateY(-50%);
+}
+
+.box .linea {
+  position: absolute;
+  top: 0;
+  left: 54px;
+  width: 1px;
+  height: 54px;
+  object-fit: cover;
+}
+
+.box .buscar {
+  position: absolute;
+  top: 8px;
+  left: 80px;
+  width: 100px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 40px;
+}
+
+.box .navegador form {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.box .buscar-input {
+  position: absolute;
+  top: 0;
+  left: 65px;
+  width: calc(100% - 75px);
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 16px;
+}
+
+.box .buscar-input::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+.box .simbolos {
+  flex: 0 0 auto;
+  margin-top: 0;
+  width: 194px;
+  height: 48px;
+  position: relative;
+  margin-left: clamp(28px, 5vw, 76px);
+}
+
+.box .cuenta {
+  position: absolute;
+  width: 16.49%;
+  height: 75%;
+  top: 8.33%;
+  left: 3.09%;
+}
+
+.box .cesta {
+  position: absolute;
+  width: 22.68%;
+  height: 87.5%;
+  top: 0;
+  left: 37.63%;
+}
+
+.box .deseados {
+  position: absolute;
+  width: 21.55%;
+  height: 75.97%;
+  top: 8.33%;
+  left: 75.82%;
+}
+
+.box .categorias_grande {
+  width: 100%;
+  min-height: 40px;
+  height: 40px;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: 40px;
+  align-items: center;
+  justify-items: center;
+  align-content: start;
+  column-gap: clamp(8px, 1.4vw, 20px);
+  row-gap: 0;
+  margin: 34px 0 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.box .categorias-boton,
+.box .text {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.box .categorias-boton {
+  height: 40px;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.box .text {
+  height: 40px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 40px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.header .empresa:hover,
+.header .categorias-boton:hover,
+.header .text:hover,
+.header .deseados:hover,
+.header .cesta:hover,
+.header .cuenta:hover {
+  opacity: 0.6;
+}
+
+.header .empresa:active,
+.header .categorias-boton:active,
+.header .text:active,
+.header .deseados:active,
+.header .cesta:active,
+.header .cuenta:active {
+  transform: scale(0.97);
+}
+
+#categorias {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  z-index: 1000;
+}
+
+.user-popup-content {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: -20px;
+  width: 150px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-popup-content.show {
+  display: flex;
+}
+
+.popup-user-name {
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 14px;
+  margin: 0;
+}
+
+.popup-link {
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 13px;
+}
+
+.popup-link:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-family: "Roboto-Bold", Helvetica;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+@media (max-width: 1040px) {
+  .box .default-GRANDE {
+    padding: 34px 42px 18px;
+    grid-template-rows: auto auto;
+  }
+
+  .box .principal-2 {
+    height: 56px;
+    min-height: 56px;
+  }
+
+  .box .empresa {
+    font-size: 44px;
+    width: 100px;
+  }
+
+  .box .navegador {
+    max-width: none;
+    min-width: 180px;
+    margin-left: 40px;
+    height: 54px;
+  }
+
+  .box .icono {
+    left: 18px;
+    width: 17px;
+    height: 17px;
+  }
+
+  .box .linea {
+    left: 48px;
+    height: 52px;
+  }
+
+  .box .buscar-input {
+    left: 58px;
+    width: calc(100% - 68px);
+  }
+
+  .box .simbolos {
+    width: 164px;
+    height: 42px;
+    margin-left: 28px;
+  }
+
+  .box .categorias_grande {
+    height: 80px;
+    min-height: 80px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 40px);
+    column-gap: 12px;
+    row-gap: 0;
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    padding: 0 16px;
+  }
+
+  #categorias {
+    left: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .box {
+    padding: 0 12px;
+  }
+
+  .box .default-GRANDE {
+    padding: 16px 0 12px;
+    grid-template-rows: auto;
+  }
+
+  .box .principal-2 {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "empresa simbolos"
+      "navegador navegador";
+    align-items: center;
+    row-gap: 14px;
+    height: auto;
+    min-height: auto;
+  }
+
+  .box .empresa {
+    grid-area: empresa;
+    width: auto;
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .box .simbolos {
+    grid-area: simbolos;
+    width: auto;
+    height: auto;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+  }
+
+  .box .cuenta,
+  .box .cesta,
+  .box .deseados {
+    position: static;
+    width: 24px;
+    height: 24px;
+  }
+
+  .box .navegador {
+    grid-area: navegador;
+    width: 100%;
+    min-width: 0;
+    height: 50px;
+    margin-left: 0;
+    max-width: none;
+  }
+
+  .box .icono {
+    left: 14px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .box .linea {
+    left: 42px;
+    height: 48px;
+  }
+
+  .box .buscar-input {
+    left: 52px;
+    width: calc(100% - 62px);
+    font-size: 16px;
+  }
+
+  .box .categorias_grande {
+    display: none;
+  }
+
+  #categorias {
+    top: 100%;
+    left: 12px;
+  }
+
+  .user-popup-content {
+    top: 34px;
+    left: auto;
+    right: 0;
+  }
+}

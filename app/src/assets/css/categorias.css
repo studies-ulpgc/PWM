@@ -1,0 +1,38 @@
+.categorias {
+  width: 144px;
+  height: 966px; 
+  display: flex;
+  background-color: #ffffff;
+  overflow: hidden;
+  overflow-y: auto; 
+  border-right: 2px solid #000000;
+}
+
+.categorias::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.categorias .texto {
+  margin-top: 10px;
+  padding-top: 33px;
+  padding-left: 33px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 44.8px;
+}
+
+.categorias .enlaces {
+  text-decoration: none;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  line-height: 40px;
+  transition: opacity 0.2s;
+}
+
+.categorias .enlaces:hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,41 @@
+.opciones-secundarias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.recordar-credenciales {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.enlace-olvido {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.separador-contenedor {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    color: #888;
+    margin: 10px 0;
+}
+
+.linea {
+    flex: 1;
+    height: 1px;
+    background-color: #d9d9d9;
+}
+
+.grupo-botones-web {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

@@ -1,0 +1,40 @@
+.similares-titulo {
+  margin: 0 0 10px;
+  font-family: var(--body-base-font-family);
+  font-weight: 800;
+  font-size: 34px;
+  color: var(--color-text-default-default);
+}
+
+.carousel-horizontal {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.similares-track {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.similares-track::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.similares {
+  padding: 0;
+}

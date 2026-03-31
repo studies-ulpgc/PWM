@@ -1,0 +1,33 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  font-family: "Inter", Helvetica !important;
+}
+
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+
+.not-logged-in .sumar,
+.not-logged-in .cuenta,
+.not-logged-in .cesta,
+.not-logged-in .deseados,
+.not-logged-in .compra,
+.not-logged-in .pulgar-arriba,
+.not-logged-in .pulgar-abajo,
+.not-logged-in #btnSumarCesta,
+.not-logged-in .estrellas-usuario {
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
