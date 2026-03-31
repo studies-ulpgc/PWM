@@ -1,1 +1,55 @@
-<p>galeria works!</p>
+<app-header-corto></app-header-corto>
+
+<main class="galeria">
+  <article class="scroll-vertical">
+    <section class="main">
+      
+      <aside class="menu-filtro">
+        <div class="menu-contenido">
+
+          <div class="filtro-bloque">
+            <div class="titulo">Filtros</div>
+            <div class="tag-lista">
+              <div class="tag">
+                <img src="assets/img/x.svg" alt="x" />
+                <span>Mujer</span>
+              </div>
+              </div>
+          </div>
+
+          <div class="filtro-bloque">
+            <div class="checkbox-group">
+              <label class="checkbox-field">
+                <input type="checkbox" class="checkbox-input" checked />
+                <span>Primavera</span>
+              </label>
+              </div>
+          </div>
+
+          <div class="filtro-bloque">
+            <div class="slider-header">
+              <span class="titulo">Precio</span>
+              <div class="slider-output">
+                <span>0-100</span>
+                <span>€</span>
+              </div>
+            </div>
+            <img class="slider-barra" src="assets/img/bloque.svg" alt="Barra de rango" />
+          </div>
+
+          </div>
+      </aside>
+
+      <section class="galeria-de-3">
+        @for (producto of listaProductos; track producto.id) {
+          <app-producto [data]="producto"></app-producto>
+        } @empty {
+          <p>Cargando productos...</p>
+        }
+      </section>
+
+    </section>
+
+    <app-footer></app-footer>
+  </article>
+</main>

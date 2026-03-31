@@ -1,1 +1,25 @@
-<p>home works!</p>
+<app-header-grande></app-header-grande>
+
+<main class="home">
+  <article class="scroll-vertical">
+    
+    <section class="carrucel">
+      <div class="animation-container">
+        @for (item of carruselItems; track item.id) {
+          <a [routerLink]="['/articulo', item.id]" 
+             class="foto" 
+             [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
+          </a>
+        }
+      </div>
+    </section>
+
+    <section class="galeria">
+      @for (prod of productos; track prod.id) {
+        <app-producto [data]="prod"></app-producto>
+      }
+    </section>
+
+    <app-footer></app-footer>
+  </article>
+</main>
