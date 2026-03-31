@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService } from '../../services/producto';
-import { CommonModule } from '@angular/common'; // Importante para usar @for o *ngFor
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'; // Para el [routerLink]
+import { HeaderGrande } from '../../components/header-grande/header-grande';
+import { Footer } from '../../components/footer/footer';
+import { Producto } from '../../components/producto/producto';
 
 @Component({
   selector: 'app-home',
-  standalone: true, // Si usas Angular moderno
-  imports: [CommonModule], // Para que reconozca las directivas en el HTML
-  templateUrl: './home.html',
-  styleUrls: ['./home.css']
+  standalone: true,
+  imports: [CommonModule, RouterModule, HeaderGrande, Footer, Producto],
+  templateUrl: './home.html'
 })
 export class HomeComponent implements OnInit {
-  productos: any[] = [];
+  carruselItems: any[] = []; // <--- Declarar esto
+  productos: any[] = [];     // <--- Declarar esto
 
-  constructor(private productoService: ProductoService) {}
-
-  ngOnInit(): void {
-    this.productoService.getProductos().subscribe(data => {
-      this.productos = data;
-    });
-  }
+  ngOnInit() { }
 }
