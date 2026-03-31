@@ -1,1 +1,28 @@
-<p>producto works!</p>
+<div class="producto">
+  <a [routerLink]="['/articulo', data?.id]" class="informacion-producto">
+    <div class="image" [style.backgroundImage]="'url(' + data?.fotoUrl + ')'"></div>
+    <div class="body">
+      <div class="descripcion">{{ data?.nombre || 'Producto sin nombre' }}</div>
+      <p class="precio">
+        <span class="texto">{{ data?.precioEntero || '0' }}</span>
+        <span class="span">.</span>
+        <span class="texto-2">{{ data?.precioDecimal || '00' }}</span>
+        <span class="span">€</span>
+      </p>
+    </div>
+  </a>
+  
+  <div class="simbolos">
+    <div class="iconos-accion">
+      <div class="sumar-a-la-cesta" (click)="agregarAlCarrito($event)">
+        <img class="compra" src="assets/img/compra.svg" alt="Compra"/>
+        <img class="sumar" src="assets/img/sumar.svg" alt="Sumar"/>
+      </div>
+      <div class="sumar-a-deseados" (click)="agregarADeseados($event)">
+        <img class="deseados" src="assets/img/deseados.svg" alt="Corazón"/>
+        <img class="sumar" src="assets/img/sumar.svg" alt="Sumar"/>
+      </div>
+    </div>
+    <img class="valoracion" src="assets/img/valoracion.svg" alt="Valoración"/>
+  </div>
+</div>

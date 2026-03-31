@@ -52,6 +52,9 @@
   aspect-ratio: 770 / 386;
   background-color: #acacac;
   flex: 0 0 auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .home .foto:active {
