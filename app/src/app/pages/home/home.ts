@@ -45,8 +45,8 @@ export class HomeComponent implements OnInit {
         };
       });
 
-      this.productos = mapped;
-      this.carruselItems = mapped.slice(0, 3);
+      this.productos = Array(3).fill(mapped).flat();
+      this.carruselItems = [...mapped.slice(0, 3), ...mapped.slice(0, 3)];
     }, err => console.error('Error al cargar productos', err));
   }
 

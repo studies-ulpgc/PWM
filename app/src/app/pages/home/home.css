@@ -66,7 +66,7 @@
     transform: translate(0);
   }
   to {
-    transform: translate(-100%);
+    transform: translate(-50%);
   }
 }
 
