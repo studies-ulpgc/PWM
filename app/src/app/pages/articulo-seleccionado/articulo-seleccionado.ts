@@ -4,6 +4,8 @@ import { HeaderCorto } from '../../components/header-corto/header-corto';
 import { Footer } from '../../components/footer/footer';
 import { Comentario } from '../../components/comentario/comentario';
 import { Producto } from '../../components/producto/producto';
+import { ActivatedRoute } from '@angular/router';
+import { ProductoService } from '../../services/producto';
 
 @Component({
   selector: 'app-articulo-seleccionado',
@@ -27,11 +29,54 @@ export class ArticuloSeleccionado implements OnInit {
   precioDecimal: string = '00';
   imagenMostrada: string = '';
 
-  constructor() { } // <--- No pongas "...", déjalo vacío si no inyectas nada todavía
+  constructor(
+    private route: ActivatedRoute,
+    private productoService: ProductoService
+  ) {}// <--- No pongas "...", déjalo vacío si no inyectas nada todavía
 
   ngOnInit(): void {
-    // Aquí irá la lógica de carga más adelante
-    console.log('Componente cargado');
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id) {
+      this.productoService.getProductoById(id).subscribe(p => {
+        if (!p) return;
+
+        // 🔹 MAPEAR igual que en HOME
+        const fotoUrl =
+          p.Foto?.[0]?.formats?.medium?.url ||
+          p.Foto?.[0]?.url ||
+          '';
+
+        const resolvedFotoUrl = fotoUrl.startsWith('/uploads/')
+          ? 'assets' + fotoUrl
+          : fotoUrl;
+
+        const precioLimpio = String(p.Precio || '0').replace('€', '').trim();
+        const [entero, decimal = '00'] = precioLimpio.split('.');
+
+        // 🔥 PRODUCTO FINAL
+        this.producto = {
+          ...p,
+          fotoUrl: resolvedFotoUrl,
+          tallasArray: p.Talla?.split(',').map((t: string) => t.trim()) || [],
+        };
+
+        // 🔥 PRECIO separado
+        this.precioEntero = entero;
+        this.precioDecimal = (decimal + '00').slice(0, 2);
+
+        // 🔥 IMAGEN PRINCIPAL
+        this.imagenMostrada = resolvedFotoUrl;
+
+        // 🔥 RELACIONADOS (simple)
+        this.productoService.getProductos().subscribe(all => {
+          this.productosRelacionados = all
+            .filter(x => x.id != p.id)
+            .slice(0, 4);
+        });
+
+      });
+    }
   }
   
   agregarAlCarrito() { 

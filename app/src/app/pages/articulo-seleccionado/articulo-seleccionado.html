@@ -9,14 +9,13 @@
           <img class="estrellas-usuario" src="assets/img/estrellas_vacias.svg" alt="Valorar" />
           <div class="nombre-usuario">Valorar ahora</div>
           
-          <div class="graficos-estadisticas">
-            <div class="barra-grupo">
-              <img class="icono-estrella" src="assets/img/estrella.svg" alt="Estrella"/>
-              <div class="fondo-barra"></div>
-              <div class="progreso-barra" [style.width.%]="20"></div> <div class="porcentaje-texto">20%</div>
-              <div class="nivel-numero">1</div>
-            </div>
-            </div>
+          <div class="barra-grupo" *ngFor="let n of [1,2,3,4,5]">
+            <img class="icono-estrella" src="assets/img/estrella.svg" alt="Estrella"/>
+            <div class="fondo-barra"></div>
+            <div class="progreso-barra" [style.width.%]="20"></div>
+            <div class="porcentaje-texto">20%</div>
+            <div class="nivel-numero">{{ n }}</div>
+          </div>
 
           <div class="conteo-valoraciones">Valoraciones totales ({{producto.Votos}})</div>
           <img class="puntuacion-total" [src]="'assets' + producto.Valoracion[0].url" alt="Puntuación"/>
@@ -66,6 +65,11 @@
 
         <p class="nombre-principal">{{ producto.Descripcion }}</p>
       </div>
+
+      <img class="miniatura-extra-1" src="assets/img/rectangle.svg" alt="Imagen"/>
+      <img class="miniatura-extra-2" src="assets/img/rectangle.svg" alt="Imagen"/>
+      <img class="miniatura-extra-3" src="assets/img/rectangle.svg" alt="Imagen"/>
+      <div class="etiqueta-lorem">Colores</div>
 
       <div class="seccion-imagenes">
         <img class="imagen-principal" [src]="'assets' + imagenMostrada" alt="Imagen principal"/>

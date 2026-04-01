@@ -1,7 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home';
+import { Galeria } from './pages/galeria/galeria';
+import { ArticuloSeleccionado } from './pages/articulo-seleccionado/articulo-seleccionado';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'galeria', component: Galeria },
+  { path: 'articulo/:id', component: ArticuloSeleccionado },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

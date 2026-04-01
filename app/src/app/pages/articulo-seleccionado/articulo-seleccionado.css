@@ -670,18 +670,21 @@ body {
     max-width: 100%;
   }
 
-  .articulo-seleccionado .resumen-valoracion {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "puntuacion"
-      "conteo"
-      "graficos"
-      "nombre"
-      "estrellas";
-    gap: 12px;
-    width: 100%;
-    min-width: 0;
-  }
+  .resumen-valoracion {
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) 1fr;
+  grid-template-areas:
+    "puntuacion nombre"
+    "conteo estrellas"
+    "graficos estrellas";
+  gap: 12px 32px;
+  align-items: start;
+}
+.puntuacion-total { grid-area: puntuacion; }
+.nombre-usuario { grid-area: nombre; }
+.conteo-valoraciones { grid-area: conteo; }
+.graficos-estadisticas { grid-area: graficos; display: flex; }
+.estrellas-usuario { grid-area: estrellas; }
 
   .articulo-seleccionado .nombre-usuario,
   .articulo-seleccionado .conteo-valoraciones {

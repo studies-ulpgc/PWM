@@ -11,14 +11,4 @@ import { RouterLink } from '@angular/router'; // <--- ESTA ES LA CLAVE
 })
 export class Producto {
   @Input() data: any;
-
-  agregarAlCarrito(event: Event) {
-    event.stopPropagation(); 
-    console.log('Añadido al carrito:', this.data?.nombre);
-  }
-
-  agregarADeseados(event: Event) {
-    event.stopPropagation();
-    console.log('Añadido a deseados:', this.data?.nombre);
-  }
 }
