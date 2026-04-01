@@ -41,6 +41,9 @@
   border-radius: var(--size-radius-200);
   overflow: hidden;
   display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .producto .image img,
