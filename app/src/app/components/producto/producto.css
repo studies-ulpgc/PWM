@@ -29,7 +29,7 @@
   border-color: #1e1e1e;
 }
 
-.producto:active .informacion-producto {
+.producto:active {
   transform: scale(0.97);
 }
 
