@@ -2,22 +2,20 @@
 
 <main class="home">
   <article class="scroll-vertical">
-    
+
     <section class="carrucel">
       <div class="animation-container">
-        @for (item of carruselItems; track item.id) {
-          <a [routerLink]="['/articulo', item.id]" 
-             class="foto" 
-             [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
-          </a>
-        }
+        <a
+          *ngFor="let item of carruselItems; trackBy: trackById"
+          [routerLink]="['/articulo', item.id]"
+          class="foto"
+          [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
+        </a>
       </div>
     </section>
 
     <section class="galeria">
-      @for (prod of productos; track prod.id) {
-        <app-producto [data]="prod"></app-producto>
-      }
+      <app-producto *ngFor="let prod of productos; trackBy: trackById" [data]="prod"></app-producto>
     </section>
 
     <app-footer></app-footer>
