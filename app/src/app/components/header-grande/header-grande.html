@@ -1,1 +1,54 @@
-<p>header-grande works!</p>
+<section class="box">
+  <header class="header">
+    <section class="default-GRANDE">
+
+      <div class="principal-2">
+        <a routerLink="/home" class="empresa">HAD</a>
+
+        <div class="navegador">
+          <img class="icono" src="assets/img/icono.svg" />
+          <img class="linea" src="assets/img/linea.svg" />
+
+          <form (submit)="buscar($event)">
+            <input type="text" [(ngModel)]="query" name="query" class="buscar-input" placeholder="Buscar"/>
+          </form>
+        </div>
+
+        <div class="simbolos">
+          <img class="cuenta" src="assets/img/cuenta.svg"
+               (click)="onAuthClick($event)" />
+
+          <img class="cesta" src="assets/img/compra.svg"
+               (click)="irACesta()" />
+
+          <img class="deseados" src="assets/img/deseados.svg"
+               (click)="irADeseados()" />
+
+          <div class="user-popup-content" [class.show]="mostrarPopup" (click)="$event.stopPropagation()">
+            <p class="popup-user-name">
+              Hola, <strong>{{ userName }}</strong>
+            </p>
+            <hr />
+            <a routerLink="/cuenta" class="popup-link">Mi Perfil</a>
+            <a routerLink="/pedidos" class="popup-link">Mis Pedidos</a>
+            <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="categorias_grande">
+        <a routerLink="/galeria" class="text">Novedades</a>
+        <a routerLink="/galeria" class="text">Camisas</a>
+        <a routerLink="/galeria" class="text">Chaquetas</a>
+        <a routerLink="/galeria" class="text">Pantalones</a>
+        <a routerLink="/galeria" class="text">Zapatos</a>
+        <a routerLink="/galeria" class="text">Accesorios</a>
+        <a routerLink="/galeria" class="text">Faldas</a>
+        <a routerLink="/galeria" class="text">Vestidos</a>
+        <a routerLink="/galeria" class="text">Calcetines</a>
+        <a routerLink="/galeria" class="text">Pijamas</a>
+      </div>
+
+    </section>
+  </header>
+</section>
