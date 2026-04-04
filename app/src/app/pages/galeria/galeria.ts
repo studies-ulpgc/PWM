@@ -4,6 +4,7 @@ import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
 import { Producto } from '../../components/producto/producto';
 import { ProductoService } from '../../services/producto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-galeria',
@@ -13,38 +14,44 @@ import { ProductoService } from '../../services/producto';
   styleUrls: ['./galeria.css']
 })
 export class Galeria implements OnInit {
-  listaProductos: any[] = []; // <--- Declarar la variable
+  listaProductos: any[] = [];
 
-  constructor(private productoService: ProductoService) {}
+  constructor(private productoService: ProductoService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.productoService.getProductos().subscribe(data => {
-      const mapped = data.map(p => {
-        const fotoUrl =
-          p.Foto?.[0]?.formats?.medium?.url ||
-          p.Foto?.[0]?.formats?.large?.url ||
-          p.Foto?.[0]?.url ||
-          '';
+    this.route.queryParams.subscribe(params => {
+      const categoria = params['categoria'];
+      this.productoService.getProductos().subscribe(data => {
+        let productos = data.map(p => {
+          const fotoUrl =
+            p.Foto?.[0]?.formats?.medium?.url ||
+            p.Foto?.[0]?.formats?.large?.url ||
+            p.Foto?.[0]?.url ||
+            '';
 
-        const cleanPrice = String(p.Precio || '0').replace('€', '').trim();
-        const [entero, decimal = '00'] = cleanPrice.split('.');
+          const cleanPrice = String(p.Precio || '0').replace('€', '').trim();
+          const [entero, decimal = '00'] = cleanPrice.split('.');
 
-        const resolvedFotoUrl = fotoUrl.startsWith('/uploads/')
-          ? 'assets' + fotoUrl
-          : fotoUrl;
+          const resolvedFotoUrl = fotoUrl.startsWith('/uploads/')
+            ? 'assets' + fotoUrl
+            : fotoUrl;
 
-        return {
-          ...p,
-          id: p.id,
-          nombre: p.Descripcion || p.Subtitulo || 'Producto',
-          precioEntero: entero || '0',
-          precioDecimal: (decimal + '00').slice(0, 2),
-          fotoUrl: resolvedFotoUrl,
-        };
+          return {
+            ...p,
+            id: p.id,
+            nombre: p.Descripcion || p.Subtitulo || 'Producto',
+            precioEntero: entero || '0',
+            precioDecimal: (decimal + '00').slice(0, 2),
+            fotoUrl: resolvedFotoUrl,
+          };
+        });
+
+        if (categoria) {
+          productos = productos.filter(p => p.Categoria === categoria);
+        }
+
+        this.listaProductos = Array.from({ length: 12 }, (_, i) => productos[i % productos.length]);
       });
-
-      // Repetir productos para llenar la galería
-      this.listaProductos = Array.from({ length: 12 }, (_, i) => mapped[i % mapped.length]);
     });
   }
 }

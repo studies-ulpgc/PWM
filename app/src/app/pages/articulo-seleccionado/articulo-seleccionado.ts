@@ -61,7 +61,6 @@ export class ArticuloSeleccionado implements OnInit {
           ...p,
           fotoUrl: resolvedFotoUrl,
           tallasArray: p.Talla?.split(',').map((t: string) => t.trim()) || [],
-          miniaturas: p.miniaturas || []
         };
 
         // 🔥 PRECIO separado

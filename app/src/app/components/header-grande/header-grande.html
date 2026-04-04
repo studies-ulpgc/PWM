@@ -38,8 +38,8 @@
 
       <div class="categorias_grande">
         <a routerLink="/galeria" class="text">Novedades</a>
-        <a routerLink="/galeria" class="text">Camisas</a>
-        <a routerLink="/galeria" class="text">Chaquetas</a>
+        <a [routerLink]="['/galeria']" [queryParams]="{categoria: 'Camisas'}" class="text">Camisas</a>
+        <a [routerLink]="['/galeria']" [queryParams]="{categoria: 'Chaquetas'}" class="text">Chaquetas</a>
         <a routerLink="/galeria" class="text">Pantalones</a>
         <a routerLink="/galeria" class="text">Zapatos</a>
         <a routerLink="/galeria" class="text">Accesorios</a>
