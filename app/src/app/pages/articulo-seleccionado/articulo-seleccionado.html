@@ -4,11 +4,11 @@
     <article class="contenedor-principal">
         <div class="seccion-imagenes">
             <div class="galeria-miniaturas">
-                <img class="miniatura" [src]="producto.miniaturas[0]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[0].formats.thumbnail.url : ''" alt="M1" (click)="cambiarImagen('assets' + (producto.miniaturas[0]?.formats?.thumbnail?.url || producto.miniaturas[0]?.url || ''))"/>
-                <img class="miniatura" [src]="producto.miniaturas[1]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[1].formats.thumbnail.url : ''" alt="M2" (click)="cambiarImagen('assets' + (producto.miniaturas[1]?.formats?.thumbnail?.url || producto.miniaturas[1]?.url || ''))"/>
-                <img class="miniatura" [src]="producto.miniaturas[2]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[2].formats.thumbnail.url : ''" alt="M3" (click)="cambiarImagen('assets' + (producto.miniaturas[2]?.formats?.thumbnail?.url || producto.miniaturas[2]?.url || ''))"/>
-                <img class="miniatura" [src]="producto.miniaturas[3]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[3].formats.thumbnail.url : ''" alt="M4" (click)="cambiarImagen('assets' + (producto.miniaturas[3]?.formats?.thumbnail?.url || producto.miniaturas[3]?.url || ''))"/>
-                <img class="miniatura" [src]="producto.miniaturas[4]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[4].formats.thumbnail.url : ''" alt="M5" (click)="cambiarImagen('assets' + (producto.miniaturas[4]?.formats?.thumbnail?.url || producto.miniaturas[4]?.url || ''))"/>
+                <img class="miniatura" [src]="producto.miniaturas[0]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[0].formats.thumbnail.url : ''" alt="M1" (click)="cambiarImagen(producto.miniaturas[0])"/>
+                <img class="miniatura" [src]="producto.miniaturas[1]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[1].formats.thumbnail.url : ''" alt="M2" (click)="cambiarImagen(producto.miniaturas[1])"/>
+                <img class="miniatura" [src]="producto.miniaturas[2]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[2].formats.thumbnail.url : ''" alt="M3" (click)="cambiarImagen(producto.miniaturas[2])"/>
+                <img class="miniatura" [src]="producto.miniaturas[3]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[3].formats.thumbnail.url : ''" alt="M4" (click)="cambiarImagen(producto.miniaturas[3])"/>
+                <img class="miniatura" [src]="producto.miniaturas[4]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[4].formats.thumbnail.url : ''" alt="M5" (click)="cambiarImagen(producto.miniaturas[4])"/>
             </div>
             <img class="imagen-principal" src="{{imagenMostrada}}" alt="Imagen principal"/>
         </div>

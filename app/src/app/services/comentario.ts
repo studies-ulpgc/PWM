@@ -10,7 +10,11 @@ export class ComentarioService {
   constructor(private http: HttpClient) {}
 
   getComentarios(): Observable<any[]> {
-    const urlWithCacheBust = `${this.url}?t=${Date.now()}`;
-    return this.http.get<any>(urlWithCacheBust).pipe(map(res => res.data));
+    const headers = new HttpHeaders({
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
+    return this.http.get<any>(this.url, { headers }).pipe(map(res => res.data));
   }
 }

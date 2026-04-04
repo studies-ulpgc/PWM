@@ -117,7 +117,10 @@ export class ArticuloSeleccionado implements OnInit {
     console.log('Producto añadido al carrito'); 
   }
 
-  cambiarImagen(url: string) { 
-    this.imagenMostrada = url; 
+  cambiarImagen(miniatura: any) { 
+    if (miniatura) {
+      const url = miniatura.formats?.medium?.url || miniatura.formats?.large?.url || miniatura.url;
+      this.imagenMostrada = url ? 'assets' + url : '';
+    }
   }
 }
