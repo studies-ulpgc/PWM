@@ -10,36 +10,24 @@
           <div class="filtro-bloque">
             <div class="titulo">Filtros</div>
             <div class="tag-lista">
-              <div class="tag">
-                <img src="assets/img/x.svg" alt="x" />
-                <span>Mujer</span>
+              @for (tag of ['Hombre', 'Mujer', 'Unisex']; track tag) {
+                <div class="tag">
+                  <img src="assets/img/x.svg" alt="x" />
+                  <span>{{ tag }}</span>
+                </div>
+              }
               </div>
-              <div class="tag">
-                <img src="assets/img/x.svg" alt="x" />
-                <span>Oferta</span>
-              </div>
-              <div class="tag">
-                <img src="assets/img/x.svg" alt="x" />
-                <span>Trending</span>
-              </div>
-            </div>
           </div>
 
           <div class="filtro-bloque">
             <div class="checkbox-group">
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Primavera</span>
-              </label>
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Verano</span>
-              </label>
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Invierno</span>
-              </label>
-            </div>
+              @for (estacion of ['Primavera', 'Verano', 'Otoño', 'Invierno']; track estacion) {
+                <label class="checkbox-field">
+                  <input type="checkbox" class="checkbox-input" checked />
+                  <span>{{ estacion }}</span>
+                </label>
+              }
+              </div>
           </div>
 
           <div class="filtro-bloque">
@@ -56,34 +44,28 @@
           <div class="filtro-bloque">
             <div class="titulo">Material</div>
             <div class="checkbox-grid">
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Lana</span>
-              </label>
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Algodón</span>
-              </label>
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Cuero</span>
-              </label>
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Poliéster</span>
-              </label>
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Tela</span>
-              </label>
-              <label class="checkbox-field">
-                <input type="checkbox" class="checkbox-input" checked />
-                <span>Opaco</span>
-              </label>
+              @for (mat of ['Lana', 'Algodón', 'Cuero', 'Poliéster', 'Tela', 'Opaco']; track mat) {
+                <label class="checkbox-field">
+                  <input type="checkbox" class="checkbox-input" checked />
+                  <span>{{ mat }}</span>
+                </label>
+              }
             </div>
           </div>
 
+          <div class="filtro-bloque">
+            <div class="titulo">Estilo</div>
+            <div class="checkbox-grid">
+              @for (estilo of ['Casual', 'Elegante', 'Dulce', 'Vacaciones', 'Oficina', 'Cómodo']; track estilo) {
+                <label class="checkbox-field">
+                  <input type="checkbox" class="checkbox-input" checked />
+                  <span>{{ estilo }}</span>
+                </label>
+              }
+            </div>
           </div>
+
+        </div>
       </aside>
 
       <section class="galeria-de-3">

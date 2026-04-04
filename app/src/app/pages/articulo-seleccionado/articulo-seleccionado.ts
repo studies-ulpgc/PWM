@@ -120,7 +120,9 @@ export class ArticuloSeleccionado implements OnInit {
   cambiarImagen(miniatura: any) { 
     if (miniatura) {
       const url = miniatura.formats?.medium?.url || miniatura.formats?.large?.url || miniatura.url;
-      this.imagenMostrada = url ? 'assets' + url : '';
+      setTimeout(() => {
+        this.imagenMostrada = url ? 'assets' + url : '';
+      }, 0);
     }
   }
 }

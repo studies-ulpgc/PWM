@@ -7,7 +7,7 @@
       <div class="animation-container">
         <a
           *ngFor="let item of carruselItems; trackBy: trackById"
-          [routerLink]="['/articulo', item.id]"
+          [routerLink]="['/articulo-seleccionado', item.id]"
           class="foto"
           [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
         </a>
