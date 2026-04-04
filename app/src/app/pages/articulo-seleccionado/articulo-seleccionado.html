@@ -1,91 +1,68 @@
-<app-header-corto></app-header-corto>
-
 <main class="articulo-seleccionado">
-  @if (producto) {
     <article class="contenedor-principal">
-      
-      <div class="seccion-valoraciones">
-        <div class="resumen-valoracion">
-          <img class="estrellas-usuario" src="assets/img/estrellas_vacias.svg" alt="Valorar" />
-          <div class="nombre-usuario">Valorar ahora</div>
-          
-          <div class="barra-grupo" *ngFor="let n of [1,2,3,4,5]">
-            <img class="icono-estrella" src="assets/img/estrella.svg" alt="Estrella"/>
-            <div class="fondo-barra"></div>
-            <div class="progreso-barra" [style.width.%]="20"></div>
-            <div class="porcentaje-texto">20%</div>
-            <div class="nivel-numero">{{ n }}</div>
-          </div>
-
-          <div class="conteo-valoraciones">Valoraciones totales ({{producto.Votos}})</div>
-          <img class="puntuacion-total" [src]="'assets' + producto.Valoracion[0].url" alt="Puntuación"/>
+        <div class="seccion-valoraciones">
+            <div class="resumen-valoracion">
+                <img class="estrellas-usuario" src="assets/img/estrellas_vacias.svg" alt="Estrellas vacías" />
+                <div class="nombre-usuario">Valorar ahora</div>
+                <div class="graficos-estadisticas">
+                    <div class="barra-grupo" *ngFor="let i of [1,2,3,4,5]">
+                        <img class="icono-estrella" src="assets/img/estrella.svg" alt="Estrella"/>
+                        <div class="fondo-barra"></div>
+                        <div class="progreso-barra"></div>
+                        <div class="porcentaje-texto">20%</div>
+                        <div class="nivel-numero">{{i}}</div>
+                    </div>
+                </div>
+                <div class="conteo-valoraciones">Valoraciones totales (00)</div>
+                <img class="puntuacion-total" src="assets/img/valoracion.svg" alt="Puntuación total"/>
+            </div>
+            <div id="comentarios-contenedor" class="listado-comentarios">
+                </div>
         </div>
-
-        <div class="listado-comentarios">
-          @for (com of listaComentarios; track com.id) {
-            <app-comentario [data]="com"></app-comentario>
-          }
-        </div>
-      </div>
-
-      <div class="titulo-galeria">Puede interesarte</div>
-      <div class="galeria-relacionados">
-        @for (rel of productosRelacionados; track rel.id) {
-          <app-producto [data]="rel"></app-producto>
-        }
-      </div>
-
-      <div class="informacion-producto">
-        <p class="descripcion-texto">{{ producto.Descripcion_larga }}</p>
         
-        <div class="opciones-seleccion">
-          <div class="subtitulo-opciones">Tallas</div>
-          <div class="grupo-checkbox">
-            @for (talla of producto.tallasArray; track talla) {
-              <label class="campo-checkbox">
-                <input type="checkbox" class="input-checkbox" />
-                <span>{{ talla }}</span>
-              </label>
-            }
-          </div>
-        </div>
-
-        <img class="rating-visual" [src]="'assets' + producto.Valoracion[0].url" alt="Rating"/>
+        <div class="titulo-galeria">Puede interesarte</div>
+        <div id="productos-contenedor" class="galeria-relacionados"></div>
         
-        <div class="boton-compra" (click)="agregarAlCarrito()">
-          <div class="capa-fondo-negro"></div>
-          <div class="texto-boton">Añadir a la cesta</div>
-          <img class="icono-favoritos" src="assets/img/deseados.svg" />
+        <div class="informacion-producto">
+            <p class="descripcion-texto">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+            <div class="opciones-seleccion">
+                <div class="subtitulo-opciones">Tallas</div>
+                <div class="grupo-checkbox">
+                    <label class="campo-checkbox" *ngFor="let size of ['S', 'M', 'L', 'XL']">
+                        <input type="checkbox" class="input-checkbox" checked />
+                        <span>{{size}}</span>
+                    </label>
+                </div>
+            </div>
+            <img class="rating-visual" src="assets/img/valoracion.svg" alt="Puntuación total"/>
+            <div class="boton-compra" id="btnSumarCesta">
+                <div class="capa-fondo-negro"></div>
+                <div class="capa-fondo-blanco"></div>
+                <div class="texto-boton">Añadir a la cesta</div>
+                <img class="icono-favoritos" src="assets/img/deseados.svg" alt="Deseados"/>
+                <img class="icono-cantidad" src="assets/img/sumar.svg" alt="Sumar cantidad"/>
+            </div>
+            <p class="precio-producto"><span class="entero">0</span> <span class="decimal">.00€</span></p>
+            <p class="eslogan-secundario">Eslogan de prueba</p>
+            <p class="nombre-principal">Nombre del producto</p>
+            
+            <img class="miniatura-extra-1" src="assets/img/rectangle.svg" alt="Imagen"/>
+            <img class="miniatura-extra-2" src="assets/img/rectangle.svg" alt="Imagen"/>
+            <img class="miniatura-extra-3" src="assets/img/rectangle.svg" alt="Imagen"/>
+            <div class="etiqueta-lorem">Colores</div>
         </div>
-
-        <p class="precio-producto">
-          <span class="entero">{{ precioEntero }}</span>
-          <span class="decimal">.{{ precioDecimal }}€</span>
-        </p>
-
-        <p class="nombre-principal">{{ producto.Descripcion }}</p>
-      </div>
-
-      <img class="miniatura-extra-1" src="assets/img/rectangle.svg" alt="Imagen"/>
-      <img class="miniatura-extra-2" src="assets/img/rectangle.svg" alt="Imagen"/>
-      <img class="miniatura-extra-3" src="assets/img/rectangle.svg" alt="Imagen"/>
-      <div class="etiqueta-lorem">Colores</div>
-
+        
       <div class="seccion-imagenes">
-        <img class="imagen-principal" [src]="'assets' + imagenMostrada" alt="Imagen principal"/>
         <div class="galeria-miniaturas">
-          @for (img of producto.miniaturas; track img.url) {
-            <img class="miniatura" 
-                 [src]="'assets' + img.url" 
-                 (click)="cambiarImagen('assets' + img.url)" />
-          }
+            <img class="miniatura" src="assets/img/rectangle.svg" alt="M1"/>
+            <img class="miniatura" src="assets/img/rectangle.svg" alt="M2"/>
+            <img class="miniatura" src="assets/img/rectangle.svg" alt="M3"/>
+            <img class="miniatura" src="assets/img/rectangle.svg" alt="M4"/>
+            <img class="miniatura" src="assets/img/rectangle.svg" alt="M5"/>
         </div>
+        <img class="imagen-principal" src="assets/img/rectangle.svg" alt="Imagen principal"/>
       </div>
-
     </article>
-  } @else {
-    <p>Cargando producto...</p>
-  }
 </main>
-
-<app-footer></app-footer>
