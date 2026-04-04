@@ -1,14 +1,15 @@
-import { Component, Input } from '@angular/core';
+// services/comentario.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
-@Component({
-  selector: 'app-comentario',
-  templateUrl: '../components/comentario/comentario.html',
-})
-export class ComentarioComponent {
-  // Este objeto 'data' vendrá del bucle @for en el padre
-  @Input() data: any;
+@Injectable({ providedIn: 'root' })
+export class ComentarioService {
+  private url = 'assets/json/comentario.json'; // Asegúrate de tener este JSON
 
-  formatDate(dateStr: string) {
-    return new Date(dateStr).toLocaleDateString('es-ES');
+  constructor(private http: HttpClient) {}
+
+  getComentarios(): Observable<any[]> {
+    return this.http.get<any>(this.url).pipe(map(res => res.data));
   }
 }

@@ -1,5 +1,5 @@
 <div class="producto">
-  <a [routerLink]="['/articulo', data?.id]" class="informacion-producto">
+  <a [routerLink]="['/articulo-seleccionado', data?.id]" class="informacion-producto">
     <div class="image" [style.backgroundImage]="'url(' + data?.fotoUrl + ')'"></div>
     <div class="body">
       <div class="descripcion">{{ data?.nombre || 'Producto sin nombre' }}</div>

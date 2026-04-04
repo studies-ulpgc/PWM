@@ -6,6 +6,6 @@ import { ArticuloSeleccionado } from './pages/articulo-seleccionado/articulo-sel
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'galeria', component: Galeria },
-  { path: 'articulo/:id', component: ArticuloSeleccionado },
+  { path: 'articulo-seleccionado/:id', component: ArticuloSeleccionado },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

@@ -1,1 +1,14 @@
-<p>comentario works!</p>
+<main class="comentario">
+  <section class="comentar">
+    <img class="valoracion" src="assets/img/valoracion.svg" alt="Puntuación total"/>
+    <div class="titulo">{{ data?.Titulo || 'Sin título' }}</div>
+    <div class="fecha">{{ data?.Fecha || 'Fecha desconocida' }}</div>
+    <p class="texto">
+      {{ data?.Texto }}
+    </p>
+    <img class="pulgar-abajo" (click)="onDislike()" src="assets/img/pulgar-abajo.svg" alt="Dislike"/>
+    <img class="pulgar-arriba" (click)="onLike()" src="assets/img/pulgar-arriba.svg" alt="Like"/>
+    <div class="puntos-suspensivos">···</div>
+  </section>
+  <section class="recuadro"></section>
+</main>
