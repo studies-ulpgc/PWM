@@ -1,9 +1,9 @@
 <app-header-grande></app-header-grande>
 
 <main class="articulo-seleccionado">
-    <article class="contenedor-principal">
+    <article class="contenedor-principal" *ngIf="producto">
         <div class="seccion-imagenes">
-            <div class="galeria-miniaturas" *ngIf="producto">
+            <div class="galeria-miniaturas">
                 <img class="miniatura" [src]="producto.miniaturas[0]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[0].formats.thumbnail.url : ''" alt="M1" (click)="cambiarImagen(producto.miniaturas[0])"/>
                 <img class="miniatura" [src]="producto.miniaturas[1]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[1].formats.thumbnail.url : ''" alt="M2" (click)="cambiarImagen(producto.miniaturas[1])"/>
                 <img class="miniatura" [src]="producto.miniaturas[2]?.formats?.thumbnail?.url ? 'assets' + producto.miniaturas[2].formats.thumbnail.url : ''" alt="M3" (click)="cambiarImagen(producto.miniaturas[2])"/>

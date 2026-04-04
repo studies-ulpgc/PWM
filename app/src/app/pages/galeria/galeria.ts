@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
@@ -16,11 +16,13 @@ import { ActivatedRoute } from '@angular/router';
 export class Galeria implements OnInit {
   listaProductos: any[] = [];
 
-  constructor(private productoService: ProductoService, private route: ActivatedRoute) {}
+  constructor(private productoService: ProductoService, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       const categoria = params['categoria'];
+      this.listaProductos = []; // Reset para forzar cambio visual
+      this.cdr.detectChanges();
       this.productoService.getProductos().subscribe(data => {
         let productos = data.map(p => {
           const fotoUrl =
@@ -51,6 +53,7 @@ export class Galeria implements OnInit {
         }
 
         this.listaProductos = Array.from({ length: 12 }, (_, i) => productos[i % productos.length]);
+        this.cdr.detectChanges(); // Forzar detección de cambios
       });
     });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; // Para el [routerLink]
 import { HeaderGrande } from '../../components/header-grande/header-grande';
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   carruselItems: any[] = [];
   productos: any[] = [];
 
-  constructor(private productoService: ProductoService) {}
+  constructor(private productoService: ProductoService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.productoService.getProductos().subscribe((productos: any[]) => {
@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
 
       this.productos = Array(3).fill(mapped).flat();
       this.carruselItems = [...mapped.slice(0, 3), ...mapped.slice(0, 3)];
+
+      this.cdr.detectChanges();
     }, err => console.error('Error al cargar productos', err));
   }
 

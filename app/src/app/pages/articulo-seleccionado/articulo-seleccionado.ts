@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; // <--- Faltaba importar esto
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
@@ -33,8 +33,9 @@ export class ArticuloSeleccionado implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productoService: ProductoService,
-    private comentarioService: ComentarioService
-  ) {}// <--- No pongas "...", déjalo vacío si no inyectas nada todavía
+    private comentarioService: ComentarioService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -57,18 +58,21 @@ export class ArticuloSeleccionado implements OnInit {
         const [entero, decimal = '00'] = precioLimpio.split('.');
 
         // 🔥 PRODUCTO FINAL
-        this.producto = {
-          ...p,
-          fotoUrl: resolvedFotoUrl,
-          tallasArray: p.Talla?.split(',').map((t: string) => t.trim()) || [],
-        };
+        setTimeout(() => {
+          this.producto = {
+            ...p,
+            fotoUrl: resolvedFotoUrl,
+            tallasArray: p.Talla?.split(',').map((t: string) => t.trim()) || [],
+          };
 
-        // 🔥 PRECIO separado
-        this.precioEntero = entero;
-        this.precioDecimal = (decimal + '00').slice(0, 2);
+          // 🔥 PRECIO separado
+          this.precioEntero = entero;
+          this.precioDecimal = (decimal + '00').slice(0, 2);
 
-        // 🔥 IMAGEN PRINCIPAL
-        this.imagenMostrada = resolvedFotoUrl;
+          // 🔥 IMAGEN PRINCIPAL
+          this.imagenMostrada = resolvedFotoUrl;
+          this.cdr.detectChanges();
+        }, 0);
 
         // 🔥 RELACIONADOS (simple)
         this.productoService.getProductos().subscribe(all => {
@@ -100,7 +104,10 @@ export class ArticuloSeleccionado implements OnInit {
             });
 
           // Si hay menos de 4, repetir
-          this.productosRelacionados = Array.from({ length: 4 }, (_, i) => relacionadosMapped[i % relacionadosMapped.length]);
+          setTimeout(() => {
+            this.productosRelacionados = Array.from({ length: 4 }, (_, i) => relacionadosMapped[i % relacionadosMapped.length]);
+            this.cdr.detectChanges();
+          }, 0);
         });
 
       });
@@ -109,7 +116,10 @@ export class ArticuloSeleccionado implements OnInit {
     // Cargar comentarios
     this.comentarioService.getComentarios().subscribe(comentarios => {
       // Repetir comentarios si hay pocos
-      this.listaComentarios = Array.from({ length: 4 }, (_, i) => comentarios[i % comentarios.length]);
+      setTimeout(() => {
+        this.listaComentarios = Array.from({ length: 4 }, (_, i) => comentarios[i % comentarios.length]);
+        this.cdr.detectChanges();
+      }, 0);
     });
   }
   
@@ -122,6 +132,7 @@ export class ArticuloSeleccionado implements OnInit {
       const url = miniatura.formats?.medium?.url || miniatura.formats?.large?.url || miniatura.url;
       setTimeout(() => {
         this.imagenMostrada = url ? 'assets' + url : '';
+        this.cdr.detectChanges();
       }, 0);
     }
   }
