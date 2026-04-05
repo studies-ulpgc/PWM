@@ -121,6 +121,16 @@
   width: 100%;
 }
 
+.product-card-anim {
+  display: block;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.product-card-anim:hover {
+  transform: translateY(-8px);
+}
+
 /* Evitar scroll interno feo en la galería */
 .home ::-webkit-scrollbar {
   display: none;

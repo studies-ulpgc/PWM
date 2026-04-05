@@ -122,9 +122,13 @@
       <div class="row row-cols-2 row-cols-md-4 g-4">
         @for (p of productosRelacionados; track p.id) {
           <div class="col">
-            <app-producto [data]="p"></app-producto>
+            <app-producto [data]="p" class="product-card-anim"></app-producto>
           </div>
-        }
+        } @empty {
+            <div class="loading-state">
+              <p>Buscando las mejores prendas para ti...</p>
+            </div>
+          }
       </div>
     </section>
   </div>

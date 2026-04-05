@@ -139,6 +139,16 @@
   border-radius: 10px;
 }
 
+.product-card-anim {
+  display: block;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.product-card-anim:hover {
+  transform: translateY(-8px);
+}
+
 /* --- Responsive --- */
 @media (max-width: 991px) {
   .image-showcase {
