@@ -3,17 +3,79 @@
         <section class="columna-footer">
             <h3 class="titulo-footer">Sobre nosotros</h3>
             <ul class="lista-footer">
-                <li><a href="informacion.html?tipo=historia">Nuestra Historia</a></li>
-                <li><a href="informacion.html?tipo=condiciones">Condiciones de compra</a></li>
+                <li><a [routerLink]="['/informacion']" [queryParams]="{tipo: 'historia'}">Nuestra Historia</a></li>
+                <li><a [routerLink]="['/informacion']" [queryParams]="{tipo: 'condiciones'}">Condiciones de compra</a></li>
+                <li><a [routerLink]="['/informacion']" [queryParams]="{tipo: 'privacidad'}">Política de Privacidad</a></li>
             </ul>
         </section>
 
-        <nav class="redes-sociales">
-            <h3 class="titulo-footer">Redes sociales</h3>
-            <div class="iconos-sociales">
-                <a href="#" aria-label="X (Twitter)"><img src="assets/img/X_red_social.svg" alt="X (Twitter)" /></a>
-                <a href="#" aria-label="Instagram"><img src="assets/img/Instagram.svg" alt="Instagram" /></a>
+        <section class="columna-footer">
+            <h3 class="titulo-footer">Ayuda</h3>
+            <ul class="lista-footer">
+                <li><a [routerLink]="['/informacion']" [queryParams]="{tipo: 'ayuda'}">Preguntas Frecuentes</a></li>
+                <li><a [routerLink]="['/informacion']" [queryParams]="{tipo: 'cambios'}">Cambios y Devoluciones</a></li>
+                <li><a [routerLink]="['/informacion']" [queryParams]="{tipo: 'estado'}">Estado de los Pedidos</a></li>
+                <li><a [routerLink]="['/informacion']" [queryParams]="{tipo: 'guia de tallas'}">Guía de Tallas</a></li>
+            </ul>
+        </section>
+
+        <section class="columna-footer">
+            <h3 class="titulo-footer">Servicio al Cliente</h3>
+            <ul class="lista-footer">
+                <li><a routerLink="/contacto">Formulario de contacto</a></li>
+                <li><span class="texto-info">L-V: 09:00 - 18:00</span></li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="acciones-footer">
+        <div class="bloque-derecha">
+            <div class="metodos-pago">
+                <p class="titulo-footer">Métodos de pago</p>
+                <div class="cuadricula-pagos">
+                    <img src="assets/img/visa.png" alt="Visa">
+                    <img src="assets/img/Mastercard.png" alt="Mastercard">
+                    <img src="assets/img/maestro.png" alt="Maestro">
+                    <img src="assets/img/american-express.png" alt="American Express">
+                </div>
             </div>
-        </nav>
+
+            <nav class="redes-sociales">
+                <p class="titulo-footer">Síguenos</p>
+                <div class="iconos-sociales">
+                    <a href="#" aria-label="X"><img src="assets/img/X_red_social.svg" alt="X" /></a>
+                    <a href="#" aria-label="Instagram"><img src="assets/img/Instagram.svg" alt="Instagram" /></a>
+                    <a href="#" aria-label="YouTube"><img src="assets/img/Youtube.svg" alt="YouTube" /></a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="selectores">
+            <p class="titulo-footer">Preferencias</p>
+            <details class="selector-personalizado">
+                <summary><span>Localización</span> <i class="flecha"></i></summary>
+                <ul class="dropdown">
+                    @for (pais of paises; track pais) {
+                        <li>{{ pais }}</li>
+                    } @empty {
+                        <li>Cargando...</li>
+                    }
+                </ul>
+            </details>
+            <details class="selector-personalizado">
+                <summary><span>Idioma</span> <i class="flecha"></i></summary>
+                <ul class="dropdown">
+                    @for (idioma of idiomas; track idioma) {
+                        <li>{{ idioma }}</li>
+                    } @empty {
+                        <li>Cargando...</li>
+                    }
+                </ul>
+            </details>
+        </div>
+    </div>
+
+    <div class="copy-footer">
+        <p>&copy; 2026 HAD Clothing. Todos los derechos reservados.</p>
     </div>
 </footer>

@@ -1,54 +1,65 @@
-<section class="box">
-  <header class="header">
-    <section class="default-GRANDE">
+<header class="navbar-custom bg-white border-bottom border-2 border-dark pt-4 pb-2 px-3 px-lg-5">
+  <div class="container-fluid p-0">
+    
+    <div class="d-flex align-items-center justify-content-between w-100 mb-4 flex-wrap flex-md-nowrap gap-3">
+      
+      <a routerLink="/home" class="empresa-logo text-dark text-decoration-none fw-normal display-5">
+        HAD
+      </a>
 
-      <div class="principal-2">
-        <a routerLink="/home" class="empresa">HAD</a>
+      <div class="search-container flex-grow-1 mx-md-5 border border-dark d-flex align-items-center px-3" style="height: 54px; max-width: 800px;">
+        <i class="bi bi-search text-dark fs-5"></i> <div class="bg-dark mx-3" style="width: 1px; height: 25px; opacity: 1;"></div>
+        <form (submit)="buscar($event)" class="flex-grow-1 h-100">
+          <input type="text" [(ngModel)]="query" name="query" 
+            class="form-control border-0 bg-transparent h-100 shadow-none" 
+            placeholder="Buscar"/>
+        </form>
+      </div>
 
-        <div class="navegador">
-          <img class="icono" src="assets/img/icono.svg" />
-          <img class="linea" src="assets/img/linea.svg" />
+      <div class="simbolos-group d-flex align-items-center gap-3 gap-lg-4">
+        
+        <a (click)="irADeseados()" class="text-dark text-decoration-none icon-nav" title="Deseados">
+          <i class="bi bi-heart fs-3"></i>
+        </a>
+        
+        <a (click)="irACesta()" class="text-dark text-decoration-none icon-nav" title="Cesta">
+          <i class="bi bi-bag fs-3"></i>
+        </a>
 
-          <form (submit)="buscar($event)">
-            <input type="text" [(ngModel)]="query" name="query" class="buscar-input" placeholder="Buscar"/>
-          </form>
+        <div class="dropdown position-relative"> <a (click)="onAuthClick($event)" 
+            class="text-dark text-decoration-none icon-nav pointer" 
+            title="Cuenta">
+            <i class="bi bi-person fs-3"></i> 
+          </a>
+          
+          <ul class="dropdown-menu dropdown-menu-end shadow border border-dark mt-2 p-3" 
+              [class.show]="mostrarPopup"
+              (click)="$event.stopPropagation()"> <li class="small mb-2">Hola, <strong>{{ userName }}</strong></li>
+            <li><hr class="dropdown-divider border-dark"></li>
+            <li><a class="dropdown-item small px-2" routerLink="/cuenta">Mi Perfil</a></li>
+            <li><a class="dropdown-item small px-2" routerLink="/pedidos">Mis Pedidos</a></li>
+            <li><hr class="dropdown-divider border-dark"></li>
+            <li class="mt-2">
+              <button class="btn btn-dark btn-sm w-100" (click)="logout()">Cerrar Sesión</button>
+            </li>
+          </ul>
         </div>
 
-        <div class="simbolos">
-          <img class="cuenta" src="assets/img/cuenta.svg"
-               (click)="onAuthClick($event)" />
+      </div>
+    </div>
 
-          <img class="cesta" src="assets/img/compra.svg"
-               (click)="irACesta()" />
-
-          <img class="deseados" src="assets/img/deseados.svg"
-               (click)="irADeseados()" />
-
-          <div class="user-popup-content" [class.show]="mostrarPopup" (click)="$event.stopPropagation()">
-            <p class="popup-user-name">
-              Hola, <strong>{{ userName }}</strong>
-            </p>
-            <hr />
-            <a routerLink="/cuenta" class="popup-link">Mi Perfil</a>
-            <a routerLink="/pedidos" class="popup-link">Mis Pedidos</a>
-            <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
+    <nav class="categorias-nav w-100 d-none d-md-block">
+      <div class="row g-2 text-center">
+        @for (cat of ['Novedades', 'Camisas', 'Chaquetas', 'Pantalones', 'Zapatos', 'Accesorios', 'Faldas', 'Vestidos', 'Calcetines', 'Pijamas']; track cat) {
+          <div class="col">
+            <a [routerLink]="['/galeria']" [queryParams]="cat !== 'Novedades' ? {categoria: cat} : {}" 
+               class="cat-link text-dark text-decoration-none small text-uppercase fw-medium d-block py-2">
+              {{cat}}
+            </a>
           </div>
-        </div>
+        }
       </div>
+    </nav>
 
-      <div class="categorias_grande">
-        <a routerLink="/galeria" class="text">Novedades</a>
-        <a [routerLink]="['/galeria']" [queryParams]="{categoria: 'Camisas'}" class="text">Camisas</a>
-        <a [routerLink]="['/galeria']" [queryParams]="{categoria: 'Chaquetas'}" class="text">Chaquetas</a>
-        <a routerLink="/galeria" class="text">Pantalones</a>
-        <a routerLink="/galeria" class="text">Zapatos</a>
-        <a routerLink="/galeria" class="text">Accesorios</a>
-        <a routerLink="/galeria" class="text">Faldas</a>
-        <a routerLink="/galeria" class="text">Vestidos</a>
-        <a routerLink="/galeria" class="text">Calcetines</a>
-        <a routerLink="/galeria" class="text">Pijamas</a>
-      </div>
-
-    </section>
-  </header>
-</section>
+  </div>
+</header>

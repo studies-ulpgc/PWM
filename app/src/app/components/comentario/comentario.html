@@ -1,14 +1,25 @@
-<main class="comentario">
-  <section class="comentar">
-    <img class="valoracion" src="assets/img/valoracion.svg" alt="Puntuación total"/>
-    <div class="titulo">{{ data?.Titulo || 'Sin título' }}</div>
-    <div class="fecha">{{ data?.Fecha || 'Fecha desconocida' }}</div>
-    <p class="texto">
+<div class="comentario container-fluid position-relative py-3 px-4 border-top border-dark transition-comentario">
+  <section class="comentar d-flex flex-wrap align-items-center pb-5">
+    
+    <div class="titulo w-100 fw-bold fs-5 mb-2 text-truncate">
+      {{ data?.Titulo || 'Sin título' }}
+    </div>
+
+    <img class="valoracion me-3 mb-1" src="assets/img/valoracion.svg" alt="Puntuación total" style="width: 119px; height: 21px;"/>
+
+    <div class="fecha text-muted small mb-1">
+      {{ data?.Fecha || 'Fecha desconocida' }}
+    </div>
+
+    <p class="texto w-100 mt-3 mb-4 lh-base">
       {{ data?.Texto }}
     </p>
-    <img class="pulgar-abajo" (click)="onDislike()" src="assets/img/pulgar-abajo.svg" alt="Dislike"/>
-    <img class="pulgar-arriba" (click)="onLike()" src="assets/img/pulgar-arriba.svg" alt="Like"/>
-    <div class="puntos-suspensivos">···</div>
+
+    <div class="acciones-comentario position-absolute bottom-0 end-0 p-3 d-flex align-items-center gap-3">
+      <img class="pulgar-arriba icon-btn" (click)="onLike()" src="assets/img/pulgar-arriba.svg" alt="Like" style="width: 24px; height: 24px; cursor: pointer;"/>
+      <img class="pulgar-abajo icon-btn" (click)="onDislike()" src="assets/img/pulgar-abajo.svg" alt="Dislike" style="width: 24px; height: 24px; cursor: pointer;"/>
+      <div class="puntos-suspensivos icon-btn fs-2 lh-1" style="cursor: pointer;">···</div>
+    </div>
+
   </section>
-  <section class="recuadro"></section>
-</main>
+</div>

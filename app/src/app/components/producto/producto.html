@@ -1,28 +1,37 @@
-<div class="producto">
-  <a [routerLink]="['/articulo-seleccionado', data?.id]" class="informacion-producto">
-    <div class="image" [style.backgroundImage]="'url(' + data?.fotoUrl + ')'"></div>
-    <div class="body">
-      <div class="descripcion">{{ data?.nombre || 'Producto sin nombre' }}</div>
-      <p class="precio">
-        <span class="texto">{{ data?.precioEntero || '0' }}</span>
-        <span class="span">.</span>
-        <span class="texto-2">{{ data?.precioDecimal || '00' }}</span>
-        <span class="span">€</span>
+<div class="producto card h-100 border-1 position-relative shadow-sm">
+  <a [routerLink]="['/articulo-seleccionado', data?.id]" class="text-decoration-none d-flex flex-column h-100 p-3 pb-5 mb-4">
+    
+    <div class="card-img-top rounded-3 bg-light overflow-hidden mb-3" 
+         [style.backgroundImage]="'url(' + data?.fotoUrl + ')'"
+         style="aspect-ratio: 229 / 247; background-size: cover; background-position: center;">
+    </div>
+
+    <div class="card-body p-0 d-flex flex-column gap-2">
+      <div class="card-title text-dark text-truncate mb-0 fs-6">
+        {{ data?.nombre || 'Producto sin nombre' }}
+      </div>
+      
+      <p class="card-text d-inline-flex align-items-baseline gap-1 m-0 fw-bold text-dark fs-5">
+        <span>{{ data?.precioEntero || '0' }}</span>
+        <span class="fs-6 fw-normal">.{{ data?.precioDecimal || '00' }}€</span>
       </p>
     </div>
   </a>
-  
-  <div class="simbolos">
-    <div class="iconos-accion">
-      <div class="sumar-a-la-cesta">
-        <img class="compra" src="assets/img/compra.svg" alt="Compra"/>
-        <img class="sumar" src="assets/img/sumar.svg" alt="Sumar"/>
+
+  <div class="simbolos position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-center">
+    
+    <img class="img-fluid" src="assets/img/valoracion.svg" alt="Valoración" style="width: 116px; height: 19px;">
+
+    <div class="d-flex gap-2">
+      <div class="btn-circular position-relative" style="width: 36px; height: 36px; cursor: pointer;">
+        <img class="position-absolute top-50 start-50 translate-middle w-75" src="assets/img/compra.svg" alt="Cesta">
+        <img class="position-absolute top-0 end-0 w-25" src="assets/img/sumar.svg" alt="Sumar">
       </div>
-      <div class="sumar-a-deseados">
-        <img class="deseados" src="assets/img/deseados.svg" alt="Corazón"/>
-        <img class="sumar" src="assets/img/sumar.svg" alt="Sumar"/>
+      <div class="btn-circular position-relative" style="width: 36px; height: 36px; cursor: pointer;">
+        <img class="position-absolute top-50 start-50 translate-middle w-75" src="assets/img/deseados.svg" alt="Deseados">
+        <img class="position-absolute top-0 end-0 w-25" src="assets/img/sumar.svg" alt="Sumar">
       </div>
     </div>
-    <img class="valoracion" src="assets/img/valoracion.svg" alt="Valoración"/>
+
   </div>
 </div>

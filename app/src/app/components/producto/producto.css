@@ -1,218 +1,22 @@
 .producto {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  height: auto;
-  box-sizing: border-box;
-}
-
-.producto .informacion-producto {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  min-height: 384px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-space-400);
-  padding: 16px;
-  padding-bottom: 68px;
-  background-color: var(--color-background-default-default);
-  border-radius: var(--size-radius-200);
-  border: 1px solid var(--color-border-default-default);
-  box-sizing: border-box;
   transition: border-color 0.2s ease, transform 0.15s ease;
+  min-height: 384px;
 }
 
-.producto:hover .informacion-producto {
-  border-color: #1e1e1e;
+.producto:hover {
+  border-color: #1e1e1e !important;
 }
 
 .producto:active {
   transform: scale(0.97);
 }
 
-.producto .image {
-  width: 100%;
-  aspect-ratio: 229 / 247;
-  margin: 0;
-  background-color: var(--color-background-disabled-default);
-  border-radius: var(--size-radius-200);
-  overflow: hidden;
-  display: block;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.producto .image img,
-.producto .image picture,
-.producto .image svg,
-.producto .image canvas {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.producto .body {
-  width: 100%;
-  min-width: 0;
-  height: auto;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-space-200);
-  box-sizing: border-box;
-}
-
-.producto .descripcion {
-  min-height: 22px;
-  height: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-family: var(--body-base-font-family);
-  font-weight: var(--body-base-font-weight);
-  color: var(--color-text-default-default);
-  font-size: var(--body-base-font-size);
-  letter-spacing: var(--body-base-letter-spacing);
-  line-height: var(--body-base-line-height);
-  font-style: var(--body-base-font-style);
-}
-
-.producto .precio {
-  width: auto;
-  height: auto;
-  font-family: "Inter-SemiBold", Helvetica;
-  color: var(--color-text-default-default);
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: 28px;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
-}
-
-.producto .texto {
-  font-weight: 600;
-  color: #1e1e1e;
-  font-size: 20px;
-  line-height: 28px;
-}
-
-.producto .span {
-  font-size: 16px;
-  line-height: 22.4px;
-}
-
-.producto .texto-2 {
-  font-size: 14px;
-  line-height: 19.6px;
-}
-
-.producto .simbolos {
-  position: absolute;
-  z-index: 2;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; 
-  gap: 8px; 
-}
-
-.producto .iconos-accion {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  order: 2;
-}
-
-.producto .valoracion {
-  order: 1;
-  width: 116px;
-  height: 19px;
-  flex-shrink: 0;
-}
-
-.producto .sumar-a-la-cesta,
-.producto .sumar-a-deseados {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
-}
-
-.producto .sumar {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  top: 0;
-  left: 70%;
-}
-
-.producto .deseados, .producto .compra {
-  position: absolute;
-  width: 75%;
-  height: 75%;
-  top: 15%;
-  left: 5%;
-}
-
-.producto .sumar img, .producto .deseados img, .producto .compra img,
-.producto .sumar svg, .producto .deseados svg, .producto .compra svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.producto .sumar-a-deseados:hover,
-.producto .sumar-a-la-cesta:hover {
-  opacity: 0.8;
-}
-
-.producto .informacion-producto {
-  padding-bottom: 68px;
-}
-
-@media (max-width: 768px) {
-  .producto .informacion-producto {
-    min-height: 340px;
-    padding: 12px;
-    padding-bottom: 65px; 
-    gap: 12px;
-  }
-
-  .producto .simbolos {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-  }
-
-  .producto .valoracion {
-    width: 100px;
-    height: 17px;
-  }
-
-  .producto .sumar-a-la-cesta,
-  .producto .sumar-a-deseados {
-    width: 32px;
-    height: 32px;
-    flex: 0 0 32px;
-  }
+.btn-circular:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 500px) {
-  .producto .simbolos {
-    justify-content: flex-start;
-  }
-  
-  .producto .informacion-producto {
-    padding-bottom: 95px; 
+  .producto {
+    padding-bottom: 30px;
   }
 }
