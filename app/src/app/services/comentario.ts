@@ -1,11 +1,10 @@
-// services/comentario.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ComentarioService {
-  private url = 'assets/json/comentario.json'; // Asegúrate de tener este JSON
+  private url = 'assets/json/comentario.json';
 
   constructor(private http: HttpClient) {}
 

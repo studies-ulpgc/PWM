@@ -69,11 +69,10 @@
           <div class="action-buttons d-grid gap-3">
             <button class="btn btn-dark btn-lg add-to-cart-btn py-3" id="btnSumarCesta">
               <span>Añadir a la cesta</span>
-              <img src="assets/img/sumar.svg" class="ms-2" width="18" alt="">
             </button>
-            <button class="btn btn-outline-secondary btn-lg py-3">
-              <img src="assets/img/deseados.svg" class="me-2" width="20" alt="">
-              Lista de deseos
+            <button class="btn btn-outline-secondary add-to-wishlist-btn btn-lg py-3 d-flex align-items-center justify-content-center gap-2">
+              <i class="bi bi-heart fs-5"></i>
+              <span>Lista de deseos</span>
             </button>
           </div>
 
@@ -90,19 +89,28 @@
         <div class="col-md-4">
           <div class="review-summary p-4 bg-light rounded">
             <h2 class="h4 mb-4">Opiniones de clientes</h2>
+            
             <div class="d-flex align-items-center mb-3">
-              <img src="assets/img/valoracion.svg" alt="4.5 estrellas" class="me-2" width="150">
-              <span class="fw-bold h5 mb-0">4.8</span>
+              <div class="stars-display me-2 text-dark">
+                @for (star of [1,2,3,4,5]; track star) {
+                  <i class="bi" 
+                    [class.bi-star-fill]="star <= obtenerRating(producto)" 
+                    [class.bi-star]="star > obtenerRating(producto)"></i>
+                }
+              </div>
+              <span class="fw-bold h5 mb-0">{{ obtenerRating(producto) }}.0</span>
             </div>
-            <p class="text-muted mb-4">Basado en 24 valoraciones</p>
+
+            <p class="text-muted mb-4">Basado en {{ producto.Votos }} valoraciones</p>
             
             @for (i of [5,4,3,2,1]; track i) {
               <div class="d-flex align-items-center mb-2">
                 <span class="me-2 small">{{i}}</span>
                 <div class="progress flex-grow-1" style="height: 6px;">
-                  <div class="progress-bar bg-dark" [style.width.%]="i*15"></div>
+                  <div class="progress-bar bg-dark" 
+                      [style.width.%]="i === obtenerRating(producto) ? 70 : (i < obtenerRating(producto) ? 15 : 5)">
+                  </div>
                 </div>
-                <span class="ms-2 small text-muted">{{i*3}}%</span>
               </div>
             }
             <button class="btn btn-outline-dark w-100 mt-4">Escribir una opinión</button>

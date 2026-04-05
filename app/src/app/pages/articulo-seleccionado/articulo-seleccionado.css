@@ -54,7 +54,6 @@
   background-color: #f5f5f5;
 }
 
-/* --- Detalles de Producto --- */
 .product-title {
   font-size: 2.5rem;
   font-weight: 300;
@@ -120,6 +119,20 @@
 
 .add-to-cart-btn:hover {
   background-color: #333;
+  transform: translateY(-2px);
+}
+
+.add-to-wishlist-btn {
+  background-color: #f5f5f5;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.add-to-wishlist-btn:hover {
+  background-color: #aaa;
   transform: translateY(-2px);
 }
 

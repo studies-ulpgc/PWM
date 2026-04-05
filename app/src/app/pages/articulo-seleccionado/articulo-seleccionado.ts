@@ -22,7 +22,6 @@ import { ComentarioService } from '../../services/comentario';
   styleUrls: ['./articulo-seleccionado.css']
 })
 export class ArticuloSeleccionado implements OnInit {
-  // Variables que usa el HTML
   producto: any = null; 
   listaComentarios: any[] = [];
   productosRelacionados: any[] = [];
@@ -38,89 +37,78 @@ export class ArticuloSeleccionado implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-
-    if (id) {
-      this.productoService.getProductoById(id).subscribe(p => {
-        if (!p) return;
-
-        // 🔹 MAPEAR igual que en HOME
-        const fotoUrl =
-          p.Foto?.[0]?.formats?.medium?.url ||
-          p.Foto?.[0]?.url ||
-          '';
-
-        const resolvedFotoUrl = fotoUrl.startsWith('/uploads/')
-          ? 'assets' + fotoUrl
-          : fotoUrl;
-
-        const precioLimpio = String(p.Precio || '0').replace('€', '').trim();
-        const [entero, decimal = '00'] = precioLimpio.split('.');
-
-        // 🔥 PRODUCTO FINAL
-        setTimeout(() => {
-          this.producto = {
-            ...p,
-            fotoUrl: resolvedFotoUrl,
-            tallasArray: p.Talla?.split(',').map((t: string) => t.trim()) || [],
-          };
-
-          // 🔥 PRECIO separado
-          this.precioEntero = entero;
-          this.precioDecimal = (decimal + '00').slice(0, 2);
-
-          // 🔥 IMAGEN PRINCIPAL
-          this.imagenMostrada = resolvedFotoUrl;
-          this.cdr.detectChanges();
-        }, 0);
-
-        // 🔥 RELACIONADOS (simple)
-        this.productoService.getProductos().subscribe(all => {
-          const relacionadosMapped = all
-            .filter(x => x.id != p.id)
-            .slice(0, 4)
-            .map(prod => {
-              const fotoUrl =
-                prod.Foto?.[0]?.formats?.medium?.url ||
-                prod.Foto?.[0]?.formats?.large?.url ||
-                prod.Foto?.[0]?.url ||
-                '';
-
-              const cleanPrice = String(prod.Precio || '0').replace('€', '').trim();
-              const [entero, decimal = '00'] = cleanPrice.split('.');
-
-              const resolvedFotoUrl = fotoUrl.startsWith('/uploads/')
-                ? 'assets' + fotoUrl
-                : fotoUrl;
-
-              return {
-                ...prod,
-                id: prod.id,
-                nombre: prod.Descripcion || prod.Subtitulo || 'Producto',
-                precioEntero: entero || '0',
-                precioDecimal: (decimal + '00').slice(0, 2),
-                fotoUrl: resolvedFotoUrl,
-              };
-            });
-
-          // Si hay menos de 4, repetir
-          setTimeout(() => {
-            this.productosRelacionados = Array.from({ length: 4 }, (_, i) => relacionadosMapped[i % relacionadosMapped.length]);
-            this.cdr.detectChanges();
-          }, 0);
-        });
-
-      });
-    }
-
-    // Cargar comentarios
-    this.comentarioService.getComentarios().subscribe(comentarios => {
-      // Repetir comentarios si hay pocos
-      setTimeout(() => {
-        this.listaComentarios = Array.from({ length: 4 }, (_, i) => comentarios[i % comentarios.length]);
-        this.cdr.detectChanges();
-      }, 0);
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.cargarDatosProducto(id);
+      }
     });
+
+    this.comentarioService.getComentarios().subscribe(comentarios => {
+      this.listaComentarios = comentarios.slice(0, 4);
+      this.cdr.detectChanges();
+    });
+  }
+
+  cargarDatosProducto(id: string) {
+    this.producto = null; 
+
+    this.productoService.getProductoById(id).subscribe(p => {
+      if (!p) return;
+
+      const fotoUrl = p.Foto?.[0]?.formats?.medium?.url || p.Foto?.[0]?.url || '';
+      const resolvedFotoUrl = fotoUrl.startsWith('/uploads/') ? 'assets' + fotoUrl : fotoUrl;
+      const precioLimpio = String(p.Precio || '0').replace('€', '').trim();
+      const [entero, decimal = '00'] = precioLimpio.split('.');
+
+      this.producto = {
+        ...p,
+        fotoUrl: resolvedFotoUrl,
+        tallasArray: p.Talla?.split(',').map((t: string) => t.trim()) || [],
+      };
+      this.precioEntero = entero;
+      this.precioDecimal = (decimal + '00').slice(0, 2);
+      this.imagenMostrada = resolvedFotoUrl;
+
+      this.cargarRelacionados(p.id);
+      
+      this.cdr.detectChanges();
+    });
+  }
+
+  cargarRelacionados(currentId: any) {
+  this.productoService.getProductos().subscribe(all => {
+    const filtrados = all.filter(x => x.id != currentId);
+
+    if (filtrados.length === 0) return;
+
+    const mapeados = filtrados.map(prod => {
+      const fotoUrl = prod.Foto?.[0]?.formats?.medium?.url || prod.Foto?.[0]?.url || '';
+      const cleanPrice = String(prod.Precio || '0').replace('€', '').trim();
+      const [entero, decimal = '00'] = cleanPrice.split('.');
+      
+      return {
+        ...prod,
+        nombre: prod.Descripcion || prod.Subtitulo,
+        precioEntero: entero,
+        precioDecimal: (decimal + '00').slice(0, 2),
+        fotoUrl: fotoUrl.startsWith('/uploads/') ? 'assets' + fotoUrl : fotoUrl
+      };
+    });
+
+    this.productosRelacionados = Array.from({ length: 4 }, (_, i) => {
+      return mapeados[i % mapeados.length];
+    });
+
+    this.cdr.detectChanges();
+  });
+}
+
+  obtenerRating(producto: any): number {
+    if (!producto.Valoracion || producto.Valoracion.length === 0) return 0;
+    const nombreArchivo = producto.Valoracion[0].name; 
+    const rating = parseInt(nombreArchivo.split('_')[0]);
+    return isNaN(rating) ? 0 : rating;
   }
   
   agregarAlCarrito() { 
