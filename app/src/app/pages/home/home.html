@@ -1,21 +1,35 @@
 <app-header-grande></app-header-grande>
 
-<main class="home">
-  <article class="scroll-vertical">
+<main class="home-container">
+  <article class="content-wrapper">
 
-    <section class="carrucel">
-      <div class="animation-container">
+    <section class="hero-carousel">
+      <div class="animation-track">
         <a
           *ngFor="let item of carruselItems; trackBy: trackById"
           [routerLink]="['/articulo-seleccionado', item.id]"
-          class="foto"
+          class="hero-card"
           [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
+          <div class="overlay-info">
+            <span>Descubrir colección</span>
+          </div>
         </a>
       </div>
     </section>
 
-    <section class="galeria">
-      <app-producto *ngFor="let prod of productos; trackBy: trackById" [data]="prod"></app-producto>
+    <section class="products-section">
+      <div class="section-header">
+        <h2>Trending</h2>
+        <div class="line"></div>
+      </div>
+      
+      <div class="products-grid">
+        <app-producto 
+          *ngFor="let prod of productos; trackBy: trackById" 
+          [data]="prod"
+          class="product-item">
+        </app-producto>
+      </div>
     </section>
 
     <app-footer></app-footer>
