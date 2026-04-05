@@ -1,65 +1,53 @@
 <app-header-grande></app-header-grande>
 
-<main class="galeria">
-  <article class="scroll-vertical">
-    <section class="main">
+<main class="galeria-page">
+  <div class="container-wrapper">
+    <div class="layout-grid">
       
-      <aside class="menu-filtro">
-        <div class="menu-contenido">
-
-          <div class="filtro-bloque">
-            <div class="titulo">Filtros</div>
-            <div class="tag-lista">
-              @for (tag of ['Hombre', 'Mujer', 'Unisex']; track tag) {
-                <div class="tag">
-                  <img src="assets/img/x.svg" alt="x" />
+      <aside class="sidebar-filters">
+        <div class="filter-card">
+          
+          <div class="filter-section">
+            <h3 class="filter-title">Filtros Activos</h3>
+            <div class="active-tags">
+              @for (tag of ['Hombre', 'Mujer']; track tag) {
+                <div class="tag-chip">
                   <span>{{ tag }}</span>
+                  <button class="remove-tag">×</button>
                 </div>
               }
-              </div>
+            </div>
           </div>
 
-          <div class="filtro-bloque">
-            <div class="checkbox-group">
+          <div class="filter-section">
+            <h3 class="filter-title">Temporada</h3>
+            <div class="checkbox-list">
               @for (estacion of ['Primavera', 'Verano', 'Otoño', 'Invierno']; track estacion) {
-                <label class="checkbox-field">
-                  <input type="checkbox" class="checkbox-input" checked />
-                  <span>{{ estacion }}</span>
-                </label>
-              }
-              </div>
-          </div>
-
-          <div class="filtro-bloque">
-            <div class="slider-header">
-              <span class="titulo">Precio</span>
-              <div class="slider-output">
-                <span>0-100</span>
-                <span>€</span>
-              </div>
-            </div>
-            <img class="slider-barra" src="assets/img/bloque.svg" alt="Barra de rango" />
-          </div>
-
-          <div class="filtro-bloque">
-            <div class="titulo">Material</div>
-            <div class="checkbox-grid">
-              @for (mat of ['Lana', 'Algodón', 'Cuero', 'Poliéster', 'Tela', 'Opaco']; track mat) {
-                <label class="checkbox-field">
-                  <input type="checkbox" class="checkbox-input" checked />
-                  <span>{{ mat }}</span>
+                <label class="custom-checkbox">
+                  <input type="checkbox" checked />
+                  <span class="checkmark"></span>
+                  <span class="label-text">{{ estacion }}</span>
                 </label>
               }
             </div>
           </div>
 
-          <div class="filtro-bloque">
-            <div class="titulo">Estilo</div>
+          <div class="filter-section">
+            <div class="price-header">
+              <h3 class="filter-title">Precio</h3>
+              <span class="price-range">0€ - 100€</span>
+            </div>
+            <input type="range" class="modern-slider" min="0" max="200" value="100">
+          </div>
+
+          <div class="filter-section">
+            <h3 class="filter-title">Material</h3>
             <div class="checkbox-grid">
-              @for (estilo of ['Casual', 'Elegante', 'Dulce', 'Vacaciones', 'Oficina', 'Cómodo']; track estilo) {
-                <label class="checkbox-field">
-                  <input type="checkbox" class="checkbox-input" checked />
-                  <span>{{ estilo }}</span>
+              @for (mat of ['Lana', 'Algodón', 'Cuero', 'Seda']; track mat) {
+                <label class="custom-checkbox">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  <span class="label-text">{{ mat }}</span>
                 </label>
               }
             </div>
@@ -68,16 +56,19 @@
         </div>
       </aside>
 
-      <section class="galeria-de-3">
-        @for (producto of listaProductos; track $index) {
-          <app-producto [data]="producto"></app-producto>
-        } @empty {
-          <p>Cargando productos...</p>
-        }
+      <section class="products-container">
+        <div class="grid-display">
+          @for (producto of listaProductos; track $index) {
+            <app-producto [data]="producto" class="product-card-anim"></app-producto>
+          } @empty {
+            <div class="loading-state">
+              <p>Buscando las mejores prendas para ti...</p>
+            </div>
+          }
+        </div>
       </section>
 
-    </section>
-
-    <app-footer></app-footer>
-  </article>
+    </div>
+  </div>
+  <app-footer></app-footer>
 </main>
