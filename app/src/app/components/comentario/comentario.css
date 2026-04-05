@@ -25,3 +25,32 @@
   word-wrap: break-word;
   font-family: 'Inter', sans-serif;
 }
+
+.transition-comentario {
+  transition: background-color 0.3s ease;
+}
+
+.comentario:hover {
+  background-color: #fcfcfc;
+}
+
+.btn-interaction {
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-interaction:hover {
+  transform: scale(1.2);
+  color: #000 !important;
+}
+
+.btn-interaction:active {
+  transform: scale(0.9);
+}
+
+.btn-interaction .bi-hand-thumbs-up-fill {
+  color: #0d6efd;
+}

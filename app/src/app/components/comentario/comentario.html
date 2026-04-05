@@ -5,7 +5,14 @@
       {{ data?.Titulo || 'Sin título' }}
     </div>
 
-    <img class="valoracion me-3 mb-1" src="assets/img/valoracion.svg" alt="Puntuación total" style="width: 119px; height: 21px;"/>
+    <div class="rating-stars text-dark small me-3 mb-1">
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-half"></i>
+      <span class="ms-1 fw-bold">(4.5)</span>
+    </div>
 
     <div class="fecha text-muted small mb-1">
       {{ data?.Fecha || 'Fecha desconocida' }}
@@ -16,9 +23,19 @@
     </p>
 
     <div class="acciones-comentario position-absolute bottom-0 end-0 p-3 d-flex align-items-center gap-3">
-      <img class="pulgar-arriba icon-btn" (click)="onLike()" src="assets/img/pulgar-arriba.svg" alt="Like" style="width: 24px; height: 24px; cursor: pointer;"/>
-      <img class="pulgar-abajo icon-btn" (click)="onDislike()" src="assets/img/pulgar-abajo.svg" alt="Dislike" style="width: 24px; height: 24px; cursor: pointer;"/>
-      <div class="puntos-suspensivos icon-btn fs-2 lh-1" style="cursor: pointer;">···</div>
+      
+      <button class="btn btn-link text-dark p-0 btn-interaction" (click)="onLike()" title="Útil">
+        <i class="bi bi-hand-thumbs-up fs-5"></i>
+      </button>
+
+      <button class="btn btn-link text-dark p-0 btn-interaction" (click)="onDislike()" title="No útil">
+        <i class="bi bi-hand-thumbs-down fs-5"></i>
+      </button>
+
+      <button class="btn btn-link text-dark p-0 btn-interaction" title="Más opciones">
+        <i class="bi bi-three-dots fs-4"></i>
+      </button>
+      
     </div>
 
   </section>
