@@ -20,17 +20,23 @@
 
   <div class="simbolos position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-center">
     
-    <img class="img-fluid" src="assets/img/valoracion.svg" alt="Valoración" style="width: 116px; height: 19px;">
+    <div class="rating-stars text-dark small">
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-star-half"></i>
+      <span class="ms-1 fw-bold">(4.5)</span>
+    </div>
 
     <div class="d-flex gap-2">
-      <div class="btn-circular position-relative" style="width: 36px; height: 36px; cursor: pointer;">
-        <img class="position-absolute top-50 start-50 translate-middle w-75" src="assets/img/compra.svg" alt="Cesta">
-        <img class="position-absolute top-0 end-0 w-25" src="assets/img/sumar.svg" alt="Sumar">
-      </div>
-      <div class="btn-circular position-relative" style="width: 36px; height: 36px; cursor: pointer;">
-        <img class="position-absolute top-50 start-50 translate-middle w-75" src="assets/img/deseados.svg" alt="Deseados">
-        <img class="position-absolute top-0 end-0 w-25" src="assets/img/sumar.svg" alt="Sumar">
-      </div>
+      <button class="btn btn-outline-dark btn-circle-sm position-relative" title="Añadir a la cesta">
+        <i class="bi bi-bag-plus fs-5"></i>
+      </button>
+
+      <button class="btn btn-outline-dark btn-circle-sm" title="Añadir a deseados">
+        <i class="bi bi-heart fs-5"></i>
+      </button>
     </div>
 
   </div>

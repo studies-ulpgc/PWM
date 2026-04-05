@@ -15,6 +15,36 @@
   opacity: 0.7;
 }
 
+/* Botones circulares pequeños para la card */
+.btn-circle-sm {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s ease;
+  background-color: white;
+}
+
+.btn-circle-sm:hover {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.rating-stars i {
+  font-size: 14px;
+  margin-right: 1px;
+}
+
+.img-valoracion {
+  width: 100px;
+  height: auto;
+  filter: grayscale(1);
+}
+
 @media (max-width: 500px) {
   .producto {
     padding-bottom: 30px;
