@@ -10,24 +10,11 @@
           <div class="filter-section">
             <h3 class="filter-title">Filtros Activos</h3>
             <div class="active-tags">
-              @for (tag of ['Hombre', 'Mujer']; track tag) {
+              @for (tag of ['Hombre', 'Lana', 'Mujer']; track tag) {
                 <div class="tag-chip">
                   <span>{{ tag }}</span>
                   <button class="remove-tag">×</button>
                 </div>
-              }
-            </div>
-          </div>
-
-          <div class="filter-section">
-            <h3 class="filter-title">Temporada</h3>
-            <div class="checkbox-list">
-              @for (estacion of ['Primavera', 'Verano', 'Otoño', 'Invierno']; track estacion) {
-                <label class="custom-checkbox">
-                  <input type="checkbox" checked />
-                  <span class="checkmark"></span>
-                  <span class="label-text">{{ estacion }}</span>
-                </label>
               }
             </div>
           </div>
@@ -41,13 +28,51 @@
           </div>
 
           <div class="filter-section">
+            <h3 class="filter-title">Talla</h3>
+            <div class="size-grid">
+              @for (talla of ['XS', 'S', 'M', 'L', 'XL', 'XXL']; track talla) {
+                <label class="size-box">
+                  <input type="checkbox" />
+                  <span class="size-name">{{ talla }}</span>
+                </label>
+              }
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3 class="filter-title">Temporada</h3>
+            <div class="checkbox-list">
+              @for (estacion of ['Primavera', 'Verano', 'Otoño', 'Invierno']; track estacion) {
+                <label class="custom-checkbox">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  <span class="label-text">{{ estacion }}</span>
+                </label>
+              }
+            </div>
+          </div>
+
+          <div class="filter-section">
             <h3 class="filter-title">Material</h3>
             <div class="checkbox-grid">
-              @for (mat of ['Lana', 'Algodón', 'Cuero', 'Seda']; track mat) {
+              @for (mat of ['Lana', 'Algodón', 'Cuero', 'Seda', 'Poliéster', 'Lino']; track mat) {
                 <label class="custom-checkbox">
                   <input type="checkbox" />
                   <span class="checkmark"></span>
                   <span class="label-text">{{ mat }}</span>
+                </label>
+              }
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3 class="filter-title">Estilo</h3>
+            <div class="checkbox-list">
+              @for (estilo of ['Casual', 'Elegante', 'Streetwear', 'Oficina', 'Vintage']; track estilo) {
+                <label class="custom-checkbox">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  <span class="label-text">{{ estilo }}</span>
                 </label>
               }
             </div>

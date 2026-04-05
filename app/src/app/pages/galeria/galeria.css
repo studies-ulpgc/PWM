@@ -176,3 +176,58 @@
   .sidebar-filters { position: relative; top: 0; margin-bottom: 30px; }
   .grid-display { grid-template-columns: repeat(2, 1fr); gap: 15px; }
 }
+
+/* --- Estilo específico para la cuadrícula de tallas --- */
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.size-box {
+  cursor: pointer;
+  position: relative;
+}
+
+.size-box input {
+  display: none; /* Ocultamos el checkbox real */
+}
+
+.size-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: var(--text-main);
+}
+
+.size-box input:checked + .size-name {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+.size-name:hover {
+  border-color: #000;
+}
+
+/* Ajuste para que el Sidebar no se haga infinito */
+.filter-card {
+  max-height: calc(100vh - 150px); /* Evita que crezca más que la pantalla */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Personalización del scroll interno del filtro para que sea elegante */
+.filter-card::-webkit-scrollbar {
+  width: 4px;
+}
+.filter-card::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 10px;
+}
