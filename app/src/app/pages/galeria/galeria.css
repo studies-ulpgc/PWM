@@ -128,7 +128,15 @@
   align-items: center;
 }
 
-.price-range { font-size: 13px; font-weight: 500; }
+.price-range {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-color); 
+  background: #eee;
+  padding: 2px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
 
 .modern-slider {
   appearance: none;

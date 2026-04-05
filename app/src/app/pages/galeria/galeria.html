@@ -22,9 +22,16 @@
           <div class="filter-section">
             <div class="price-header">
               <h3 class="filter-title">Precio</h3>
-              <span class="price-range">0€ - 100€</span>
+              <span class="price-range">0€ - {{ precioSeleccionado }}€</span>
             </div>
-            <input type="range" class="modern-slider" min="0" max="200" value="100">
+            
+            <input 
+              type="range" 
+              class="modern-slider" 
+              min="0" 
+              max="200" 
+              [value]="precioSeleccionado"
+              (input)="actualizarPrecio($event)">
           </div>
 
           <div class="filter-section">

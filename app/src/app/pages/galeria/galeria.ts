@@ -16,7 +16,13 @@ import { ActivatedRoute } from '@angular/router';
 export class Galeria implements OnInit {
   listaProductos: any[] = [];
 
+  precioSeleccionado: number = 100;
+
   constructor(private productoService: ProductoService, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
+
+  actualizarPrecio(evento: any) {
+    this.precioSeleccionado = evento.target.value;
+  }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
