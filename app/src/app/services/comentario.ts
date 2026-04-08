@@ -1,19 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { initializeApp, getApps } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ComentarioService {
-  private url = 'assets/json/comentario.json';
+  private firestore;
 
-  constructor(private http: HttpClient) {}
+  constructor() {
+    if (getApps().length === 0) {
+      initializeApp(environment.firebase);
+    }
+    this.firestore = getFirestore();
+  }
 
   getComentarios(): Observable<any[]> {
-    const headers = new HttpHeaders({
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    });
-    return this.http.get<any>(this.url, { headers }).pipe(map(res => res.data));
+    console.log('Cargando comentarios desde Firestore...');
+    const comentariosRef = collection(this.firestore, 'comentario');
+    return from(getDocs(comentariosRef)).pipe(
+      map(snapshot => {
+        const comentarios = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log('Comentarios cargados:', comentarios);
+        return comentarios;
+      })
+    );
   }
 }
