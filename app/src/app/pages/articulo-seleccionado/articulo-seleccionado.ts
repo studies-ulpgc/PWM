@@ -5,8 +5,8 @@ import { Footer } from '../../components/footer/footer';
 import { Comentario } from '../../components/comentario/comentario';
 import { Producto } from '../../components/producto/producto';
 import { ActivatedRoute } from '@angular/router';
-import { ProductoService } from '../../services/producto';
-import { ComentarioService } from '../../services/comentario';
+import { ProductoService } from '../../services/producto.service';
+import { ComentarioService } from '../../services/comentario.service';
 
 @Component({
   selector: 'app-articulo-seleccionado',

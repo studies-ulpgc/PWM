@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router'; // Para el [routerLink]
 import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
 import { Producto } from '../../components/producto/producto';
-import { ProductoService } from '../../services/producto';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-home',

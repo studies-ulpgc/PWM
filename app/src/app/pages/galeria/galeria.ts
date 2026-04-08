@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
 import { Producto } from '../../components/producto/producto';
-import { ProductoService } from '../../services/producto';
+import { ProductoService } from '../../services/producto.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
