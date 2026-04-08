@@ -1,25 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Firestore, collectionData, collection, docData, doc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ProductoService {
-  private url = 'assets/json/producto.json';
-
-  constructor(private http: HttpClient) {}
+  constructor(private firestore: Firestore) {}
 
   getProductos(): Observable<any[]> {
-    const headers = new HttpHeaders({
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    });
-    return this.http.get<any>(this.url, { headers }).pipe(map(res => res.data));
+    const productosRef = collection(this.firestore, 'producto');
+    return collectionData(productosRef, { idField: 'id' });
   }
 
   getProductoById(id: string): Observable<any> {
-    return this.getProductos().pipe(
-      map(productos => productos.find(p => p.id == id))
-    );
+    const productoRef = doc(this.firestore, `producto/${id}`);
+    return docData(productoRef, { idField: 'id' });
   }
 }
