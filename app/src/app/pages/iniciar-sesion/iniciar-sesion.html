@@ -1,1 +1,73 @@
-<p>iniciar-sesion works!</p>
+<div class="container-fluid p-0 vh-100 overflow-hidden">
+  <div class="row g-0 h-100">
+    
+    <div class="col-md-6 d-none d-md-block p-0 h-100">
+      <app-img-izq [data]="datosImagen" class="w-100 h-100"></app-img-izq>
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center justify-content-center bg-white">
+      <main class="w-75" style="max-width: 400px;">
+        
+        <div class="d-flex justify-content-center mb-5 border-bottom">
+          <a href="#" class="nav-link active px-3 pb-2 border-bottom border-dark border-3 fw-bold text-dark">Iniciar Sesión</a>
+          <a href="#" class="nav-link px-3 pb-2 text-muted">Registrarse</a>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Email</label>
+            <input type="email" formControlName="email" class="form-control form-control-lg" 
+                   placeholder="ejemplo@correo.com"
+                   [class.is-invalid]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Contraseña</label>
+            <div class="input-group input-group-lg"> 
+              <input [type]="verContrasena ? 'text' : 'password'" 
+                     formControlName="password" 
+                     class="form-control" 
+                     placeholder="********"
+                     [class.is-invalid]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+              
+              <button class="btn btn-outline-secondary d-flex align-items-center" type="button" (click)="togglePassword()">
+                <i class="bi" [ngClass]="verContrasena ? 'bi-eye-slash' : 'bi-eye'"></i>
+              </button>
+            </div>
+            <div style="height: 20px;">
+              <small class="text-danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                La contraseña debe tener al menos 4 caracteres
+              </small>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember">
+              <label class="form-check-label small" for="remember">Recordar credenciales</label>
+            </div>
+            <a href="#" class="small text-dark text-decoration-underline fw-medium">¿Olvidó la contraseña?</a>
+          </div>
+
+          <button type="submit" class="btn btn-dark w-100 py-3 fw-bold shadow-sm" [disabled]="loginForm.invalid">
+            Iniciar Sesión
+          </button>
+
+          <div class="d-flex align-items-center my-5 text-muted">
+            <hr class="flex-grow-1">
+            <span class="mx-3 small fw-bold">o</span>
+            <hr class="flex-grow-1">
+          </div>
+
+          <div class="d-grid gap-3">
+            <button type="button" class="btn btn-outline-dark py-2">Web 1</button>
+            <button type="button" class="btn btn-outline-dark py-2">Web 2</button>
+            <button type="button" class="btn btn-outline-dark py-2">Web 3</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+  </div>
+</div>

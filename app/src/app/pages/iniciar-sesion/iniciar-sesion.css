@@ -1,0 +1,18 @@
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-dark {
+    border-radius: 4px;
+}
+
+app-img-izq {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
