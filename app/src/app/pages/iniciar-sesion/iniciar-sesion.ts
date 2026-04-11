@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 import { ImgIzq } from '../../components/img-izq/img-izq';
+import { RouterLink } from '@angular/router';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
 
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ImgIzq], 
+  imports: [CommonModule, ReactiveFormsModule, ImgIzq, RouterLink], 
   templateUrl: './iniciar-sesion.html',
   styleUrl: './iniciar-sesion.css',
 })
@@ -18,7 +19,8 @@ export class IniciarSesion implements OnInit {
 
   constructor(
     private fb: FormBuilder, 
-    private imgService: ImagenIzqService
+    private imgService: ImagenIzqService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class IniciarSesion implements OnInit {
 
     this.imgService.getImagenConfig().subscribe(res => {
       this.datosImagen = res;
+      this.cdr.detectChanges();
     });
   }
 

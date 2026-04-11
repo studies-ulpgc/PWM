@@ -1,1 +1,86 @@
-<p>registrarse works!</p>
+<div class="container-fluid p-0 vh-100 overflow-hidden">
+  <div class="row g-0 h-100">
+    
+    <div class="col-md-6 d-none d-md-block p-0 h-100">
+      <app-img-izq [data]="datosImagen"></app-img-izq>
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center justify-content-center bg-white overflow-auto py-5">
+      <main class="w-75" style="max-width: 500px;">
+        
+        <div class="d-flex justify-content-center mb-5 border-bottom">
+          <a routerLink="/iniciar-sesion" class="nav-link px-3 pb-2 text-muted">Iniciar Sesión</a>
+          <a href="#" class="nav-link active px-3 pb-2 border-bottom border-dark border-3 fw-bold text-dark">Registrarse</a>
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Correo</label>
+            <input type="email" formControlName="email" class="form-control form-control-lg" 
+                    placeholder="ejemplo@gmail.com"
+                    [class.is-invalid]="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+            @if (registerForm.get('email')?.errors?.['required']) {
+                <div class="invalid-feedback">El correo es obligatorio.</div>
+            }
+            @if (registerForm.get('email')?.errors?.['pattern']) {
+                <div class="invalid-feedback">Formato no válido (.com, .es...).</div>
+            }
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <label class="form-label fw-semibold small">Nombre</label>
+              <input type="text" formControlName="nombre" class="form-control form-control-lg"
+                     placeholder="Tu nombre"
+                     [class.is-invalid]="registerForm.get('nombre')?.touched && registerForm.get('nombre')?.invalid">
+            </div>
+            <div class="col-md-6 mb-4">
+              <label class="form-label fw-semibold small">Apellidos</label>
+              <input type="text" formControlName="apellidos" class="form-control form-control-lg"
+                     placeholder="Tus apellidos"
+                     [class.is-invalid]="registerForm.get('apellidos')?.touched && registerForm.get('apellidos')?.invalid">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Fecha de nacimiento</label>
+            <input type="date" formControlName="fecha" class="form-control form-control-lg"
+                   [class.is-invalid]="registerForm.get('fecha')?.touched && registerForm.get('fecha')?.invalid">
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Contraseña</label>
+            <div class="input-group input-group-lg has-validation">
+              <input [type]="verPass ? 'text' : 'password'" formControlName="password" class="form-control"
+                    placeholder="************"
+                    [class.is-invalid]="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+              <button class="btn btn-outline-secondary" type="button" (click)="verPass = !verPass">
+                <i class="bi" [ngClass]="verPass ? 'bi-eye-slash' : 'bi-eye'"></i>
+              </button>
+              <div class="invalid-feedback">Mínimo 4 caracteres.</div>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label class="form-label fw-semibold small">Repetir contraseña</label>
+            <div class="input-group input-group-lg has-validation">
+              <input [type]="verConfirmPass ? 'text' : 'password'" formControlName="confirmPassword" class="form-control"
+                    placeholder="************"
+                    [class.is-invalid]="(registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid) || (registerForm.touched && registerForm.hasError('noMatch'))">
+              <button class="btn btn-outline-secondary" type="button" (click)="verConfirmPass = !verConfirmPass">
+                <i class="bi" [ngClass]="verConfirmPass ? 'bi-eye-slash' : 'bi-eye'"></i>
+              </button>
+              <div class="invalid-feedback">Las contraseñas deben coincidir.</div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-dark w-100 py-3 fw-bold" [disabled]="registerForm.invalid">
+            Registrarse
+          </button>
+
+        </form>
+      </main>
+    </div>
+  </div>
+</div>

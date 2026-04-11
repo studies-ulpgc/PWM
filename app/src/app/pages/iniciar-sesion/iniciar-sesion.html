@@ -2,28 +2,35 @@
   <div class="row g-0 h-100">
     
     <div class="col-md-6 d-none d-md-block p-0 h-100">
-      <app-img-izq [data]="datosImagen" class="w-100 h-100"></app-img-izq>
+      <app-img-izq [data]="datosImagen"></app-img-izq>
     </div>
 
     <div class="col-md-6 d-flex align-items-center justify-content-center bg-white">
-      <main class="w-75" style="max-width: 400px;">
+      <main class="w-75" style="max-width: 500px;">
         
         <div class="d-flex justify-content-center mb-5 border-bottom">
           <a href="#" class="nav-link active px-3 pb-2 border-bottom border-dark border-3 fw-bold text-dark">Iniciar Sesión</a>
-          <a href="#" class="nav-link px-3 pb-2 text-muted">Registrarse</a>
+          <a routerLink="/registrarse" class="nav-link px-3 pb-2 text-muted">Registrarse</a>
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           
           <div class="mb-4">
-            <label class="form-label fw-semibold">Email</label>
+            <label class="form-label fw-semibold small">Correo</label>
             <input type="email" formControlName="email" class="form-control form-control-lg" 
                    placeholder="ejemplo@correo.com"
                    [class.is-invalid]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+            @if (loginForm.get('email')?.errors?.['required']){
+                <div class="invalid-feedback"> El correo es obligatorio.</div>
+            }
+            @if (loginForm.get('email')?.errors?.['email']) {
+              <div class="invalid-feedback" >Introduce un formato de correo válido.</div>
+            }
+            
           </div>
 
           <div class="mb-4">
-            <label class="form-label fw-semibold">Contraseña</label>
+            <label class="form-label fw-semibold small">Contraseña</label>
             <div class="input-group input-group-lg"> 
               <input [type]="verContrasena ? 'text' : 'password'" 
                      formControlName="password" 
@@ -34,11 +41,9 @@
               <button class="btn btn-outline-secondary d-flex align-items-center" type="button" (click)="togglePassword()">
                 <i class="bi" [ngClass]="verContrasena ? 'bi-eye-slash' : 'bi-eye'"></i>
               </button>
-            </div>
-            <div style="height: 20px;">
-              <small class="text-danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
-                La contraseña debe tener al menos 4 caracteres
-              </small>
+              @if (loginForm.get('password')?.errors?.['required']){
+                <div class="invalid-feedback">La contraseña es obligatoria.</div>
+              }
             </div>
           </div>
 
