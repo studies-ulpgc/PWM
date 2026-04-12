@@ -1,1 +1,48 @@
-<p>formulario-de-contacto works!</p>
+<app-header-grande></app-header-grande>
+
+<main class="contacto-principal">
+  <form class="formulario-contenedor" [formGroup]="contactoForm" (ngSubmit)="onSubmit()">
+    
+    <div class="campo-grupo">
+      <label for="motivo" class="etiqueta-formulario">Motivo</label>
+      <div class="selector-estilizado">
+        <select id="motivo" formControlName="motivo" 
+                [class.is-invalid]="contactoForm.get('motivo')?.touched && contactoForm.get('motivo')?.invalid">
+          <option value="" disabled>Selecciona un motivo</option>
+          <option value="duda">Duda</option>
+          <option value="reclamacion">Reclamación</option>
+          <option value="otros">Otros</option>
+        </select>
+      </div>
+      @if (contactoForm.get('motivo')?.touched && contactoForm.get('motivo')?.invalid) {
+        <small class="text-danger">Debes seleccionar un motivo.</small>
+      }
+    </div>
+
+    <div class="campo-grupo">
+      <label for="asunto" class="etiqueta-formulario">Asunto</label>
+      <input type="text" id="asunto" formControlName="asunto" class="entrada-texto" 
+             placeholder="Escribe el asunto aquí"
+             [class.is-invalid]="contactoForm.get('asunto')?.touched && contactoForm.get('asunto')?.invalid">
+      @if (contactoForm.get('asunto')?.touched && contactoForm.get('asunto')?.invalid) {
+        <small class="text-danger">El asunto es obligatorio.</small>
+      }
+    </div>
+
+    <div class="campo-grupo">
+      <label for="descripcion" class="etiqueta-formulario">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion" class="area-texto" 
+                placeholder="Escribe tu mensaje..."
+                [class.is-invalid]="contactoForm.get('descripcion')?.touched && contactoForm.get('descripcion')?.invalid"></textarea>
+      @if (contactoForm.get('descripcion')?.touched && contactoForm.get('descripcion')?.invalid) {
+        <small class="text-danger">La descripción debe ser más detallada.</small>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-dark w-100 py-3 fw-bold" [disabled]="contactoForm.invalid">
+      Enviar
+    </button>
+  </form>
+</main>
+
+<app-footer></app-footer>

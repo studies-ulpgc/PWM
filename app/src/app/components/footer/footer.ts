@@ -7,8 +7,8 @@ import { RouterModule } from '@angular/router';
   selector: 'app-footer',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
-  templateUrl: './footer.html', // Verifica que el HTML esté en la misma carpeta
-  styleUrl: './footer.css',    // Verifica que el CSS esté en la misma carpeta
+  templateUrl: './footer.html',
+  styleUrl: './footer.css',
 })
 export class Footer implements OnInit {
   idiomas: any[] = [];
