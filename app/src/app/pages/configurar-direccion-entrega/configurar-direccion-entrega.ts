@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ImgIzq } from '../../components/img-izq/img-izq';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
+import { Router, RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-configurar-direccion-entrega',
-  imports: [CommonModule, ReactiveFormsModule, ImgIzq],
+  imports: [CommonModule, ReactiveFormsModule, ImgIzq, RouterModule],
   templateUrl: './configurar-direccion-entrega.html',
   styleUrl: './configurar-direccion-entrega.css',
 })
@@ -21,7 +23,8 @@ export class ConfigurarDireccionEntrega implements OnInit {
   constructor(
     private fb: FormBuilder,
     private imgService: ImagenIzqService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -43,8 +46,8 @@ export class ConfigurarDireccionEntrega implements OnInit {
 
   onSubmit() {
     if (this.direccionForm.valid) {
-      console.log('Dirección guardada:', this.direccionForm.value);
-      alert('¡Dirección configurada con éxito!');
+      console.log('Datos guardados:', this.direccionForm.value);
+      this.router.navigate(['/pagar']); 
     } else {
       this.direccionForm.markAllAsTouched();
     }

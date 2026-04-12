@@ -1,1 +1,136 @@
-<p>pagar works!</p>
+<app-header-grande></app-header-grande>
+
+<main class="container my-5">
+  <div class="row g-4">
+    
+    <div class="col-lg-8">
+      
+      <section class="card shadow-sm mb-4 border-0">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h5 fw-bold mb-0">Dirección de entrega</h2>
+            <div class="position-relative">
+              <button class="btn btn-link text-dark text-decoration-underline p-0 small" 
+                      (click)="mostrarDirecciones = !mostrarDirecciones">
+                Editar
+              </button>
+              
+              @if (mostrarDirecciones) {
+                <div class="position-absolute end-0 mt-2 p-3 bg-white border rounded shadow-lg" style="z-index: 1000; width: 280px;">
+                  @for (dir of direcciones; track dir.nombre) {
+                    <div class="p-2 border-bottom cursor-pointer opcion-dir" (click)="seleccionarDireccion(dir)">
+                      <p class="mb-0 small fw-bold">{{ dir.nombre }}</p>
+                      <p class="mb-0 x-small text-muted">{{ dir.calle }}</p>
+                    </div>
+                  }
+                  <a routerLink="/configurar-direccion-entrega" class="d-block text-center mt-2 small fw-bold text-dark">+ Añadir nueva dirección</a>
+                </div>
+              }
+            </div>
+          </div>
+          <div class="text-muted">
+            <p class="mb-1">{{ direccionSeleccionada.nombre }}</p>
+            <p class="mb-0">{{ direccionSeleccionada.detalles }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card shadow-sm mb-4 border-0">
+        <div class="card-body p-4">
+          <h2 class="h5 fw-bold mb-3">Seleccionado</h2>
+          <div class="d-flex overflow-auto pb-2 gap-3" style="scrollbar-width: thin;">
+            @for (item of productos; track $index) {
+              <div class="bg-light rounded flex-shrink-0" style="width: 80px; height: 80px;"></div>
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="card shadow-sm mb-4 border-0">
+        <div class="card-body p-4" [formGroup]="pagoForm">
+          <div class="mb-4">
+            <label class="form-label fw-bold small">Código de cupón</label>
+            <input type="text" formControlName="cupon" class="form-control" placeholder="8 números"
+                   [class.is-invalid]="pagoForm.get('cupon')?.invalid && pagoForm.get('cupon')?.touched">
+            <div class="invalid-feedback">Deben ser exactamente 8 números.</div>
+          </div>
+          
+          <div class="mb-0">
+            <label class="form-label fw-bold small">Tarjeta regalo</label>
+            <input type="text" formControlName="tarjetaRegalo" class="form-control" placeholder="XXXX-XXXX-XXXX"
+                   [class.is-invalid]="pagoForm.get('tarjetaRegalo')?.invalid && pagoForm.get('tarjetaRegalo')?.touched">
+            <div class="invalid-feedback">Formato requerido: XXXX-XXXX-XXXX</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="col-lg-4">
+      
+      <section class="card shadow-sm border-0 mb-4 bg-white">
+        <div class="card-body p-4">
+          <h2 class="h5 fw-bold mb-4">Resumen del pedido</h2>
+          <div class="d-flex justify-content-between mb-2">
+            <span>Precio Artículos:</span>
+            <span>50€</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <span>Precio de envío:</span>
+            <span>5€</span>
+          </div>
+          <div class="d-flex justify-content-between mb-3 text-success">
+            <span>Descuento por puntos:</span>
+            <span>-2€</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fw-bold fs-5">
+            <span>Total:</span>
+            <span>53€</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card shadow-sm border-0 bg-white">
+        <div class="card-body p-4">
+          <h2 class="h5 fw-bold mb-4">Formato de Pago</h2>
+          
+          <div class="list-group gap-2 border-0">
+            <label class="list-group-item d-flex align-items-center gap-3 border rounded cursor-pointer p-3">
+              <input class="form-check-input flex-shrink-0" type="radio" name="pago" checked>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-credit-card-2-back fs-4"></i>
+                <span class="fw-bold small">Tarjeta de Crédito</span>
+              </div>
+            </label>
+
+            <label class="list-group-item d-flex align-items-center gap-3 border rounded cursor-pointer p-3">
+              <input class="form-check-input flex-shrink-0" type="radio" name="pago">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-paypal fs-4 text-primary"></i>
+                <span class="fw-bold small">PayPal</span>
+              </div>
+            </label>
+
+            <label class="list-group-item d-flex align-items-center gap-3 border rounded cursor-pointer p-3">
+              <input class="form-check-input flex-shrink-0" type="radio" name="pago">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-lightning-charge-fill fs-4 text-info"></i>
+                <span class="fw-bold small">Bizum / Transferencia</span>
+              </div>
+            </label>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-5 mb-5">
+    <button class="btn btn-dark fw-bold text-uppercase px-5 py-3 shadow" 
+            style="min-width: 300px; border-radius: 20px;"
+            (click)="onPagar()">
+      Finalizar Pago
+    </button>
+  </div>
+</main>
+
+<app-footer></app-footer>

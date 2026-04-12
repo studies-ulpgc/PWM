@@ -1,0 +1,32 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.opcion-dir:hover {
+    background-color: #f8f9fa;
+}
+
+.x-small {
+    font-size: 0.75rem;
+}
+
+.btn-link:focus {
+    box-shadow: none;
+}
+
+.list-group-item {
+    transition: all 0.2s;
+}
+
+.list-group-item:has(input:checked) {
+    border-color: #000 !important;
+    background-color: #fcfcfc;
+}
+
+.overflow-auto::-webkit-scrollbar {
+    height: 4px;
+}
+.overflow-auto::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
