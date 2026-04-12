@@ -52,23 +52,30 @@
 
         <div class="selectores">
             <p class="titulo-footer">Preferencias</p>
+            
             <details class="selector-personalizado">
                 <summary><span>Localización</span> <i class="flecha"></i></summary>
                 <ul class="dropdown">
-                    @for (pais of paises; track pais) {
-                        <li>{{ pais }}</li>
+                    @for (item of paises; track item.id) {
+                        <li class="d-flex align-items-center gap-2">
+                            @if (item.bandera && item.bandera[0]) {
+                                <img [src]="'assets' + item.bandera[0].url" style="width: 20px; height: auto;">
+                            }
+                            {{ item.localizacion }}
+                        </li>
                     } @empty {
-                        <li>Cargando...</li>
+                        <li>Cargando países...</li>
                     }
                 </ul>
             </details>
+
             <details class="selector-personalizado">
                 <summary><span>Idioma</span> <i class="flecha"></i></summary>
                 <ul class="dropdown">
-                    @for (idioma of idiomas; track idioma) {
-                        <li>{{ idioma }}</li>
+                    @for (item of idiomas; track item.id) {
+                        <li>{{ item.idioma }}</li>
                     } @empty {
-                        <li>Cargando...</li>
+                        <li>Cargando idiomas...</li>
                     }
                 </ul>
             </details>
