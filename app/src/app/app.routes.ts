@@ -5,6 +5,7 @@ import { ArticuloSeleccionado } from './pages/articulo-seleccionado/articulo-sel
 import { IniciarSesion } from './pages/iniciar-sesion/iniciar-sesion';
 import { Registrarse } from './pages/registrarse/registrarse';
 import { FormularioDeContacto } from './pages/formulario-de-contacto/formulario-de-contacto';
+import { ConfigurarDireccionEntrega } from './pages/configurar-direccion-entrega/configurar-direccion-entrega';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'formulario-de-contacto', component: FormularioDeContacto },
   { path: 'registrarse', component: Registrarse },
   { path: 'iniciar-sesion', component: IniciarSesion },
+  { path: 'configurar-direccion-entrega', component: ConfigurarDireccionEntrega },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

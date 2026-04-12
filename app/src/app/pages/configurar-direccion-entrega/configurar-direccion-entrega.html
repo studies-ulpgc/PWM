@@ -1,1 +1,82 @@
-<p>configurar-direccion-entrega works!</p>
+<div class="container-fluid p-0 vh-100 overflow-hidden">
+  <div class="row g-0 h-100">
+    
+    <div class="col-md-6 d-none d-md-block p-0 h-100">
+      <app-img-izq [data]="datosImagen"></app-img-izq>
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center justify-content-center bg-white overflow-auto py-5">
+      <main class="w-75" style="max-width: 500px;">
+        
+        <h2 class="fw-bold mb-4 text-center">Configurar Entrega</h2>
+
+        <form [formGroup]="direccionForm" (ngSubmit)="onSubmit()">
+          
+          <div class="mb-3">
+            <label class="form-label fw-semibold small">Calle</label>
+            <input type="text" formControlName="calle" class="form-control form-control-lg" 
+                   placeholder="Nombre de la calle - Número"
+                   [class.is-invalid]="direccionForm.get('calle')?.touched && direccionForm.get('calle')?.invalid">
+            @if (direccionForm.get('calle')?.errors?.['pattern']) {
+              <div class="invalid-feedback">Formato requerido: Nombre - Número (ej: Gran Vía - 10)</div>
+            }
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-semibold small">Código postal</label>
+              <input type="text" formControlName="cp" class="form-control form-control-lg"
+                     placeholder="28001"
+                     [class.is-invalid]="direccionForm.get('cp')?.touched && direccionForm.get('cp')?.invalid">
+              @if (direccionForm.get('cp')?.errors?.['pattern']) {
+                <div class="invalid-feedback">Deben ser 5 dígitos numéricos.</div>
+              }
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-semibold small">Estado/Provincia</label>
+              <input type="text" formControlName="provincia" class="form-control form-control-lg"
+                     placeholder="Provincia"
+                     [class.is-invalid]="direccionForm.get('provincia')?.touched && direccionForm.get('provincia')?.invalid">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-semibold small">Nombre</label>
+              <input type="text" formControlName="nombre" class="form-control form-control-lg"
+                     placeholder="Tu nombre"
+                     [class.is-invalid]="direccionForm.get('nombre')?.touched && direccionForm.get('nombre')?.invalid">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-semibold small">Apellido</label>
+              <input type="text" formControlName="apellido" class="form-control form-control-lg"
+                     placeholder="Tu apellido"
+                     [class.is-invalid]="direccionForm.get('apellido')?.touched && direccionForm.get('apellido')?.invalid">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold small">Fecha de nacimiento</label>
+            <input type="date" formControlName="fecha" class="form-control form-control-lg"
+                   [class.is-invalid]="direccionForm.get('fecha')?.touched && direccionForm.get('fecha')?.invalid">
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Email</label>
+            <input type="email" formControlName="email" class="form-control form-control-lg" 
+                   placeholder="ejemplo@correo.com"
+                   [class.is-invalid]="direccionForm.get('email')?.touched && direccionForm.get('email')?.invalid">
+            @if (direccionForm.get('email')?.errors?.['pattern']) {
+              <div class="invalid-feedback">Introduce un correo válido con dominio (.com, .es...)</div>
+            }
+          </div>
+
+          <button type="submit" class="btn btn-dark w-100 py-3 fw-bold" [disabled]="direccionForm.invalid">
+            Guardar y Continuar
+          </button>
+
+        </form>
+      </main>
+    </div>
+  </div>
+</div>
