@@ -1,1 +1,55 @@
-<p>ver-cuenta works!</p>
+<app-header-grande></app-header-grande>
+
+<main class="container my-5" style="max-width: 550px;">
+  
+  <div class="d-flex justify-content-between align-items-center border border-dark p-3 bg-white mb-4">
+    <span class="fw-bold">{{ userName }}</span>
+    <button class="btn p-0 border-0">
+        <i class="bi bi-pencil-square fs-5 text-dark"></i>
+    </button>
+    </div>
+
+  <div class="row g-0 border border-dark bg-white mb-5 text-center">
+    @for (stat of stats; track $index) {
+      <div class="col-4 py-4" [class.border-end]="!$last" [class.border-dark]="!$last">
+        <span class="d-block fs-2 fw-bold">{{ stat.cifra }}</span>
+        <span class="small text-uppercase">{{ stat.etiqueta }}</span>
+      </div>
+    }
+  </div>
+
+  <section class="mb-5">
+    <h2 class="h6 fw-bold text-uppercase mb-4">Preferencias</h2>
+    
+    <div class="mb-4">
+      <p class="small mb-2">Tipo de ropa:</p>
+      <div class="d-flex flex-wrap gap-2">
+        @for (opcion of ropaOpciones; track opcion) {
+          <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
+            {{ opcion }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <p class="small mb-2">Para quién:</p>
+      <div class="d-flex flex-wrap gap-2">
+        @for (opcion of quienOpciones; track opcion) {
+          <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
+            {{ opcion }}
+          </button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <div class="d-grid">
+    <a routerLink="/mis-pedidos" class="btn btn-dark rounded-0 py-3 fw-bold text-uppercase">
+      Ir a mis pedidos
+    </a>
+  </div>
+
+</main>
+
+<app-footer></app-footer>

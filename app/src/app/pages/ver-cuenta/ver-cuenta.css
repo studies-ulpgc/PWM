@@ -1,0 +1,21 @@
+.chip-personalizado {
+    background-color: #E0E0E0 !important;
+    font-size: 12px;
+    padding: 7px 14px;
+    color: #000;
+}
+
+.chip-personalizado:hover {
+    background-color: #d0d0d0 !important;
+}
+
+@media (max-width: 480px) {
+    .row.g-0 > div {
+        width: 100%;
+        border-right: none !important;
+        border-bottom: 1px solid #000;
+    }
+    .row.g-0 > div:last-child {
+        border-bottom: none;
+    }
+}
