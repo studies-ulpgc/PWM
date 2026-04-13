@@ -2,8 +2,9 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 import { ImgIzq } from '../../components/img-izq/img-izq';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
+import { AutentificacionService } from '../../services/autentificacion.service';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -20,7 +21,9 @@ export class IniciarSesion implements OnInit {
   constructor(
     private fb: FormBuilder, 
     private imgService: ImagenIzqService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private authService: AutentificacionService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -41,7 +44,14 @@ export class IniciarSesion implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log("Datos enviados:", this.loginForm.value);
+      this.authService.login(this.loginForm.value)
+        .then(response => {
+          console.log('Login correcto:', response);
+          this.router.navigate(['/ver-cuenta']);
+        })
+        .catch(error => {
+          alert('Credenciales incorrectas o usuario no encontrado');
+        });
     }
   }
 }

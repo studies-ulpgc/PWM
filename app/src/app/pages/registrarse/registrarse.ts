@@ -2,11 +2,13 @@ import { ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ImgIzq } from '../../components/img-izq/img-izq';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
+import { AutentificacionService } from '../../services/autentificacion.service';
 
 @Component({
   selector: 'app-registrarse',
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ImgIzq, RouterLink],
   templateUrl: './registrarse.html',
   styleUrl: './registrarse.css',
@@ -20,17 +22,14 @@ export class Registrarse implements OnInit {
   constructor(
     private fb: FormBuilder,
     private imgService: ImagenIzqService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private authService: AutentificacionService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     const soloLetrasPattern = /^[a-zA-ZÁÉÍÓÚáéíóúñÑ ]+$/;
     const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-    
-    this.imgService.getImagenConfig().subscribe(res => {
-      this.datosImagen = res;
-      this.cdr.detectChanges();
-    });
 
     this.registerForm = this.fb.group({
       email: ['', [
@@ -46,6 +45,7 @@ export class Registrarse implements OnInit {
 
     this.imgService.getImagenConfig().subscribe(res => {
       this.datosImagen = res;
+      this.cdr.detectChanges();
     });
   }
 
@@ -57,9 +57,14 @@ export class Registrarse implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log("Registro exitoso:", this.registerForm.value);
-    } else {
-      this.registerForm.markAllAsTouched();
+      this.authService.registrarse(this.registerForm.value)
+        .then(response => {
+          console.log('Usuario creado con éxito:', response);
+          this.router.navigate(['/home']);
+        })
+        .catch(error => {
+          console.error('Error en el registro:', error);
+        });
     }
   }
 }
