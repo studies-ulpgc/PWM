@@ -20,7 +20,7 @@
 
   <div class="simbolos position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-center">
     
-    <div class="rating-stars text-dark small" *ngIf="data?.Valoracion">
+    <div class="rating-stars text-dark small" [style.visibility]="data?.Valoracion ? 'visible' : 'hidden'">
       @for (star of [1,2,3,4,5]; track star) {
         <i class="bi" 
            [class.bi-star-fill]="star <= obtenerRating()" 
