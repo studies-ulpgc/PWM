@@ -25,12 +25,34 @@
   padding: 0;
   transition: all 0.2s ease;
   background-color: white;
+  border: 1px solid;
 }
 
-.btn-circle-sm:hover {
+.btn-active {
+  border-color: #000;
+  color: #000;
+}
+
+.btn-active:hover {
   background-color: #000;
   color: #fff;
   transform: scale(1.1);
+}
+
+.btn-disabled {
+  border-color: #d8d8d8 !important;
+  color: #a1a1a1 !important;
+}
+
+.btn-disabled:hover {
+  background-color: #f8f9fa;
+  color: #888 !important;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.btn-circle-sm:active {
+  transform: scale(0.9);
 }
 
 .rating-stars i {
