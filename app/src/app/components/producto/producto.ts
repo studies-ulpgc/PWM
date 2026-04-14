@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { AutentificacionService } from '../../services/autentificacion.service'; // Ajusta la ruta
+import { AutentificacionService } from '../../services/autentificacion.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -24,6 +24,14 @@ export class Producto implements OnInit, OnDestroy {
   ngOnInit() {
     this.authSub = this.authService.user$.subscribe(user => {
       this.isLoggedIn = !!user;
+      
+      if (!this.isLoggedIn) {
+        this.enCesta = false;
+        this.enDeseados = false;
+      }
+
+      this.cdr.markForCheck(); 
+      this.cdr.detectChanges();
     });
   }
 

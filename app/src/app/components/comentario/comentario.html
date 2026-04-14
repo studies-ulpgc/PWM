@@ -21,19 +21,29 @@
     <p class="texto w-100 mt-3 mb-4 lh-base">
       {{ data?.Texto }}
     </p>
-
+    
     <div class="acciones-comentario position-absolute bottom-0 end-0 p-3 d-flex align-items-center gap-3">
-      
-      <button class="btn btn-link text-dark p-0 btn-interaction" (click)="onLike()" title="Útil">
-        <i class="bi bi-hand-thumbs-up fs-5"></i>
+          
+      <button class="btn btn-link p-0 btn-interaction" 
+              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
+              [class.selected-like]="liked"
+              (click)="onLike()" 
+              title="Útil">
+        <i class="bi" [ngClass]="liked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up'"></i>
       </button>
 
-      <button class="btn btn-link text-dark p-0 btn-interaction" (click)="onDislike()" title="No útil">
-        <i class="bi bi-hand-thumbs-down fs-5"></i>
+      <button class="btn btn-link p-0 btn-interaction" 
+              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
+              [class.selected-dislike]="disliked"
+              (click)="onDislike()" 
+              title="No útil">
+        <i class="bi" [ngClass]="disliked ? 'bi-hand-thumbs-down-fill' : 'bi-hand-thumbs-down'"></i>
       </button>
 
-      <button class="btn btn-link text-dark p-0 btn-interaction" title="Más opciones">
-        <i class="bi bi-three-dots fs-4"></i>
+      <button class="btn btn-link p-0 btn-interaction" 
+              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
+              title="Más opciones">
+        <i class="bi bi-three-dots"></i>
       </button>
       
     </div>

@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'; // Para el [routerLink]
+import { RouterModule } from '@angular/router';
 import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
 import { Producto } from '../../components/producto/producto';
