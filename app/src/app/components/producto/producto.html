@@ -32,14 +32,18 @@
     <div class="d-flex gap-2">
       <button class="btn btn-circle-sm position-relative" 
               [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
+              [class.is-selected]="enCesta"
+              (click)="toggleCesta()"
               title="Añadir a la cesta">
-        <i class="bi bi-bag-plus fs-5"></i>
+        <i class="bi" [ngClass]="enCesta ? 'bi-bag-check-fill' : 'bi-bag-plus'"></i>
       </button>
 
       <button class="btn btn-circle-sm" 
               [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
+              [class.is-selected]="enDeseados"
+              (click)="toggleDeseados()"
               title="Añadir a deseados">
-        <i class="bi bi-heart fs-5"></i>
+        <i class="bi" [ngClass]="enDeseados ? 'bi-heart-fill' : 'bi-heart'"></i>
       </button>
     </div>
 
