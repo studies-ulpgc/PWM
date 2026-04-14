@@ -18,17 +18,24 @@
 
       <div class="simbolos-group d-flex align-items-center gap-3 gap-lg-4">
         
-        <a (click)="irADeseados()" class="text-dark text-decoration-none icon-nav" title="Deseados">
+        <a (click)="irADeseados()" 
+          class="text-dark text-decoration-none icon-nav" 
+          [ngClass]="isLoggedIn ? 'icon-active' : 'icon-disabled'"
+          title="Deseados">
           <i class="bi bi-heart fs-3"></i>
         </a>
         
-        <a (click)="irACesta()" class="text-dark text-decoration-none icon-nav" title="Cesta">
+        <a (click)="irACesta()" 
+          class="text-dark text-decoration-none icon-nav" 
+          [ngClass]="isLoggedIn ? 'icon-active' : 'icon-disabled'"
+          title="Cesta">
           <i class="bi bi-bag fs-3"></i>
         </a>
 
         <div class="dropdown position-relative"> 
           <a (click)="onAuthClick($event)" 
             class="text-dark text-decoration-none icon-nav pointer" 
+            [ngClass]="isLoggedIn ? 'icon-active' : 'icon-disabled'"
             title="Cuenta">
             <i class="bi bi-person fs-3"></i> 
           </a>
