@@ -8,6 +8,8 @@ import { FormularioDeContacto } from './pages/formulario-de-contacto/formulario-
 import { ConfigurarDireccionEntrega } from './pages/configurar-direccion-entrega/configurar-direccion-entrega';
 import { VerCuenta } from './pages/ver-cuenta/ver-cuenta';
 import { Pagar } from './pages/pagar/pagar';
+import { VerCesta } from './pages/ver-cesta/ver-cesta';
+import { ListaDeseados } from './pages/lista-deseados/lista-deseados';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,5 +21,7 @@ export const routes: Routes = [
   { path: 'configurar-direccion-entrega', component: ConfigurarDireccionEntrega },
   { path: 'ver-cuenta', component: VerCuenta },
   { path: 'pagar', component: Pagar },
+  { path: 'ver-cesta', component: VerCesta },
+  { path: 'lista-deseados', component: ListaDeseados },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

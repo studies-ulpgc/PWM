@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,7 @@ export class HeaderGrande implements OnInit, OnDestroy{
   userName = 'Usuario';
   private authSub?: Subscription;
 
-  constructor(private router: Router, private authService: AutentificacionService) {}
+  constructor(private router: Router, private authService: AutentificacionService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.authSub = this.authService.user$.subscribe(user => {
@@ -30,6 +30,7 @@ export class HeaderGrande implements OnInit, OnDestroy{
         this.isLoggedIn = false;
         this.userName = 'Usuario';
       }
+      this.cdr.detectChanges();
     });
   }
 
@@ -51,11 +52,11 @@ export class HeaderGrande implements OnInit, OnDestroy{
   }
 
   irACesta() {
-    this.router.navigate([this.isLoggedIn ? '/cesta' : '/login']);
+    this.router.navigate([this.isLoggedIn ? '/ver-cesta' : '/iniciar-sesion']);
   }
 
   irADeseados() {
-    this.router.navigate([this.isLoggedIn ? '/deseados' : '/login']);
+    this.router.navigate([this.isLoggedIn ? '/lista-deseados' : '/iniciar-sesion']);
   }
 
   logout() {
