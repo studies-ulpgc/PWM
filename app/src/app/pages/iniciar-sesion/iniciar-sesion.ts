@@ -54,4 +54,13 @@ export class IniciarSesion implements OnInit {
         });
     }
   }
+
+  loginGoogle() {
+    this.authService.loginConGoogle()
+      .then(res => {
+        console.log('Logueado con Google!', res);
+        this.router.navigate(['/ver-cuenta']);
+      })
+      .catch(err => console.error(err));
+  }
 }

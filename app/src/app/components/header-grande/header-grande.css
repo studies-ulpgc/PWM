@@ -1,6 +1,3 @@
-/* header-grande.css */
-
-/* --- Tus animaciones personalizadas para el logo --- */
 .empresa-logo {
   font-family: "Roboto", sans-serif;
   -webkit-text-stroke: 1px #000;
@@ -22,7 +19,6 @@
   opacity: 0.8;
 }
 
-/* --- Ajustes para los Iconos de Bootstrap --- */
 .icon-nav {
   transition: opacity 0.2s ease, transform 0.1s ease;
   display: inline-flex;
@@ -32,7 +28,7 @@
 }
 
 .icon-nav i {
-  color: #000; /* Asegurar color negro */
+  color: #000;
 }
 
 .icon-nav:hover {
@@ -43,12 +39,10 @@
   transform: scale(0.9);
 }
 
-/* Eliminar la flecha por defecto del Dropdown de Bootstrap */
 .dropdown-toggle.no-arrow::after {
   display: none;
 }
 
-/* --- Resto de ajustes --- */
 .search-container {
   border: 1px solid #000 !important;
   border-radius: 4px;
@@ -73,19 +67,16 @@
   }
 }
 
-/* Asegura que el dropdown se muestre cuando Angular pone la clase .show */
 .dropdown-menu.show {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  /* Lo posicionamos manualmente para que no flote por ahí */
   position: absolute;
   top: 100%; 
   right: 0;
   background-color: #ffffff;
 }
 
-/* Estilo para los items del dropdown para que se vean bien */
 .dropdown-item:active {
   background-color: #000;
   color: #fff;

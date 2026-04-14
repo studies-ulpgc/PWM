@@ -1,7 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // Importante para [class.show]
+import { CommonModule } from '@angular/common';
+import { AutentificacionService } from '../../services/autentificacion.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header-grande',
@@ -10,28 +12,41 @@ import { CommonModule } from '@angular/common'; // Importante para [class.show]
   styleUrls: ['./header-grande.css'],
   imports: [FormsModule, RouterModule, CommonModule],
 })
-export class HeaderGrande {
+export class HeaderGrande implements OnInit, OnDestroy{
   mostrarPopup = false;
-  query = ''; // Esta es la variable que usa [(ngModel)]="query"
+  query = '';
+  isLoggedIn = false;
+  userName = 'Usuario';
+  private authSub?: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AutentificacionService) {}
+
+  ngOnInit() {
+    this.authSub = this.authService.user$.subscribe(user => {
+      if (user) {
+        this.isLoggedIn = true;
+        this.userName = user.displayName || user.email?.split('@')[0] || 'Usuario';
+      } else {
+        this.isLoggedIn = false;
+        this.userName = 'Usuario';
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.authSub?.unsubscribe();
+  }
 
   get isBrowser(): boolean {
     return typeof window !== 'undefined';
   }
 
-  get isLoggedIn(): boolean {
-    if (!this.isBrowser) return false;
-    return sessionStorage.getItem('isLoggedIn') === 'true';
-  }
-
-  get userName(): string {
-    if (!this.isBrowser) return 'Usuario';
-    return sessionStorage.getItem('userName') || 'Usuario';
-  }
-
   onAuthClick(event: Event) {
     event.stopPropagation();
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/iniciar-sesion']);
+      return;
+    }
     this.mostrarPopup = !this.mostrarPopup; 
   }
 
@@ -44,11 +59,10 @@ export class HeaderGrande {
   }
 
   logout() {
-    if (this.isBrowser) {
-      sessionStorage.clear();
-    }
-    this.mostrarPopup = false;
-    this.router.navigate(['/home']);
+    this.authService.logout().then(() => {
+      this.mostrarPopup = false;
+      this.router.navigate(['/home']);
+    });
   }
 
   buscar(event: Event) {

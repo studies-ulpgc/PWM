@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, TwitterAuthProvider, OAuthProvider, authState } from '@angular/fire/auth';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutentificacionService {
 
-  constructor(private auth: Auth) { }
+export class AutentificacionService {
+  user$: Observable<any>;
+
+  constructor(private auth: Auth) {
+    this.user$ = authState(this.auth);
+  }
 
   registrarse({ email, password }: any) {
     return createUserWithEmailAndPassword(this.auth, email, password);
@@ -18,5 +23,13 @@ export class AutentificacionService {
 
   logout() {
     return signOut(this.auth);
+  }
+
+  loginConGoogle() {
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt: 'select_account'
+    });
+    return signInWithPopup(this.auth, provider);
   }
 }
