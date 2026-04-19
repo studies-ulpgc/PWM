@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, authState } from '@angular/fire/auth';
-import { Firestore, doc, setDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Firestore, doc, setDoc, docData, DocumentReference, getDoc } from '@angular/fire/firestore';
+import { Observable, from, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,20 +35,32 @@ export class AutentificacionService {
   }
 
   async loginConGoogle() {
-  const provider = new GoogleAuthProvider();
-  provider.setCustomParameters({ prompt: 'select_account' });
-  
-  const res = await signInWithPopup(this.auth, provider);
-  const user = res.user;
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    
+    const res = await signInWithPopup(this.auth, provider);
+    const user = res.user;
 
-  const userDocRef = doc(this.firestore, `usuarios/${user.uid}`);
-  await setDoc(userDocRef, {
-    nombre: user.displayName?.split(' ')[0] || '',
-    apellidos: user.displayName?.split(' ').slice(1).join(' ') || '',
-    email: user.email,
-    rol: 'usuario'
-  }, { merge: true });
+    const userDocRef = doc(this.firestore, `usuarios/${user.uid}`);
+    await setDoc(userDocRef, {
+      nombre: user.displayName?.split(' ')[0] || '',
+      apellidos: user.displayName?.split(' ').slice(1).join(' ') || '',
+      email: user.email,
+      rol: 'usuario'
+    }, { merge: true });
 
-  return res;
-}
+    return res;
+  }
+
+  getDatosUsuario(uid: string): Observable<any> {
+    const userDocRef = doc(this.firestore, 'usuarios', uid);
+    return from(getDoc(userDocRef)).pipe(
+      map(snapshot => {
+        if (snapshot.exists()) {
+          return snapshot.data();
+        }
+        return null;
+      })
+    );
+  }
 }

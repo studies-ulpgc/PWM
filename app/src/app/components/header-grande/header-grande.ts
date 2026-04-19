@@ -3,7 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AutentificacionService } from '../../services/autentificacion.service';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, switchMap, of } from 'rxjs';
 
 @Component({
   selector: 'app-header-grande',
@@ -22,12 +22,25 @@ export class HeaderGrande implements OnInit, OnDestroy{
   constructor(private router: Router, private authService: AutentificacionService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.authSub = this.authService.user$.subscribe(user => {
-      if (user) {
-        this.isLoggedIn = true;
-        this.userName = user.displayName || user.email?.split('@')[0] || 'Usuario';
+    this.authSub = this.authService.user$.pipe(
+      switchMap(user => {
+        if (user) {
+          this.isLoggedIn = true;
+          return this.authService.getDatosUsuario(user.uid).pipe(
+            catchError(err => {
+              console.error('Error en Header Firestore:', err);
+              return of({ nombre: user.email?.split('@')[0] || 'Usuario' });
+            })
+          );
+        } else {
+          this.isLoggedIn = false;
+          return of(null);
+        }
+      })
+    ).subscribe(datos => {
+      if (datos) {
+        this.userName = datos.nombre || 'Usuario';
       } else {
-        this.isLoggedIn = false;
         this.userName = 'Usuario';
       }
       this.cdr.detectChanges();
