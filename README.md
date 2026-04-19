@@ -28,6 +28,9 @@ ng serve
 
 # Si se quiere que se abra directamente emplear el argumento --open
 ng serve --open
+
+# En caso de error, emplear el argumento npx
+npx ng serve --open
 ```
 ## Otros aspectos a tener en cuenta
 ...
