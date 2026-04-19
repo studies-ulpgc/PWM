@@ -39,7 +39,7 @@ export class Registrarse implements OnInit {
       nombre: ['', [Validators.required, Validators.pattern(soloLetrasPattern)]],
       apellidos: ['', [Validators.required, Validators.pattern(soloLetrasPattern)]],
       fecha: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
     }, { validators: this.passwordMatchValidator });
 
@@ -58,13 +58,11 @@ export class Registrarse implements OnInit {
   onSubmit() {
     if (this.registerForm.valid) {
       this.authService.registrarse(this.registerForm.value)
-        .then(response => {
-          console.log('Usuario creado con éxito:', response);
-          this.router.navigate(['/home']);
+        .then(() => {
+          console.log('Usuario y datos guardados con éxito');
+          this.router.navigate(['/ver-cuenta']);
         })
-        .catch(error => {
-          console.error('Error en el registro:', error);
-        });
+        .catch(error => console.error('Error:', error));
     }
   }
 }
