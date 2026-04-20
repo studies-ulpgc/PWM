@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ImagenIzqService } from '../../services/imagen-izq.service';
 
 @Component({
   selector: 'app-img-izq',
@@ -10,8 +11,27 @@ import { CommonModule } from '@angular/common';
       <img [src]="'assets' + data.url" [alt]="data.name" class="imagen-full">
     </div>
   `,
-  styleUrl: './img-izq.css'
+  styles: [`
+    .contenedor-imagen-lateral { width: 100%; height: 100%; overflow: hidden; }
+    .imagen-full { width: 100%; height: 100%; object-fit: cover; }
+  `]
 })
-export class ImgIzq {
-  @Input() data: any;
+export class ImgIzq implements OnInit {
+  data: any;
+
+  constructor(
+    private imgService: ImagenIzqService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
+    this.imgService.getImagenConfig().subscribe({
+      next: (res) => {
+        console.log('Imagen recibida de Firebase:', res); 
+        this.data = res;
+        this.cdr.detectChanges();
+      },
+      error: (err) => console.error('Error cargando imagen lateral:', err)
+    });
+  }
 }
