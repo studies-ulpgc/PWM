@@ -32,7 +32,7 @@ export class ListaPedidosRealizados implements OnInit {
         opts: 'Talla: M · Color: Negro',
         price: parseFloat(p.Precio?.replace(/[^0-9.,]/g, '').replace(',', '.') || '0'),
         img: p.Foto?.[0]?.url ? 'assets' + p.Foto[0].url : '',
-        status: statuses[i % 3], // Reparte estados aleatoriamente para el ejemplo
+        status: statuses[i % 3],
         selected: true
       }));
       this.applyFilter();
