@@ -1,1 +1,20 @@
-<p>lista-deseados works!</p>
+<app-header-grande></app-header-grande>
+
+<main class="container py-5">
+
+  <div class="row justify-content-center mb-5">
+    <div class="col-12">
+      <div class="scroll-wanted-container">
+        <app-item-wanted 
+          *ngFor="let item of wantedItems" 
+          [item]="item">
+        </app-item-wanted>
+      </div>
+    </div>
+  </div>
+
+  <app-similares></app-similares>
+
+</main>
+
+<app-footer></app-footer>

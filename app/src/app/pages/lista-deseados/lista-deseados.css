@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:host {
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    display: block;
+}
+
+/* Espaciado extra para separar la lista de la sección similares */
+.mb-5 {
+    margin-bottom: 4rem !important;
+}
+
+.scroll-wanted-container {
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.scroll-wanted-container::-webkit-scrollbar {
+    width: 4px;
+}
+.scroll-wanted-container::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
