@@ -12,12 +12,12 @@
 .img-container {
     width: 100px;
     height: 100px;
-    background-color: #d9d9d9; /* Gris por defecto si no hay foto */
+    background-color: #d9d9d9;
     flex-shrink: 0;
 }
 
 .transition-btn {
     border-radius: 4px;
     transition: all 0.2s ease;
-    min-width: 180px; /* Mantiene el botón con un ancho estable */
+    min-width: 180px;
 }
