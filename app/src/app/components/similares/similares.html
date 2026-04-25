@@ -1,1 +1,8 @@
-<p>similares works!</p>
+<section class="mt-5 pt-5 border-top">
+  <h3 class="mb-4 text-center text-uppercase" style="letter-spacing: 2px;">Puede interesarte</h3>
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+    <div class="col" *ngFor="let p of productosSimilares">
+      <app-producto [data]="p"></app-producto>
+    </div>
+  </div>
+</section>

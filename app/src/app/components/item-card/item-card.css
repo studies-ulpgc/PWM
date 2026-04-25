@@ -1,0 +1,35 @@
+.card-producto-cesta {
+    border: 1px solid #dee2e6 !important;
+    border-radius: 0 !important;
+    margin-bottom: 15px;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-producto-cesta:hover {
+    border-color: #000000 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-check-input:checked {
+    background-color: #000;
+    border-color: #000;
+}
+
+.img-placeholder {
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-titulo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.producto-detalles {
+    color: #888;
+    font-size: 0.85rem;
+}

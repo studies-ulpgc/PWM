@@ -1,1 +1,48 @@
-<p>ver-cesta works!</p>
+<app-header-grande></app-header-grande>
+
+<main class="container py-5">
+  <div class="row g-5">
+    
+    <div class="col-lg-7">
+      <div class="scroll-container" style="max-height: 480px; overflow-y: auto; padding-right: 10px;"> 
+        <app-item-card 
+          *ngFor="let item of cartItems" 
+          [item]="item" 
+          (selectionChange)="updateTotal()">
+        </app-item-card>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card border-0 p-4 resumen-container shadow-sm">
+        <h1 class="h3 fw-bold text-center mb-4">Precio total</h1>
+        
+        <div class="text-center mb-5">
+          <span class="display-4 fw-bold">€{{ total | number:'1.2-2' }}</span>
+          <span class="text-muted fs-5"> / mo</span>
+        </div>
+
+        <button (click)="irAPagar()" class="btn btn-dark w-100 rounded-pill py-3 fw-bold fs-5 mb-5 shadow-sm">
+          Comprar
+        </button>
+
+        <hr>
+        <div class="metodos-pago">
+          <p class="titulo-seccion-pagos">Pagos aceptados:</p>
+          <div class="cuadricula-pagos">
+              <img src="assets/img/visa.png" alt="Visa">
+              <img src="assets/img/Mastercard.png" alt="Mastercard">
+              <img src="assets/img/maestro.png" alt="Maestro">
+              <img src="assets/img/american-express.png" alt="American Express">
+              <img src="assets/img/paypal.png" alt="Paypal">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <app-similares></app-similares>
+</main>
+
+<app-footer></app-footer>

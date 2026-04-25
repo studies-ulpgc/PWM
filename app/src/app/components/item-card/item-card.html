@@ -1,0 +1,16 @@
+<div class="card mb-3 border-dark rounded-0 p-3 shadow-sm">
+  <div class="d-flex align-items-center">
+    <div class="form-check me-3">
+      <input class="form-check-input border-dark" type="checkbox" 
+             [checked]="item.selected" (change)="onToggle()" style="width: 25px; height: 25px;">
+    </div>
+    <div class="bg-light border me-3" style="width: 100px; height: 100px;">
+      <img *ngIf="item.img" [src]="item.img" class="img-fluid w-100 h-100 object-fit-cover">
+    </div>
+    <div class="flex-grow-1">
+      <h5 class="fw-bold mb-1">{{ item.name }}</h5>
+      <p class="small text-muted mb-1">{{ item.opts }}</p>
+      <p class="fw-bold mb-0 fs-5">{{ item.price | currency:'EUR' }}</p>
+    </div>
+  </div>
+</div>

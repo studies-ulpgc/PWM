@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:host {
+    font-family: 'Inter', sans-serif;
+    --transition-footer: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-container {
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 4px;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.resumen-container {
+    background-color: #cfcfcf00;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    padding-left: 40px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+    box-shadow: none !important; 
+}
+
+.titulo-seccion-pagos {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.cuadricula-pagos {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.cuadricula-pagos img {
+    height: 40px;
+    width: auto;
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: var(--transition-footer);
+}
+
+.cuadricula-pagos img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.resumen-container h1 {
+    letter-spacing: -1px;
+    margin-top: 10px;
+}
+
+.btn-comprar {
+    background-color: #333;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #000;
+    transform: scale(1.02);
+}
+
+.precio-total-titulo {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.moneda-simbolo {
+    vertical-align: super;
+    font-size: 1.5rem;
+    margin-right: 2px;
+}
+
+.payment-icon {
+    width: 45px;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.8;
+}
+
+hr, .resumen-container hr {
+    display: none !important;
+}
