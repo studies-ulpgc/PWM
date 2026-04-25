@@ -4,5 +4,5 @@ export interface WantedItem {
   opts: string;
   price: number;
   img: string;
-  added: boolean; // Controla si el botón dice "Añadir" o "Añadido"
+  added: boolean;
 }

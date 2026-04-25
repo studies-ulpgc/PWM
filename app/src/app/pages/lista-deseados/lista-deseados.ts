@@ -26,7 +26,6 @@ export class ListaDeseados implements OnInit {
   this.productoService.getProductos().subscribe(data => {
     const itemsRaw = data || [];
     
-    // Generamos 8 items para forzar el scroll
     this.wantedItems = Array.from({ length: 8 }, (_, i) => {
       const producto = itemsRaw[i % itemsRaw.length];
       return {
