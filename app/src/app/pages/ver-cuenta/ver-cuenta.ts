@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
 import { Subscription, switchMap, of, catchError } from 'rxjs';
@@ -8,7 +8,7 @@ import { AutentificacionService } from '../../services/autentificacion.service';
 
 @Component({
   selector: 'app-ver-cuenta',
-  imports: [CommonModule, RouterLink, HeaderGrande, Footer],
+  imports: [CommonModule, RouterLink, RouterModule, HeaderGrande, Footer],
   templateUrl: './ver-cuenta.html',
   styleUrl: './ver-cuenta.css',
 })
