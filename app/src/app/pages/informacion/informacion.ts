@@ -13,7 +13,6 @@ import { Footer } from '../../components/footer/footer';
   styleUrls: ['./informacion.css']
 })
 export class Informacion implements OnInit {
-  // Inicializamos con valores vacíos para evitar errores de renderizado inicial
   contenido: any[] = [];
   tituloPagina: string = '';
 
@@ -28,8 +27,6 @@ export class Informacion implements OnInit {
         this.infoService.getInformacionPorId(id).subscribe({
           next: (res) => {
             if (res) {
-              // El setTimeout(..., 0) soluciona el error NG0100 
-              // al mover la actualización al siguiente ciclo de detección
               setTimeout(() => {
                 this.contenido = res.Contenido || [];
                 this.tituloPagina = res.titulo_pagina || '';
