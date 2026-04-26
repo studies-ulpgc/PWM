@@ -11,6 +11,7 @@ import { Pagar } from './pages/pagar/pagar';
 import { VerCesta } from './pages/ver-cesta/ver-cesta';
 import { ListaDeseados } from './pages/lista-deseados/lista-deseados';
 import { ListaPedidosRealizados } from './pages/lista-pedidos-realizados/lista-pedidos-realizados';
+import { Informacion } from './pages/informacion/informacion';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,5 +26,6 @@ export const routes: Routes = [
   { path: 'ver-cesta', component: VerCesta },
   { path: 'lista-deseados', component: ListaDeseados },
   { path: 'mis-pedidos', component: ListaPedidosRealizados },
+  { path: 'informacion/:id', component: Informacion },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
