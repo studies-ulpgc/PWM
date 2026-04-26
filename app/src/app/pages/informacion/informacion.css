@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:host {
+    font-family: 'Inter', sans-serif;
+    display: block;
+}
+
+/* El fondo gris claro de los contenedores grandes */
+.bloque-gris {
+    background-color: #e2e2e2;
+}
+
+/* Los cuadrados grises claros de las 3 columnas */
+.img-cuadrada-clara {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #d9d9d9;
+}
+
+/* El cuadrado gris más oscuro de la sección destacada final */
+.img-cuadrada-oscura {
+    width: 100%;
+    aspect-ratio: 1 / 1.15; /* Ligeramente más alto que ancho para que encaje mejor con el texto */
+    background-color: #7a7a7a; 
+}
