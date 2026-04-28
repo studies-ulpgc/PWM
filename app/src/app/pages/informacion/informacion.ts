@@ -28,13 +28,20 @@ export class Informacion implements OnInit {
           next: (res) => {
             if (res) {
               setTimeout(() => {
-                this.contenido = res.Contenido || [];
+                this.contenido = (res.Contenido || []).map((bloque: any) => {
+                  if (bloque.imagen && bloque.imagen.url) {
+                    bloque.imagen.url = bloque.imagen.url.startsWith('/uploads/') 
+                      ? 'assets' + bloque.imagen.url 
+                      : bloque.imagen.url;
+                  }
+                  return bloque;
+                });
+
                 this.tituloPagina = res.titulo_pagina || '';
                 this.cdr.detectChanges(); 
               }, 0);
             }
-          },
-          error: (err) => console.error("Error en Firebase:", err)
+          }
         });
       }
     });
