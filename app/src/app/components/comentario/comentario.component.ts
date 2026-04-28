@@ -8,11 +8,11 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './comentario.html',
-  styleUrls: ['./comentario.css']
+  styleUrls: ['./comentario.component.css']
 })
 export class Comentario implements OnInit, OnDestroy {
   @Input() data: any;
-  
+
   isLoggedIn = false;
   liked = false;
   disliked = false;
@@ -52,7 +52,7 @@ export class Comentario implements OnInit, OnDestroy {
   onDislike() {
     if (this.isLoggedIn) {
       this.disliked = !this.disliked;
-      if (this.disliked) this.liked = false; 
+      if (this.disliked) this.liked = false;
     }
   }
 }
