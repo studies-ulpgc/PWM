@@ -1,8 +1,19 @@
-<section class="mt-5 pt-5 border-top">
+<section class="similares-wrapper mt-5 pt-5 border-top">
   <h3 class="mb-4 text-center text-uppercase" style="letter-spacing: 2px;">Puede interesarte</h3>
-  <div class="row row-cols-2 row-cols-md-4 g-4">
-    <div class="col" *ngFor="let p of productosSimilares">
-      <app-producto [data]="p"></app-producto>
+  
+  <div class="carrusel-nav-container">
+    <button class="nav-button prev" (click)="scroll(-1)" aria-label="Anterior">
+      <span>&#10094;</span>
+    </button>
+
+    <div class="productos-scroll" #scrollContainer>
+      <div class="producto-card-wrapper" *ngFor="let p of productosSimilares">
+        <app-producto [data]="p"></app-producto>
+      </div>
     </div>
+
+    <button class="nav-button next" (click)="scroll(1)" aria-label="Siguiente">
+      <span>&#10095;</span>
+    </button>
   </div>
-</section> 
+</section>

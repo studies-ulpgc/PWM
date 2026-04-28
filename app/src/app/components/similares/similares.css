@@ -1,0 +1,70 @@
+.similares-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.carrusel-nav-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.productos-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 15px;
+  padding: 20px 0;
+  scrollbar-width: none; /* Oculta barra en Firefox */
+  width: 100%;
+}
+
+.productos-scroll::-webkit-scrollbar {
+  display: none; /* Oculta barra en Chrome/Safari */
+}
+
+.producto-card-wrapper {
+  flex: 0 0 280px; /* Ancho fijo de cada tarjeta */
+  min-width: 280px;
+}
+
+/* Estilo de los botones laterales */
+.nav-button {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  z-index: 10;
+  position: absolute; /* Para que floten a los lados */
+}
+
+.nav-button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.nav-button.prev {
+  left: -60px;
+}
+
+.nav-button.next {
+  right: -60px;
+}
+
+/* Ocultar botones en móviles pequeños para usar scroll táctil */
+@media (max-width: 768px) {
+  .nav-button {
+    display: none;
+  }
+  .similares-wrapper {
+    padding: 0 10px;
+  }
+}
