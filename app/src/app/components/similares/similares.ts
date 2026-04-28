@@ -21,7 +21,6 @@ export class Similares implements OnInit {
 
   ngOnInit(): void {
     this.productoService.getProductos().subscribe((productos: any[]) => {
-      // 1. Mapeamos los productos con la lógica que te funciona en Home
       const mapped = productos.map(p => {
         const fotoUrl =
           p.Foto?.[0]?.formats?.medium?.url ||
@@ -46,10 +45,7 @@ export class Similares implements OnInit {
         };
       });
 
-      // 2. Usamos setTimeout para evitar el error NG0100
       setTimeout(() => {
-        // 3. Si tienes menos de 8 productos en Firebase, duplicamos la lista
-        // para asegurar que el carrusel se vea lleno con 8 elementos
         const listaExtendida = [...mapped, ...mapped, ...mapped]; 
         this.productosSimilares = listaExtendida.slice(0, 8);
 
