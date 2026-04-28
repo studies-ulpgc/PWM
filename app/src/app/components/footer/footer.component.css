@@ -97,9 +97,9 @@
   transition: var(--transition);
 }
 
-.iconos-sociales a img {
-  width: 18px;
-  height: 18px;
+.iconos-sociales a i {
+  color: #2e2e2e;
+  font-size: 20px;
 }
 
 .iconos-sociales a:hover {
@@ -107,7 +107,7 @@
   border-color: #000;
 }
 
-.iconos-sociales a:hover img {
+.iconos-sociales a:hover i {
   filter: brightness(0) invert(1);
 }
 
@@ -140,17 +140,26 @@
 
 .selector-personalizado .dropdown {
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 0;
   width: 100%;
   background: white;
   border: 1px solid #eee;
   border-radius: 4px;
-  margin-bottom: 5px;
+  margin-top: 5px;
   max-height: 200px;
   overflow-y: auto;
   z-index: 100;
-  box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.flecha {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.selector-personalizado[open] .flecha {
+  transform: rotate(180deg);
 }
 
 .selector-personalizado .dropdown li {
