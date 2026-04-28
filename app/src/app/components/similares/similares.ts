@@ -21,7 +21,6 @@ export class Similares implements OnInit {
 
   ngOnInit(): void {
     this.productoService.getProductos().subscribe((productos: any[]) => {
-      // Usamos la misma lógica de mapeo que en tu Home
       this.productosSimilares = productos.slice(0, 8).map(p => {
         const fotoUrl =
           p.Foto?.[0]?.formats?.medium?.url ||
@@ -52,7 +51,7 @@ export class Similares implements OnInit {
 
   scroll(direccion: number) {
     const contenedor = this.scrollContainer.nativeElement;
-    const scrollAmount = 350; // Ajusta según el ancho de tu tarjeta
+    const scrollAmount = 350;
     contenedor.scrollBy({ left: direccion * scrollAmount, behavior: 'smooth' });
   }
 }

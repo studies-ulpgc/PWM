@@ -16,20 +16,19 @@
   scroll-behavior: smooth;
   gap: 15px;
   padding: 20px 0;
-  scrollbar-width: none; /* Oculta barra en Firefox */
+  scrollbar-width: none;
   width: 100%;
 }
 
 .productos-scroll::-webkit-scrollbar {
-  display: none; /* Oculta barra en Chrome/Safari */
+  display: none;
 }
 
 .producto-card-wrapper {
-  flex: 0 0 280px; /* Ancho fijo de cada tarjeta */
+  flex: 0 0 280px;
   min-width: 280px;
 }
 
-/* Estilo de los botones laterales */
 .nav-button {
   background: white;
   border: 1px solid #eee;
@@ -43,7 +42,7 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   z-index: 10;
-  position: absolute; /* Para que floten a los lados */
+  position: absolute;
 }
 
 .nav-button:hover {
@@ -59,7 +58,6 @@
   right: -60px;
 }
 
-/* Ocultar botones en móviles pequeños para usar scroll táctil */
 @media (max-width: 768px) {
   .nav-button {
     display: none;
