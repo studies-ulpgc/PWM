@@ -3,22 +3,22 @@
 <main class="product-page py-5" *ngIf="producto">
   <div class="container">
     <div class="row g-5">
-      
+
       <div class="col-lg-7">
         <div class="sticky-top-custom">
           <div class="image-showcase">
             <div class="thumbnails-track">
               @for (img of producto.miniaturas; track $index) {
-                <img 
-                  [src]="img?.formats?.thumbnail?.url ? 'assets' + img.formats.thumbnail.url : ''" 
-                  class="img-thumb" 
+                <img
+                  [src]="img?.formats?.thumbnail?.url ? 'assets' + img.formats.thumbnail.url : ''"
+                  class="img-thumb"
                   [class.active]="imagenMostrada === ('assets' + img?.url)"
                   (click)="cambiarImagen(img)"
                   alt="Vista miniatura">
               }
             </div>
             <div class="main-stage">
-              <img [src]="imagenMostrada" class="img-fluid main-img" alt="Producto">
+              <img [src]="imagenMostrada" class="img-fluid main-img" alt="ProductoComponent">
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
 
           <h1 class="product-title">{{producto.Descripcion}}</h1>
           <p class="product-subtitle text-muted">{{producto.Subtitulo}}</p>
-          
+
           <div class="price-tag my-4">
             <span class="currency">€</span>
             <span class="amount">{{precioEntero}}</span>
@@ -89,12 +89,12 @@
         <div class="col-md-4">
           <div class="review-summary p-4 bg-light rounded">
             <h2 class="h4 mb-4">Opiniones de clientes</h2>
-            
+
             <div class="d-flex align-items-center mb-3">
               <div class="stars-display me-2 text-dark">
                 @for (star of [1,2,3,4,5]; track star) {
-                  <i class="bi" 
-                    [class.bi-star-fill]="star <= obtenerRating(producto)" 
+                  <i class="bi"
+                    [class.bi-star-fill]="star <= obtenerRating(producto)"
                     [class.bi-star]="star > obtenerRating(producto)"></i>
                 }
               </div>
@@ -102,12 +102,12 @@
             </div>
 
             <p class="text-muted mb-4">Basado en {{ producto.Votos }} valoraciones</p>
-            
+
             @for (i of [5,4,3,2,1]; track i) {
               <div class="d-flex align-items-center mb-2">
                 <span class="me-2 small">{{i}}</span>
                 <div class="progress flex-grow-1" style="height: 6px;">
-                  <div class="progress-bar bg-dark" 
+                  <div class="progress-bar bg-dark"
                       [style.width.%]="i === obtenerRating(producto) ? 70 : (i < obtenerRating(producto) ? 15 : 5)">
                   </div>
                 </div>
@@ -116,7 +116,7 @@
             <button class="btn btn-outline-dark w-100 mt-4">Escribir una opinión</button>
           </div>
         </div>
-        
+
         <div class="col-md-8">
           <div class="comments-scroll">
             <app-comentario *ngFor="let c of listaComentarios" [data]="c"></app-comentario>

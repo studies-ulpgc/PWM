@@ -8,10 +8,10 @@ import { FooterDataService } from '../../services/footer-data.service';
   selector: 'app-footer',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
-  templateUrl: './footer.html',
-  styleUrl: './footer.css',
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.css',
 })
-export class Footer implements OnInit {
+export class FooterComponent implements OnInit {
   idiomas: any[] = [];
   paises: any[] = [];
 

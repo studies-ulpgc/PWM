@@ -7,11 +7,11 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [CommonModule, RouterLink], 
-  templateUrl: './producto.html',
-  styleUrls: ['./producto.css']
+  imports: [CommonModule, RouterLink],
+  templateUrl: './producto.component.html',
+  styleUrls: ['./producto.component.css']
 })
-export class Producto implements OnInit, OnDestroy {
+export class ProductoComponent implements OnInit, OnDestroy {
   @Input() data: any;
   isLoggedIn = false;
   enCesta: boolean = false;
@@ -24,13 +24,13 @@ export class Producto implements OnInit, OnDestroy {
   ngOnInit() {
     this.authSub = this.authService.user$.subscribe(user => {
       this.isLoggedIn = !!user;
-      
+
       if (!this.isLoggedIn) {
         this.enCesta = false;
         this.enDeseados = false;
       }
 
-      this.cdr.markForCheck(); 
+      this.cdr.markForCheck();
       this.cdr.detectChanges();
     });
   }
@@ -53,7 +53,7 @@ export class Producto implements OnInit, OnDestroy {
 
   obtenerRating(): number {
     if (!this.data?.Valoracion || this.data.Valoracion.length === 0) return 0;
-    const nombreArchivo = this.data.Valoracion[0].name; 
+    const nombreArchivo = this.data.Valoracion[0].name;
     const rating = parseInt(nombreArchivo.split('_')[0]);
     return isNaN(rating) ? 0 : rating;
   }

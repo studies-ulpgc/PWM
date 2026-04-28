@@ -1,16 +1,16 @@
 import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Producto } from '../producto/producto'; 
+import { ProductoComponent } from '../producto/producto.component';
 import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-similares',
   standalone: true,
-  imports: [CommonModule, Producto],
-  templateUrl: './similares.html',
-  styleUrls: ['./similares.css']
+  imports: [CommonModule, ProductoComponent],
+  templateUrl: './similares.component.html',
+  styleUrls: ['./similares.component.css']
 })
-export class Similares implements OnInit {
+export class SimilaresComponent implements OnInit {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   productosSimilares: any[] = [];
 
@@ -46,10 +46,10 @@ export class Similares implements OnInit {
       });
 
       setTimeout(() => {
-        const listaExtendida = [...mapped, ...mapped, ...mapped]; 
+        const listaExtendida = [...mapped, ...mapped, ...mapped];
         this.productosSimilares = listaExtendida.slice(0, 8);
 
-        this.cdr.detectChanges(); 
+        this.cdr.detectChanges();
       }, 0);
 
     }, err => console.error('Error al cargar similares', err));
@@ -58,7 +58,7 @@ export class Similares implements OnInit {
   scroll(direccion: number) {
     if (this.scrollContainer) {
       const contenedor = this.scrollContainer.nativeElement;
-      const scrollAmount = 300; 
+      const scrollAmount = 300;
       contenedor.scrollBy({ left: direccion * scrollAmount, behavior: 'smooth' });
     }
   }

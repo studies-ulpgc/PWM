@@ -54,8 +54,8 @@ Cada página con nombre del mockup que implementa:
 | **[iniciar-sesion.html](../html/iniciar-sesion.html)** | **Iniciar Sesión** |
 | **[lista-deseados.html](../html/lista-deseados.html)** | **Lista de deseados** |
 | **[lista-pedidos-realizados.html](../html/lista-pedidos-realizados.html)** | **Lista Pedidos realizados** |
-| **[pagar.html](../html/pagar.html)** | **Pagar** |
-| **[registrarse.html](../html/registrarse.html)** | **Registrarse** |
+| **[pagar.html](../html/pagar.html)** | **PagarComponent** |
+| **[registrarse.html](../html/registrarse.html)** | **RegistrarseComponent** |
 | **[ver-cesta.html](../html/ver-cesta.html)** | **Ver cesta** |
 | **[ver-cuenta.html](../html/ver-cuenta.html)** | **Ver Cuenta** |
 

@@ -1,17 +1,17 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ImgIzq } from '../../components/img-izq/img-izq';
+import { ImgIzqComponent } from '../../components/img-izq/img-izq.component';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-configurar-direccion-entrega',
-  imports: [CommonModule, ReactiveFormsModule, ImgIzq, RouterModule],
-  templateUrl: './configurar-direccion-entrega.html',
-  styleUrl: './configurar-direccion-entrega.css',
+  imports: [CommonModule, ReactiveFormsModule, ImgIzqComponent, RouterModule],
+  templateUrl: './configurar-direccion-entrega.component.html',
+  styleUrl: './configurar-direccion-entrega.component.css',
 })
-export class ConfigurarDireccionEntrega implements OnInit {
+export class ConfigurarDireccionEntregaComponent implements OnInit {
   direccionForm!: FormGroup;
   datosImagen: any;
 
@@ -47,7 +47,7 @@ export class ConfigurarDireccionEntrega implements OnInit {
   onSubmit() {
     if (this.direccionForm.valid) {
       console.log('Datos guardados:', this.direccionForm.value);
-      this.router.navigate(['/pagar']); 
+      this.router.navigate(['/pagar']);
     } else {
       this.direccionForm.markAllAsTouched();
     }

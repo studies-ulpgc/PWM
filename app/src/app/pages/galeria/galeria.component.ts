@@ -1,19 +1,19 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
-import { Producto } from '../../components/producto/producto';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { ProductoComponent } from '../../components/producto/producto.component';
 import { ProductoService } from '../../services/producto.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [CommonModule, HeaderGrande, Footer, Producto],
-  templateUrl: './galeria.html',
-  styleUrls: ['./galeria.css']
+  imports: [CommonModule, HeaderGrandeComponent, FooterComponent, ProductoComponent],
+  templateUrl: './galeria.component.html',
+  styleUrls: ['./galeria.component.css']
 })
-export class Galeria implements OnInit {
+export class GaleriaComponent implements OnInit {
   listaProductos: any[] = [];
 
   precioSeleccionado: number = 100;

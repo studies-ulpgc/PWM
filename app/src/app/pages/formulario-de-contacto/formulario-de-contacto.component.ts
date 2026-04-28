@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-formulario-de-contacto',
-  imports: [ReactiveFormsModule, HeaderGrande, Footer],
-  templateUrl: './formulario-de-contacto.html',
-  styleUrl: './formulario-de-contacto.css',
+  imports: [ReactiveFormsModule, HeaderGrandeComponent, FooterComponent],
+  templateUrl: './formulario-de-contacto.component.html',
+  styleUrl: './formulario-de-contacto.component.css',
 })
-export class FormularioDeContacto implements OnInit {
+export class FormularioDeContactoComponent implements OnInit {
   contactoForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}

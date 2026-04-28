@@ -1,20 +1,20 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
-import { Similares } from '../../components/similares/similares';
-import { ItemWanted } from '../../components/item-wanted/item-wanted';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { SimilaresComponent } from '../../components/similares/similares.component';
+import { ItemWantedComponent } from '../../components/item-wanted/item-wanted.component';
 import { ProductoService } from '../../services/producto.service';
-import { WantedItem } from './wanted-item.model';
+import { WantedItem } from './wanted-item.model.component';
 
 @Component({
   selector: 'app-lista-deseados',
   standalone: true,
-  imports: [CommonModule, HeaderGrande, Footer, Similares, ItemWanted],
-  templateUrl: './lista-deseados.html',
-  styleUrls: ['./lista-deseados.css']
+  imports: [CommonModule, HeaderGrandeComponent, FooterComponent, SimilaresComponent, ItemWantedComponent],
+  templateUrl: './lista-deseados.component.html',
+  styleUrls: ['./lista-deseados.component.css']
 })
-export class ListaDeseados implements OnInit {
+export class ListaDeseadosComponent implements OnInit {
   wantedItems: WantedItem[] = [];
 
   constructor(
@@ -25,7 +25,7 @@ export class ListaDeseados implements OnInit {
   ngOnInit(): void {
   this.productoService.getProductos().subscribe(data => {
     const itemsRaw = data || [];
-    
+
     this.wantedItems = Array.from({ length: 8 }, (_, i) => {
       const producto = itemsRaw[i % itemsRaw.length];
       return {

@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
-import { Comentario } from '../../components/comentario/comentario';
-import { Producto } from '../../components/producto/producto';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { ComentarioComponent } from '../../components/comentario/comentario.component';
+import { ProductoComponent } from '../../components/producto/producto.component';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from '../../services/producto.service';
 import { ComentarioService } from '../../services/comentario.service';
@@ -12,17 +12,17 @@ import { ComentarioService } from '../../services/comentario.service';
   selector: 'app-articulo-seleccionado',
   standalone: true,
   imports: [
-    CommonModule, 
-    HeaderGrande, 
-    Footer, 
-    Comentario, 
-    Producto
+    CommonModule,
+    HeaderGrandeComponent,
+    FooterComponent,
+    ComentarioComponent,
+    ProductoComponent
   ],
-  templateUrl: './articulo-seleccionado.html',
-  styleUrls: ['./articulo-seleccionado.css']
+  templateUrl: './articulo-seleccionado.component.html',
+  styleUrls: ['./articulo-seleccionado.component.css']
 })
-export class ArticuloSeleccionado implements OnInit {
-  producto: any = null; 
+export class ArticuloSeleccionadoComponent implements OnInit {
+  producto: any = null;
   listaComentarios: any[] = [];
   productosRelacionados: any[] = [];
   precioEntero: string = '0';
@@ -51,7 +51,7 @@ export class ArticuloSeleccionado implements OnInit {
   }
 
   cargarDatosProducto(id: string) {
-    this.producto = null; 
+    this.producto = null;
 
     this.productoService.getProductoById(id).subscribe(p => {
       if (!p) return;
@@ -71,7 +71,7 @@ export class ArticuloSeleccionado implements OnInit {
       this.imagenMostrada = resolvedFotoUrl;
 
       this.cargarRelacionados(p.id);
-      
+
       this.cdr.detectChanges();
     });
   }
@@ -86,7 +86,7 @@ export class ArticuloSeleccionado implements OnInit {
       const fotoUrl = prod.Foto?.[0]?.formats?.medium?.url || prod.Foto?.[0]?.url || '';
       const cleanPrice = String(prod.Precio || '0').replace('€', '').trim();
       const [entero, decimal = '00'] = cleanPrice.split('.');
-      
+
       return {
         ...prod,
         nombre: prod.Descripcion || prod.Subtitulo,
@@ -106,16 +106,16 @@ export class ArticuloSeleccionado implements OnInit {
 
   obtenerRating(producto: any): number {
     if (!producto.Valoracion || producto.Valoracion.length === 0) return 0;
-    const nombreArchivo = producto.Valoracion[0].name; 
+    const nombreArchivo = producto.Valoracion[0].name;
     const rating = parseInt(nombreArchivo.split('_')[0]);
     return isNaN(rating) ? 0 : rating;
   }
-  
-  agregarAlCarrito() { 
-    console.log('Producto añadido al carrito'); 
+
+  agregarAlCarrito() {
+    console.log('Producto añadido al carrito');
   }
 
-  cambiarImagen(miniatura: any) { 
+  cambiarImagen(miniatura: any) {
     if (miniatura) {
       const url = miniatura.formats?.medium?.url || miniatura.formats?.large?.url || miniatura.url;
       setTimeout(() => {

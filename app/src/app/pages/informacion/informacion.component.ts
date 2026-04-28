@@ -2,17 +2,17 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InformacionService } from '../../services/informacion.service';
 import { CommonModule } from '@angular/common';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-informacion',
   standalone: true,
-  imports: [CommonModule, HeaderGrande, Footer],
-  templateUrl: './informacion.html',
-  styleUrls: ['./informacion.css']
+  imports: [CommonModule, HeaderGrandeComponent, FooterComponent],
+  templateUrl: './informacion.component.html',
+  styleUrls: ['./informacion.component.css']
 })
-export class Informacion implements OnInit {
+export class InformacionComponent implements OnInit {
   contenido: any[] = [];
   tituloPagina: string = '';
 
@@ -30,7 +30,7 @@ export class Informacion implements OnInit {
               setTimeout(() => {
                 this.contenido = res.Contenido || [];
                 this.tituloPagina = res.titulo_pagina || '';
-                this.cdr.detectChanges(); 
+                this.cdr.detectChanges();
               }, 0);
             }
           },

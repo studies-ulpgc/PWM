@@ -2,27 +2,27 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-pagar',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, HeaderGrande, Footer],
-  templateUrl: './pagar.html',
-  styleUrl: './pagar.css',
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, HeaderGrandeComponent, FooterComponent],
+  templateUrl: './pagar.component.html',
+  styleUrl: './pagar.component.css',
 })
-export class Pagar implements OnInit {
+export class PagarComponent implements OnInit {
   pagoForm!: FormGroup;
   mostrarDirecciones = false;
 
   listaProductos: any[] = [];
-  
+
   direcciones = [
     { nombre: 'Marcos Pérez del Río', calle: 'Calle Principal 1' },
     { nombre: 'Antonia García Ortega', calle: 'Av. Secundaria 45' }
   ];
-  
+
   direccionSeleccionada = {
     nombre: 'Nombre y Apellidos',
     detalles: 'Calle Falsa 123, 28001 Madrid, España'
@@ -45,7 +45,7 @@ export class Pagar implements OnInit {
   this.productoService.getProductos().subscribe(data => {
     const productosBase = data || [];
     this.listaProductos = [...productosBase, ...productosBase, ...productosBase];
-    
+
     this.cdr.detectChanges();
   });
 }

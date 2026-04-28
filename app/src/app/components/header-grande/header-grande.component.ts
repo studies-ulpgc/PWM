@@ -8,11 +8,11 @@ import { catchError, Subscription, switchMap, of } from 'rxjs';
 @Component({
   selector: 'app-header-grande',
   standalone: true,
-  templateUrl: './header-grande.html',
-  styleUrls: ['./header-grande.css'],
+  templateUrl: './header-grande.component.html',
+  styleUrls: ['./header-grande.component.css'],
   imports: [FormsModule, RouterModule, CommonModule],
 })
-export class HeaderGrande implements OnInit, OnDestroy{
+export class HeaderGrandeComponent implements OnInit, OnDestroy{
   mostrarPopup = false;
   query = '';
   isLoggedIn = false;
@@ -61,7 +61,7 @@ export class HeaderGrande implements OnInit, OnDestroy{
       this.router.navigate(['/iniciar-sesion']);
       return;
     }
-    this.mostrarPopup = !this.mostrarPopup; 
+    this.mostrarPopup = !this.mostrarPopup;
   }
 
   irACesta() {

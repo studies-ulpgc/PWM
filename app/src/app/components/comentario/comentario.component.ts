@@ -7,10 +7,10 @@ import { Subscription } from 'rxjs';
   selector: 'app-comentario',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './comentario.html',
+  templateUrl: './comentario.component.html',
   styleUrls: ['./comentario.component.css']
 })
-export class Comentario implements OnInit, OnDestroy {
+export class ComentarioComponent implements OnInit, OnDestroy {
   @Input() data: any;
 
   isLoggedIn = false;

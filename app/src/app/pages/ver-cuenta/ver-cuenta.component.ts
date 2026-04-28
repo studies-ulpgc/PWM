@@ -1,18 +1,18 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 import { Subscription, switchMap, of, catchError } from 'rxjs';
 import { AutentificacionService } from '../../services/autentificacion.service';
 
 @Component({
   selector: 'app-ver-cuenta',
-  imports: [CommonModule, RouterLink, RouterModule, HeaderGrande, Footer],
-  templateUrl: './ver-cuenta.html',
-  styleUrl: './ver-cuenta.css',
+  imports: [CommonModule, RouterLink, RouterModule, HeaderGrandeComponent, FooterComponent],
+  templateUrl: './ver-cuenta.component.html',
+  styleUrl: './ver-cuenta.component.css',
 })
-export class VerCuenta implements OnInit, OnDestroy {
+export class VerCuentaComponent implements OnInit, OnDestroy {
   userName: string = 'Cargando...';
   private sub?: Subscription;
 
@@ -41,11 +41,11 @@ export class VerCuenta implements OnInit, OnDestroy {
       } else {
         this.userName = 'Invitado';
       }
-      
-      this.cdr.detectChanges(); 
+
+      this.cdr.detectChanges();
     });
   }
-  
+
   ngOnDestroy() {
     this.sub?.unsubscribe();
   }

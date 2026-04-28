@@ -1,21 +1,21 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { HeaderGrande } from '../../components/header-grande/header-grande';
-import { Footer } from '../../components/footer/footer';
-import { ItemCard } from '../../components/item-card/item-card';
-import { Similares } from '../../components/similares/similares';
+import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { ItemCardComponent } from '../../components/item-card/item-card.component';
+import { SimilaresComponent } from '../../components/similares/similares.component';
 import { ProductoService } from '../../services/producto.service';
-import { CartItem } from './cart-item.model';
+import { CartItem } from './cart-item.model.component';
 
 @Component({
   selector: 'app-ver-cesta',
   standalone: true,
-  imports: [CommonModule, HeaderGrande, Footer, ItemCard, Similares],
-  templateUrl: './ver-cesta.html',
-  styleUrls: ['./ver-cesta.css']
+  imports: [CommonModule, HeaderGrandeComponent, FooterComponent, ItemCardComponent, SimilaresComponent],
+  templateUrl: './ver-cesta.component.html',
+  styleUrls: ['./ver-cesta.component.css']
 })
-export class VerCesta implements OnInit {
+export class VerCestaComponent implements OnInit {
   cartItems: CartItem[] = [];
   total: number = 0;
 
@@ -32,7 +32,7 @@ export class VerCesta implements OnInit {
   cargarCesta() {
     this.productoService.getProductos().subscribe(data => {
       const itemsRaw = data || [];
-      
+
       this.cartItems = Array.from({ length: 6 }, (_, i) => {
         const producto = itemsRaw[i % itemsRaw.length];
         return {
@@ -44,7 +44,7 @@ export class VerCesta implements OnInit {
           opts: `Talla: ${this.getRandomSize(producto?.Talla)} · Color: ${this.getRandomColor()}`
         };
       });
-      
+
       this.updateTotal();
     });
   }

@@ -1,15 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartItem } from '../../pages/ver-cesta/cart-item.model';
+import { CartItem } from '../../pages/ver-cesta/cart-item.model.component';
 
 @Component({
   selector: 'app-item-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './item-card.html',
-  styleUrls: ['./item-card.css']
+  templateUrl: './item-card.component.html',
+  styleUrls: ['./item-card.component.css']
 })
-export class ItemCard {
+export class ItemCardComponent {
   @Input() item!: CartItem;
   @Output() selectionChange = new EventEmitter<void>();
 

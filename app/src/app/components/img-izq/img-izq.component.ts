@@ -16,7 +16,7 @@ import { ImagenIzqService } from '../../services/imagen-izq.service';
     .imagen-full { width: 100%; height: 100%; object-fit: cover; }
   `]
 })
-export class ImgIzq implements OnInit {
+export class ImgIzqComponent implements OnInit {
   data: any;
 
   constructor(
@@ -27,7 +27,7 @@ export class ImgIzq implements OnInit {
   ngOnInit() {
     this.imgService.getImagenConfig().subscribe({
       next: (res) => {
-        console.log('Imagen recibida de Firebase:', res); 
+        console.log('Imagen recibida de Firebase:', res);
         this.data = res;
         this.cdr.detectChanges();
       },

@@ -53,24 +53,24 @@ app/                         # Aplicación Angular
 Cada página con nombre del mockup que implementa:
 | **Página html** | **Mockup que implementa** |
 | --------------- | ------------------------- | 
-| **[articulo-selecccionado.html](/app/src/app/pages/articulo-seleccionado/articulo-seleccionado.html)** | **Artículo Seleccionado** |
-| **[configurar-direccion-entrega.html](/app/src/app/pages/configurar-direccion-entrega/configurar-direccion-entrega.html)** | **Configurar dirección de entrega** |
-| **[formulario-de-contacto.html](/app/src/app/pages/formulario-de-contacto/formulario-de-contacto.html)** | **Formulario de contacto** |
-| **[galeria.html](/app/src/app/pages/galeria/galeria.html)** | **Galería** |
-| **[home.html](/app/src/app/pages/home/home.html) (pagina de inicio)** | **Home** |
-| **[informacion.html](/app/src/app/pages/informacion/informacion.html)** | **Información** |
-| **[iniciar-sesion.html](/app/src/app/pages/iniciar-sesion/iniciar-sesion.html)** | **Iniciar Sesión** |
-| **[lista-deseados.html](/app/src/app/pages/lista-deseados/lista-deseados.html)** | **Lista de deseados** |
-| **[lista-pedidos-realizados.html](/app/src/app/pages/lista-pedidos-realizados/lista-pedidos-realizados.html)** | **Lista Pedidos realizados** |
-| **[pagar.html](/app/src/app/pages/pagar/pagar.html)** | **Pagar** |
-| **[registrarse.html](/app/src/app/pages/registrarse/registrarse.html)** | **Registrarse** |
-| **[ver-cesta.html](/app/src/app/pages/ver-cesta/ver-cesta.html)** | **Ver cesta** |
-| **[ver-cuenta.html](/app/src/app/pages/ver-cuenta/ver-cuenta.html)** | **Ver Cuenta** |
+| **[articulo-selecccionado.html](/app/src/app/pages/articulo-seleccionado/articulo-seleccionado.component.html)** | **Artículo Seleccionado** |
+| **[configurar-direccion-entrega.html](/app/src/app/pages/configurar-direccion-entrega/configurar-direccion-entrega.component.html)** | **Configurar dirección de entrega** |
+| **[formulario-de-contacto.html](/app/src/app/pages/formulario-de-contacto/formulario-de-contacto.component.html)** | **Formulario de contacto** |
+| **[galeria.html](/app/src/app/pages/galeria/galeria.component.html)** | **Galería** |
+| **[home.html](/app/src/app/pages/home/home.component.html) (pagina de inicio)** | **Home** |
+| **[informacion.html](/app/src/app/pages/informacion/informacion.component.html)** | **Información** |
+| **[iniciar-sesion.html](/app/src/app/pages/iniciar-sesion/iniciar-sesion.component.html)** | **Iniciar Sesión** |
+| **[lista-deseados.html](/app/src/app/pages/lista-deseados/lista-deseados.component.html)** | **Lista de deseados** |
+| **[lista-pedidos-realizados.html](/app/src/app/pages/lista-pedidos-realizados/lista-pedidos-realizados.component.html)** | **Lista Pedidos realizados** |
+| **[pagar.html](/app/src/app/pages/pagar/pagar.component.html)** | **PagarComponent** |
+| **[registrarse.html](/app/src/app/pages/registrarse/registrarse.component.html)** | **RegistrarseComponent** |
+| **[ver-cesta.html](/app/src/app/pages/ver-cesta/ver-cesta.component.html)** | **Ver cesta** |
+| **[ver-cuenta.html](/app/src/app/pages/ver-cuenta/ver-cuenta.component.html)** | **Ver Cuenta** |
 
 | **Template** | **Template que usa** |
 | ------------ | -------------------- | 
-| **[header-grande.html](/app/src/app/components/header-grande/header-grande.html)** | **Ninguno** |
-| **[comentario.html](/app/src/app/components/comentario/comentario.html)** | **Ninguno** |
-| **[producto.html](/app/src/app/components/producto/producto.html)** | **Ninguno** |
-| **[footer.html](/app/src/app/components/footer/footer.html)** | **Ninguno** |
-| **[similares.html](/app/src/app/components/similares/similares.html)** | **[producto.html](/app/src/app/components/producto/producto.html)** |
+| **[header-grande.html](/app/src/app/components/header-grande/header-grande.component.html)** | **Ninguno** |
+| **[comentario.html](/app/src/app/components/comentario/comentario.component.html)** | **Ninguno** |
+| **[producto.html](/app/src/app/components/producto/producto.component.html)** | **Ninguno** |
+| **[footer.html](/app/src/app/components/footer/footer.component.html)** | **Ninguno** |
+| **[similares.html](/app/src/app/components/similares/similares.component.html)** | **[producto.html](/app/src/app/components/producto/producto.component.html)** |

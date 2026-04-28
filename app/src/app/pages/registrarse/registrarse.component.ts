@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { ImgIzq } from '../../components/img-izq/img-izq';
+import { ImgIzqComponent } from '../../components/img-izq/img-izq.component';
 import { Router, RouterLink } from '@angular/router';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
 import { AutentificacionService } from '../../services/autentificacion.service';
@@ -9,11 +9,11 @@ import { AutentificacionService } from '../../services/autentificacion.service';
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ImgIzq, RouterLink],
-  templateUrl: './registrarse.html',
-  styleUrl: './registrarse.css',
+  imports: [CommonModule, ReactiveFormsModule, ImgIzqComponent, RouterLink],
+  templateUrl: './registrarse.component.html',
+  styleUrl: './registrarse.component.css',
 })
-export class Registrarse implements OnInit {
+export class RegistrarseComponent implements OnInit {
   registerForm!: FormGroup;
   datosImagen: any;
   verPass: boolean = false;
@@ -33,7 +33,7 @@ export class Registrarse implements OnInit {
 
     this.registerForm = this.fb.group({
       email: ['', [
-        Validators.required, 
+        Validators.required,
         Validators.pattern(emailPattern)
       ]],
       nombre: ['', [Validators.required, Validators.pattern(soloLetrasPattern)]],

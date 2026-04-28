@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'; 
-import { ImgIzq } from '../../components/img-izq/img-izq';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ImgIzqComponent } from '../../components/img-izq/img-izq.component';
 import { Router, RouterLink } from '@angular/router';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
 import { AutentificacionService } from '../../services/autentificacion.service';
@@ -9,17 +9,17 @@ import { AutentificacionService } from '../../services/autentificacion.service';
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ImgIzq, RouterLink], 
-  templateUrl: './iniciar-sesion.html',
-  styleUrl: './iniciar-sesion.css',
+  imports: [CommonModule, ReactiveFormsModule, ImgIzqComponent, RouterLink],
+  templateUrl: './iniciar-sesion.component.html',
+  styleUrl: './iniciar-sesion.component.css',
 })
-export class IniciarSesion implements OnInit {
+export class IniciarSesionComponent implements OnInit {
   loginForm!: FormGroup;
   datosImagen: any;
   verContrasena: boolean = false;
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private imgService: ImagenIzqService,
     private cdr: ChangeDetectorRef,
     private authService: AutentificacionService,
