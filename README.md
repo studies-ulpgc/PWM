@@ -32,6 +32,15 @@ ng serve --open
 # En caso de error, emplear el argumento npx
 npx ng serve --open
 ```
+### Versión 20 de Angular
+```bash
+# Para asegurar la instalación completa de la versión 20 de Angular se empleó
+npm install @angular/core@20 @angular/common@20 @angular/compiler@20 @angular/compiler-cli@20 @angular/platform-browser@20 @angular/platform-server@20 @angular/router@20 @angular/forms@20 @angular/animations@20 @angular/cli@20 @angular/build@20 @angular-devkit/build-angular@20 @angular/ssr@20 --save --legacy-peer-deps
+
+npm install typescript@5.8 --save-dev --legacy-peer-deps
+
+```
+
 ## Estructuración del proyecto
 ```bash
 app/                         # Aplicación Angular
