@@ -21,7 +21,8 @@ export class Similares implements OnInit {
 
   ngOnInit(): void {
     this.productoService.getProductos().subscribe((productos: any[]) => {
-      this.productosSimilares = productos.slice(0, 8).map(p => {
+      // 1. Mapeamos los productos con la lógica que te funciona en Home
+      const mapped = productos.map(p => {
         const fotoUrl =
           p.Foto?.[0]?.formats?.medium?.url ||
           p.Foto?.[0]?.formats?.large?.url ||
@@ -44,14 +45,25 @@ export class Similares implements OnInit {
           fotoUrl: resolvedFotoUrl,
         };
       });
-      
-      this.cdr.detectChanges(); 
-    });
+
+      // 2. Usamos setTimeout para evitar el error NG0100
+      setTimeout(() => {
+        // 3. Si tienes menos de 8 productos en Firebase, duplicamos la lista
+        // para asegurar que el carrusel se vea lleno con 8 elementos
+        const listaExtendida = [...mapped, ...mapped, ...mapped]; 
+        this.productosSimilares = listaExtendida.slice(0, 8);
+
+        this.cdr.detectChanges(); 
+      }, 0);
+
+    }, err => console.error('Error al cargar similares', err));
   }
 
   scroll(direccion: number) {
-    const contenedor = this.scrollContainer.nativeElement;
-    const scrollAmount = 350;
-    contenedor.scrollBy({ left: direccion * scrollAmount, behavior: 'smooth' });
+    if (this.scrollContainer) {
+      const contenedor = this.scrollContainer.nativeElement;
+      const scrollAmount = 300; 
+      contenedor.scrollBy({ left: direccion * scrollAmount, behavior: 'smooth' });
+    }
   }
 }
