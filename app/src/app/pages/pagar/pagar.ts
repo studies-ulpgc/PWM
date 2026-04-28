@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { HeaderGrande } from '../../components/header-grande/header-grande';
 import { Footer } from '../../components/footer/footer';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-pagar',
@@ -14,6 +15,8 @@ import { Footer } from '../../components/footer/footer';
 export class Pagar implements OnInit {
   pagoForm!: FormGroup;
   mostrarDirecciones = false;
+
+  listaProductos: any[] = [];
   
   direcciones = [
     { nombre: 'Marcos Pérez del Río', calle: 'Calle Principal 1' },
@@ -27,14 +30,25 @@ export class Pagar implements OnInit {
 
   productos = new Array(8);
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private productoService: ProductoService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.pagoForm = this.fb.group({
       cupon: ['', [Validators.pattern('^[0-9]{8}$')]],
       tarjetaRegalo: ['', [Validators.pattern('^[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}$')]]
     });
+
+    this.cargarImagenesProductos();
   }
+
+  cargarImagenesProductos() {
+  this.productoService.getProductos().subscribe(data => {
+    const productosBase = data || [];
+    this.listaProductos = [...productosBase, ...productosBase, ...productosBase];
+    
+    this.cdr.detectChanges();
+  });
+}
 
   seleccionarDireccion(dir: any) {
     this.direccionSeleccionada = {
