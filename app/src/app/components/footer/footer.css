@@ -23,7 +23,6 @@
   display: contents;
 }
 
-/* --- Tipografía --- */
 .titulo-footer {
   font-family: var(--font-main);
   font-size: 13px;
@@ -56,7 +55,6 @@
   padding-left: 5px;
 }
 
-/* --- Bloque Derecha (Pagos + Redes) --- */
 .bloque-derecha {
   grid-column: 4;
   display: flex;
@@ -83,7 +81,6 @@
   opacity: 1;
 }
 
-/* --- Redes Sociales --- */
 .iconos-sociales {
   display: flex;
   gap: 12px;
@@ -114,7 +111,6 @@
   filter: brightness(0) invert(1);
 }
 
-/* --- Selectores (Localización e Idioma) --- */
 .selectores {
   grid-column: 5;
   display: flex;
@@ -169,7 +165,6 @@
   cursor: pointer;
 }
 
-/* --- Copyright --- */
 .copy-footer {
   grid-column: 1 / -1;
   border-top: 1px solid #eee;
@@ -183,7 +178,6 @@
   color: #999;
 }
 
-/* --- Responsive Adaptado --- */
 @media (max-width: 900px) {
   .main-footer {
     grid-template-columns: repeat(2, 1fr);

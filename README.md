@@ -32,6 +32,20 @@ ng serve --open
 # En caso de error, emplear el argumento npx
 npx ng serve --open
 ```
+## Estructuración del proyecto
+```bash
+app/                         # Aplicación Angular
+├── src/                
+│   └── app/
+│   │   ├── components/      # Componentes reutilizables
+│   │   ├── pages/           # Vistas principales
+│   │   └── services/        # Lógica de API       
+│   └── environments/        # Claves de la base de datos de Firestore
+├── backend/                 # Código de subida de todo el contenido en json previo 
+├── documentacion/           # README de los anteriores Sprints
+└── Mockups/                 # PDFs de los diseños de los Mockups
+```
+
 ## Otros aspectos a tener en cuenta
 ...
 

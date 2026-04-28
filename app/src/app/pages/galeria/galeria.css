@@ -24,10 +24,9 @@
   align-items: start;
 }
 
-/* --- Sidebar Sticky --- */
 .sidebar-filters {
   position: sticky;
-  top: 100px; /* Se queda fijo al bajar */
+  top: 100px;
 }
 
 .filter-card {
@@ -73,7 +72,6 @@
   color: var(--text-muted);
 }
 
-/* --- Custom Checkbox --- */
 .checkbox-list, .checkbox-grid {
   display: flex;
   flex-direction: column;
@@ -121,7 +119,6 @@
   font-size: 10px;
 }
 
-/* --- Modern Slider --- */
 .price-header {
   display: flex;
   justify-content: space-between;
@@ -159,7 +156,6 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* --- Products Grid --- */
 .grid-display {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -174,7 +170,6 @@
   transform: translateY(-8px);
 }
 
-/* --- Responsive --- */
 @media (max-width: 1024px) {
   .layout-grid { grid-template-columns: 220px 1fr; gap: 20px; }
 }
@@ -185,7 +180,6 @@
   .grid-display { grid-template-columns: repeat(2, 1fr); gap: 15px; }
 }
 
-/* --- Estilo específico para la cuadrícula de tallas --- */
 .size-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -198,7 +192,7 @@
 }
 
 .size-box input {
-  display: none; /* Ocultamos el checkbox real */
+  display: none;
 }
 
 .size-name {
@@ -224,14 +218,12 @@
   border-color: #000;
 }
 
-/* Ajuste para que el Sidebar no se haga infinito */
 .filter-card {
-  max-height: calc(100vh - 150px); /* Evita que crezca más que la pantalla */
+  max-height: calc(100vh - 150px);
   overflow-y: auto;
   padding-right: 10px;
 }
 
-/* Personalización del scroll interno del filtro para que sea elegante */
 .filter-card::-webkit-scrollbar {
   width: 4px;
 }

@@ -27,7 +27,7 @@ export class Galeria implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       const categoria = params['categoria'];
-      this.listaProductos = []; // Reset para forzar cambio visual
+      this.listaProductos = [];
       this.cdr.detectChanges();
       this.productoService.getProductos().subscribe(data => {
         let productos = data.map(p => {
@@ -59,7 +59,7 @@ export class Galeria implements OnInit {
         }
 
         this.listaProductos = Array.from({ length: 12 }, (_, i) => productos[i % productos.length]);
-        this.cdr.detectChanges(); // Forzar detección de cambios
+        this.cdr.detectChanges();
       });
     });
   }
