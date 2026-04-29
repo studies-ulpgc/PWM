@@ -119,7 +119,9 @@
 
         <div class="col-md-8">
           <div class="comments-scroll">
-            <app-comentario *ngFor="let c of listaComentarios" [data]="c"></app-comentario>
+            @for (c of listaComentarios; track $index) {
+              <app-comentario [data]="c"></app-comentario>
+            }
           </div>
         </div>
       </div>
@@ -128,9 +130,9 @@
     <section class="related-section mt-5 pt-5">
       <h3 class="mb-4 text-center text-uppercase letter-spacing-2">Puede interesarte</h3>
       <div class="row row-cols-2 row-cols-md-4 g-4">
-        @for (p of productosRelacionados; track p.id) {
+        @for (prod of productosRelacionados; track $index) {
           <div class="col">
-            <app-producto [data]="p" class="product-card-anim"></app-producto>
+            <app-producto [data]="prod" class="product-card-anim"></app-producto>
           </div>
         } @empty {
             <div class="loading-state">

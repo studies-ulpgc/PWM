@@ -1,15 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject, Injector, runInInjectionContext } from '@angular/core'; // Añadido inject e Injector
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, authState } from '@angular/fire/auth';
-import { Firestore, doc, setDoc, docData, DocumentReference, getDoc } from '@angular/fire/firestore';
-import { Observable, from, map } from 'rxjs';
+import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
+import { Observable, from, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutentificacionService {
+  private auth = inject(Auth);
+  private firestore = inject(Firestore);
+  private injector = inject(Injector); 
+
   user$: Observable<any>;
 
-  constructor(private auth: Auth, private firestore: Firestore) {
+  constructor() {
     this.user$ = authState(this.auth);
   }
 
@@ -19,8 +23,8 @@ export class AutentificacionService {
     const userDocRef = doc(this.firestore, `usuarios/${userCredential.user.uid}`);
     
     return setDoc(userDocRef, {
-      nombre: nombre,
-      apellidos: apellidos,
+      nombre,
+      apellidos,
       fechaNacimiento: fecha,
       email: email
     });
@@ -53,14 +57,13 @@ export class AutentificacionService {
   }
 
   getDatosUsuario(uid: string): Observable<any> {
-    const userDocRef = doc(this.firestore, 'usuarios', uid);
-    return from(getDoc(userDocRef)).pipe(
-      map(snapshot => {
-        if (snapshot.exists()) {
-          return snapshot.data();
-        }
-        return null;
-      })
-    );
+    if (!uid) return of(null);
+
+    return runInInjectionContext(this.injector, () => {
+      const userDocRef = doc(this.firestore, 'usuarios', uid);
+      return from(getDoc(userDocRef)).pipe(
+        map(snapshot => snapshot.exists() ? snapshot.data() : null)
+      );
+    });
   }
 }

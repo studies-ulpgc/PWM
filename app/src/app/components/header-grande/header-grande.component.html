@@ -60,7 +60,7 @@
 
     <nav class="categorias-nav w-100 d-none d-md-block">
       <div class="row g-2 text-center">
-        @for (cat of ['Novedades', 'Camisas', 'Chaquetas', 'Pantalones', 'Zapatos', 'Accesorios', 'Faldas', 'Vestidos', 'Calcetines', 'Pijamas']; track cat) {
+        @for (cat of ['Novedades', 'Camisas', 'Chalecos', 'Pantalones', 'Zapatos', 'Accesorios', 'Faldas', 'Vestidos', 'Calcetines', 'Pijamas']; track cat) {
           <div class="col">
             <a [routerLink]="['/galeria']" [queryParams]="cat !== 'Novedades' ? {categoria: cat} : {}" 
                class="cat-link text-dark text-decoration-none small text-uppercase fw-medium d-block py-2">

@@ -79,9 +79,24 @@
 }
 
 @media (max-width: 768px) {
+  /* Forzamos que el buscador pase a una nueva fila y ocupe todo el ancho */
   .search-container {
     order: 3;
+    width: 100%;
+    max-width: 100% !important;
     margin: 0 !important;
+  }
+
+  /* El logo se queda a la izquierda */
+  .empresa-logo {
+    order: 1;
+    font-size: 40px; /* Un poco más pequeño en móvil */
+  }
+
+  /* Los iconos se quedan a la derecha del logo */
+  .simbolos-group {
+    order: 2;
+    margin-left: auto; /* Esto asegura que se peguen a la derecha */
   }
 }
 
