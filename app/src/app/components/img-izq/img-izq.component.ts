@@ -12,8 +12,17 @@ import { ImagenIzqService } from '../../services/imagen-izq.service';
     </div>
   `,
   styles: [`
-    .contenedor-imagen-lateral { width: 100%; height: 100%; overflow: hidden; }
-    .imagen-full { width: 100%; height: 100%; object-fit: cover; }
+    .contenedor-imagen-lateral { 
+    width: 100%; 
+    height: 100%; 
+    display: flex;
+    justify-content: flex-start;
+  }
+  .imagen-full { 
+    height: 100%;  
+    width: auto;    
+    object-fit: contain; 
+  }
   `]
 })
 export class ImgIzqComponent implements OnInit {
