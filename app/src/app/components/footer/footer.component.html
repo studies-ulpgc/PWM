@@ -58,7 +58,7 @@
                     @for (item of paises; track item.id) {
                         <li class="d-flex align-items-center gap-2">
                             @if (item.bandera && item.bandera[0]) {
-                                <img [src]="'assets' + item.bandera[0].url" style="width: 20px; height: auto;">
+                                <img [src]="item.bandera[0].url" style="width: 20px; height: auto;">
                             }
                             {{ item.localizacion }}
                         </li>

@@ -1,5 +1,5 @@
 const admin = require('firebase-admin');
-const serviceAccount = require("./serviceAccountKey.json"); // Asegúrate de que este archivo se llame así
+const serviceAccount = require("./serviceAccountKey.json");
 
 // Inicializa Firebase
 admin.initializeApp({
@@ -8,30 +8,46 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-// Tu base de Cloudinary con máxima calidad
-const CLOUDINARY_BASE = "https://res.cloudinary.com/dxndjdzaq/image/upload/f_auto,q_auto:best/PWM/";
+// Tu nueva base de Cloudinary (Con la versión y sin carpetas extra)
+const CLOUDINARY_BASE = "https://res.cloudinary.com/dxndjdzaq/image/upload/v1777503241/";
 
-// Lista de todas tus colecciones de Firebase
 const colecciones = [
   'categorias', 'comentario', 'idiomas', 'imagen_izq', 
   'informacion', 'internacional', 'lista-pedidos-realizados', 
   'producto', 'usuarios'
 ];
 
-// Función "rastreadora" que busca recursivamente en todo el documento
 function reemplazarUrls(obj) {
   let huboCambios = false;
 
   function buscar(nodo) {
     if (nodo !== null && typeof nodo === 'object') {
       for (let key in nodo) {
-        // Si encontramos un campo "url" que empieza por "/uploads/"
-        if (key === 'url' && typeof nodo[key] === 'string' && nodo[key].startsWith('/uploads/')) {
-          const nombreArchivo = nodo[key].split('/').pop();
-          nodo[key] = CLOUDINARY_BASE + nombreArchivo;
-          huboCambios = true;
+        // Buscamos campos 'url' que sean strings
+        if (key === 'url' && typeof nodo[key] === 'string') {
+          
+          let urlActual = nodo[key];
+
+          // Filtramos: Solo tocamos si empieza por /uploads/ o si ya es de cloudinary pero está mal formateada
+          if (urlActual.startsWith('/uploads/') || urlActual.includes('res.cloudinary.com')) {
+            
+            // 1. Sacamos solo el nombre del archivo final (ej: large_USA_3bad97994e.png)
+            let nombreArchivo = urlActual.split('/').pop();
+
+            // 2. Le quitamos los prefijos de tamaño si los tiene
+            nombreArchivo = nombreArchivo.replace(/^(large_|medium_|thumbnail_)/, '');
+
+            // 3. Construimos la URL perfecta
+            const nuevaUrl = CLOUDINARY_BASE + nombreArchivo;
+
+            // 4. Si la URL cambió, actualizamos
+            if (urlActual !== nuevaUrl) {
+              nodo[key] = nuevaUrl;
+              huboCambios = true;
+            }
+          }
         } else {
-          // Si es un objeto o array anidado (como Valoracion), entra y sigue buscando
+          // Si es un objeto o array anidado, entra y sigue buscando
           buscar(nodo[key]);
         }
       }
@@ -43,7 +59,7 @@ function reemplazarUrls(obj) {
 }
 
 async function actualizarTodo() {
-  console.log("🚀 Iniciando actualización masiva para todas las colecciones...\n");
+  console.log("🚀 Iniciando limpieza masiva de URLs...\n");
 
   for (const nombreCol of colecciones) {
     console.log(`📂 Revisando colección: ${nombreCol}...`);
@@ -59,20 +75,19 @@ async function actualizarTodo() {
     for (const doc of snapshot.docs) {
       let data = doc.data();
 
-      // Pasamos el documento entero por el rastreador de URLs
+      // Pasamos el documento entero por el limpiador de URLs
       const necesitaActualizar = reemplazarUrls(data);
 
       if (necesitaActualizar) {
-        // Guardamos el documento entero de vuelta en Firebase con las nuevas URLs
         await db.collection(nombreCol).doc(doc.id).set(data);
         actualizados++;
       }
     }
 
-    console.log(`   ✅ Se actualizaron las imágenes en ${actualizados} documentos de '${nombreCol}'.`);
+    console.log(`   ✅ Se arreglaron las URLs en ${actualizados} documentos de '${nombreCol}'.`);
   }
 
-  console.log("\n✨ ¡Proceso finalizado con éxito! Todas tus imágenes ahora apuntan a Cloudinary.");
+  console.log("\n✨ ¡Proceso finalizado! Revisa tu Firebase para confirmar los cambios.");
 }
 
 actualizarTodo().catch(console.error);
