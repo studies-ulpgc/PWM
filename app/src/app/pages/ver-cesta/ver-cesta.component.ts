@@ -40,7 +40,7 @@ export class VerCestaComponent implements OnInit {
           name: producto?.Descripcion || 'Sin nombre',
           price: parseFloat(producto?.Precio) || 0,
           selected: true,
-          img: producto?.Foto?.[0]?.url ? 'assets' + producto.Foto[0].url : '',
+          img: producto?.Foto?.[0]?.url ?  producto.Foto[0].url : '',
           opts: `Talla: ${this.getRandomSize(producto?.Talla)} · Color: ${this.getRandomColor()}`
         };
       });

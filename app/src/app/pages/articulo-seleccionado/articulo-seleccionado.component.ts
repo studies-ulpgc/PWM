@@ -57,7 +57,7 @@ export class ArticuloSeleccionadoComponent implements OnInit {
       if (!p) return;
 
       const fotoUrl = p.Foto?.[0]?.formats?.medium?.url || p.Foto?.[0]?.url || '';
-      const resolvedFotoUrl = fotoUrl.startsWith('/uploads/') ? 'assets' + fotoUrl : fotoUrl;
+      const resolvedFotoUrl = fotoUrl.startsWith('/uploads/') ? fotoUrl : fotoUrl;
       const precioLimpio = String(p.Precio || '0').replace('€', '').trim();
       const [entero, decimal = '00'] = precioLimpio.split('.');
 
@@ -92,7 +92,7 @@ export class ArticuloSeleccionadoComponent implements OnInit {
         nombre: prod.Descripcion || prod.Subtitulo,
         precioEntero: entero,
         precioDecimal: (decimal + '00').slice(0, 2),
-        fotoUrl: fotoUrl.startsWith('/uploads/') ? 'assets' + fotoUrl : fotoUrl
+        fotoUrl: fotoUrl.startsWith('/uploads/') ? fotoUrl : fotoUrl
       };
     });
 
@@ -119,7 +119,7 @@ export class ArticuloSeleccionadoComponent implements OnInit {
     if (miniatura) {
       const url = miniatura.formats?.medium?.url || miniatura.formats?.large?.url || miniatura.url;
       setTimeout(() => {
-        this.imagenMostrada = url ? 'assets' + url : '';
+        this.imagenMostrada = url ? url : '';
         this.cdr.detectChanges();
       }, 0);
     }

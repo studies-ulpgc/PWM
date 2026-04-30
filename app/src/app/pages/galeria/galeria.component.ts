@@ -67,7 +67,7 @@ export class GaleriaComponent implements OnInit {
             const fotoUrl = p.Foto?.[0]?.formats?.medium?.url || p.Foto?.[0]?.url || '';
             const cleanPrice = String(p.Precio || '0').replace('€', '').trim();
             const [entero, decimal = '00'] = cleanPrice.split('.');
-            const resolvedFotoUrl = fotoUrl.startsWith('/uploads/') ? 'assets' + fotoUrl : fotoUrl;
+            const resolvedFotoUrl = fotoUrl.startsWith('/uploads/') ? fotoUrl : fotoUrl;
 
             return {
               ...p,

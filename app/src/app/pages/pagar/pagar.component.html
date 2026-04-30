@@ -44,7 +44,7 @@
             @for (item of listaProductos; track $index) {
               <div class="flex-shrink-0 item-pagar">
                 @if (item.Foto && item.Foto[0]) {
-                  <img [src]="'assets' + item.Foto[0].url" 
+                  <img [src]=" item.Foto[0].url" 
                       [alt]="item.Descripcion"
                       class="img-producto-checkout">
                 } @else {

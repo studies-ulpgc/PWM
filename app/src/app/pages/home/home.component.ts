@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
         const [entero, decimal = '00'] = cleanPrice.split('.');
 
         const resolvedFotoUrl = fotoUrl.startsWith('/uploads/')
-          ? 'assets' + fotoUrl
+          ? fotoUrl
           : fotoUrl;
 
         return {

@@ -31,7 +31,7 @@ export class ListaPedidosRealizadosComponent implements OnInit {
         name: p.Descripcion || 'Producto comprado',
         opts: 'Talla: M · Color: Negro',
         price: parseFloat(p.Precio?.replace(/[^0-9.,]/g, '').replace(',', '.') || '0'),
-        img: p.Foto?.[0]?.url ? 'assets' + p.Foto[0].url : '',
+        img: p.Foto?.[0]?.url ?  p.Foto[0].url : '',
         status: statuses[i % 3],
         selected: true
       }));

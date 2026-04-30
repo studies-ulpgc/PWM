@@ -10,9 +10,9 @@
             <div class="thumbnails-track">
               @for (img of producto.miniaturas; track $index) {
                 <img
-                  [src]="img?.formats?.thumbnail?.url ? 'assets' + img.formats.thumbnail.url : ''"
+                  [src]="img?.formats?.thumbnail?.url ? img.formats.thumbnail.url : ''"
                   class="img-thumb"
-                  [class.active]="imagenMostrada === ('assets' + img?.url)"
+                  [class.active]="imagenMostrada === (img?.url)"
                   (click)="cambiarImagen(img)"
                   alt="Vista miniatura">
               }

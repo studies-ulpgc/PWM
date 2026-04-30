@@ -8,7 +8,7 @@ import { ImagenIzqService } from '../../services/imagen-izq.service';
   imports: [CommonModule],
   template: `
     <div class="contenedor-imagen-lateral" *ngIf="data">
-      <img [src]="'assets' + data.url" [alt]="data.name" class="imagen-full">
+      <img [src]="data.url" [alt]="data.name" class="imagen-full">
     </div>
   `,
   styles: [`

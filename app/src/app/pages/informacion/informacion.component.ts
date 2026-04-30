@@ -31,7 +31,7 @@ export class InformacionComponent implements OnInit {
                 this.contenido = (res.Contenido || []).map((bloque: any) => {
                   if (bloque.imagen && bloque.imagen.url) {
                     bloque.imagen.url = bloque.imagen.url.startsWith('/uploads/') 
-                      ? 'assets' + bloque.imagen.url 
+                      ?  bloque.imagen.url 
                       : bloque.imagen.url;
                   }
                   return bloque;

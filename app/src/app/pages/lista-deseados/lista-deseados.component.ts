@@ -33,7 +33,7 @@ export class ListaDeseadosComponent implements OnInit {
         name: producto?.Descripcion || 'Artículo de Tendencia',
         price: parseFloat(producto?.Precio) || 29.99,
         added: false,
-        img: producto?.Foto?.[0]?.url ? 'assets' + producto.Foto[0].url : '',
+        img: producto?.Foto?.[0]?.url ?  producto.Foto[0].url : '',
         opts: `Talla: L · Color: Negro`
       };
     });
