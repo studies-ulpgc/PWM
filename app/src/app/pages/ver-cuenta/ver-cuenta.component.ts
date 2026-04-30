@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule } from '@angular/router';
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { Subscription, switchMap, of, catchError } from 'rxjs';
 import { AutentificacionService } from '../../services/autentificacion.service';
+import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-ver-cuenta',
@@ -14,7 +15,12 @@ import { AutentificacionService } from '../../services/autentificacion.service';
 })
 export class VerCuentaComponent implements OnInit, OnDestroy {
   userName: string = 'Cargando...';
+  uidUsuario: string | null = null;
+  fotoPerfil: string = 'https://ui-avatars.com/api/?name=Usuario&background=random';
+  subiendoImagen: boolean = false;
+  
   private sub?: Subscription;
+  private firestore: Firestore = inject(Firestore);
 
   constructor(
     private authService: AutentificacionService,
@@ -25,6 +31,7 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
     this.sub = this.authService.user$.pipe(
       switchMap(user => {
         if (user) {
+          this.uidUsuario = user.uid;
           return this.authService.getDatosUsuario(user.uid).pipe(
             catchError(err => {
               console.error('Error:', err);
@@ -38,6 +45,12 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
     ).subscribe(datos => {
       if (datos) {
         this.userName = `${datos.nombre} ${datos.apellidos}`.trim();
+        
+        if (datos.fotoPerfil) {
+          this.fotoPerfil = datos.fotoPerfil;
+        } else {
+          this.fotoPerfil = `https://ui-avatars.com/api/?name=${datos.nombre}+${datos.apellidos}&background=random&color=fff`;
+        }
       } else {
         this.userName = 'Invitado';
       }
@@ -50,6 +63,60 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
+
+  async onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    this.subiendoImagen = true;
+    this.cdr.detectChanges();
+
+    try {
+      const urlCloudinary = await this.subirACloudinary(file);
+
+      if (this.uidUsuario && urlCloudinary) {
+        await this.guardarEnFirebase(urlCloudinary);
+        this.fotoPerfil = urlCloudinary;
+      }
+    } catch (error) {
+      console.error('Error en el proceso de subida:', error);
+      alert('Hubo un error al cambiar tu foto de perfil.');
+    } finally {
+      this.subiendoImagen = false;
+      this.cdr.detectChanges();
+    }
+  }
+
+  async subirACloudinary(file: File): Promise<string> {
+    const cloudName = 'dxndjdzaq';
+    const uploadPreset = 'perfil_usuarios';
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', uploadPreset);
+
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      method: 'POST',
+      body: formData
+    });
+
+    if (!response.ok) throw new Error('Fallo al subir a Cloudinary');
+    
+    const data = await response.json();
+    return data.secure_url;
+  }
+
+  async guardarEnFirebase(url: string) {
+    if (!this.uidUsuario) return;
+    
+    const userRef = doc(this.firestore, `usuarios/${this.uidUsuario}`);
+    
+    await updateDoc(userRef, {
+      fotoPerfil: url
+    });
+  }
+
+
   ropaOpciones = ['Mujer', 'Hombre', 'Niño', 'Niña', 'Otro'];
   quienOpciones = ['Familia', 'Amigos', 'Pareja', 'Hijos', 'Mi'];
 
@@ -59,4 +126,3 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
     { cifra: 3, etiqueta: 'Tarjeta Regalo' }
   ];
 }
-
