@@ -10,7 +10,7 @@
 
         <div class="d-flex justify-content-center mb-5 border-bottom">
           <a routerLink="/iniciar-sesion" class="nav-link px-3 pb-2 text-muted">Iniciar Sesión</a>
-          <a href="#" class="nav-link active px-3 pb-2 border-bottom border-dark border-3 fw-bold text-dark">RegistrarseComponent</a>
+          <a href="#" class="nav-link active px-3 pb-2 border-bottom border-dark border-3 fw-bold text-dark">Registrarse</a>
         </div>
 
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -76,7 +76,7 @@
           </div>
 
           <button type="submit" class="btn btn-dark w-100 py-3 fw-bold" [disabled]="registerForm.invalid">
-            RegistrarseComponent
+            Registrarse
           </button>
 
         </form>
