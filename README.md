@@ -42,44 +42,50 @@ npm install typescript@5.8 --save-dev --legacy-peer-deps
 ```
 
 ## Estructuración del proyecto
-```bash
-app/                         # Aplicación Angular
-├── src/                
-│   └── app/
-│   │   ├── components/      # Componentes reutilizables
-│   │   ├── pages/           # Vistas principales
-│   │   └── services/        # Lógica de API       
-│   └── environments/        # Claves de la base de datos de Firestore
-├── backend/                 # Código de subida de todo el contenido en json previo 
-├── documentacion/           # README de los anteriores Sprints
-└── Mockups/                 # PDFs de los diseños de los Mockups
-```
+
+<pre>
+<a href="./app/">app/</a>                         # Aplicación Angular
+├── <a href="./app/src/">src/</a>
+│   ├── <a href="./app/src/app/">app/</a>
+│   │   ├── <a href="./app/src/app/components/">components/</a>      # Componentes reutilizables
+│   │   ├── <a href="./app/src/app/pages/">pages/</a>           # Vistas principales
+│   │   └── <a href="./app/src/app/services/">services/</a>        # Lógica de API
+│   └── <a href="./app/src/environments/">environments/</a>        # Claves de la base de datos de Firestore
+├── <a href="./backend/">backend/</a>                 # Código de subida de todo el contenido en json previo
+├── <a href="./documentacion/">documentacion/</a>           # README de los anteriores Sprints
+└── <a href="./Mockups/">Mockups/</a>                 # PDFs de los diseños de los Mockups
+</pre>
+
+
+## Listado de páginas y componentes
+
+| **Páginas html** | **Componentes que utiliza** |
+| --------------- | ------------------------- | 
+| **[articulo-selecccionado](/app/src/app/pages/articulo-seleccionado)** | [header-grande](/app/src/app/components/header-grande), [comentario](/app/src/app/components/comentario), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
+| **[configurar-direccion-entrega](/app/src/app/pages/configurar-direccion-entrega)** | [img-izq](/app/src/app/components/img-izq/) |
+| **[formulario-de-contacto](/app/src/app/pages/formulario-de-contacto)** | [img-izq](/app/src/app/components/img-izq/) |
+| **[galeria](/app/src/app/pages/galeria)** | [header-grande](/app/src/app/components/header-grande), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
+| **[home](/app/src/app/pages/home) (pagina de inicio)** | [header-grande](/app/src/app/components/header-grande), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
+| **[informacion](/app/src/app/pages/informacion)** | [header-grande](/app/src/app/components/header-grande), [footer](/app/src/app/components/footer) |
+| **[iniciar-sesion](/app/src/app/pages/iniciar-sesion)** | [img-izq](/app/src/app/components/img-izq/)  |
+| **[lista-deseados](/app/src/app/pages/lista-deseados)** | [header-grande](/app/src/app/components/header-grande), [item-wanted](/app/src/app/components/item-wanted/), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
+| **[lista-pedidos-realizados](/app/src/app/pages/lista-pedidos-realizados)** | [header-grande](/app/src/app/components/header-grande), [item-comprado](/app/src/app/components/item-comprado/), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
+| **[pagar](/app/src/app/pages/pagar)** | [header-grande](/app/src/app/components/header-grande), [footer](/app/src/app/components/footer) |
+| **[registrarse](/app/src/app/pages/registrarse)** | [img-izq](/app/src/app/components/img-izq/) |
+| **[ver-cesta](/app/src/app/pages/ver-cesta)** | [header-grande](/app/src/app/components/header-grande), [item-card](/app/src/app/components/item-card/), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
+| **[ver-cuenta](/app/src/app/pages/ver-cuenta)** | [header-grande](/app/src/app/components/header-grande), [footer](/app/src/app/components/footer) |
+
+| **Componente** | **Componente que usa** |
+| ------------ | -------------------- | 
+| **[header-grande](/app/src/app/components/header-grande)** | **Ninguno** |
+| **[comentario](/app/src/app/components/comentario)** | **Ninguno** |
+| **[producto](/app/src/app/components/producto)** | **Ninguno** |
+| **[footer](/app/src/app/components/footer)** | **Ninguno** |
+| **[similares](/app/src/app/components/similares)** | **[producto](/app/src/app/components/producto)** |
+| **[img-izq](/app/src/app/components/img-izq/)** | **Ninguno** |
+| **[item-card](/app/src/app/components/item-card/)** | **Ninguno** |
+| **[item-comprado](/app/src/app/components/item-comprado/)** | **Ninguno** |
+| **[item-wanted](/app/src/app/components/item-wanted/)** | **Ninguno** |
 
 ## Otros aspectos a tener en cuenta
-...
-
-## Listado de páginas html
-Cada página con nombre del mockup que implementa:
-| **Página html** | **Mockup que implementa** |
-| --------------- | ------------------------- | 
-| **[articulo-selecccionado.html](/app/src/app/pages/articulo-seleccionado/articulo-seleccionado.component.html)** | **Artículo Seleccionado** |
-| **[configurar-direccion-entrega.html](/app/src/app/pages/configurar-direccion-entrega/configurar-direccion-entrega.component.html)** | **Configurar dirección de entrega** |
-| **[formulario-de-contacto.html](/app/src/app/pages/formulario-de-contacto/formulario-de-contacto.component.html)** | **Formulario de contacto** |
-| **[galeria.html](/app/src/app/pages/galeria/galeria.component.html)** | **Galería** |
-| **[home.html](/app/src/app/pages/home/home.component.html) (pagina de inicio)** | **Home** |
-| **[informacion.html](/app/src/app/pages/informacion/informacion.component.html)** | **Información** |
-| **[iniciar-sesion.html](/app/src/app/pages/iniciar-sesion/iniciar-sesion.component.html)** | **Iniciar Sesión** |
-| **[lista-deseados.html](/app/src/app/pages/lista-deseados/lista-deseados.component.html)** | **Lista de deseados** |
-| **[lista-pedidos-realizados.html](/app/src/app/pages/lista-pedidos-realizados/lista-pedidos-realizados.component.html)** | **Lista Pedidos realizados** |
-| **[pagar.html](/app/src/app/pages/pagar/pagar.component.html)** | **PagarComponent** |
-| **[registrarse.html](/app/src/app/pages/registrarse/registrarse.component.html)** | **RegistrarseComponent** |
-| **[ver-cesta.html](/app/src/app/pages/ver-cesta/ver-cesta.component.html)** | **Ver cesta** |
-| **[ver-cuenta.html](/app/src/app/pages/ver-cuenta/ver-cuenta.component.html)** | **Ver Cuenta** |
-
-| **Template** | **Template que usa** |
-| ------------ | -------------------- | 
-| **[header-grande.html](/app/src/app/components/header-grande/header-grande.component.html)** | **Ninguno** |
-| **[comentario.html](/app/src/app/components/comentario/comentario.component.html)** | **Ninguno** |
-| **[producto.html](/app/src/app/components/producto/producto.component.html)** | **Ninguno** |
-| **[footer.html](/app/src/app/components/footer/footer.component.html)** | **Ninguno** |
-| **[similares.html](/app/src/app/components/similares/similares.component.html)** | **[producto.html](/app/src/app/components/producto/producto.component.html)** |
+Se han agregado funcionalidades como el slider de Galería que ahora filtra el precio, en Artículo seleccionado si se selecciona una prenda no se muestra en “Podría Interesarte” y en el inicio de sesión optamos por emplear sólo una web en vez de tres. Además, la página sigue siendo responsive.
