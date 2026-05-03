@@ -44,16 +44,17 @@ npm install typescript@5.8 --save-dev --legacy-peer-deps
 ## Estructuración del proyecto
 
 <pre>
-<a href="./app/">app/</a>                         # Aplicación Angular
-├── <a href="./app/src/">src/</a>
-│   ├── <a href="./app/src/app/">app/</a>
-│   │   ├── <a href="./app/src/app/components/">components/</a>      # Componentes reutilizables
-│   │   ├── <a href="./app/src/app/pages/">pages/</a>           # Vistas principales
-│   │   └── <a href="./app/src/app/services/">services/</a>        # Lógica de API
-│   └── <a href="./app/src/environments/">environments/</a>        # Claves de la base de datos de Firestore
-├── <a href="./backend/">backend/</a>                 # Código de subida de todo el contenido en json previo
-├── <a href="./documentacion/">documentacion/</a>           # README de los anteriores Sprints
-└── <a href="./Mockups/">Mockups/</a>                 # PDFs de los diseños de los Mockups
+<a href="./">PWM/</a>
+├── <a href="./app/">app/</a>                         # Aplicación Angular
+│   └── <a href="./app/src">src/</a>
+│       ├── <a href="./app/src/app/">app/</a> 
+│       │   ├── <a href="./app/src/app/components/">components/</a>      # Componentes reutilizables
+│       │   ├── <a href="./app/src/app/pages/">pages/</a>           # Vistas principales
+│       │   └── <a href="./app/src/app/services/">services/</a>        # Lógica de API
+│       └── <a href="./app/src/environments/">environments/</a>        # Claves de la base de datos de Firestore
+├── <a href="./backend/">backend/</a>                     # Código de subida de todo el contenido en json previo
+├── <a href="./documentacion/">documentacion/</a>               # README de los anteriores Sprints
+└── <a href="./Mockups/">Mockups/</a>                     # PDFs de los diseños de los Mockups
 </pre>
 
 
