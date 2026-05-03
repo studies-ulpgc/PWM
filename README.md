@@ -62,19 +62,19 @@ npm install typescript@5.8 --save-dev --legacy-peer-deps
 
 | **Páginas html** | **Componentes que utiliza** |
 | --------------- | ------------------------- | 
-| **[articulo-selecccionado](/app/src/app/pages/articulo-seleccionado)** | [header-grande](/app/src/app/components/header-grande), [comentario](/app/src/app/components/comentario), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
+| **[articulo-selecccionado](/app/src/app/pages/articulo-seleccionado)** | [header-grande](/app/src/app/components/header-grande) <br> [comentario](/app/src/app/components/comentario) <br> [similares](/app/src/app/components/similares) <br> [footer](/app/src/app/components/footer) |
 | **[configurar-direccion-entrega](/app/src/app/pages/configurar-direccion-entrega)** | [img-izq](/app/src/app/components/img-izq/) |
 | **[formulario-de-contacto](/app/src/app/pages/formulario-de-contacto)** | [img-izq](/app/src/app/components/img-izq/) |
-| **[galeria](/app/src/app/pages/galeria)** | [header-grande](/app/src/app/components/header-grande), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
-| **[home](/app/src/app/pages/home) (pagina de inicio)** | [header-grande](/app/src/app/components/header-grande), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
-| **[informacion](/app/src/app/pages/informacion)** | [header-grande](/app/src/app/components/header-grande), [footer](/app/src/app/components/footer) |
+| **[galeria](/app/src/app/pages/galeria)** | [header-grande](/app/src/app/components/header-grande) <br> [similares](/app/src/app/components/similares) <br> [footer](/app/src/app/components/footer) |
+| **[home](/app/src/app/pages/home) (pagina de inicio)** | [header-grande](/app/src/app/components/header-grande) <br> [similares](/app/src/app/components/similares) <br> [footer](/app/src/app/components/footer) |
+| **[informacion](/app/src/app/pages/informacion)** | [header-grande](/app/src/app/components/header-grande) <br> [footer](/app/src/app/components/footer) |
 | **[iniciar-sesion](/app/src/app/pages/iniciar-sesion)** | [img-izq](/app/src/app/components/img-izq/)  |
-| **[lista-deseados](/app/src/app/pages/lista-deseados)** | [header-grande](/app/src/app/components/header-grande), [item-wanted](/app/src/app/components/item-wanted/), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
-| **[lista-pedidos-realizados](/app/src/app/pages/lista-pedidos-realizados)** | [header-grande](/app/src/app/components/header-grande), [item-comprado](/app/src/app/components/item-comprado/), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
-| **[pagar](/app/src/app/pages/pagar)** | [header-grande](/app/src/app/components/header-grande), [footer](/app/src/app/components/footer) |
+| **[lista-deseados](/app/src/app/pages/lista-deseados)** | [header-grande](/app/src/app/components/header-grande) <br> [item-wanted](/app/src/app/components/item-wanted/) <br> [similares](/app/src/app/components/similares) <br> [footer](/app/src/app/components/footer) |
+| **[lista-pedidos-realizados](/app/src/app/pages/lista-pedidos-realizados)** | [header-grande](/app/src/app/components/header-grande) <br> [item-comprado](/app/src/app/components/item-comprado/) <br> [similares](/app/src/app/components/similares) <br> [footer](/app/src/app/components/footer) |
+| **[pagar](/app/src/app/pages/pagar)** | [header-grande](/app/src/app/components/header-grande) <br> [footer](/app/src/app/components/footer) |
 | **[registrarse](/app/src/app/pages/registrarse)** | [img-izq](/app/src/app/components/img-izq/) |
-| **[ver-cesta](/app/src/app/pages/ver-cesta)** | [header-grande](/app/src/app/components/header-grande), [item-card](/app/src/app/components/item-card/), [similares](/app/src/app/components/similares), [footer](/app/src/app/components/footer) |
-| **[ver-cuenta](/app/src/app/pages/ver-cuenta)** | [header-grande](/app/src/app/components/header-grande), [footer](/app/src/app/components/footer) |
+| **[ver-cesta](/app/src/app/pages/ver-cesta)** | [header-grande](/app/src/app/components/header-grande) <br> [item-card](/app/src/app/components/item-card/) <br> [similares](/app/src/app/components/similares) <br> [footer](/app/src/app/components/footer) |
+| **[ver-cuenta](/app/src/app/pages/ver-cuenta)** | [header-grande](/app/src/app/components/header-grande) <br> [footer](/app/src/app/components/footer) |
 
 | **Componente** | **Componente que usa** |
 | ------------ | -------------------- | 
