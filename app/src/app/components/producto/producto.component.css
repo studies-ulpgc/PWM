@@ -1,93 +1,208 @@
-.producto {
-  transition: border-color 0.2s ease, transform 0.15s ease;
-  min-height: 384px;
+/* Contenedor Principal */
+.producto-container {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 400px;
+  overflow: hidden;
 }
 
-.producto:hover {
-  border-color: #1e1e1e !important;
-}
-
-.producto:active {
-  transform: scale(0.97);
-}
-
-.btn-circular:hover {
-  opacity: 0.7;
-}
-
-.btn-circle-sm {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition: all 0.2s ease;
-  background-color: white;
-  border: 1px solid;
-}
-
-.btn-active {
+.producto-container:hover {
   border-color: #000;
-  color: #000;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
 }
 
-.btn-active:hover {
-  background-color: #000;
-  color: #fff;
-  transform: scale(1.1);
+.producto-container:active {
+  transform: scale(0.98);
 }
 
-.btn-disabled {
-  border-color: #d8d8d8 !important;
-  color: #a1a1a1 !important;
-}
-
-.btn-disabled:hover {
+/* Imagen */
+.image-wrapper {
+  aspect-ratio: 229 / 247;
+  background-size: cover;
+  background-position: center;
   background-color: #f8f9fa;
-  color: #5f5f5f !important;
-  transform: scale(1.02);
-  cursor: pointer;
+  transition: transform 0.5s ease;
 }
 
-.btn-circle-sm:active {
-  transform: scale(0.9);
+.producto-container:hover .image-wrapper {
+  transform: scale(1.02);
+}
+
+/* Tipografía */
+.product-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #212529;
+}
+
+.price-main {
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.price-decimal {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* Botones de Acción (Ionic Reset) */
+.btn-action {
+  --padding-start: 0;
+  --padding-end: 0;
+  --border-radius: 50%;
+  --color: #000;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  transition: all 0.2s ease;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Estado: Seleccionado (Cesta/Deseados activa) */
+.btn-action.is-selected {
+  --background: #000;
+  --color: #fff;
+  border-color: #000;
+}
+
+/* Estado: Desactivado (Sin login) */
+.btn-action.is-disabled {
+  --color: #a1a1a1;
+  border-color: #d8d8d8;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Hover en Botones */
+.btn-action:hover {
+  transform: scale(1.1);
+  --background: #f8f9fa;
+}
+
+.btn-action.is-selected:hover {
+  --background: #333;
+}
+
+/* Estrellas */
+.rating-stars {
+  font-size: 0.8rem;
 }
 
 .rating-stars i {
-  font-size: 14px;
-  margin-right: 1px;
+  margin-right: 2px;
+  color: #212529;
 }
 
-.img-valoracion {
-  width: 100px;
-  height: auto;
-  filter: grayscale(1);
+.votes-count {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #6c757d;
 }
 
-@media (max-width: 500px) {
-  .producto {
-    padding-bottom: 30px;
-  }
+/* Espaciado para que el texto no choque con los botones */
+.product-link {
+  padding-bottom: 70px !important; 
 }
 
-.is-selected {
-  background-color: #000 !important;
-  color: #fff !important;
-  border-color: #000 !important;
+/* Contenedor de botones */
+.btn-action-minimal {
+  --padding-start: 0;
+  --padding-end: 0;
+  --box-shadow: none;
+  --background-hover: transparent;
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --color: #000;
 }
 
-.is-selected i {
-  color: #fff !important;
+/* Cuando están seleccionados */
+.btn-action-minimal.is-selected {
+  border-color: #000;
+  --background: #000;
+  --color: #fff;
 }
 
-.btn-active.is-selected:hover {
-  opacity: 0.8;
+/* Iconos dentro de los botones */
+.btn-action-minimal ion-icon {
+  font-size: 18px; /* Tamaño justo para que se vea elegante */
+}
+
+/* Hover effects */
+.btn-action-minimal:hover:not([disabled]) {
+  border-color: #000;
   transform: scale(1.05);
 }
 
-.btn-circle-sm i {
-  color: inherit;
-  transition: color 0.2s ease;
+/* Rating stars */
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating-stars i {
+  font-size: 13px;
+  color: #212529;
+}
+
+.votes-count {
+  font-size: 12px;
+  color: #6c757d;
+  margin-left: 4px;
+}
+
+/* Estado deshabilitado (Sin Login) */
+.btn-action-minimal[disabled] {
+  opacity: 0.4;
+  border-color: #eee;
+  --color: #999;
+}
+
+/* Botón de acción minimalista sin efectos extraños */
+.btn-action-minimal {
+  --padding-start: 0;
+  --padding-end: 0;
+  --box-shadow: none;
+  /* CRUCIAL: Esto elimina el fondo gris/negro cuadrado al hacer clic */
+  --background-activated: transparent; 
+  --background-focused: transparent;
+  --background-hover: transparent;
+  --ripple-color: transparent; /* Elimina la onda expansiva */
+  
+  margin: 0;
+  width: 38px;
+  height: 38px;
+  --border-radius: 50% !important; /* Forzamos radio en variable de Ionic */
+  border: 1px solid #e0e0e0;
+  background: #ffffff; /* Fondo base */
+  transition: all 0.2s ease;
+  --color: #000;
+}
+
+/* Cuando el producto está seleccionado (Cesta/Deseados) */
+.btn-action-minimal.is-selected {
+  border-color: #000;
+  background: #000 !important; /* Forzamos el fondo negro */
+  --color: #fff;
+}
+
+/* Para asegurar que el icono cambie de color */
+.btn-action-minimal.is-selected ion-icon {
+  color: #ffffff;
+}
+
+/* Hover suave */
+.btn-action-minimal:hover:not([disabled]) {
+  border-color: #000;
+  transform: scale(1.08);
 }

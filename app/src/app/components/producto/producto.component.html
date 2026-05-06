@@ -1,51 +1,51 @@
-<div class="producto card h-100 border-1 position-relative shadow-sm">
-  <a [routerLink]="['/articulo-seleccionado', data?.id]" class="text-decoration-none d-flex flex-column h-100 p-3 pb-5 mb-4">
+<div class="producto-container h-100 position-relative shadow-sm">
+  <!-- Enlace al detalle: Ocupa toda la tarjeta -->
+  <a [routerLink]="['/articulo-seleccionado', data?.id]" class="product-link text-decoration-none d-flex flex-column h-100 p-3">
     
-    <div class="card-img-top rounded-3 bg-light overflow-hidden mb-3" 
-         [style.backgroundImage]="'url(' + data?.fotoUrl + ')'"
-         style="aspect-ratio: 229 / 247; background-size: cover; background-position: center;">
+    <!-- Imagen con Aspect Ratio controlado -->
+    <div class="image-wrapper rounded-3 mb-3" 
+         [style.backgroundImage]="'url(' + data?.fotoUrl + ')'">
     </div>
 
-    <div class="card-body p-0 d-flex flex-column gap-2">
-      <div class="card-title text-dark text-truncate mb-0 fs-6">
+    <!-- Textos -->
+    <div class="product-info d-flex flex-column gap-1">
+      <div class="product-name text-dark text-truncate">
         {{ data?.nombre || 'Producto sin nombre' }}
       </div>
       
-      <p class="card-text d-inline-flex align-items-baseline gap-1 m-0 fw-bold text-dark fs-5">
-        <span>{{ data?.precioEntero || '0' }}</span>
-        <span class="fs-6 fw-normal">.{{ data?.precioDecimal || '00' }}€</span>
-      </p>
+      <div class="product-price d-flex align-items-baseline gap-1 fw-bold text-dark">
+        <span class="price-main">{{ data?.precioEntero || '0' }}</span>
+        <span class="price-decimal">.{{ data?.precioDecimal || '00' }}€</span>
+      </div>
     </div>
   </a>
 
-  <div class="simbolos position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-center">
+  <!-- Barra de acciones inferior (Flotante) -->
+  <div class="action-bar position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-center">
     
-    <div class="rating-stars text-dark small" [style.visibility]="data?.Valoracion ? 'visible' : 'hidden'">
+    <div class="rating-stars text-dark" [style.visibility]="data?.Valoracion ? 'visible' : 'hidden'">
       @for (star of [1,2,3,4,5]; track star) {
-        <i class="bi" 
-           [class.bi-star-fill]="star <= obtenerRating()" 
-           [class.bi-star]="star > obtenerRating()"></i>
+        <i class="bi" [class.bi-star-fill]="star <= obtenerRating()" [class.bi-star]="star > obtenerRating()"></i>
       }
-      <span class="ms-1 fw-bold">({{ data?.Votos || 0 }})</span>
+      <span class="ms-1 votes-count">({{ data?.Votos || 0 }})</span>
     </div>
 
     <div class="d-flex gap-2">
-      <button class="btn btn-circle-sm position-relative" 
-              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
-              [class.is-selected]="enCesta"
-              (click)="toggleCesta()"
-              title="Añadir a la cesta">
-        <i class="bi" [ngClass]="enCesta ? 'bi-bag-check-fill' : 'bi-bag-plus'"></i>
-      </button>
+      <ion-button fill="clear" 
+                  class="btn-action-minimal"
+                  [class.is-selected]="enCesta"
+                  [disabled]="!isLoggedIn"
+                  (click)="toggleCesta(); $event.stopPropagation()">
+        <ion-icon slot="icon-only" [name]="enCesta ? 'bag-check' : 'bag-add-outline'"></ion-icon>
+      </ion-button>
 
-      <button class="btn btn-circle-sm" 
-              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
-              [class.is-selected]="enDeseados"
-              (click)="toggleDeseados()"
-              title="Añadir a deseados">
-        <i class="bi" [ngClass]="enDeseados ? 'bi-heart-fill' : 'bi-heart'"></i>
-      </button>
+      <ion-button fill="clear" 
+                  class="btn-action-minimal"
+                  [class.is-selected]="enDeseados"
+                  [disabled]="!isLoggedIn"
+                  (click)="toggleDeseados(); $event.stopPropagation()">
+        <ion-icon slot="icon-only" [name]="enDeseados ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-button>
     </div>
-
   </div>
 </div>
