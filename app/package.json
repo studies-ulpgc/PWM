@@ -24,6 +24,7 @@
     "@angular/router": "^20.3.19",
     "@angular/ssr": "^20.3.24",
     "@capacitor-community/sqlite": "^8.1.0",
+    "@capacitor/android": "^8.3.1",
     "@capacitor/cli": "^8.3.1",
     "@capacitor/core": "^8.3.1",
     "@ionic/angular": "^8.8.5",

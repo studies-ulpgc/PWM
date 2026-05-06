@@ -1,38 +1,42 @@
-<app-header-grande></app-header-grande>
+<ion-header [translucent]="true">
+  <app-header-grande></app-header-grande>
+</ion-header>
 
-<main class="home-container">
-  <article class="content-wrapper">
+<ion-content [fullscreen]="true">
+  <main class="home-container">
+    <article class="content-wrapper">
 
-    <section class="hero-carousel">
-      <div class="animation-track">
-        <a
-          *ngFor="let item of carruselItems; trackBy: trackById"
-          [routerLink]="['/articulo-seleccionado', item.id]"
-          class="hero-card"
-          [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
-          <div class="overlay-info">
-            <span>Descubrir colección</span>
-          </div>
-        </a>
-      </div>
-    </section>
+      <section class="hero-carousel">
+        <div class="animation-track">
+          <a
+            *ngFor="let item of carruselItems; trackBy: trackById"
+            [routerLink]="['/articulo-selected', item.id]"
+            class="hero-card"
+            [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
+            <div class="overlay-info">
+              <span>Descubrir colección</span>
+            </div>
+          </a>
+        </div>
+      </section>
 
-    <section class="products-section">
-      <div class="section-header">
-        <h2>Trending</h2>
-        <div class="line"></div>
-      </div>
-      
-      <div class="products-grid">
-        <app-producto 
-          *ngFor="let prod of productos; trackBy: trackById" 
-          [data]="prod"
-          class="product-card-anim"
-          >
-        </app-producto>
-      </div>
-    </section>
+      <section class="products-section">
+        <div class="section-header">
+          <h2>Trending</h2>
+          <div class="line"></div>
+        </div>
+        
+        <div class="products-grid">
+          <app-producto 
+            *ngFor="let prod of productos; trackBy: trackById" 
+            [data]="prod"
+            class="product-card-anim"
+            >
+          </app-producto>
+        </div>
+      </section>
 
-    <app-footer></app-footer>
-  </article>
-</main>
+      <app-footer></app-footer>
+    </article>
+  </main>
+</ion-content>
