@@ -1,4 +1,4 @@
-# SPRINT 3
+# SPRINT 4
 
 ## Introducción
 El proyecto, titulado **“Tienda de Ropa Online”**, ha sido desarrollado por el **grupo 42, subgrupo 6**, formado por:
@@ -15,31 +15,32 @@ El objetivo del software es desarrollar una plataforma web de comercio electrón
 cd app
 
 # Instalación de las dependencias
-npm install
-npm install @angular/fire@latest
-npm install firebase-admin
+npm install -g @ionic/cli  
+ionic init 
 
 # En caso de fallar la instalación, añadir el argumento --legacy-peer-deps
-npm install --legacy-peer-deps
-npm install @angular/fire@latest --legacy-peer-deps
+npm install @capacitor/core @capacitor/cli --legacy-peer-deps 
+npm install @angular-devkit/core @angular-devkit/schematics --save-dev --legacy-peer-deps
+npm install @ionic/angular --legacy-peer-deps
+
+# Para abrir el capacitor
+npx cap init 
 
 # Cargar la aplicación
-ng serve
+ionic serve
 
-# Si se quiere que se abra directamente emplear el argumento --open
-ng serve --open
-
-# En caso de error, emplear el argumento npx
-npx ng serve --open
+# En caso de querer acceder a npx cap init debería de entrar en un navegador con una dirección similar a:
+https://dashboard.ionicframework.com/org/aaf5aef7-dec4-4c8e-ade8-affbdc9b8d6f/apps
 ```
-### Versión 20 de Angular
+## Errores encontrados
 ```bash
-# Para asegurar la instalación completa de la versión 20 de Angular se empleó
-npm install @angular/core@20 @angular/common@20 @angular/compiler@20 @angular/compiler-cli@20 @angular/platform-browser@20 @angular/platform-server@20 @angular/router@20 @angular/forms@20 @angular/animations@20 @angular/cli@20 @angular/build@20 @angular-devkit/build-angular@20 @angular/ssr@20 --save --legacy-peer-deps
-
-npm install typescript@5.8 --save-dev --legacy-peer-deps
-
+# Instalamos versiones específicas compatibles (Firebase 11 es la actual para Angular 20)
+npm cache clean --force   
+Remove-Item -Recurse -Force node_modules/@angular/fire        
+Remove-Item -Recurse -Force node_modules/firebase   
+npm install firebase @angular/fire --save --legacy-peer-deps 
 ```
+
 
 ## Estructuración del proyecto
 
