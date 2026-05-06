@@ -1,147 +1,149 @@
-<app-header-grande></app-header-grande>
+<ion-header [translucent]="true">
+  <app-header-grande></app-header-grande>
+</ion-header>
 
-<main class="product-page py-5" *ngIf="producto">
-  <div class="container">
-    <div class="row g-5">
+<ion-content [fullscreen]="true">
+  <main class="product-page py-5" *ngIf="producto">
+    <div class="container">
+      <div class="row g-5">
 
-      <div class="col-lg-7">
-        <div class="sticky-top-custom">
-          <div class="image-showcase">
-            <div class="thumbnails-track">
-              @for (img of producto.miniaturas; track $index) {
-                <img
-                  [src]="img?.formats?.thumbnail?.url ? img.formats.thumbnail.url : ''"
-                  class="img-thumb"
-                  [class.active]="imagenMostrada === (img?.url)"
-                  (click)="cambiarImagen(img)"
-                  alt="Vista miniatura">
-              }
-            </div>
-            <div class="main-stage">
-              <img [src]="imagenMostrada" class="img-fluid main-img" alt="ProductoComponent">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-5">
-        <div class="product-details">
-          <nav aria-label="breadcrumb" class="mb-2">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-              <li class="breadcrumb-item active">{{producto.Categoria || 'Colección'}}</li>
-            </ol>
-          </nav>
-
-          <h1 class="product-title">{{producto.Descripcion}}</h1>
-          <p class="product-subtitle text-muted">{{producto.Subtitulo}}</p>
-
-          <div class="price-tag my-4">
-            <span class="currency">€</span>
-            <span class="amount">{{precioEntero}}</span>
-            <span class="cents">.{{precioDecimal}}</span>
-          </div>
-
-          <hr class="my-4">
-
-          <div class="selection-group mb-4">
-            <label class="section-label">Colores Disponibles</label>
-            <div class="color-options d-flex gap-2">
-              <div class="color-swatch active" style="background-image: url('assets/img/rectangle.svg')"></div>
-              <div class="color-swatch" style="background-image: url('assets/img/rectangle.svg'); filter: sepia(1)"></div>
-              <div class="color-swatch" style="background-image: url('assets/img/rectangle.svg'); filter: grayscale(1)"></div>
-            </div>
-          </div>
-
-          <div class="selection-group mb-4">
-            <div class="d-flex justify-content-between">
-              <label class="section-label">Seleccionar Talla</label>
-              <a href="#" class="size-guide">Guía de tallas</a>
-            </div>
-            <div class="size-selector">
-              @for (size of producto.tallasArray; track size) {
-                <input type="radio" name="size" [id]="'size-'+size" class="btn-check">
-                <label class="btn btn-outline-dark size-btn" [for]="'size-'+size">{{size}}</label>
-              }
-            </div>
-          </div>
-
-          <div class="action-buttons d-grid gap-3">
-            <button class="btn btn-dark btn-lg add-to-cart-btn py-3" id="btnSumarCesta">
-              <span>Añadir a la cesta</span>
-            </button>
-            <button class="btn btn-outline-secondary add-to-wishlist-btn btn-lg py-3 d-flex align-items-center justify-content-center gap-2">
-              <i class="bi bi-heart fs-5"></i>
-              <span>Lista de deseos</span>
-            </button>
-          </div>
-
-          <div class="product-description mt-5">
-            <h3 class="section-label">Descripción</h3>
-            <p>{{producto.Descripcion_larga}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="reviews-section mt-5 pt-5 border-top">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="review-summary p-4 bg-light rounded">
-            <h2 class="h4 mb-4">Opiniones de clientes</h2>
-
-            <div class="d-flex align-items-center mb-3">
-              <div class="stars-display me-2 text-dark">
-                @for (star of [1,2,3,4,5]; track star) {
-                  <i class="bi"
-                    [class.bi-star-fill]="star <= obtenerRating(producto)"
-                    [class.bi-star]="star > obtenerRating(producto)"></i>
+        <div class="col-lg-7">
+          <div class="sticky-top-custom">
+            <div class="image-showcase">
+              <div class="thumbnails-track">
+                @for (img of producto.miniaturas; track $index) {
+                  <img
+                    [src]="img?.formats?.thumbnail?.url ? img.formats.thumbnail.url : ''"
+                    class="img-thumb"
+                    [class.active]="imagenMostrada === (img?.url)"
+                    (click)="cambiarImagen(img)"
+                    alt="Vista miniatura">
                 }
               </div>
-              <span class="fw-bold h5 mb-0">{{ obtenerRating(producto) }}.0</span>
+              <div class="main-stage">
+                <img [src]="imagenMostrada" class="img-fluid main-img" alt="ProductoComponent">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LADO DERECHO: Detalles -->
+        <div class="col-lg-5">
+          <div class="product-details">
+            <nav aria-label="breadcrumb" class="mb-2">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                <li class="breadcrumb-item active">{{producto.Categoria || 'Colección'}}</li>
+              </ol>
+            </nav>
+
+            <h1 class="product-title">{{producto.Descripcion}}</h1>
+            <p class="product-subtitle text-muted">{{producto.Subtitulo}}</p>
+
+            <div class="price-tag my-4">
+              <span class="currency">€</span>
+              <span class="amount">{{precioEntero}}</span>
+              <span class="cents">.{{precioDecimal}}</span>
             </div>
 
-            <p class="text-muted mb-4">Basado en {{ producto.Votos }} valoraciones</p>
+            <hr class="my-4">
 
-            @for (i of [5,4,3,2,1]; track i) {
-              <div class="d-flex align-items-center mb-2">
-                <span class="me-2 small">{{i}}</span>
-                <div class="progress flex-grow-1" style="height: 6px;">
-                  <div class="progress-bar bg-dark"
-                      [style.width.%]="i === obtenerRating(producto) ? 70 : (i < obtenerRating(producto) ? 15 : 5)">
+            <!-- Colores -->
+            <div class="selection-group mb-4">
+              <label class="section-label">Colores Disponibles</label>
+              <div class="color-options d-flex gap-2">
+                <div class="color-swatch active" style="background-image: url('assets/img/rectangle.svg')"></div>
+                <div class="color-swatch" style="background-image: url('assets/img/rectangle.svg'); filter: sepia(1)"></div>
+                <div class="color-swatch" style="background-image: url('assets/img/rectangle.svg'); filter: sepia(1)"></div>
+              </div>
+            </div>
+
+            <!-- Tallas -->
+            <div class="selection-group mb-4">
+              <div class="d-flex justify-content-between">
+                <label class="section-label">Seleccionar Talla</label>
+                <a href="#" class="size-guide">Guía de tallas</a>
+              </div>
+              <div class="size-selector">
+                @for (size of producto.tallasArray; track size) {
+                <input type="radio" name="size" [id]="'size-'+size" class="btn-check">
+                <label class="btn btn-outline-dark size-btn" [for]="'size-'+size">{{size}}</label>
+                }
+              </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="action-buttons d-grid gap-3">
+              <ion-button expand="block" color="dark" class="add-to-cart-btn" (click)="agregarAlCarrito()">
+                Añadir a la cesta
+              </ion-button>
+              <ion-button expand="block" fill="outline" color="medium" class="add-to-wishlist-btn">
+                <ion-icon slot="start" name="heart-outline"></ion-icon>
+                Lista de deseos
+              </ion-button>
+            </div>
+
+            <div class="product-description mt-5">
+              <h3 class="section-label">Descripción</h3>
+              <p>{{producto.Descripcion_larga}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN RESEÑAS -->
+      <section class="reviews-section mt-5 pt-5 border-top">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="review-summary p-4 bg-light rounded">
+              <h2 class="h4 mb-4">Opiniones de clientes</h2>
+              <div class="d-flex align-items-center mb-3">
+                <div class="stars-display me-2 text-dark">
+                  @for (star of [1,2,3,4,5]; track star) {
+                    <i class="bi" [class.bi-star-fill]="star <= obtenerRating(producto)" [class.bi-star]="star > obtenerRating(producto)"></i>
+                  }
+                </div>
+                <span class="fw-bold h5 mb-0">{{ obtenerRating(producto) }}.0</span>
+              </div>
+              <p class="text-muted mb-4">Basado en {{ producto.Votos || 0 }} valoraciones</p>
+              
+              <!-- Progress bars de ratings -->
+              @for (i of [5,4,3,2,1]; track i) {
+                <div class="d-flex align-items-center mb-2">
+                  <span class="me-2 small">{{i}}</span>
+                  <div class="progress flex-grow-1" style="height: 6px;">
+                    <div class="progress-bar bg-dark"
+                        [style.width.%]="i === obtenerRating(producto) ? 70 : (i < obtenerRating(producto) ? 15 : 5)">
+                    </div>
                   </div>
                 </div>
-              </div>
-            }
-            <button class="btn btn-outline-dark w-100 mt-4">Escribir una opinión</button>
-          </div>
-        </div>
-
-        <div class="col-md-8">
-          <div class="comments-scroll">
-            @for (c of listaComentarios; track $index) {
-              <app-comentario [data]="c"></app-comentario>
-            }
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="related-section mt-5 pt-5">
-      <h3 class="mb-4 text-center text-uppercase letter-spacing-2">Puede interesarte</h3>
-      <div class="row row-cols-2 row-cols-md-4 g-4">
-        @for (prod of productosRelacionados; track $index) {
-          <div class="col">
-            <app-producto [data]="prod" class="product-card-anim"></app-producto>
-          </div>
-        } @empty {
-            <div class="loading-state">
-              <p>Buscando las mejores prendas para ti...</p>
+              }
+              <button class="btn btn-outline-dark w-100 mt-4">Escribir una opinión</button>
             </div>
-          }
-      </div>
-    </section>
-  </div>
-</main>
+          </div>
 
-<app-footer></app-footer>
+          <div class="col-md-8">
+            <div class="comments-scroll">
+              @for (c of listaComentarios; track $index) {
+                <app-comentario [data]="c"></app-comentario>
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN RELACIONADOS -->
+      <section class="related-section mt-5 pt-5 border-top">
+        <h3 class="mb-4 text-center text-uppercase letter-spacing-2">Puede interesarte</h3>
+        <div class="row row-cols-2 row-cols-md-4 g-4">
+          @for (prod of productosRelacionados; track $index) {
+          <div class="col">
+            <app-producto [data]="prod" class="product-card-anim" [routerLink]="['/articulo', prod.id]"></app-producto>
+          </div>
+          }
+        </div>
+      </section>
+    </div>
+    <app-footer></app-footer>
+  </main>
+</ion-content>

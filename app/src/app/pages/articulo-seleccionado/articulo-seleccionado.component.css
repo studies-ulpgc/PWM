@@ -176,3 +176,16 @@
     font-size: 1.8rem;
   }
 }
+
+ion-button {
+  --border-radius: 0; /* Si quieres el estilo cuadrado de moda */
+  margin-top: 5px;
+  height: 55px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.stars-display i {
+  color: #ffc107; /* Color dorado para estrellas */
+  margin-right: 2px;
+}
