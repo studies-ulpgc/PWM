@@ -1,12 +1,21 @@
 import { Component, Input, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IonButton, IonIcon } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { 
+  thumbsUp, 
+  thumbsUpOutline, 
+  thumbsDown, 
+  thumbsDownOutline, 
+  ellipsisHorizontalOutline 
+} from 'ionicons/icons';
 import { AutentificacionService } from '../../services/autentificacion.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-comentario',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IonButton, IonIcon],
   templateUrl: './comentario.component.html',
   styleUrls: ['./comentario.component.css']
 })
@@ -18,7 +27,15 @@ export class ComentarioComponent implements OnInit, OnDestroy {
   disliked = false;
   private authSub?: Subscription;
 
-  constructor(private authService: AutentificacionService, private cdr: ChangeDetectorRef) {}
+  constructor(private authService: AutentificacionService, private cdr: ChangeDetectorRef) {
+    addIcons({ 
+      thumbsUp, 
+      thumbsUpOutline, 
+      thumbsDown, 
+      thumbsDownOutline, 
+      ellipsisHorizontalOutline 
+    });
+  }
 
   ngOnInit() {
     this.authSub = this.authService.user$.subscribe(user => {
@@ -46,6 +63,7 @@ export class ComentarioComponent implements OnInit, OnDestroy {
     if (this.isLoggedIn) {
       this.liked = !this.liked;
       if (this.liked) this.disliked = false;
+      this.cdr.detectChanges();
     }
   }
 
@@ -53,6 +71,7 @@ export class ComentarioComponent implements OnInit, OnDestroy {
     if (this.isLoggedIn) {
       this.disliked = !this.disliked;
       if (this.disliked) this.liked = false;
+      this.cdr.detectChanges();
     }
   }
 }

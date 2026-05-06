@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { IonCard, IonCardTitle, IonButton, IonIcon, IonCardSubtitle } from '@ionic/angular/standalone';
+import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { bagAddOutline, bagCheck, heart, heartOutline } from 'ionicons/icons';
 import { AutentificacionService } from '../../services/autentificacion.service';
@@ -10,11 +10,9 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-producto',
   standalone: true,
-  imports: [IonCardSubtitle, 
+  imports: [
     CommonModule, 
     RouterModule, 
-    IonCard, 
-    IonCardTitle, 
     IonButton, 
     IonIcon
   ],

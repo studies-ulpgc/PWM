@@ -1,52 +1,55 @@
-<div class="comentario container-fluid position-relative py-3 px-4 border-top border-dark transition-comentario">
-  <section class="comentar d-flex flex-wrap align-items-center pb-5">
+<div class="comentario-wrapper border-top transition-comentario" [class.is-logged-out]="!isLoggedIn">
+  <section class="contenido-comentario p-4 position-relative">
     
-    <div class="titulo w-100 fw-bold fs-5 mb-2 text-truncate">
+    <div class="titulo fw-bold fs-5 mb-2 text-truncate">
       {{ data?.Titulo || 'Sin título' }}
     </div>
 
-    <div class="rating-stars text-dark small me-3 mb-1">
-      @for (star of [1,2,3,4,5]; track star) {
-        <i class="bi" 
-           [class.bi-star-fill]="star <= obtenerRating()" 
-           [class.bi-star]="star > obtenerRating()"></i>
-      }
-      <span class="ms-1 fw-bold">({{ obtenerRating() }}.0)</span>
+    <div class="d-flex align-items-center flex-wrap gap-3 mb-3">
+      <div class="rating-stars text-dark">
+        @for (star of [1,2,3,4,5]; track star) {
+          <i class="bi" 
+             [class.bi-star-fill]="star <= obtenerRating()" 
+             [class.bi-star]="star > obtenerRating()"></i>
+        }
+        <span class="ms-1 fw-bold">({{ obtenerRating() }}.0)</span>
+      </div>
+      <div class="fecha text-muted small">
+        {{ data?.Fecha || 'Fecha desconocida' }}
+      </div>
     </div>
 
-    <div class="fecha text-muted small mb-1">
-      {{ data?.Fecha || 'Fecha desconocida' }}
-    </div>
-
-    <p class="texto w-100 mt-3 mb-4 lh-base">
+    <p class="texto lh-base mb-5">
       {{ data?.Texto }}
     </p>
     
-    <div class="acciones-comentario position-absolute bottom-0 end-0 p-3 d-flex align-items-center gap-3">
+    <div class="acciones-comentario position-absolute bottom-0 end-0 p-3 d-flex align-items-center gap-1">
           
-      <button class="btn btn-link p-0 btn-interaction" 
-              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
-              [class.selected-like]="liked"
-              (click)="onLike()" 
-              title="Útil">
-        <i class="bi" [ngClass]="liked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up'"></i>
-      </button>
+      <ion-button fill="clear" 
+                  class="btn-interaction" 
+                  [class.selected-like]="liked"
+                  [disabled]="!isLoggedIn"
+                  (click)="onLike()"
+                  ripple-effect="false">
+        <ion-icon slot="icon-only" [name]="liked ? 'thumbs-up' : 'thumbs-up-outline'"></ion-icon>
+      </ion-button>
 
-      <button class="btn btn-link p-0 btn-interaction" 
-              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
-              [class.selected-dislike]="disliked"
-              (click)="onDislike()" 
-              title="No útil">
-        <i class="bi" [ngClass]="disliked ? 'bi-hand-thumbs-down-fill' : 'bi-hand-thumbs-down'"></i>
-      </button>
+      <ion-button fill="clear" 
+                  class="btn-interaction" 
+                  [class.selected-dislike]="disliked"
+                  [disabled]="!isLoggedIn"
+                  (click)="onDislike()"
+                  ripple-effect="false">
+        <ion-icon slot="icon-only" [name]="disliked ? 'thumbs-down' : 'thumbs-down-outline'"></ion-icon>
+      </ion-button>
 
-      <button class="btn btn-link p-0 btn-interaction" 
-              [ngClass]="isLoggedIn ? 'btn-active' : 'btn-disabled'"
-              title="Más opciones">
-        <i class="bi bi-three-dots"></i>
-      </button>
+      <ion-button fill="clear" 
+                  class="btn-interaction" 
+                  [disabled]="!isLoggedIn"
+                  ripple-effect="false">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-outline"></ion-icon>
+      </ion-button>
       
     </div>
-
   </section>
 </div>
