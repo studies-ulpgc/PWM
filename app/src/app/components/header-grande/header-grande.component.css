@@ -1,3 +1,4 @@
+/* Logo con estilo HAD */
 .empresa-logo {
   font-family: "Roboto", sans-serif;
   -webkit-text-stroke: 1px #000;
@@ -7,122 +8,88 @@
   flex: 0 0 auto;
   transition: all 0.2s ease;
   cursor: pointer;
-  display: inline-block;
-}
-
-.empresa-logo:hover {
-  opacity: 0.6;
 }
 
 .empresa-logo:active {
   transform: scale(0.95);
-  opacity: 0.8;
-}
-.icon-nav {
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 }
 
-.icon-nav i {
-  color: inherit;
-}
-
-.icon-disabled {
-  color: #a1a1a1 !important;
-  filter: grayscale(100%);
-  opacity: 0.6;
-}
-
-.icon-disabled:hover {
-  opacity: 0.7;
-  color: #8a8a8a !important; 
-}
-
-.icon-active {
-  color: #212529 !important;
-  filter: none;
-  opacity: 1;
-}
-
-.icon-active:hover {
-  opacity: 0.6; 
-  color: #212529 !important;
-}
-
-.icon-nav:active {
-  transform: scale(0.9);
-}
-
-.dropdown-toggle.no-arrow::after {
-  display: none;
-}
-
+/* Buscador */
 .search-container {
-  border: 1px solid #000 !important;
-  border-radius: 4px;
+  height: 54px;
+  max-width: 800px;
+  transition: all 0.3s ease;
 }
 
-.form-control:focus {
-  background-color: transparent;
+.vertical-divider {
+  width: 1px; 
+  height: 25px; 
+  opacity: 0.3;
 }
 
-.cat-link {
-  transition: color 0.2s ease;
+.search-input {
+  outline: none;
+  font-size: 1rem;
 }
 
-.cat-link:hover {
-  cursor: pointer;
-  color: #767676 !important;
+/* Botones de Navegación Ionic */
+.btn-nav {
+  --color: #a1a1a1; /* Deshabilitado por defecto */
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --background-hover: transparent;
+  --background-activated: transparent;
+  transition: all 0.2s ease;
 }
 
+.btn-nav.is-active {
+  --color: #212529;
+}
+
+.btn-nav ion-icon {
+  font-size: 28px;
+}
+
+.btn-nav:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+/* Dropdown Personalizado */
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  min-width: 180px;
+  list-style: none;
+}
+
+.user-dropdown.show {
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  /* Forzamos que el buscador pase a una nueva fila y ocupe todo el ancho */
   .search-container {
     order: 3;
     width: 100%;
     max-width: 100% !important;
     margin: 0 !important;
   }
-
-  /* El logo se queda a la izquierda */
   .empresa-logo {
     order: 1;
-    font-size: 40px; /* Un poco más pequeño en móvil */
+    font-size: 38px;
   }
-
-  /* Los iconos se quedan a la derecha del logo */
   .simbolos-group {
     order: 2;
-    margin-left: auto; /* Esto asegura que se peguen a la derecha */
+    margin-left: auto;
   }
-}
-
-.dropdown-menu.show {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: absolute;
-  top: 100%; 
-  right: 0;
-  background-color: #ffffff;
-}
-
-.dropdown-item:active {
-  background-color: #000;
-  color: #fff;
-}
-
-.icon-disabled {
-  color: #a1a1a1 !important;
-  filter: grayscale(100%);
-  opacity: 0.6;
-}
-
-.icon-active {
-  color: #212529 !important;
-  filter: none;
-  opacity: 1;
 }

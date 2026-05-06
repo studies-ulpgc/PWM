@@ -2,6 +2,16 @@ import { Component, HostListener, OnInit, OnDestroy, ChangeDetectorRef } from '@
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { IonHeader, IonIcon, IonButton } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { 
+  searchOutline, 
+  heart, 
+  heartOutline, 
+  bagHandle, 
+  bagHandleOutline, 
+  personOutline 
+} from 'ionicons/icons';
 import { AutentificacionService } from '../../services/autentificacion.service';
 import { catchError, Subscription, switchMap, of } from 'rxjs';
 
@@ -10,16 +20,37 @@ import { catchError, Subscription, switchMap, of } from 'rxjs';
   standalone: true,
   templateUrl: './header-grande.component.html',
   styleUrls: ['./header-grande.component.css'],
-  imports: [FormsModule, RouterModule, CommonModule],
+  imports: [
+    FormsModule, 
+    RouterModule, 
+    CommonModule, 
+    IonHeader, 
+    IonIcon, 
+    IonButton
+  ],
 })
-export class HeaderGrandeComponent implements OnInit, OnDestroy{
+export class HeaderGrandeComponent implements OnInit, OnDestroy {
   mostrarPopup = false;
   query = '';
   isLoggedIn = false;
   userName = 'Usuario';
   private authSub?: Subscription;
 
-  constructor(private router: Router, private authService: AutentificacionService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private router: Router, 
+    private authService: AutentificacionService, 
+    private cdr: ChangeDetectorRef
+  ) {
+    // Registramos los iconos de Ionic
+    addIcons({ 
+      searchOutline, 
+      heart, 
+      heartOutline, 
+      bagHandle, 
+      bagHandleOutline, 
+      personOutline 
+    });
+  }
 
   ngOnInit() {
     this.authSub = this.authService.user$.pipe(
@@ -38,21 +69,13 @@ export class HeaderGrandeComponent implements OnInit, OnDestroy{
         }
       })
     ).subscribe(datos => {
-      if (datos) {
-        this.userName = datos.nombre || 'Usuario';
-      } else {
-        this.userName = 'Usuario';
-      }
+      this.userName = datos?.nombre || 'Usuario';
       this.cdr.detectChanges();
     });
   }
 
   ngOnDestroy() {
     this.authSub?.unsubscribe();
-  }
-
-  get isBrowser(): boolean {
-    return typeof window !== 'undefined';
   }
 
   onAuthClick(event: Event) {

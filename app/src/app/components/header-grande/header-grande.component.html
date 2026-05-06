@@ -1,75 +1,73 @@
-<header class="navbar-custom bg-white border-bottom border-2 border-dark pt-4 pb-2 px-3 px-lg-5">
-  <div class="container-fluid p-0">
-    
-    <div class="d-flex align-items-center justify-content-between w-100 mb-4 flex-wrap flex-md-nowrap gap-3">
+<ion-header class="ion-no-border" ngSkipHydration>
+  <div class="navbar-custom bg-white border-bottom border-2 border-dark pt-4 pb-2 px-3 px-lg-5">
+    <div class="container-fluid p-0">
       
-      <a routerLink="/home" class="empresa-logo text-dark text-decoration-none fw-normal display-5">
-        HAD
-      </a>
-
-      <div class="search-container flex-grow-1 mx-md-5 border border-dark d-flex align-items-center px-3" style="height: 54px; max-width: 800px;">
-        <i class="bi bi-search text-dark fs-5"></i> <div class="bg-dark mx-3" style="width: 1px; height: 25px; opacity: 1;"></div>
-        <form (submit)="buscar($event)" class="flex-grow-1 h-100">
-          <input type="text" [(ngModel)]="query" name="query" 
-            class="form-control border-0 bg-transparent h-100 shadow-none" 
-            placeholder="Buscar"/>
-        </form>
-      </div>
-
-      <div class="simbolos-group d-flex align-items-center gap-3 gap-lg-4">
+      <div class="d-flex align-items-center justify-content-between w-100 mb-4 flex-wrap flex-md-nowrap gap-3">
         
-        <a (click)="irADeseados()" 
-          class="text-dark text-decoration-none icon-nav" 
-          [ngClass]="isLoggedIn ? 'icon-active' : 'icon-disabled'"
-          title="Deseados">
-          <i class="bi bi-heart fs-3"></i>
-        </a>
-        
-        <a (click)="irACesta()" 
-          class="text-dark text-decoration-none icon-nav" 
-          [ngClass]="isLoggedIn ? 'icon-active' : 'icon-disabled'"
-          title="Cesta">
-          <i class="bi bi-bag fs-3"></i>
+        <a routerLink="/home" class="empresa-logo text-dark text-decoration-none fw-normal">
+          HAD
         </a>
 
-        <div class="dropdown position-relative"> 
-          <a (click)="onAuthClick($event)" 
-            class="text-dark text-decoration-none icon-nav pointer" 
-            [ngClass]="isLoggedIn ? 'icon-active' : 'icon-disabled'"
-            title="Cuenta">
-            <i class="bi bi-person fs-3"></i> 
-          </a>
-          
-          <ul class="dropdown-menu dropdown-menu-end shadow border border-dark mt-2 p-3" 
-              [class.show]="mostrarPopup"
-              (click)="$event.stopPropagation()"> 
-            
-            <li class="small mb-2 text-nowrap">Hola, <strong>{{ userName }}</strong></li>
-            <li><hr class="dropdown-divider border-dark"></li>
-            <li><a class="dropdown-item small px-2 pointer" routerLink="/ver-cuenta">Mi Perfil</a></li>
-            <li><a class="dropdown-item small px-2 pointer" routerLink="/mis-pedidos">Mis Pedidos</a></li>
-            <li><hr class="dropdown-divider border-dark"></li>
-            <li class="mt-2">
-              <button class="btn btn-dark btn-sm w-100 fw-bold" (click)="logout()">CERRAR SESIÓN</button>
-            </li>
-          </ul>
+        <div class="search-container flex-grow-1 mx-md-5 border border-dark d-flex align-items-center px-3">
+          <ion-icon name="search-outline" class="text-dark fs-5"></ion-icon>
+          <div class="bg-dark mx-3 vertical-divider"></div>
+          <form (submit)="buscar($event)" class="flex-grow-1 h-100">
+            <input type="text" [(ngModel)]="query" name="query" 
+              class="search-input border-0 bg-transparent h-100 shadow-none w-100" 
+              placeholder="Buscar"/>
+          </form>
         </div>
 
-      </div>
-    </div>
+        <div class="simbolos-group d-flex align-items-center gap-1 gap-lg-2">
+          
+          <ion-button fill="clear" (click)="irADeseados()" 
+                      class="btn-nav" [class.is-active]="isLoggedIn" title="Deseados">
+            <ion-icon slot="icon-only" [name]="isLoggedIn ? 'heart' : 'heart-outline'"></ion-icon>
+          </ion-button>
+          
+          <ion-button fill="clear" (click)="irACesta()" 
+                      class="btn-nav" [class.is-active]="isLoggedIn" title="Cesta">
+            <ion-icon slot="icon-only" [name]="isLoggedIn ? 'bag-handle' : 'bag-handle-outline'"></ion-icon>
+          </ion-button>
 
-    <nav class="categorias-nav w-100 d-none d-md-block">
-      <div class="row g-2 text-center">
-        @for (cat of ['Novedades', 'Camisas', 'Chalecos', 'Pantalones', 'Zapatos', 'Accesorios', 'Faldas', 'Vestidos', 'Calcetines', 'Pijamas']; track cat) {
-          <div class="col">
-            <a [routerLink]="['/galeria']" [queryParams]="cat !== 'Novedades' ? {categoria: cat} : {}" 
-               class="cat-link text-dark text-decoration-none small text-uppercase fw-medium d-block py-2">
-              {{cat}}
-            </a>
+          <div class="position-relative">
+            <ion-button fill="clear" (click)="onAuthClick($event)" 
+                        class="btn-nav" [class.is-active]="isLoggedIn" title="Cuenta">
+              <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+            </ion-button>
+            
+            <ul class="user-dropdown shadow border border-dark p-3" 
+                [class.show]="mostrarPopup"
+                (click)="$event.stopPropagation()"> 
+              <li class="small mb-2 text-nowrap">Hola, <strong>{{ userName }}</strong></li>
+              <li><hr class="dropdown-divider border-dark"></li>
+              <li><a class="dropdown-item small px-2 pointer" routerLink="/ver-cuenta">Mi Perfil</a></li>
+              <li><a class="dropdown-item small px-2 pointer" routerLink="/mis-pedidos">Mis Pedidos</a></li>
+              <li><hr class="dropdown-divider border-dark"></li>
+              <li class="mt-2">
+                <ion-button expand="block" color="dark" size="small" (click)="logout()" class="fw-bold">
+                  CERRAR SESIÓN
+                </ion-button>
+              </li>
+            </ul>
           </div>
-        }
-      </div>
-    </nav>
 
+        </div>
+      </div>
+
+      <nav class="categorias-nav w-100 d-none d-md-block">
+        <div class="row g-2 text-center">
+          @for (cat of ['Novedades', 'Camisas', 'Chalecos', 'Pantalones', 'Zapatos', 'Accesorios', 'Faldas', 'Vestidos', 'Calcetines', 'Pijamas']; track cat) {
+            <div class="col">
+              <a [routerLink]="['/galeria']" [queryParams]="cat !== 'Novedades' ? {categoria: cat} : {}" 
+                 class="cat-link text-dark text-decoration-none small text-uppercase fw-medium d-block py-2">
+                {{cat}}
+              </a>
+            </div>
+          }
+        </div>
+      </nav>
+
+    </div>
   </div>
-</header>
+</ion-header>
