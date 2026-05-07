@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" ngSkipHydration>
   <app-header-grande></app-header-grande>
 </ion-header>
 
@@ -8,15 +8,15 @@
 
       <section class="hero-carousel">
         <div class="animation-track">
-          <a
+          <div
             *ngFor="let item of carruselItems; trackBy: trackById"
-            [routerLink]="['/articulo-selected', item.id]"
+            (click)="navegar(item.id)"
             class="hero-card"
             [style.backgroundImage]="'url(' + item.fotoUrl + ')'">
             <div class="overlay-info">
               <span>Descubrir colección</span>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 

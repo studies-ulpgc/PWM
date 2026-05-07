@@ -7,6 +7,7 @@ import { HeaderGrandeComponent } from '../../components/header-grande/header-gra
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductoComponent } from '../../components/producto/producto.component';
 import { ProductoService } from '../../services/producto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   carruselItems: any[] = [];
   productos: any[] = [];
 
-  constructor(private productoService: ProductoService, private cdr: ChangeDetectorRef) {}
+  constructor(private router: Router, private productoService: ProductoService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.productoService.getProductos().subscribe((productos: any[]) => {
@@ -57,5 +58,11 @@ export class HomeComponent implements OnInit {
 
   trackById(index: number, item: any) {
     return item?.id || index;
+  }
+
+  navegar(id: string) {
+    if (id) {
+      this.router.navigate(['/articulo-seleccionado', id]);
+    }
   }
 }
