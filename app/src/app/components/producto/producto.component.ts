@@ -6,6 +6,8 @@ import { addIcons } from 'ionicons';
 import { bagAddOutline, bagCheck, heart, heartOutline } from 'ionicons/icons';
 import { AutentificacionService } from '../../services/autentificacion.service';
 import { Subscription } from 'rxjs';
+import { DatabaseService } from '../../services/database.service';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-producto',
@@ -28,7 +30,9 @@ export class ProductoComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AutentificacionService, 
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private dbService: DatabaseService, 
+    private productoService: ProductoService
   ) {
     // Registramos los iconos de Ionic
     addIcons({ bagAddOutline, bagCheck, heart, heartOutline });
@@ -49,8 +53,15 @@ export class ProductoComponent implements OnInit, OnDestroy {
     if (this.isLoggedIn) this.enCesta = !this.enCesta;
   }
 
-  toggleDeseados() {
-    if (this.isLoggedIn) this.enDeseados = !this.enDeseados;
+  async toggleDeseados() {
+    if (!this.isLoggedIn) return;
+    this.enDeseados = !this.enDeseados;
+
+    if (this.enDeseados) {
+      await this.dbService.addDeseado(this.data);
+    } else {
+      await this.dbService.removeDeseado(this.data.id);
+    }
   }
 
   obtenerRating(): number {

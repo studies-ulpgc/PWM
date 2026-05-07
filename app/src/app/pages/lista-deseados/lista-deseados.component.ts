@@ -6,6 +6,7 @@ import { SimilaresComponent } from '../../components/similares/similares.compone
 import { ItemWantedComponent } from '../../components/item-wanted/item-wanted.component';
 import { ProductoService } from '../../services/producto.service';
 import { WantedItem } from './wanted-item.model.component';
+import { DatabaseService } from '../../services/database.service';
 
 @Component({
   selector: 'app-lista-deseados',
@@ -18,27 +19,23 @@ export class ListaDeseadosComponent implements OnInit {
   wantedItems: WantedItem[] = [];
 
   constructor(
+    private dbService: DatabaseService,
     private productoService: ProductoService,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-  this.productoService.getProductos().subscribe(data => {
-    const itemsRaw = data || [];
-
-    this.wantedItems = Array.from({ length: 8 }, (_, i) => {
-      const producto = itemsRaw[i % itemsRaw.length];
-      return {
-        id: i + 1,
-        name: producto?.Descripcion || 'Artículo de Tendencia',
-        price: parseFloat(producto?.Precio) || 29.99,
-        added: false,
-        img: producto?.Foto?.[0]?.url ?  producto.Foto[0].url : '',
-        opts: `Talla: L · Color: Negro`
-      };
+    // 3. Usamos "any[]" para que no se queje del tipo de datos
+    this.dbService.getDeseados().then((itemsLocal: any[]) => {
+      this.wantedItems = itemsLocal.map((item: any) => ({
+        id: item.id,
+        name: item.nombre,
+        price: item.precio,
+        img: item.img,
+        added: true,
+        opts: 'Talla única'
+      }));
+      this.cdr.detectChanges();
     });
-
-    this.cdr.detectChanges();
-  });
-}
+  }
 }
