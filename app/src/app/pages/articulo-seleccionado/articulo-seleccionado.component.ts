@@ -14,7 +14,6 @@ import { heartOutline } from 'ionicons/icons';
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ComentarioComponent } from '../../components/comentario/comentario.component';
-import { ProductoComponent } from '../../components/producto/producto.component';
 import { ProductoService } from '../../services/producto.service';
 import { ComentarioService } from '../../services/comentario.service';
 import { SimilaresComponent } from '../../components/similares/similares.component';
@@ -32,7 +31,6 @@ import { SimilaresComponent } from '../../components/similares/similares.compone
     HeaderGrandeComponent,
     FooterComponent,
     ComentarioComponent,
-    ProductoComponent,
     SimilaresComponent
   ],
   templateUrl: './articulo-seleccionado.component.html',
