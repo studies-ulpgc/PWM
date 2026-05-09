@@ -132,17 +132,7 @@
         </div>
       </section>
 
-      <!-- SECCIÓN RELACIONADOS -->
-      <section class="related-section mt-5 pt-5 border-top">
-        <h3 class="mb-4 text-center text-uppercase letter-spacing-2">Puede interesarte</h3>
-        <div class="row row-cols-2 row-cols-md-4 g-4">
-          @for (prod of productosRelacionados; track $index) {
-          <div class="col">
-            <app-producto [data]="prod" class="product-card-anim" [routerLink]="['/articulo', prod.id]"></app-producto>
-          </div>
-          }
-        </div>
-      </section>
+      <app-similares></app-similares>
     </div>
     <app-footer></app-footer>
   </main>

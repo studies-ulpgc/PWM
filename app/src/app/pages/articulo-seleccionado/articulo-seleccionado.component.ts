@@ -17,6 +17,7 @@ import { ComentarioComponent } from '../../components/comentario/comentario.comp
 import { ProductoComponent } from '../../components/producto/producto.component';
 import { ProductoService } from '../../services/producto.service';
 import { ComentarioService } from '../../services/comentario.service';
+import { SimilaresComponent } from '../../components/similares/similares.component';
 
 @Component({
   selector: 'app-articulo-seleccionado',
@@ -31,7 +32,8 @@ import { ComentarioService } from '../../services/comentario.service';
     HeaderGrandeComponent,
     FooterComponent,
     ComentarioComponent,
-    ProductoComponent
+    ProductoComponent,
+    SimilaresComponent
   ],
   templateUrl: './articulo-seleccionado.component.html',
   styleUrls: ['./articulo-seleccionado.component.css']

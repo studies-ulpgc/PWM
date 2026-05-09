@@ -12,5 +12,9 @@
       <p class="producto-detalles mb-1">{{ item.opts }}</p>
       <p class="fw-bold mb-0 fs-5">{{ item.price | currency:'EUR' }}</p>
     </div>
+    <!-- ... dentro de la tarjeta, al final del d-flex -->
+    <button class="btn btn-link text-danger" (click)="onDelete()">
+      <i class="bi bi-trash"></i> <!-- O cualquier icono que uses -->
+    </button>
   </div>
 </div>

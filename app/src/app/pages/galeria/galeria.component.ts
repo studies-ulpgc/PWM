@@ -59,7 +59,7 @@ export class GaleriaComponent implements OnInit {
     });
 
     if (filtrados.length > 0) {
-      this.listaProductos = Array.from({ length: 12 }, (_, i) => filtrados[i % filtrados.length]);
+      this.listaProductos = Array.from({ length: 4 }, (_, i) => filtrados[i % filtrados.length]);
     } else {
       this.listaProductos = [];
     }

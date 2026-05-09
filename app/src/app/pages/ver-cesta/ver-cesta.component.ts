@@ -7,6 +7,7 @@ import { ItemCardComponent } from '../../components/item-card/item-card.componen
 import { SimilaresComponent } from '../../components/similares/similares.component';
 import { ProductoService } from '../../services/producto.service';
 import { CartItem } from './cart-item.model.component';
+import { DatabaseService } from '../../services/database.service';
 
 @Component({
   selector: 'app-ver-cesta',
@@ -22,6 +23,7 @@ export class VerCestaComponent implements OnInit {
   constructor(
     private productoService: ProductoService,
     private cdr: ChangeDetectorRef,
+    private dbService: DatabaseService, 
     private router: Router
   ) {}
 
@@ -29,24 +31,24 @@ export class VerCestaComponent implements OnInit {
     this.cargarCesta();
   }
 
-  cargarCesta() {
-    this.productoService.getProductos().subscribe(data => {
-      const itemsRaw = data || [];
+  // En VerCestaComponent
+  async cargarCesta() {
+    const itemsLocal = await this.dbService.getCesta();
+    this.cartItems = itemsLocal.map((item: any) => ({
+      id: item.id,
+      name: item.nombre,
+      price: item.precio,
+      img: item.img,
+      selected: true,
+      opts: 'Talla única · Color: Estándar'
+    }));
+    this.updateTotal();
+  }
 
-      this.cartItems = Array.from({ length: 6 }, (_, i) => {
-        const producto = itemsRaw[i % itemsRaw.length];
-        return {
-          id: i + 1,
-          name: producto?.Descripcion || 'Sin nombre',
-          price: parseFloat(producto?.Precio) || 0,
-          selected: true,
-          img: producto?.Foto?.[0]?.url ?  producto.Foto[0].url : '',
-          opts: `Talla: ${this.getRandomSize(producto?.Talla)} · Color: ${this.getRandomColor()}`
-        };
-      });
-
-      this.updateTotal();
-    });
+  // Para que el botón de eliminar de la cesta funcione en la vista:
+  async eliminarDelCarrito(id: any) {
+    await this.dbService.removeCesta(id);
+    await this.cargarCesta(); // Recargamos la lista
   }
 
   updateTotal() {

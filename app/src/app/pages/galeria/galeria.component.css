@@ -170,14 +170,76 @@
   transform: translateY(-8px);
 }
 
-@media (max-width: 1024px) {
-  .layout-grid { grid-template-columns: 220px 1fr; gap: 20px; }
+/* --- Ajustes Generales --- */
+.grid-display {
+  display: grid;
+  /* En escritorio mantenemos un grid equilibrado */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
 }
 
+/* --- Ajustes para Móvil (768px o menos) --- */
 @media (max-width: 768px) {
-  .layout-grid { grid-template-columns: 1fr; }
-  .sidebar-filters { position: relative; top: 0; margin-bottom: 30px; }
-  .grid-display { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .layout-grid {
+    display: flex;
+    flex-direction: column; /* Apilamos verticalmente */
+    gap: 20px;
+  }
+
+  .sidebar-filters {
+    order: 1; /* El menú de filtros aparece PRIMERO (arriba) */
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .products-container {
+    order: 2; /* Los productos aparecen después */
+    width: 100%;
+  }
+
+  .grid-display {
+    /* Una sola columna, centrada y grande */
+    grid-template-columns: 1fr !important; 
+    gap: 40px;
+    justify-items: center; /* Centra las tarjetas si tienen un max-width */
+  }
+
+  /* Hacemos que la tarjeta de producto sea más ancha y llamativa */
+  app-producto {
+    width: 100%;
+    max-width: 450px; /* Evita que en pantallas medianas se estire demasiado */
+    margin: 0 auto;
+  }
+
+  /* Ajustamos el contenedor para que respire */
+  .container-wrapper {
+    padding: 10px 15px;
+  }
+
+  /* Opcional: Si quieres que los filtros ocupen menos espacio visual en móvil */
+  .filter-card {
+    gap: 20px;
+    padding: 15px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    max-height: 300px; /* Limita la altura inicial para que no tape los productos */
+    overflow-y: auto;
+  }
+}
+
+/* --- Efecto de Elevación Premium --- */
+.product-card-anim {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.product-card-anim:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .size-grid {

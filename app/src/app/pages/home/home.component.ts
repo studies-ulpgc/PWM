@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
         };
       });
 
-      this.productos = Array(3).fill(mapped).flat();
+      this.productos = Array(1).fill(mapped).flat();
       this.carruselItems = [...mapped.slice(0, 3), ...mapped.slice(0, 3)];
 
       this.cdr.detectChanges();

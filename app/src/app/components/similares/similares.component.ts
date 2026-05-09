@@ -47,7 +47,7 @@ export class SimilaresComponent implements OnInit {
 
       setTimeout(() => {
         const listaExtendida = [...mapped, ...mapped, ...mapped];
-        this.productosSimilares = listaExtendida.slice(0, 8);
+        this.productosSimilares = listaExtendida.slice(0, 4);
 
         this.cdr.detectChanges();
       }, 0);

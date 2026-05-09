@@ -8,7 +8,9 @@
         <app-item-card 
           *ngFor="let item of cartItems" 
           [item]="item" 
-          (selectionChange)="updateTotal()">
+          (selectionChange)="updateTotal()"
+          (deleteItem)="eliminarDelCarrito($event)"
+          >
         </app-item-card>
       </div>
     </div>

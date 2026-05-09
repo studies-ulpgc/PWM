@@ -15,27 +15,42 @@ import { DatabaseService } from '../../services/database.service';
   templateUrl: './lista-deseados.component.html',
   styleUrls: ['./lista-deseados.component.css']
 })
+
 export class ListaDeseadosComponent implements OnInit {
   wantedItems: WantedItem[] = [];
 
   constructor(
     private dbService: DatabaseService,
-    private productoService: ProductoService,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    // 3. Usamos "any[]" para que no se queje del tipo de datos
-    this.dbService.getDeseados().then((itemsLocal: any[]) => {
-      this.wantedItems = itemsLocal.map((item: any) => ({
+    this.cargarDeseados();
+  }
+
+  async cargarDeseados() {
+    const itemsLocal = await this.dbService.getDeseados();
+    
+    // Usamos Promise.all porque vamos a hacer una consulta asíncrona (exists) por cada item
+    this.wantedItems = await Promise.all(itemsLocal.map(async (item: any) => {
+      // Comprobamos si este item de deseados está en la cesta
+      const estaEnCesta = await this.dbService.exists('cesta', item.id.toString());
+      
+      return {
         id: item.id,
         name: item.nombre,
         price: item.precio,
         img: item.img,
-        added: true,
+        added: estaEnCesta, // Si está en la cesta, el botón dirá "Añadido"
         opts: 'Talla única'
-      }));
-      this.cdr.detectChanges();
-    });
+      };
+    }));
+    
+    this.cdr.detectChanges();
+  }
+
+  async eliminarDeDeseados(id: string | number) {
+    await this.dbService.removeDeseado(id);
+    await this.cargarDeseados(); // Refrescamos la lista
   }
 }

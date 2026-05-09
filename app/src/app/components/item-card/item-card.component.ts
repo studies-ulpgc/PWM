@@ -12,9 +12,14 @@ import { CartItem } from '../../pages/ver-cesta/cart-item.model.component';
 export class ItemCardComponent {
   @Input() item!: CartItem;
   @Output() selectionChange = new EventEmitter<void>();
+  @Output() deleteItem = new EventEmitter<string | number>(); // Nuevo evento
 
   onToggle() {
     this.item.selected = !this.item.selected;
     this.selectionChange.emit();
+  }
+
+  onDelete() {
+    this.deleteItem.emit(this.item.id); // Avisamos que queremos borrarlo
   }
 }

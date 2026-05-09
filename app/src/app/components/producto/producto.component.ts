@@ -38,10 +38,15 @@ export class ProductoComponent implements OnInit, OnDestroy {
     addIcons({ bagAddOutline, bagCheck, heart, heartOutline });
   }
 
-  ngOnInit() {
-    this.authSub = this.authService.user$.subscribe(user => {
+  // En ngOnInit de ProductoComponent
+  async ngOnInit() {
+    this.authSub = this.authService.user$.subscribe(async user => {
       this.isLoggedIn = !!user;
-      if (!this.isLoggedIn) {
+      if (this.isLoggedIn && this.data?.id) {
+        // Verificar estado actual en DB
+        this.enDeseados = await this.dbService.exists('deseados', this.data.id);
+        this.enCesta = await this.dbService.exists('cesta', this.data.id);
+      } else {
         this.enCesta = false;
         this.enDeseados = false;
       }
@@ -49,8 +54,16 @@ export class ProductoComponent implements OnInit, OnDestroy {
     });
   }
 
-  toggleCesta() {
-    if (this.isLoggedIn) this.enCesta = !this.enCesta;
+  // Actualizar toggleCesta
+  async toggleCesta() {
+    if (!this.isLoggedIn) return;
+    this.enCesta = !this.enCesta;
+
+    if (this.enCesta) {
+      await this.dbService.addCesta(this.data);
+    } else {
+      await this.dbService.removeCesta(this.data.id);
+    }
   }
 
   async toggleDeseados() {
