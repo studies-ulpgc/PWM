@@ -70,12 +70,22 @@
             </div>
 
             <div class="action-buttons d-grid gap-3">
-              <ion-button expand="block" color="dark" class="add-to-cart-btn" (click)="agregarAlCarrito()">
-                Añadir a la cesta
+              <ion-button expand="block" 
+                          [color]="enCesta ? 'success' : 'dark'" 
+                          class="add-to-cart-btn" 
+                          [disabled]="!isLoggedIn"
+                          (click)="toggleCesta()">
+                {{ enCesta ? 'Añadido a la cesta' : 'Añadir a la cesta' }}
               </ion-button>
-              <ion-button expand="block" fill="outline" color="medium" class="add-to-wishlist-btn">
-                <ion-icon slot="start" name="heart-outline"></ion-icon>
-                Lista de deseos
+
+              <ion-button expand="block" 
+                          fill="outline" 
+                          [color]="enDeseados ? 'danger' : 'medium'" 
+                          class="add-to-wishlist-btn"
+                          [disabled]="!isLoggedIn"
+                          (click)="toggleDeseados()">
+                <ion-icon slot="start" [name]="enDeseados ? 'heart' : 'heart-outline'"></ion-icon>
+                {{ enDeseados ? 'Guardado en deseados' : 'Lista de deseos' }}
               </ion-button>
             </div>
 
