@@ -1,21 +1,29 @@
-<app-header-grande></app-header-grande>
+<ion-header [translucent]="true">
+  <app-header-grande></app-header-grande>
+</ion-header>
 
-  <main class="container py-5">
+<ion-content [fullscreen]="true">
+  <main class="deseados-wrapper">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="12" size-md="10" size-lg="8">
+          
+          <div class="scroll-wanted-container">
+            <app-item-wanted 
+              *ngFor="let item of wantedItems" 
+              [item]="item"
+              (remove)="eliminarDeDeseados(item.id)">
+            </app-item-wanted>
+          </div>
 
-    <div class="row justify-content-center mb-5">
-      <div class="col-12">
-        <div class="scroll-wanted-container">
-          <app-item-wanted 
-            *ngFor="let item of wantedItems" 
-            [item]="item"
-            (remove)="eliminarDeDeseados(item.id)">
-          </app-item-wanted>
-        </div>
-      </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="ion-padding-top">
+      <app-similares></app-similares>
     </div>
-
-    <app-similares></app-similares>
-
+    
+    <app-footer></app-footer>
   </main>
-
-<app-footer></app-footer>
+</ion-content>
