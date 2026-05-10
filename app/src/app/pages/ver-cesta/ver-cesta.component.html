@@ -1,50 +1,58 @@
 <app-header-grande></app-header-grande>
 
-<main class="container py-5">
-  <div class="row g-5">
-    
-    <div class="col-lg-7">
-      <div class="scroll-container" style="max-height: 480px; overflow-y: auto; padding-right: 10px;"> 
-        <app-item-card 
-          *ngFor="let item of cartItems" 
-          [item]="item" 
-          (selectionChange)="updateTotal()"
-          (deleteItem)="eliminarDelCarrito($event)"
-          >
-        </app-item-card>
-      </div>
-    </div>
-
-    <div class="col-lg-5">
-      <div class="card border-0 p-4 resumen-container shadow-sm">
-        <h1 class="h3 fw-bold text-center mb-4">Precio total</h1>
+<ion-content class="ion-padding-top">
+  <main class="main-wrapper">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
         
-        <div class="text-center mb-5">
-          <span class="display-4 fw-bold">€{{ total | number:'1.2-2' }}</span>
-          <span class="text-muted fs-5"> / mo</span>
-        </div>
-
-        <button (click)="irAPagar()" class="btn btn-dark w-100 rounded-pill py-3 fw-bold fs-5 mb-5 shadow-sm">
-          Comprar
-        </button>
-
-        <hr>
-        <div class="metodos-pago">
-          <p class="titulo-seccion-pagos">Pagos aceptados:</p>
-          <div class="cuadricula-pagos">
-              <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/visa.svg" alt="Visa">
-              <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/mastercard.svg" alt="Mastercard">
-              <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/maestro.svg" alt="Maestro">
-              <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/amex.svg" alt="American Express">
-              <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/paypal.svg" alt="Paypal">
+        <!-- Lista de productos -->
+        <ion-col size="12" size-lg="7">
+          <div class="scroll-container"> 
+            <app-item-card 
+              *ngFor="let item of cartItems" 
+              [item]="item" 
+              (selectionChange)="updateTotal()"
+              (deleteItem)="eliminarDelCarrito($event)"
+              >
+            </app-item-card>
           </div>
-        </div>
-      </div>
+        </ion-col>
+
+        <!-- Resumen de compra -->
+        <ion-col size="12" size-lg="4" class="ion-margin-top">
+          <ion-card class="resumen-card">
+            <h1 class="total-label">Precio total</h1>
+            
+            <div class="total-amount-container">
+              <span class="currency-symbol">€</span>
+              <span class="total-value">{{ total | number:'1.2-2' }}</span>
+              <span class="period-text"> / mo</span>
+            </div>
+
+            <ion-button (click)="irAPagar()" expand="block" class="btn-comprar">
+              Comprar
+            </ion-button>
+
+            <div class="metodos-pago">
+              <p class="titulo-seccion-pagos">Pagos aceptados:</p>
+              <div class="cuadricula-pagos">
+                  <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/visa.svg" alt="Visa">
+                  <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/mastercard.svg" alt="Mastercard">
+                  <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/maestro.svg" alt="Maestro">
+                  <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/amex.svg" alt="American Express">
+                  <img src="https://github.com/aaronfagan/svg-credit-card-payment-icons/raw/main/logo/paypal.svg" alt="Paypal">
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+    <div class="ion-padding">
+      <app-similares></app-similares>
     </div>
-
-  </div>
-
-  <app-similares></app-similares>
-</main>
-
-<app-footer></app-footer>
+    
+    <app-footer></app-footer>
+  </main>
+</ion-content>

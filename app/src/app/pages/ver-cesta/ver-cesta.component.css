@@ -2,102 +2,110 @@
 
 :host {
     font-family: 'Inter', sans-serif;
-    --transition-footer: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.main-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Área de productos con scroll suave */
 .scroll-container {
-    max-height: 550px;
+    max-height: 70vh;
     overflow-y: auto;
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
-.scroll-container::-webkit-scrollbar {
-    width: 4px;
-}
-.scroll-container::-webkit-scrollbar-thumb {
-    background: #ddd;
-    border-radius: 10px;
-}
-
-.resumen-container {
-    background-color: #cfcfcf00;
-    border-left: none;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    padding-left: 40px;
-    height: fit-content;
+/* Tarjeta de resumen */
+.resumen-card {
+    --background: #ffffff;
+    border-radius: 0; /* Mantenemos tu estética minimalista */
+    box-shadow: none;
+    border: 1px solid #f0f0f0;
+    padding: 30px;
     position: sticky;
     top: 20px;
-    box-shadow: none !important; 
+    margin: 0;
 }
 
+.total-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.total-amount-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.total-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.currency-symbol {
+    font-size: 1.5rem;
+    vertical-align: super;
+    margin-right: 5px;
+}
+
+.period-text {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+/* Botón de compra estilizado como Ionic */
+.btn-comprar {
+    --background: #000;
+    --background-hover: #333;
+    --color: #fff;
+    --border-radius: 50px;
+    --padding-top: 25px;
+    --padding-bottom: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Métodos de pago */
 .titulo-seccion-pagos {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    color: #1a1a1a;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #999;
 }
 
 .cuadricula-pagos {
     display: flex;
-    gap: 12px;
+    gap: 15px;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 10px;
+    opacity: 0.6;
 }
 
 .cuadricula-pagos img {
-    height: 40px;
+    height: 25px;
     width: auto;
     filter: grayscale(1);
-    opacity: 0.7;
-    transition: var(--transition-footer);
 }
 
-.cuadricula-pagos img:hover {
-    filter: grayscale(0);
-    opacity: 1;
-    transform: scale(1.1);
+/* Scrollbar personalizado para la lista */
+.scroll-container::-webkit-scrollbar {
+    width: 3px;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #eee;
 }
 
-.resumen-container h1 {
-    letter-spacing: -1px;
-    margin-top: 10px;
-}
-
-.btn-comprar {
-    background-color: #333;
-    border: none;
-    transition: transform 0.2s ease;
-}
-
-.btn-comprar:hover {
-    background-color: #000;
-    transform: scale(1.02);
-}
-
-.precio-total-titulo {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0;
-}
-
-.moneda-simbolo {
-    vertical-align: super;
-    font-size: 1.5rem;
-    margin-right: 2px;
-}
-
-.payment-icon {
-    width: 45px;
-    height: auto;
-    object-fit: contain;
-    opacity: 0.8;
-}
-
-hr, .resumen-container hr {
-    display: none !important;
+@media (max-width: 992px) {
+    .resumen-card {
+        position: relative;
+        top: 0;
+        border-left: none;
+        border-right: none;
+    }
 }

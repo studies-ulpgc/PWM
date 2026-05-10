@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+// Importaciones de Ionic Standalone
+import { IonContent, IonGrid, IonRow, IonCol, IonButton, IonCard } from '@ionic/angular/standalone';
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ItemCardComponent } from '../../components/item-card/item-card.component';
@@ -12,7 +14,12 @@ import { DatabaseService } from '../../services/database.service';
 @Component({
   selector: 'app-ver-cesta',
   standalone: true,
-  imports: [CommonModule, HeaderGrandeComponent, FooterComponent, ItemCardComponent, SimilaresComponent],
+  // Actualizamos los imports con los componentes de Ionic
+  imports: [
+    CommonModule, 
+    IonContent, IonGrid, IonRow, IonCol, IonButton, IonCard,
+    HeaderGrandeComponent, FooterComponent, ItemCardComponent, SimilaresComponent
+  ],
   templateUrl: './ver-cesta.component.html',
   styleUrls: ['./ver-cesta.component.css']
 })
@@ -31,7 +38,6 @@ export class VerCestaComponent implements OnInit {
     this.cargarCesta();
   }
 
-  // En VerCestaComponent
   async cargarCesta() {
     const itemsLocal = await this.dbService.getCesta();
     this.cartItems = itemsLocal.map((item: any) => ({
@@ -45,10 +51,9 @@ export class VerCestaComponent implements OnInit {
     this.updateTotal();
   }
 
-  // Para que el botón de eliminar de la cesta funcione en la vista:
   async eliminarDelCarrito(id: any) {
     await this.dbService.removeCesta(id);
-    await this.cargarCesta(); // Recargamos la lista
+    await this.cargarCesta();
   }
 
   updateTotal() {
@@ -60,16 +65,5 @@ export class VerCestaComponent implements OnInit {
 
   irAPagar() {
     this.router.navigate(['/pagar']);
-  }
-
-  private getRandomSize(tallasStr: string): string {
-    if (!tallasStr) return 'M';
-    const list = tallasStr.split(',').map(t => t.trim());
-    return list[Math.floor(Math.random() * list.length)];
-  }
-
-  private getRandomColor(): string {
-    const colors = ["Negro", "Blanco", "Azul", "Gris", "Verde"];
-    return colors[Math.floor(Math.random() * colors.length)];
   }
 }
