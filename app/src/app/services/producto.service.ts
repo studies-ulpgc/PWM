@@ -1,12 +1,18 @@
 import { Injectable, inject, Injector, runInInjectionContext } from '@angular/core';
 import { Firestore, collection, getDocs, doc, getDoc } from '@angular/fire/firestore';
-import { Observable, from } from 'rxjs';
+import { Observable, Subject, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ProductoService {
   private firestore = inject(Firestore);
   private injector = inject(Injector);
+  private refreshSource = new Subject<void>();
+  refresh$ = this.refreshSource.asObservable();
+
+  notifyUpdate() {
+    this.refreshSource.next();
+  }
 
   getProductos(): Observable<any[]> {
     return runInInjectionContext(this.injector, () => {

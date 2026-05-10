@@ -9,6 +9,7 @@ import { SimilaresComponent } from '../../components/similares/similares.compone
 import { ItemWantedComponent } from '../../components/item-wanted/item-wanted.component';
 import { WantedItem } from './wanted-item.model.component';
 import { DatabaseService } from '../../services/database.service';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-lista-deseados',
@@ -26,7 +27,8 @@ export class ListaDeseadosComponent implements OnInit {
 
   constructor(
     private dbService: DatabaseService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private productoService: ProductoService
   ) {}
 
   ngOnInit(): void {
@@ -54,6 +56,7 @@ export class ListaDeseadosComponent implements OnInit {
 
   async eliminarDeDeseados(id: string | number) {
     await this.dbService.removeDeseado(id);
+    this.productoService.notifyUpdate();
     await this.cargarDeseados();
   }
 }

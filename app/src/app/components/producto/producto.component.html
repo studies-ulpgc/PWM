@@ -14,8 +14,14 @@
       </div>
       
       <div class="product-price d-flex align-items-baseline gap-1 fw-bold text-dark">
-        <span class="price-main">{{ data?.precioEntero || '0' }}</span>
-        <span class="price-decimal">.{{ data?.precioDecimal || '00' }}€</span>
+        <ng-container *ngIf="data?.precioEntero; else precioDB">
+          <span class="price-main">{{ data.precioEntero }}</span>
+          <span class="price-decimal">.{{ data.precioDecimal || '00' }}€</span>
+        </ng-container>
+        
+        <ng-template #precioDB>
+          <span class="price-main">{{ data?.precio | currency:'EUR':'symbol':'1.2-2' }}</span>
+        </ng-template>
       </div>
     </div>
   </a>

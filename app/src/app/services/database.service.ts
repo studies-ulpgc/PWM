@@ -21,7 +21,12 @@ export class DatabaseService {
   // Guardar en deseados
   async addDeseado(prod: any) {
     const sql = `INSERT OR REPLACE INTO deseados (id, nombre, precio, img) VALUES (?, ?, ?, ?)`;
-    await this.db.run(sql, [prod.id, prod.nombre, prod.precio, prod.fotoUrl]);
+    // Normalizamos: usamos prod.fotoUrl o prod.img (por si viene de la propia DB)
+    const img = prod.fotoUrl || prod.img;
+    // Calculamos el precio total si viene fragmentado
+    const precio = prod.precio !== undefined ? prod.precio : parseFloat(`${prod.precioEntero || 0}.${prod.precioDecimal || '00'}`);
+    
+    await this.db.run(sql, [prod.id.toString(), prod.nombre, precio, img]);
   }
 
   async getDeseados() {
@@ -44,9 +49,10 @@ export class DatabaseService {
   // Guardar en cesta
   async addCesta(prod: any) {
     const sql = `INSERT OR REPLACE INTO cesta (id, nombre, precio, img, cantidad) VALUES (?, ?, ?, ?, ?)`;
-    const idStr = prod.id.toString(); // Forzamos que sea String
-    const precio = prod.precio || parseFloat(`${prod.precioEntero}.${prod.precioDecimal}`);
-    await this.db.run(sql, [idStr, prod.nombre, precio, prod.fotoUrl, 1]);
+    const img = prod.fotoUrl || prod.img;
+    const precio = prod.precio !== undefined ? prod.precio : parseFloat(`${prod.precioEntero || 0}.${prod.precioDecimal || '00'}`);
+    
+    await this.db.run(sql, [prod.id.toString(), prod.nombre, precio, img, 1]);
   }
 
   async getCesta() {

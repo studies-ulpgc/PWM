@@ -27,6 +27,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
   enCesta = false;
   enDeseados = false;
   private authSub?: Subscription;
+  private refreshSub?: Subscription;
 
   constructor(
     private authService: AutentificacionService, 
@@ -52,6 +53,20 @@ export class ProductoComponent implements OnInit, OnDestroy {
       }
       this.cdr.detectChanges();
     });
+    this.refreshSub = this.productoService.refresh$.subscribe(async () => {
+      await this.verificarEstadoDB();
+    });
+  }
+
+  async verificarEstadoDB() {
+    if (this.isLoggedIn && this.data?.id) {
+      this.enDeseados = await this.dbService.exists('deseados', this.data.id.toString());
+      this.enCesta = await this.dbService.exists('cesta', this.data.id.toString());
+    } else {
+      this.enCesta = false;
+      this.enDeseados = false;
+    }
+    this.cdr.detectChanges();
   }
 
   // Actualizar toggleCesta
@@ -64,6 +79,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
     } else {
       await this.dbService.removeCesta(this.data.id);
     }
+    this.productoService.notifyUpdate();
   }
 
   async toggleDeseados() {
@@ -75,6 +91,7 @@ export class ProductoComponent implements OnInit, OnDestroy {
     } else {
       await this.dbService.removeDeseado(this.data.id);
     }
+    this.productoService.notifyUpdate();
   }
 
   obtenerRating(): number {
@@ -86,5 +103,6 @@ export class ProductoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.authSub?.unsubscribe();
+    this.refreshSub?.unsubscribe();
   }
 }

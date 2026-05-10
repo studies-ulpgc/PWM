@@ -53,6 +53,7 @@ export class VerCestaComponent implements OnInit {
 
   async eliminarDelCarrito(id: any) {
     await this.dbService.removeCesta(id);
+    this.productoService.notifyUpdate();
     await this.cargarCesta();
   }
 
