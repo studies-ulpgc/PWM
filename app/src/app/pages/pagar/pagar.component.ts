@@ -5,10 +5,11 @@ import { RouterLink } from '@angular/router';
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductoService } from '../../services/producto.service';
+import { IonContent, IonHeader } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-pagar',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, HeaderGrandeComponent, FooterComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, HeaderGrandeComponent, FooterComponent, IonContent, IonHeader],
   templateUrl: './pagar.component.html',
   styleUrl: './pagar.component.css',
 })
