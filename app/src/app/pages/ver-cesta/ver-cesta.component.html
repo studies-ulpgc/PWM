@@ -24,9 +24,10 @@
             <h1 class="total-label">Precio total</h1>
             
             <div class="total-amount-container">
-              <span class="currency-symbol">€</span>
+              
               <span class="total-value">{{ total | number:'1.2-2' }}</span>
-              <span class="period-text"> / mo</span>
+              
+              <span class="period-text">/ €</span>
             </div>
 
             <ion-button (click)="irAPagar()" expand="block" class="btn-comprar">
