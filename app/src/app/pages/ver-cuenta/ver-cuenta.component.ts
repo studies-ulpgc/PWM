@@ -6,11 +6,22 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { Subscription, switchMap, of, catchError } from 'rxjs';
 import { AutentificacionService } from '../../services/autentificacion.service';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
-import { IonContent, IonHeader, IonSpinner } from '@ionic/angular/standalone';
+// Importaciones de Ionic Standalone
+import { 
+  IonContent, IonHeader, IonSpinner, IonGrid, IonRow, IonCol, 
+  IonButton, IonIcon, IonChip, IonLabel 
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { cameraOutline, createOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-ver-cuenta',
-  imports: [CommonModule, RouterLink, RouterModule, HeaderGrandeComponent, FooterComponent, IonContent, IonHeader, IonSpinner],
+  standalone: true,
+  imports: [
+    CommonModule, RouterLink, RouterModule, HeaderGrandeComponent, FooterComponent, 
+    IonContent, IonHeader, IonSpinner, IonGrid, IonRow, IonCol, 
+    IonButton, IonIcon, IonChip, IonLabel
+  ],
   templateUrl: './ver-cuenta.component.html',
   styleUrl: './ver-cuenta.component.css',
 })
@@ -23,10 +34,21 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
   private sub?: Subscription;
   private firestore: Firestore = inject(Firestore);
 
+  // Datos dinámicos
+  ropaOpciones = ['Mujer', 'Hombre', 'Niño', 'Niña', 'Otro'];
+  quienOpciones = ['Familia', 'Amigos', 'Pareja', 'Hijos', 'Mi'];
+  stats = [
+    { cifra: 3, etiqueta: 'Cupones' },
+    { cifra: 3, etiqueta: 'Puntos' },
+    { cifra: 3, etiqueta: 'Tarjeta Regalo' }
+  ];
+
   constructor(
     private authService: AutentificacionService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    addIcons({ cameraOutline, createOutline });
+  }
 
   ngOnInit() {
     this.sub = this.authService.user$.pipe(
@@ -46,16 +68,10 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
     ).subscribe(datos => {
       if (datos) {
         this.userName = `${datos.nombre} ${datos.apellidos}`.trim();
-        
-        if (datos.fotoPerfil) {
-          this.fotoPerfil = datos.fotoPerfil;
-        } else {
-          this.fotoPerfil = `https://ui-avatars.com/api/?name=${datos.nombre}+${datos.apellidos}&background=random&color=fff`;
-        }
+        this.fotoPerfil = datos.fotoPerfil || `https://ui-avatars.com/api/?name=${datos.nombre}+${datos.apellidos}&background=random&color=fff`;
       } else {
         this.userName = 'Invitado';
       }
-
       this.cdr.detectChanges();
     });
   }
@@ -63,7 +79,6 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub?.unsubscribe();
   }
-
 
   async onFileSelected(event: any) {
     const file = event.target.files[0];
@@ -74,13 +89,12 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
 
     try {
       const urlCloudinary = await this.subirACloudinary(file);
-
       if (this.uidUsuario && urlCloudinary) {
         await this.guardarEnFirebase(urlCloudinary);
         this.fotoPerfil = urlCloudinary;
       }
     } catch (error) {
-      console.error('Error en el proceso de subida:', error);
+      console.error('Error:', error);
       alert('Hubo un error al cambiar tu foto de perfil.');
     } finally {
       this.subiendoImagen = false;
@@ -91,7 +105,6 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
   async subirACloudinary(file: File): Promise<string> {
     const cloudName = 'dxndjdzaq';
     const uploadPreset = 'perfil_usuarios';
-
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', uploadPreset);
@@ -100,30 +113,13 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
       method: 'POST',
       body: formData
     });
-
-    if (!response.ok) throw new Error('Fallo al subir a Cloudinary');
-    
     const data = await response.json();
     return data.secure_url;
   }
 
   async guardarEnFirebase(url: string) {
     if (!this.uidUsuario) return;
-    
     const userRef = doc(this.firestore, `usuarios/${this.uidUsuario}`);
-    
-    await updateDoc(userRef, {
-      fotoPerfil: url
-    });
+    await updateDoc(userRef, { fotoPerfil: url });
   }
-
-
-  ropaOpciones = ['Mujer', 'Hombre', 'Niño', 'Niña', 'Otro'];
-  quienOpciones = ['Familia', 'Amigos', 'Pareja', 'Hijos', 'Mi'];
-
-  stats = [
-    { cifra: 3, etiqueta: 'Cupones' },
-    { cifra: 3, etiqueta: 'Puntos' },
-    { cifra: 3, etiqueta: 'Tarjeta Regalo' }
-  ];
 }

@@ -3,73 +3,71 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <main class="container my-5" style="max-width: 550px;">
+  <div class="cuenta-main-container">
     
-    <div class="d-flex justify-content-between align-items-center border border-dark p-3 bg-white mb-4">
-      <div class="d-flex align-items-center gap-3">
-        <div class="position-relative cursor-pointer contenedor-foto" (click)="fileInput.click()">
-          <img [src]="fotoPerfil" alt="Foto de perfil" class="img-perfil border border-dark object-fit-cover">
-          
-          <div class="overlay-camara d-flex justify-content-center align-items-center text-white">
-            @if (subiendoImagen) {
-              <ion-spinner name="crescent" color="light"></ion-spinner>
-            } @else {
-              <i class="bi bi-camera-fill fs-4"></i>
-            }
+    <section class="perfil-card">
+      <div class="perfil-info-flex">
+        <div class="avatar-wrapper" (click)="fileInput.click()">
+          <img [src]="fotoPerfil" alt="Perfil" class="img-avatar">
+          <div class="avatar-overlay">
+            <ion-spinner *ngIf="subiendoImagen" name="crescent" color="light"></ion-spinner>
+            <ion-icon *ngIf="!subiendoImagen" name="camera-outline"></ion-icon>
           </div>
         </div>
-
         <input type="file" #fileInput hidden accept="image/*" (change)="onFileSelected($event)">
-        <span class="fw-bold fs-5">{{ userName }}</span>
+        <h2 class="user-display-name">{{ userName }}</h2>
       </div>
+      <ion-button fill="clear" color="dark" class="btn-edit-icon">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+    </section>
 
-      <button class="btn p-0 border-0">
-          <i class="bi bi-pencil-square fs-5 text-dark"></i>
-      </button>
-    </div>
+    <ion-grid class="stats-grid-container ion-no-padding">
+      <ion-row class="stats-row">
+        @for (stat of stats; track $index; let last = $last) {
+          <ion-col size="4" class="stat-column" [class.with-border]="!last">
+            <div class="stat-inner-box">
+              <span class="stat-value">{{ stat.cifra }}</span>
+              <span class="stat-label">{{ stat.etiqueta }}</span>
+            </div>
+          </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
 
-    <div class="row g-0 border border-dark bg-white mb-5 text-center">
-      @for (stat of stats; track $index) {
-        <div class="col-4 py-4" [class.border-end]="!$last" [class.border-dark]="!$last">
-          <span class="d-block fs-2 fw-bold">{{ stat.cifra }}</span>
-          <span class="small text-uppercase">{{ stat.etiqueta }}</span>
-        </div>
-      }
-    </div>
-
-    <section class="mb-5">
-      <h2 class="h6 fw-bold text-uppercase mb-4">Preferencias</h2>
+    <section class="preferences-section">
+      <h3 class="section-heading">Preferencias</h3>
       
-      <div class="mb-4">
-        <p class="small mb-2">Tipo de ropa:</p>
-        <div class="d-flex flex-wrap gap-2">
+      <div class="pref-block">
+        <p class="pref-subtitle">Tipo de ropa:</p>
+        <div class="chips-flex">
           @for (opcion of ropaOpciones; track opcion) {
-            <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
-              {{ opcion }}
-            </button>
+            <ion-chip class="custom-square-chip">
+              <ion-label>{{ opcion }}</ion-label>
+            </ion-chip>
           }
         </div>
       </div>
 
-      <div class="mb-4">
-        <p class="small mb-2">Para quién:</p>
-        <div class="d-flex flex-wrap gap-2">
+      <div class="pref-block">
+        <p class="pref-subtitle">Para quién:</p>
+        <div class="chips-flex">
           @for (opcion of quienOpciones; track opcion) {
-            <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
-              {{ opcion }}
-            </button>
+            <ion-chip class="custom-square-chip">
+              <ion-label>{{ opcion }}</ion-label>
+            </ion-chip>
           }
         </div>
       </div>
     </section>
 
-    <div class="d-grid mb-5">
-      <a routerLink="/mis-pedidos" class="btn btn-dark rounded-0 py-3 fw-bold text-uppercase">
+    <div class="action-footer">
+      <ion-button expand="block" routerLink="/mis-pedidos" class="black-button">
         Ir a mis pedidos
-      </a>
+      </ion-button>
     </div>
 
-  </main>
+  </div>
 
   <app-footer></app-footer>
 </ion-content>
