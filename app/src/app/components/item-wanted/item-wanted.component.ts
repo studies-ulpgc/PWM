@@ -31,7 +31,7 @@ export class ItemWantedComponent {
         id: this.item.id,
         nombre: this.item.name,
         precio: this.item.price,
-        img: this.item.img // Asegúrate de que el campo sea 'img' como en tu modelo
+        img: this.item.img
       });
     } else {
       await this.dbService.removeCesta(this.item.id);

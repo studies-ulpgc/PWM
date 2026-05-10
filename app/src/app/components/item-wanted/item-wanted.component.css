@@ -67,7 +67,6 @@
   min-width: 120px;
 }
 
-/* Responsive para móvil */
 @media (max-width: 576px) {
   .card-content-flex {
     flex-direction: column;

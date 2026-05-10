@@ -1,4 +1,3 @@
-/* Contenedor Principal */
 .producto-container {
   background: #ffffff;
   border: 1px solid #e9ecef;
@@ -18,7 +17,6 @@
   transform: scale(0.98);
 }
 
-/* Imagen */
 .image-wrapper {
   aspect-ratio: 229 / 247;
   background-size: cover;
@@ -31,7 +29,6 @@
   transform: scale(1.02);
 }
 
-/* Tipografía */
 .product-name {
   font-size: 0.95rem;
   font-weight: 500;
@@ -49,7 +46,6 @@
   font-weight: 400;
 }
 
-/* Botones de Acción (Ionic Reset) */
 .btn-action {
   --padding-start: 0;
   --padding-end: 0;
@@ -64,14 +60,12 @@
   border-radius: 50%;
 }
 
-/* Estado: Seleccionado (Cesta/Deseados activa) */
 .btn-action.is-selected {
   --background: #000;
   --color: #fff;
   border-color: #000;
 }
 
-/* Estado: Desactivado (Sin login) */
 .btn-action.is-disabled {
   --color: #a1a1a1;
   border-color: #d8d8d8;
@@ -79,7 +73,6 @@
   pointer-events: none;
 }
 
-/* Hover en Botones */
 .btn-action:hover {
   transform: scale(1.1);
   --background: #f8f9fa;
@@ -89,7 +82,6 @@
   --background: #333;
 }
 
-/* Estrellas */
 .rating-stars {
   font-size: 0.8rem;
 }
@@ -105,12 +97,10 @@
   color: #6c757d;
 }
 
-/* Espaciado para que el texto no choque con los botones */
 .product-link {
   padding-bottom: 70px !important; 
 }
 
-/* Contenedor de botones */
 .btn-action-minimal {
   --padding-start: 0;
   --padding-end: 0;
@@ -125,25 +115,21 @@
   --color: #000;
 }
 
-/* Cuando están seleccionados */
 .btn-action-minimal.is-selected {
   border-color: #000;
   --background: #000;
   --color: #fff;
 }
 
-/* Iconos dentro de los botones */
 .btn-action-minimal ion-icon {
-  font-size: 18px; /* Tamaño justo para que se vea elegante */
+  font-size: 18px;
 }
 
-/* Hover effects */
 .btn-action-minimal:hover:not([disabled]) {
   border-color: #000;
   transform: scale(1.05);
 }
 
-/* Rating stars */
 .rating-stars {
   display: flex;
   align-items: center;
@@ -161,47 +147,41 @@
   margin-left: 4px;
 }
 
-/* Estado deshabilitado (Sin Login) */
 .btn-action-minimal[disabled] {
   opacity: 0.4;
   border-color: #eee;
   --color: #999;
 }
 
-/* Botón de acción minimalista sin efectos extraños */
 .btn-action-minimal {
   --padding-start: 0;
   --padding-end: 0;
   --box-shadow: none;
-  /* CRUCIAL: Esto elimina el fondo gris/negro cuadrado al hacer clic */
   --background-activated: transparent; 
   --background-focused: transparent;
   --background-hover: transparent;
-  --ripple-color: transparent; /* Elimina la onda expansiva */
+  --ripple-color: transparent;
   
   margin: 0;
   width: 38px;
   height: 38px;
-  --border-radius: 50% !important; /* Forzamos radio en variable de Ionic */
+  --border-radius: 50% !important;
   border: 1px solid #e0e0e0;
-  background: #ffffff; /* Fondo base */
+  background: #ffffff;
   transition: all 0.2s ease;
   --color: #000;
 }
 
-/* Cuando el producto está seleccionado (Cesta/Deseados) */
 .btn-action-minimal.is-selected {
   border-color: #000;
-  background: #000 !important; /* Forzamos el fondo negro */
+  background: #000 !important;
   --color: #fff;
 }
 
-/* Para asegurar que el icono cambie de color */
 .btn-action-minimal.is-selected ion-icon {
   color: #ffffff;
 }
 
-/* Hover suave */
 .btn-action-minimal:hover:not([disabled]) {
   border-color: #000;
   transform: scale(1.08);

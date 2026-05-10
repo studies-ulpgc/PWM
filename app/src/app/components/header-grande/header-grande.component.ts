@@ -41,7 +41,6 @@ export class HeaderGrandeComponent implements OnInit, OnDestroy {
     private authService: AutentificacionService, 
     private cdr: ChangeDetectorRef
   ) {
-    // Registramos los iconos de Ionic
     addIcons({ 
       searchOutline, 
       heart, 

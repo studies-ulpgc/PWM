@@ -2,7 +2,6 @@ import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@an
 import { CommonModule } from '@angular/common';
 import { ProductoComponent } from '../producto/producto.component';
 import { ProductoService } from '../../services/producto.service';
-// Importaciones de Ionic Standalone
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
@@ -10,7 +9,6 @@ import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
 @Component({
   selector: 'app-similares',
   standalone: true,
-  // Añadimos IonButton e IonIcon a los imports
   imports: [CommonModule, ProductoComponent, IonButton, IonIcon],
   templateUrl: './similares.component.html',
   styleUrls: ['./similares.component.css']
@@ -23,7 +21,6 @@ export class SimilaresComponent implements OnInit {
     private productoService: ProductoService,
     private cdr: ChangeDetectorRef
   ) {
-    // Registramos los iconos para poder usarlos en el HTML
     addIcons({ chevronBackOutline, chevronForwardOutline });
   }
 
@@ -49,7 +46,6 @@ export class SimilaresComponent implements OnInit {
         };
       });
 
-      // Limitamos a 4 productos como tenías originalmente
       this.productosSimilares = mapped.slice(0, 4);
       this.cdr.detectChanges();
       

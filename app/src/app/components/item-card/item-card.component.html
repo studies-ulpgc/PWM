@@ -1,6 +1,5 @@
 <div class="card-producto-cesta p-3">
   <div class="item-wrapper">
-    <!-- Checkbox de Ionic -->
     <div class="checkbox-container">
       <ion-checkbox 
         [checked]="item.selected" 
@@ -9,20 +8,17 @@
       </ion-checkbox>
     </div>
 
-    <!-- Imagen del producto -->
     <div class="img-container">
       <div class="img-placeholder" *ngIf="!item.img"></div>
       <img *ngIf="item.img" [src]="item.img" class="producto-img">
     </div>
 
-    <!-- Detalles -->
     <div class="info-container">
       <h5 class="producto-titulo">{{ item.name }}</h5>
       <p class="producto-detalles">{{ item.opts }}</p>
       <p class="producto-precio">{{ item.price | currency:'EUR' }}</p>
     </div>
 
-    <!-- Botón eliminar con icono de Ionic -->
     <ion-button fill="clear" color="danger" (click)="onDelete()" class="btn-delete">
       <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
     </ion-button>
