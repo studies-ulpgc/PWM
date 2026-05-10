@@ -1,20 +1,30 @@
-<div class="card mb-3 card-producto-cesta rounded-0 p-3">
-  <div class="d-flex align-items-center">
-    <div class="form-check me-3">
-      <input class="form-check-input border-dark" type="checkbox" 
-             [checked]="item.selected" (change)="onToggle()" style="width: 25px; height: 25px;">
+<div class="card-producto-cesta p-3">
+  <div class="item-wrapper">
+    <!-- Checkbox de Ionic -->
+    <div class="checkbox-container">
+      <ion-checkbox 
+        [checked]="item.selected" 
+        (ionChange)="onToggle()"
+        aria-label="Seleccionar producto">
+      </ion-checkbox>
     </div>
-    <div class="bg-light border me-3 img-placeholder" style="width: 100px; height: 100px;">
-      <img *ngIf="item.img" [src]="item.img" class="img-fluid w-100 h-100 object-fit-cover">
+
+    <!-- Imagen del producto -->
+    <div class="img-container">
+      <div class="img-placeholder" *ngIf="!item.img"></div>
+      <img *ngIf="item.img" [src]="item.img" class="producto-img">
     </div>
-    <div class="flex-grow-1">
-      <h5 class="producto-titulo mb-1">{{ item.name }}</h5>
-      <p class="producto-detalles mb-1">{{ item.opts }}</p>
-      <p class="fw-bold mb-0 fs-5">{{ item.price | currency:'EUR' }}</p>
+
+    <!-- Detalles -->
+    <div class="info-container">
+      <h5 class="producto-titulo">{{ item.name }}</h5>
+      <p class="producto-detalles">{{ item.opts }}</p>
+      <p class="producto-precio">{{ item.price | currency:'EUR' }}</p>
     </div>
-    <!-- ... dentro de la tarjeta, al final del d-flex -->
-    <button class="btn btn-link text-danger" (click)="onDelete()">
-      <i class="bi bi-trash"></i> <!-- O cualquier icono que uses -->
-    </button>
+
+    <!-- Botón eliminar con icono de Ionic -->
+    <ion-button fill="clear" color="danger" (click)="onDelete()" class="btn-delete">
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-button>
   </div>
 </div>
