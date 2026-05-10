@@ -5,7 +5,6 @@
     display: block;
 }
 
-/* Limitamos el ancho en pantallas grandes para mejor lectura */
 .info-wrapper {
     max-width: 1000px;
     margin: 0 auto;
@@ -20,7 +19,7 @@
 }
 
 .bloque-gris {
-    background-color: #f5f5f5; /* Un gris un poco más moderno y limpio */
+    background-color: #f5f5f5;
     border: 1px solid #eaeaea;
 }
 
@@ -45,7 +44,6 @@
     transform: scale(1.02);
 }
 
-/* Espaciado extra en PC si hay imagen */
 @media (min-width: 768px) {
     .texto-destacado.ion-padding-start {
         padding-left: 2rem !important;
