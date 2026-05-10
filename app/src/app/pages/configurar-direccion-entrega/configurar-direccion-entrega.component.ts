@@ -4,10 +4,11 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { ImgIzqComponent } from '../../components/img-izq/img-izq.component';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
 import { Router, RouterModule } from '@angular/router';
+import { IonContent } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-configurar-direccion-entrega',
-  imports: [CommonModule, ReactiveFormsModule, ImgIzqComponent, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, ImgIzqComponent, RouterModule, IonContent],
   templateUrl: './configurar-direccion-entrega.component.html',
   styleUrl: './configurar-direccion-entrega.component.css',
 })

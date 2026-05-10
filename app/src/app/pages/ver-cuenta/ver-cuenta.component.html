@@ -1,74 +1,75 @@
-<app-header-grande></app-header-grande>
+<ion-header [translucent]="true">
+  <app-header-grande></app-header-grande>
+</ion-header>
 
-<main class="container my-5" style="max-width: 550px;">
-  
-  <div class="d-flex justify-content-between align-items-center border border-dark p-3 bg-white mb-4">
+<ion-content [fullscreen]="true">
+  <main class="container my-5" style="max-width: 550px;">
     
-    <div class="d-flex align-items-center gap-3">
+    <div class="d-flex justify-content-between align-items-center border border-dark p-3 bg-white mb-4">
+      <div class="d-flex align-items-center gap-3">
+        <div class="position-relative cursor-pointer contenedor-foto" (click)="fileInput.click()">
+          <img [src]="fotoPerfil" alt="Foto de perfil" class="img-perfil border border-dark object-fit-cover">
+          
+          <div class="overlay-camara d-flex justify-content-center align-items-center text-white">
+            @if (subiendoImagen) {
+              <ion-spinner name="crescent" color="light"></ion-spinner>
+            } @else {
+              <i class="bi bi-camera-fill fs-4"></i>
+            }
+          </div>
+        </div>
+
+        <input type="file" #fileInput hidden accept="image/*" (change)="onFileSelected($event)">
+        <span class="fw-bold fs-5">{{ userName }}</span>
+      </div>
+
+      <button class="btn p-0 border-0">
+          <i class="bi bi-pencil-square fs-5 text-dark"></i>
+      </button>
+    </div>
+
+    <div class="row g-0 border border-dark bg-white mb-5 text-center">
+      @for (stat of stats; track $index) {
+        <div class="col-4 py-4" [class.border-end]="!$last" [class.border-dark]="!$last">
+          <span class="d-block fs-2 fw-bold">{{ stat.cifra }}</span>
+          <span class="small text-uppercase">{{ stat.etiqueta }}</span>
+        </div>
+      }
+    </div>
+
+    <section class="mb-5">
+      <h2 class="h6 fw-bold text-uppercase mb-4">Preferencias</h2>
       
-      <div class="position-relative cursor-pointer contenedor-foto" (click)="fileInput.click()">
-        <img [src]="fotoPerfil" alt="Foto de perfil" class="img-perfil border border-dark object-fit-cover">
-        
-        <div class="overlay-camara d-flex justify-content-center align-items-center text-white">
-          @if (subiendoImagen) {
-            <div class="spinner-border spinner-border-sm text-light" role="status"></div>
-          } @else {
-            <i class="bi bi-camera-fill fs-4"></i>
+      <div class="mb-4">
+        <p class="small mb-2">Tipo de ropa:</p>
+        <div class="d-flex flex-wrap gap-2">
+          @for (opcion of ropaOpciones; track opcion) {
+            <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
+              {{ opcion }}
+            </button>
           }
         </div>
       </div>
 
-      <input type="file" #fileInput hidden accept="image/*" (change)="onFileSelected($event)">
-      
-      <span class="fw-bold fs-5">{{ userName }}</span>
+      <div class="mb-4">
+        <p class="small mb-2">Para quién:</p>
+        <div class="d-flex flex-wrap gap-2">
+          @for (opcion of quienOpciones; track opcion) {
+            <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
+              {{ opcion }}
+            </button>
+          }
+        </div>
+      </div>
+    </section>
+
+    <div class="d-grid mb-5">
+      <a routerLink="/mis-pedidos" class="btn btn-dark rounded-0 py-3 fw-bold text-uppercase">
+        Ir a mis pedidos
+      </a>
     </div>
 
-    <button class="btn p-0 border-0">
-        <i class="bi bi-pencil-square fs-5 text-dark"></i>
-    </button>
-  </div>
+  </main>
 
-  <div class="row g-0 border border-dark bg-white mb-5 text-center">
-    @for (stat of stats; track $index) {
-      <div class="col-4 py-4" [class.border-end]="!$last" [class.border-dark]="!$last">
-        <span class="d-block fs-2 fw-bold">{{ stat.cifra }}</span>
-        <span class="small text-uppercase">{{ stat.etiqueta }}</span>
-      </div>
-    }
-  </div>
-
-  <section class="mb-5">
-    <h2 class="h6 fw-bold text-uppercase mb-4">Preferencias</h2>
-    
-    <div class="mb-4">
-      <p class="small mb-2">Tipo de ropa:</p>
-      <div class="d-flex flex-wrap gap-2">
-        @for (opcion of ropaOpciones; track opcion) {
-          <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
-            {{ opcion }}
-          </button>
-        }
-      </div>
-    </div>
-
-    <div class="mb-4">
-      <p class="small mb-2">Para quién:</p>
-      <div class="d-flex flex-wrap gap-2">
-        @for (opcion of quienOpciones; track opcion) {
-          <button class="btn btn-light btn-sm rounded-0 border-0 chip-personalizado">
-            {{ opcion }}
-          </button>
-        }
-      </div>
-    </div>
-  </section>
-
-  <div class="d-grid">
-    <a routerLink="/mis-pedidos" class="btn btn-dark rounded-0 py-3 fw-bold text-uppercase">
-      Ir a mis pedidos
-    </a>
-  </div>
-
-</main>
-
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</ion-content>

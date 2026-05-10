@@ -5,11 +5,12 @@ import { ImgIzqComponent } from '../../components/img-izq/img-izq.component';
 import { Router, RouterLink } from '@angular/router';
 import { ImagenIzqService } from '../../services/imagen-izq.service';
 import { AutentificacionService } from '../../services/autentificacion.service';
+import { IonContent } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-iniciar-sesion',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ImgIzqComponent, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, ImgIzqComponent, RouterLink, IonContent],
   templateUrl: './iniciar-sesion.component.html',
   styleUrl: './iniciar-sesion.component.css',
 })

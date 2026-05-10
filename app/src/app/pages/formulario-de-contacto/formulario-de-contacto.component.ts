@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { IonContent, IonHeader } from '@ionic/angular/standalone';
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-formulario-de-contacto',
-  imports: [ReactiveFormsModule, HeaderGrandeComponent, FooterComponent],
+  imports: [ReactiveFormsModule, HeaderGrandeComponent, FooterComponent, IonContent, IonHeader],
   templateUrl: './formulario-de-contacto.component.html',
   styleUrl: './formulario-de-contacto.component.css',
 })
