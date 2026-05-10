@@ -46,7 +46,6 @@ export class ListaPedidosRealizadosComponent implements OnInit {
     });
   }
 
-  // Ahora se llamará con (ionChange) desde el HTML
   applyFilter() {
     if (this.filterStatus === 'Todos') {
       this.filteredOrders = [...this.allOrders];

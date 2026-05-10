@@ -9,7 +9,6 @@
   border-radius: 4px;
 }
 
-/* Solo en desktop habilitamos el scroll interno, en móvil usa el ion-content */
 @media (min-width: 768px) {
   .scroll-orders-container {
     max-height: 600px;
