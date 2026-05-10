@@ -4,7 +4,6 @@
   --transition: all 0.3s ease;
 }
 
-/* --- Layout --- */
 .product-page {
   font-family: 'Inter', sans-serif;
   color: var(--text-main);
@@ -15,7 +14,6 @@
   top: 100px;
 }
 
-/* --- Galería de Imágenes --- */
 .image-showcase {
   display: flex;
   gap: 15px;
@@ -79,7 +77,6 @@
   margin-bottom: 12px;
 }
 
-/* --- Selectores --- */
 .size-selector {
   display: flex;
   flex-wrap: wrap;
@@ -178,7 +175,7 @@
 }
 
 ion-button {
-  --border-radius: 0; /* Si quieres el estilo cuadrado de moda */
+  --border-radius: 0;
   margin-top: 5px;
   height: 55px;
   font-weight: 600;
@@ -186,6 +183,6 @@ ion-button {
 }
 
 .stars-display i {
-  color: #ffc107; /* Color dorado para estrellas */
+  color: #ffc107;
   margin-right: 2px;
 }

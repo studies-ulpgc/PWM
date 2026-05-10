@@ -44,7 +44,6 @@ export class ArticuloSeleccionadoComponent implements OnInit {
   precioDecimal: string = '00';
   imagenMostrada: string = '';
 
-  // Inyectamos ToastController usando la nueva sintaxis de Angular inject()
   private toastCtrl = inject(ToastController);
 
   constructor(
@@ -53,7 +52,6 @@ export class ArticuloSeleccionadoComponent implements OnInit {
     private comentarioService: ComentarioService,
     private cdr: ChangeDetectorRef
   ) {
-    // Los iconos se registran dentro del cuerpo del constructor, no en los parámetros
     addIcons({ heartOutline });
   }
 
