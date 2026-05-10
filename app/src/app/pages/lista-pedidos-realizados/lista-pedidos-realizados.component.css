@@ -1,25 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-:host {
-    font-family: 'Inter', sans-serif;
-    display: block;
+.pedidos-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
-.scroll-orders-container {
+.filter-item {
+  --background: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* Solo en desktop habilitamos el scroll interno, en móvil usa el ion-content */
+@media (min-width: 768px) {
+  .scroll-orders-container {
     max-height: 600px;
     overflow-y: auto;
     padding-right: 10px;
-}
-
-.scroll-orders-container::-webkit-scrollbar {
+  }
+  .scroll-orders-container::-webkit-scrollbar {
     width: 6px;
-}
-.scroll-orders-container::-webkit-scrollbar-thumb {
+  }
+  .scroll-orders-container::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 10px;
-}
-
-.form-select:focus {
-    box-shadow: none;
-    border-color: #000;
+  }
 }

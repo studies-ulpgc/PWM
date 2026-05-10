@@ -1,6 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { 
+  IonContent, IonGrid, IonRow, IonCol, IonSelect, IonSelectOption, IonHeader, IonItem
+} from '@ionic/angular/standalone';
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SimilaresComponent } from '../../components/similares/similares.component';
@@ -11,7 +14,11 @@ import { OrderItem } from './order-item.model.component';
 @Component({
   selector: 'app-lista-pedidos-realizados',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderGrandeComponent, FooterComponent, SimilaresComponent, ItemCompradoComponent],
+  imports: [
+    CommonModule, FormsModule, 
+    IonContent, IonGrid, IonRow, IonCol, IonSelect, IonSelectOption, IonHeader, IonItem,
+    HeaderGrandeComponent, FooterComponent, SimilaresComponent, ItemCompradoComponent
+  ],
   templateUrl: './lista-pedidos-realizados.component.html',
   styleUrls: ['./lista-pedidos-realizados.component.css']
 })
@@ -39,6 +46,7 @@ export class ListaPedidosRealizadosComponent implements OnInit {
     });
   }
 
+  // Ahora se llamará con (ionChange) desde el HTML
   applyFilter() {
     if (this.filterStatus === 'Todos') {
       this.filteredOrders = [...this.allOrders];
