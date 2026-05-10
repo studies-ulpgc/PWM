@@ -1,34 +1,47 @@
-<app-header-grande></app-header-grande>
+<ion-header [translucent]="true">
+  <app-header-grande></app-header-grande>
+</ion-header>
 
-<main class="container py-5">
-  <h1 class="text-center fw-bold mb-5" *ngIf="tituloPagina">{{ tituloPagina }}</h1>
-
-  <div *ngFor="let bloque of contenido">
+<ion-content [fullscreen]="true">
+  <main class="info-wrapper ion-padding">
     
-    <section *ngIf="bloque.__component === 'info.bloque-texto'" 
-             class="bloque-gris p-4 p-md-5 mb-5 text-center">
-      <p class="fs-5">{{ bloque.cuerpo }}</p>
-    </section>
+    <h1 class="titulo-principal text-center fw-bold mb-5" *ngIf="tituloPagina">
+      {{ tituloPagina }}
+    </h1>
 
-    <section *ngIf="bloque.__component === 'info.seccion-destacada'" 
-             class="bloque-gris p-4 p-md-5 mb-5 shadow-sm">
-      <div class="row align-items-center g-4">
+    <div *ngFor="let bloque of contenido">
+      
+      <section *ngIf="bloque.__component === 'info.bloque-texto'" 
+               class="bloque-gris rounded-3 p-4 p-md-5 mb-4 text-center shadow-sm">
+        <p class="fs-5 m-0">{{ bloque.cuerpo }}</p>
+      </section>
+
+      <section *ngIf="bloque.__component === 'info.seccion-destacada'" 
+               class="bloque-gris rounded-3 p-4 p-md-5 mb-4 shadow-sm">
         
-        <div class="col-md-4" *ngIf="bloque.imagen">
-          <div class="img-cuadrada-oscura shadow-sm" 
-               [style.background-image]="'url(' + bloque.imagen.url + ')'"
-               style="background-size: cover; background-position: center;">
-          </div>
-        </div>
+        <ion-grid class="ion-no-padding">
+          <ion-row class="ion-align-items-center">
+            
+            <ion-col size="12" size-md="4" *ngIf="bloque.imagen" class="mb-4 mb-md-0">
+              <div class="img-cuadrada-oscura shadow-sm rounded-3" 
+                   [style.background-image]="'url(' + bloque.imagen.url + ')'">
+              </div>
+            </ion-col>
 
-        <div [ngClass]="bloque.imagen ? 'col-md-8 px-md-4' : 'col-12'">
-          <h2 class="fw-bold mb-4" *ngIf="bloque.imagen?.titulo">{{ bloque.imagen.titulo }}</h2>
-          <p class="fs-5">{{ bloque.descripcion }}</p>
-        </div>
-      </div>
-    </section>
+            <ion-col size="12" [attr.size-md]="bloque.imagen ? '8' : '12'" 
+                     [class.ion-padding-start]="bloque.imagen"
+                     class="texto-destacado">
+              <h2 class="fw-bold mb-3" *ngIf="bloque.imagen?.titulo">{{ bloque.imagen.titulo }}</h2>
+              <p class="fs-5 m-0">{{ bloque.descripcion }}</p>
+            </ion-col>
 
-  </div>
-</main>
+          </ion-row>
+        </ion-grid>
+      </section>
 
-<app-footer></app-footer>
+    </div>
+    
+  </main>
+
+  <app-footer></app-footer>
+</ion-content>

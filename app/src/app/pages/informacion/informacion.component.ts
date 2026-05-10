@@ -2,13 +2,20 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InformacionService } from '../../services/informacion.service';
 import { CommonModule } from '@angular/common';
+import { 
+  IonContent, IonHeader, IonGrid, IonRow, IonCol 
+} from '@ionic/angular/standalone';
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-informacion',
   standalone: true,
-  imports: [CommonModule, HeaderGrandeComponent, FooterComponent],
+  imports: [
+    CommonModule, 
+    IonContent, IonHeader, IonGrid, IonRow, IonCol, 
+    HeaderGrandeComponent, FooterComponent
+  ],
   templateUrl: './informacion.component.html',
   styleUrls: ['./informacion.component.css']
 })
