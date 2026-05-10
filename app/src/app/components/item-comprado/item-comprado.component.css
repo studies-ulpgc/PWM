@@ -1,20 +1,104 @@
-.card-pedido {
-    border: 1px solid #dee2e6;
-    transition: border-color 0.2s ease;
+.card-pedido-ionic {
+  margin: 0 0 15px 0;
+  box-shadow: none;
+  border: 1px solid #dee2e6;
+  border-radius: 0; /* Lo dejaste cuadrado en tu diseño original */
+  transition: border-color 0.2s ease;
+  background: white;
 }
 
-.card-pedido:hover {
-    border-color: #000;
+.card-pedido-ionic:hover {
+  border-color: #000;
 }
 
-.img-container {
-    width: 90px;
-    height: 90px;
-    background-color: #f8f8f8;
-    flex-shrink: 0;
+.card-content-flex {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  gap: 15px;
 }
 
-.form-check-input:checked {
-    background-color: #000;
-    border-color: #000;
+.check-pedido {
+  --size: 22px;
+  --checkbox-background-checked: #000;
+  --border-color-checked: #000;
+  margin-right: 5px;
+}
+
+.img-box {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-box {
+  flex-grow: 1;
+}
+
+.item-name {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 4px 0;
+}
+
+.item-opts {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin: 0 0 4px 0;
+}
+
+.item-price {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.status-box {
+  min-width: 100px;
+}
+
+.status-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.status-text {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Colores personalizados para los estados */
+.text-primary { color: #0d6efd !important; }
+.text-warning { color: #ffc107 !important; }
+.text-success { color: #198754 !important; }
+
+/* Responsive para móvil */
+@media (max-width: 576px) {
+  .card-content-flex {
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .status-box {
+    width: 100%;
+    text-align: left !important;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .status-label {
+    margin: 0;
+  }
 }

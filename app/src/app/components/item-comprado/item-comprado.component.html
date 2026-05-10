@@ -1,26 +1,34 @@
-<div class="card mb-3 card-pedido rounded-0 p-3 shadow-sm">
-  <div class="d-flex align-items-center justify-content-between">
+<ion-card class="card-pedido-ionic">
+  <div class="card-content-flex">
     
-    <div class="d-flex align-items-center flex-grow-1">
-      <div class="form-check me-3">
-        <input class="form-check-input border-dark" type="checkbox" [(ngModel)]="item.selected" style="width: 22px; height: 22px;">
-      </div>
-      
-      <div class="img-container border me-3">
-        <img *ngIf="item.img" [src]="item.img" class="img-fluid w-100 h-100 object-fit-cover" [alt]="item.name">
-      </div>
+    <ion-checkbox 
+      [(ngModel)]="item.selected" 
+      color="dark" 
+      mode="md"
+      class="check-pedido">
+    </ion-checkbox>
 
-      <div>
-        <h5 class="fw-bold mb-1 fs-6">{{ item.name }}</h5>
-        <p class="small text-muted mb-1">{{ item.opts }}</p>
-        <p class="fw-bold mb-0">{{ item.price | currency:'EUR' }}</p>
-      </div>
+    <div class="img-box border">
+      <img *ngIf="item.img" [src]="item.img" [alt]="item.name" class="img-fluid">
     </div>
 
-    <div class="text-end pe-3">
-      <h4 class="fw-bold mb-0 fs-4">Estado:</h4>
-      <p class="text-muted mb-0 small">{{ item.status }}</p>
+    <div class="info-box">
+      <h5 class="item-name">{{ item.name }}</h5>
+      <p class="item-opts">{{ item.opts }}</p>
+      <h3 class="item-price">{{ item.price | currency:'EUR' }}</h3>
+    </div>
+
+    <div class="status-box text-end">
+      <h4 class="status-label">Estado:</h4>
+      <p class="status-text fw-bold" 
+         [ngClass]="{
+           'text-primary': item.status === 'En envío',
+           'text-warning': item.status === 'En ruta de entrega',
+           'text-success': item.status === 'Entregado'
+         }">
+        {{ item.status }}
+      </p>
     </div>
 
   </div>
-</div>
+</ion-card>
