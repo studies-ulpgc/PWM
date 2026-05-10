@@ -1,34 +1,29 @@
-<div class="card mb-4 card-deseado position-relative shadow-sm border-0">
-  
-  <!-- Botón Eliminar de Deseados -->
-  <button 
-    class="btn-remove-wishlist" 
-    (click)="onRemove()" 
-    title="Eliminar de deseados">
-    ×
-  </button>
+<ion-card class="card-deseado-ionic">
+  <ion-button fill="clear" color="danger" class="btn-remove" (click)="onRemove()">
+    <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+  </ion-button>
 
-  <div class="card-body p-3 d-flex flex-column flex-md-row align-items-center justify-content-between">
-    <div class="d-flex align-items-center flex-grow-1 w-100 mb-3 mb-md-0">
-      <div class="img-container me-4 border rounded">
-        <img *ngIf="item.img" [src]="item.img" class="img-fluid w-100 h-100 object-fit-cover" [alt]="item.name">
-      </div>
-      <div>
-        <h5 class="fw-bold mb-1 fs-5">{{ item.name }}</h5>
-        <p class="small text-muted mb-1">{{ item.opts }}</p>
-        <p class="fw-bold mb-0 text-dark">{{ item.price | currency:'EUR' }}</p>
-      </div>
+  <div class="card-content-flex">
+    <div class="img-box">
+      <img [src]="item.img" [alt]="item.name" />
     </div>
 
-    <div>
-      <!-- El botón cambia de color y texto según item.added -->
-      <button 
-        class="btn px-4 py-2 fw-bold transition-btn text-nowrap rounded-pill" 
-        [ngClass]="item.added ? 'btn-success' : 'btn-dark'"
+    <div class="info-box">
+      <ion-label>
+        <h2 class="item-name">{{ item.name }}</h2>
+        <p class="item-opts">{{ item.opts }}</p>
+        <h3 class="item-price">{{ item.price | currency:'EUR' }}</h3>
+      </ion-label>
+    </div>
+
+    <div class="action-box">
+      <ion-button 
+        [color]="item.added ? 'success' : 'dark'" 
+        class="btn-toggle-cesta"
         (click)="toggleAdd()">
-        <span *ngIf="item.added">Añadido</span>
-        <span *ngIf="!item.added">Añadir a la cesta</span>
-      </button>
+        <ion-icon slot="start" [name]="item.added ? 'checkmark-outline' : 'cart-outline'"></ion-icon>
+        {{ item.added ? 'Añadido' : 'Añadir' }}
+      </ion-button>
     </div>
   </div>
-</div>
+</ion-card>

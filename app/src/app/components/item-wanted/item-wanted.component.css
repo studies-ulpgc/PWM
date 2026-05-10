@@ -1,62 +1,82 @@
-.card-deseado {
-    border: 1px solid #dee2e6;
-    border-radius: 0;
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    background-color: #fff;
+.card-deseado-ionic {
+  margin: 0 0 15px 0;
+  box-shadow: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  position: relative;
+  overflow: visible;
 }
 
-.card-deseado:hover {
-    border-color: #000;
-}
-
-.img-container {
-    width: 100px;
-    height: 100px;
-    background-color: #d9d9d9;
-    flex-shrink: 0;
-}
-
-.transition-btn {
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    min-width: 180px;
-}
-
-.btn-remove-wishlist {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #f8f9fa;
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+.card-content-flex {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  line-height: 1;
-  color: #dc3545;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.2s;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 15px;
+  gap: 15px;
 }
 
-.btn-remove-wishlist:hover {
-  background: #dc3545;
-  color: white;
-}
-
-.img-container {
+.img-box {
   width: 80px;
   height: 80px;
+  flex-shrink: 0;
+  border-radius: 6px;
   overflow: hidden;
+  background: #f5f5f5;
 }
 
-/* Color verde suave para el estado "Añadido" */
-.btn-success {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
-  color: white !important;
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-box {
+  flex-grow: 1;
+}
+
+.item-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 4px 0;
+}
+
+.item-opts {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0 0 4px 0;
+}
+
+.item-price {
+  font-weight: 800;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.btn-remove {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  --padding-start: 0;
+  --padding-end: 0;
+  z-index: 10;
+}
+
+.btn-toggle-cesta {
+  --border-radius: 20px;
+  font-weight: 700;
+  text-transform: none;
+  min-width: 120px;
+}
+
+/* Responsive para móvil */
+@media (max-width: 576px) {
+  .card-content-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  .action-box {
+    width: 100%;
+  }
+  .btn-toggle-cesta {
+    width: 100%;
+  }
 }
