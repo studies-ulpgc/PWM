@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-// Importa los componentes de Ionic Standalone
 import { IonContent, IonHeader } from '@ionic/angular/standalone'; 
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -12,7 +11,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  // Añade IonContent aquí
   imports: [CommonModule, IonHeader, RouterModule, IonContent, HeaderGrandeComponent, FooterComponent, ProductoComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
