@@ -6,10 +6,11 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { Subscription, switchMap, of, catchError } from 'rxjs';
 import { AutentificacionService } from '../../services/autentificacion.service';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
+import { IonContent, IonHeader, IonSpinner } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-ver-cuenta',
-  imports: [CommonModule, RouterLink, RouterModule, HeaderGrandeComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, RouterModule, HeaderGrandeComponent, FooterComponent, IonContent, IonHeader, IonSpinner],
   templateUrl: './ver-cuenta.component.html',
   styleUrl: './ver-cuenta.component.css',
 })
