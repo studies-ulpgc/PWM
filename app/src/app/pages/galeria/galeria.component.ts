@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef, inject, Injector, runInInjectionContext } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-// Importamos los componentes de Ionic
+
 import { IonContent, IonHeader, IonRange, IonSpinner } from '@ionic/angular/standalone'; 
 
 import { HeaderGrandeComponent } from '../../components/header-grande/header-grande.component';
@@ -17,7 +17,7 @@ import { ProductoService } from '../../services/producto.service';
     HeaderGrandeComponent, 
     FooterComponent, 
     ProductoComponent,
-    IonContent,    // <--- Añadidos
+    IonContent,
     IonHeader, 
     IonRange, 
     IonSpinner
@@ -40,7 +40,6 @@ export class GaleriaComponent implements OnInit {
   constructor() {}
 
   actualizarPrecio(evento: any) {
-    // En ion-range el valor viene en evento.detail.value
     this.precioSeleccionado = Number(evento.detail.value);
     this.aplicarFiltros(); 
   }

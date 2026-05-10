@@ -7,7 +7,6 @@
     <div class="container-wrapper">
       <div class="layout-grid">
         
-        <!-- Sidebar de Filtros -->
         <aside class="sidebar-filters">
           <div class="filter-card">
             
@@ -28,7 +27,6 @@
                 <h3 class="filter-title">Precio</h3>
                 <span class="price-range">0€ - {{ precioSeleccionado }}€</span>
               </div>
-              <!-- Cambiado a ion-range para mejor UX móvil -->
               <ion-range 
                 class="modern-range"
                 min="0" 
@@ -50,13 +48,9 @@
               </div>
             </div>
 
-            <!-- ... (el resto de tus secciones de temporada/material se mantienen igual) ... -->
-            <!-- Nota: Puedes cambiar tus checkboxes nativos por <ion-checkbox> si quieres el look de Android/iOS -->
-
           </div>
         </aside>
 
-        <!-- Contenedor de Productos -->
         <section class="products-container">
           <div class="grid-display">
             @for (producto of listaProductos; track $index) {
