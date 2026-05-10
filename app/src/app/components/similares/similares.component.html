@@ -1,10 +1,11 @@
 <section class="similares-wrapper mt-5 pt-5 border-top">
-  <h3 class="mb-4 text-center text-uppercase" style="letter-spacing: 2px;">Puede interesarte</h3>
+  <h3 class="section-title">Puede interesarte</h3>
   
   <div class="carrusel-nav-container">
-    <button class="nav-button prev" (click)="scroll(-1)" aria-label="Anterior">
-      <span>&#10094;</span>
-    </button>
+    <!-- Botón Anterior -->
+    <ion-button fill="clear" class="nav-button prev" (click)="scroll(-1)" aria-label="Anterior">
+      <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+    </ion-button>
 
     <div class="productos-scroll" #scrollContainer>
       <div class="producto-card-wrapper" *ngFor="let p of productosSimilares">
@@ -12,8 +13,9 @@
       </div>
     </div>
 
-    <button class="nav-button next" (click)="scroll(1)" aria-label="Siguiente">
-      <span>&#10095;</span>
-    </button>
+    <!-- Botón Siguiente -->
+    <ion-button fill="clear" class="nav-button next" (click)="scroll(1)" aria-label="Siguiente">
+      <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+    </ion-button>
   </div>
 </section>

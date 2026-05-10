@@ -2,11 +2,16 @@ import { Component, OnInit, ChangeDetectorRef, ViewChild, ElementRef } from '@an
 import { CommonModule } from '@angular/common';
 import { ProductoComponent } from '../producto/producto.component';
 import { ProductoService } from '../../services/producto.service';
+// Importaciones de Ionic Standalone
+import { IonButton, IonIcon } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-similares',
   standalone: true,
-  imports: [CommonModule, ProductoComponent],
+  // Añadimos IonButton e IonIcon a los imports
+  imports: [CommonModule, ProductoComponent, IonButton, IonIcon],
   templateUrl: './similares.component.html',
   styleUrls: ['./similares.component.css']
 })
@@ -17,7 +22,10 @@ export class SimilaresComponent implements OnInit {
   constructor(
     private productoService: ProductoService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    // Registramos los iconos para poder usarlos en el HTML
+    addIcons({ chevronBackOutline, chevronForwardOutline });
+  }
 
   ngOnInit(): void {
     this.productoService.getProductos().subscribe((productos: any[]) => {
@@ -31,27 +39,20 @@ export class SimilaresComponent implements OnInit {
         const cleanPrice = String(p.Precio || '0').replace('€', '').trim();
         const [entero, decimal = '00'] = cleanPrice.split('.');
 
-        const resolvedFotoUrl = fotoUrl.startsWith('/uploads/')
-          ? fotoUrl
-          : fotoUrl;
-
         return {
           ...p,
           id: p.id,
           nombre: p.Descripcion || p.Subtitulo || 'Producto',
           precioEntero: entero || '0',
           precioDecimal: (decimal + '00').slice(0, 2),
-          fotoUrl: resolvedFotoUrl,
+          fotoUrl: fotoUrl,
         };
       });
 
-      setTimeout(() => {
-        const listaExtendida = [...mapped, ...mapped, ...mapped];
-        this.productosSimilares = listaExtendida.slice(0, 4);
-
-        this.cdr.detectChanges();
-      }, 0);
-
+      // Limitamos a 4 productos como tenías originalmente
+      this.productosSimilares = mapped.slice(0, 4);
+      this.cdr.detectChanges();
+      
     }, err => console.error('Error al cargar similares', err));
   }
 

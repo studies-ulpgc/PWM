@@ -4,6 +4,15 @@
   padding: 0 20px;
 }
 
+.section-title {
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
 .carrusel-nav-container {
   position: relative;
   display: flex;
@@ -29,38 +38,44 @@
   min-width: 280px;
 }
 
+/* Estilos para los botones de Ionic */
 .nav-button {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 50%;
+  --background: #ffffff;
+  --background-hover: #000000;
+  --color: #000000;
+  --color-hover: #ffffff;
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
   width: 45px;
   height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  z-index: 10;
   position: absolute;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin: 0;
 }
 
-.nav-button:hover {
-  background: #000;
-  color: #fff;
+.nav-button ion-icon {
+  font-size: 20px;
 }
 
 .nav-button.prev {
-  left: -60px;
+  left: -60px; /* Ajustado para que flote sobre el borde */
 }
 
 .nav-button.next {
-  right: -60px;
+  right: -60px; /* Ajustado para que flote sobre el borde */
+}
+
+@media (max-width: 1100px) {
+  /* En tablets sacamos menos los botones */
+  .nav-button.prev { left: -10px; }
+  .nav-button.next { right: -10px; }
 }
 
 @media (max-width: 768px) {
   .nav-button {
-    display: none;
+    display: none; /* Ocultar flechas en móvil para scroll táctil */
   }
   .similares-wrapper {
     padding: 0 10px;
