@@ -6,7 +6,6 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { Subscription, switchMap, of, catchError } from 'rxjs';
 import { AutentificacionService } from '../../services/autentificacion.service';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
-// Importaciones de Ionic Standalone
 import { 
   IonContent, IonHeader, IonSpinner, IonGrid, IonRow, IonCol, 
   IonButton, IonIcon, IonChip, IonLabel 
@@ -34,7 +33,6 @@ export class VerCuentaComponent implements OnInit, OnDestroy {
   private sub?: Subscription;
   private firestore: Firestore = inject(Firestore);
 
-  // Datos dinámicos
   ropaOpciones = ['Mujer', 'Hombre', 'Niño', 'Niña', 'Otro'];
   quienOpciones = ['Familia', 'Amigos', 'Pareja', 'Hijos', 'Mi'];
   stats = [

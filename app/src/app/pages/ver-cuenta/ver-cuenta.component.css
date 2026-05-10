@@ -7,7 +7,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Card Perfil */
 .perfil-card {
   display: flex;
   justify-content: space-between;
@@ -62,7 +61,6 @@
   margin: 0;
 }
 
-/* Grid de Stats - FIX PARA ANDROID */
 .stats-grid-container {
   border: 1px solid #000;
   background: #fff;
@@ -71,7 +69,7 @@
 
 .stats-row {
   display: flex !important;
-  flex-direction: row !important; /* Fuerza horizontal */
+  flex-direction: row !important;
   flex-wrap: nowrap !important;
 }
 
@@ -105,7 +103,6 @@
   margin-top: 4px;
 }
 
-/* Preferencias */
 .section-heading {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -139,7 +136,6 @@
   font-weight: 500;
 }
 
-/* Botón Final */
 .action-footer {
   margin: 40px 0 60px 0;
 }
@@ -155,7 +151,6 @@
   letter-spacing: 1px;
 }
 
-/* Media query para asegurar que en móvil pequeño no se rompa */
 @media (max-width: 380px) {
   .stat-value { font-size: 1.4rem; }
   .stat-label { font-size: 0.55rem; }
