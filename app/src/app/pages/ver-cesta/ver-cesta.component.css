@@ -9,17 +9,15 @@
     margin: 0 auto;
 }
 
-/* Área de productos con scroll suave */
 .scroll-container {
     max-height: 70vh;
     overflow-y: auto;
     padding-right: 10px;
 }
 
-/* Tarjeta de resumen */
 .resumen-card {
     --background: #ffffff;
-    border-radius: 0; /* Mantenemos tu estética minimalista */
+    border-radius: 0;
     box-shadow: none;
     border: 1px solid #f0f0f0;
     padding: 30px;
@@ -57,7 +55,6 @@
     font-size: 1.2rem;
 }
 
-/* Botón de compra estilizado como Ionic */
 .btn-comprar {
     --background: #000;
     --background-hover: #333;
@@ -70,7 +67,6 @@
     margin-bottom: 40px;
 }
 
-/* Métodos de pago */
 .titulo-seccion-pagos {
     font-size: 11px;
     font-weight: 700;
@@ -93,7 +89,6 @@
     filter: grayscale(1);
 }
 
-/* Scrollbar personalizado para la lista */
 .scroll-container::-webkit-scrollbar {
     width: 3px;
 }

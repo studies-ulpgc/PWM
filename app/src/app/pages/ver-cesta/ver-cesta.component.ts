@@ -14,7 +14,6 @@ import { DatabaseService } from '../../services/database.service';
 @Component({
   selector: 'app-ver-cesta',
   standalone: true,
-  // Actualizamos los imports con los componentes de Ionic
   imports: [
     CommonModule, 
     IonContent, IonGrid, IonRow, IonCol, IonButton, IonCard,
