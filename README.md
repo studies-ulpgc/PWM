@@ -14,39 +14,16 @@ El objetivo del software es desarrollar una plataforma web de comercio electrón
 # Situarse en el directorio donde se encuentra el proyecto Angular
 cd app
 
-# Instalación de las dependencias
-npm install -g @ionic/cli  
-ionic init 
-
-# En caso de fallar la instalación, añadir el argumento --legacy-peer-deps
-npm install @capacitor/core @capacitor/cli --legacy-peer-deps 
-npm install @angular-devkit/core @angular-devkit/schematics --save-dev --legacy-peer-deps
-npm install @ionic/angular --legacy-peer-deps
-
-# Para abrir el capacitor
-npx cap init 
-
 # Cargar la aplicación
 ionic serve
-
-# En caso de querer acceder a npx cap init debería de entrar en un navegador con una dirección similar a:
-https://dashboard.ionicframework.com/org/aaf5aef7-dec4-4c8e-ade8-affbdc9b8d6f/apps
 ```
-## Errores encontrados
-```bash
-# Instalamos versiones específicas compatibles (Firebase 11 es la actual para Angular 20)
-npm cache clean --force   
-Remove-Item -Recurse -Force node_modules/@angular/fire        
-Remove-Item -Recurse -Force node_modules/firebase   
-npm install firebase @angular/fire --save --legacy-peer-deps 
-```
-
+> **Nota:** Cabe resaltar que es preferible ejecutar la aplicación en un emulador de Android, pero también está disponible en el navegador.
 
 ## Estructuración del proyecto
 
 <pre>
 <a href="./">PWM/</a>
-├── <a href="./app/">app/</a>                         # Aplicación Angular
+├── <a href="./app/">app/</a>                         # Aplicación Ionic
 │   └── <a href="./app/src">src/</a>
 │       ├── <a href="./app/src/app/">app/</a> 
 │       │   ├── <a href="./app/src/app/components/">components/</a>      # Componentes reutilizables
@@ -90,4 +67,4 @@ npm install firebase @angular/fire --save --legacy-peer-deps
 | **[item-wanted](/app/src/app/components/item-wanted/)** | **Ninguno** |
 
 ## Otros aspectos a tener en cuenta
-Se han agregado funcionalidades como el slider de Galería que ahora filtra el precio, en Artículo seleccionado si se selecciona una prenda no se muestra en “Podría Interesarte” y en el inicio de sesión optamos por emplear sólo una web en vez de tres. Además, la página sigue siendo responsive.
+La página entera está disponible a móvil y, además, sigue siendo responsive; por tanto, puede usarse tanto en formato móvil, tablet u ordenador.
